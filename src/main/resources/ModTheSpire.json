@@ -1,0 +1,10 @@
+{
+  "modid": "HSRogue",
+  "name": "炉石传说-游荡者模组-kotlin-version",
+  "author_list": ["glen"],
+  "description": "炉石游荡者模组-kotlin版本",
+  "version": "0.0.1",
+  "sts_version": "12-18-2022",
+  "mts_version": "3.30.3",
+  "dependencies": ["basemod","stslib"]
+}
