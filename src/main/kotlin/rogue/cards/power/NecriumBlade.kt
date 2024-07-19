@@ -5,37 +5,29 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class PerditionsBlade(
-    wDamage: Int = 4,
-    wDuration: Int = 3,
-    magic: Int = 3,
-) :
+class NecriumBlade(damage: Int = 3, duration: Int = 3) :
     AbstractWeaponPowerCard(
-        name = PerditionsBlade::class.simpleName.toString(),
+        name = NecriumBlade::class.simpleName.toString(),
         cost = 1,
-        rarity = CardRarity.UNCOMMON,
-        initialDamage = wDamage,
-        initialDuration = wDuration
+        type = CardType.POWER,
+        rarity = CardRarity.UNCOMMON, initialDamage = damage, initialDuration = duration
     ) {
-    init {
-        setMagicNumber(magic)
-    }
+
 
     override fun upgrade() {
         useUpgrade {
-            weaponDuration++
             weaponDamage++
-            upgradeMagicNumber(2)
+            weaponDuration++
+
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToBot(
             EquipWeaponAction(
-                rogue.power.weapon.PerditionsBlade(
+                rogue.power.weapon.NecriumBlade(
                     damage = weaponDamage,
                     duration = weaponDuration,
-                    magic = magicNumber,
                     upgraded = upgraded
                 )
             )

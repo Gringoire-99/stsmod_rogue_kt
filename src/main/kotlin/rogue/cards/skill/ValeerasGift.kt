@@ -5,11 +5,13 @@ import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
 import basemod.helpers.CardModifierManager
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import rogue.cards.attack.Backstab
 import rogue.cards.attack.FanOfKnives
+import utils.addMod
 
 class ValeerasGift() :
     AbstractRogueCard(
@@ -40,9 +42,9 @@ class ValeerasGift() :
                 { true },
             ) { cards ->
                 val target = cards[0]
-                CardModifierManager.addModifier(target, EtherealMod())
+                target.addMod(EtherealMod())
                 p?.apply {
-                    hand.addToHand(target)
+                    addToBot(MakeTempCardInHandAction(target))
                 }
             }
         )

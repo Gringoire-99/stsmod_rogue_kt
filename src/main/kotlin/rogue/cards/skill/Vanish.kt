@@ -1,6 +1,7 @@
 package rogue.cards.skill
 
-import com.megacrit.cardcrawl.actions.common.DiscardAction
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction
+import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
@@ -26,9 +27,11 @@ class Vanish() :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val amount = p?.hand?.group?.size ?: 0
-        addToBot(DiscardAction(p, p, amount, false))
-        repeat(amount - 1) {
-            gainBlock(p, block)
-        }
+        addToBot(SelectCardsInHandAction(amount, "选择手牌丢弃", true, true, { true }) { cards ->
+            cards.forEach {
+                addToBot(DiscardSpecificCardAction(it))
+                gainBlock(p, block)
+            }
+        })
     }
 }

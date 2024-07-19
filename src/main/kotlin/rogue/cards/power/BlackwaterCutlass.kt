@@ -1,12 +1,12 @@
 package rogue.cards.power
 
 import basemod.cardmods.EtherealMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.Tradeable
+import utils.addMod
 import utils.discovery
 
 class BlackwaterCutlass(
@@ -45,7 +45,7 @@ class BlackwaterCutlass(
         weaponDamage += magicNumber
         weaponDuration += magicNumber
         discovery {
-            CardModifierManager.addModifier(it, EtherealMod())
+            it.addMod(EtherealMod())
             if (upgraded) {
                 it.costForTurn = if (it.costForTurn - 1 <= 0) 0 else it.costForTurn - 1
             }

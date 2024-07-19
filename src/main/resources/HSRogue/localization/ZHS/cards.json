@@ -61,7 +61,7 @@
   },
   "HSRogue:Vanish": {
     "NAME": "消失",
-    "DESCRIPTION": "丢弃所有手牌，每丢弃一张获得 !B! 点格挡"
+    "DESCRIPTION": "选择手牌丢弃，每丢弃一张获得 !B! 点格挡"
   },
   "HSRogue:Shiv": {
     "NAME": "毒刃",
@@ -205,7 +205,35 @@
   },
   "HSRogue:TheLobotomizer": {
     "NAME": "剥夺者",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 造成未被格挡的伤害后，施加( !M! %)层 *剥夺 "
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 造成未被格挡的伤害后，施加 !M! 层 *剥夺 "
+  },
+  "HSRogue:NecriumBlade": {
+    "NAME": "死金匕首",
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予： *死金注射"
+  },
+  "HSRogue:UnderbellyFence": {
+    "NAME": "下水道销赃人",
+    "DESCRIPTION": "消耗一张牌，获得1 [E] 抽 1 张牌 NL 如果消耗的是其他职业的牌额外获得 !M! [E] ,额外抽 !M! 张牌"
+  },
+  "HSRogue:DragonsHoard": {
+    "NAME": "巨龙宝藏",
+    "DESCRIPTION": "{@@}发现一张其他职业的升级的罕见卡 {!Upgrades!|>0=NL 本回合耗能为0}"
+  },
+  "HSRogue:Jackpot": {
+    "NAME": "头等大奖",
+    "DESCRIPTION": "将其他职业花费大于等于2的 !M! 张卡置入手中，并使其获得 *保留"
+  },
+  "HSRogue:NecriumVial": {
+    "NAME": "死金药剂",
+    "DESCRIPTION": "选择弃牌堆最多 !M! 张牌，赋予： *死金注射"
+  },
+  "HSRogue:LesserOnyxSpellstone": {
+    "NAME": "次级法术黑曜石",
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 消耗卡片以升级（ !UC! /6）"
+  },
+  "HSRogue:PettyTheft": {
+    "NAME": "小偷小摸",
+    "DESCRIPTION": "将其他职业花费为0的 !M! 张卡置入手中"
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

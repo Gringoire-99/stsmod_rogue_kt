@@ -17,6 +17,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.localization.CardStrings
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import common.TradeCard
@@ -96,7 +97,7 @@ fun AbstractCreature.isWeaponEquipped(): Boolean {
 }
 
 fun AbstractPlayer.attackWithWeapon(
-    target: AbstractCreature? = AbstractDungeon.getRandomMonster(),
+    target: AbstractCreature? = getRandomMonster(),
     damage: Int = 0,
     loseDuration: Int = 0,
 ) {
@@ -172,9 +173,7 @@ fun generateCardChoices(cardFilter: CardFilter = CardFilter(), number: Int = 4):
             result.add(abstractCards.random().makeSameInstanceOf())
         }
     } else {
-        val isUpgraded: (AbstractCard) -> Boolean = {
-            it.upgraded == cardFilter.isUpgraded
-        }
+
         val cardType: (AbstractCard) -> Boolean = {
             it.type in cardFilter.cardType
         }
@@ -184,11 +183,18 @@ fun generateCardChoices(cardFilter: CardFilter = CardFilter(), number: Int = 4):
         val cardColor: (AbstractCard) -> Boolean = {
             it.color in cardFilter.cardColor
         }
+        val costFilter: (AbstractCard) -> Boolean = {
+            cardFilter.costFilter(it.cost)
+        }
         val abstractCards = allCards.filter {
-            isUpgraded(it) && cardType(it) && cardType(it) && cardRarity(it) && cardColor(it)
+            cardType(it) && cardType(it) && cardRarity(it) && cardColor(it) && costFilter(it)
         } as ArrayList<AbstractCard>
         repeat(number) {
-            result.add(abstractCards.random().makeSameInstanceOf())
+            val c = abstractCards.random().makeSameInstanceOf()
+            if (cardFilter.isUpgraded) {
+                c.upgrade()
+            }
+            result.add(c)
         }
     }
     return result
@@ -200,10 +206,15 @@ fun AbstractCard.addMod(vararg mod: AbstractCardModifier) {
     }
 }
 
-fun AbstractCard.isOtherClassCard(): Boolean {
+fun AbstractCard.isOtherClassCard(color: CardColor? = RogueEnum.HS_ROGUE_CARD_COLOR): Boolean {
+    val c = color ?: RogueEnum.HS_ROGUE_CARD_COLOR
     val type = this.type == CardType.SKILL || this.type == CardType.POWER || this.type == CardType.ATTACK
     val clazz =
-        this.color != RogueEnum.HS_ROGUE_CARD_COLOR && this.color != CardColor.COLORLESS && this.color != CardColor.CURSE
+        this.color != c && this.color != CardColor.COLORLESS && this.color != CardColor.CURSE
 
     return type && clazz
+}
+
+fun getRandomMonster(): AbstractMonster {
+    return AbstractDungeon.getMonsters().getRandomMonster(true)
 }

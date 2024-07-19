@@ -1,5 +1,7 @@
 package rogue.cards.skill
 
+import basemod.cardmods.ExhaustMod
+import basemod.cardmods.RetainMod
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction
@@ -8,6 +10,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import rogue.power.StealthPower
+import utils.addMod
 import utils.gainBlock
 
 class SmokeBomb() :
@@ -20,6 +23,7 @@ class SmokeBomb() :
     ) {
     init {
         setBlock(4)
+        addMod(RetainMod(), ExhaustMod())
     }
 
     override fun upgrade() {

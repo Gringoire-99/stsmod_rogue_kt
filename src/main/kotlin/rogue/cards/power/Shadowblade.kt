@@ -20,7 +20,8 @@ class Shadowblade(initialDamage: Int = 4, initialDuration: Int = 2, magic: Int =
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(2)
+            upgradeMagicNumber(3)
+            weaponDamage++
         }
     }
 

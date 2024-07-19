@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.localization.*
 import com.megacrit.cardcrawl.unlock.UnlockTracker
+import rogue.cards.variables.UpgradeVariable
 import rogue.cards.variables.WeaponDamageVariable
 import rogue.cards.variables.WeaponDurationVariable
 import rogue.characters.Rogue
@@ -71,6 +72,8 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
         AutoAdd(modId).packageFilter("rogue.cards").setDefaultSeen(true).cards()
         BaseMod.addDynamicVariable(WeaponDamageVariable())
         BaseMod.addDynamicVariable(WeaponDurationVariable())
+        BaseMod.addDynamicVariable(UpgradeVariable())
+
     }
 
 

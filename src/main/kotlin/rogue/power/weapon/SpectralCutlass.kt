@@ -2,6 +2,7 @@ package rogue.power.weapon
 
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.cards.AbstractWeaponPowerCard
 import utils.isOtherClassCard
 
@@ -20,7 +21,7 @@ class SpectralCutlass(
     }
 
     override fun onAfterUseCard(card: AbstractCard?, action: UseCardAction?) {
-        if (card?.isOtherClassCard() == true) {
+        if (card?.isOtherClassCard((owner as? AbstractPlayer)?.cardColor) == true) {
             duration++
             damage++
         }
