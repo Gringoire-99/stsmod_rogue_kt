@@ -9,9 +9,7 @@ import utils.isAttackIntent
 
 class AmbushPower(owner: AbstractPlayer) :
     AbstractSecretPower(rawName = AmbushPower::class.simpleName.toString(), owner = owner), NonStackablePower {
-    init {
-        updateDescription()
-    }
+
 
     override fun atEndOfRound() {
         val player = AbstractDungeon.player

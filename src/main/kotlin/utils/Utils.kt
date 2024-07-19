@@ -56,7 +56,7 @@ fun getCardString(name: String): CardStrings {
 }
 
 fun dealDamage(
-    p: AbstractPlayer?,
+    p: AbstractCreature?,
     m: AbstractCreature?,
     damage: Int,
     damageInfo: DamageInfo = DamageInfo(p ?: AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL),

@@ -29,13 +29,13 @@ abstract class IAbstractPower(
         DESCRIPTIONS = powerString.DESCRIPTIONS
         this.owner = owner
         this.type = type
-
         val imgPath48 = if (imgPath == null) "$modId/powers/${powerName}_32.png" else "${imgPath}_32.png"
         val imgPath128 = if (imgPath == null) "$modId/powers/${powerName}_84.png" else "${imgPath}_84.png"
         this.region48 = TextureAtlas.AtlasRegion(ImageMaster.loadImage(imgPath48), 0, 0, 32, 32)
         this.region128 = TextureAtlas.AtlasRegion(ImageMaster.loadImage(imgPath128), 0, 0, 84, 84)
         afterInit()
         logger.info("创建能力$name")
+        updateDescription()
     }
 
     override fun updateDescription() {

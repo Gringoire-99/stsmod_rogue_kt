@@ -17,6 +17,12 @@
       "敏捷/力量提升 NL 受到未被格挡的攻击伤害时掉落！"
     ]
   },
+  "HSRogue:TheLobotomizerPower": {
+    "NAME": "脑叶切除",
+    "DESCRIPTIONS": [
+      "切除了一部分的脑子, 达到100层以上时震慑拥有者。层数增长时有可能消耗层数改变怪物的意图"
+    ]
+  },
   "HSRogue:JadeGrowth": {
     "NAME": "青玉生长",
     "DESCRIPTIONS": [

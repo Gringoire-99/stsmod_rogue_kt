@@ -8,10 +8,6 @@ import utils.isAttackIntent
 
 class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 2) :
     AbstractSecretPower(rawName = DirtyTricksPower::class.simpleName.toString(), owner = owner), NonStackablePower {
-    init {
-        updateDescription()
-    }
-
 
     override fun atStartOfTurnPostDraw() {
 

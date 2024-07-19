@@ -17,7 +17,6 @@ class RenosLuckyHat(owner: AbstractCreature, val copy: rogue.cards.power.RenosLu
         this.flash()
         addToBot(ApplyPowerAction(owner, owner, StrengthPower(owner, copy.magicNumber), copy.magicNumber))
         addToBot(ApplyPowerAction(owner, owner, DexterityPower(owner, copy.magicNumber), copy.magicNumber))
-        updateDescription()
     }
 
     // 被攻击时

@@ -8,9 +8,7 @@ import utils.drawCard
 
 class DoubleCrossPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
     AbstractSecretPower(rawName = DoubleCrossPower::class.simpleName.toString(), owner = owner), NonStackablePower {
-    init {
-        updateDescription()
-    }
+
 
 
     override fun atStartOfTurnPostDraw() {

@@ -8,9 +8,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 class RetainPower(owner: AbstractPlayer = AbstractDungeon.player, val cards: ArrayList<AbstractCard>) :
     IAbstractPower(powerName = RetainPower::class.simpleName.toString(), owner = owner), NonStackablePower {
-    init {
-        updateDescription()
-    }
 
     override fun atStartOfTurnPostDraw() {
         (owner as AbstractPlayer).hand.group.addAll(cards)

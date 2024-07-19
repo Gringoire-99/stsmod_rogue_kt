@@ -23,7 +23,7 @@ class Shadowblade(
 
     override var damage: Int
         get() {
-            val add = if (owner.hasPower(StealthPower::class.makeId())) magic else 0
+            val add = if (owner?.hasPower(StealthPower::class.makeId()) == true) magic else 0
             return initialDamage + additionalDamage + add
         }
         set(value) {

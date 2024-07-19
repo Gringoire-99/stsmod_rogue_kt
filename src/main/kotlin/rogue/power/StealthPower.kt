@@ -18,7 +18,6 @@ class StealthPower(owner: AbstractCreature) :
         gainBlock += dexterity?.amount ?: 0
         this.addToBot(GainBlockAction(owner, gainBlock))
         flash()
-        updateDescription()
     }
 
 

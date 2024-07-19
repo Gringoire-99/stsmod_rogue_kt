@@ -12,7 +12,4 @@ abstract class AbstractSecretPower(rawName: String, owner: AbstractCreature) :
         amount = -1
     ) {
 
-
-
-
 }
