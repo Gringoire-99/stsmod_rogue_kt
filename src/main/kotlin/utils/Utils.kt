@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.DamageAction
 import com.megacrit.cardcrawl.actions.common.DrawCardAction
 import com.megacrit.cardcrawl.actions.common.GainBlockAction
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.cards.AbstractCard.CardColor
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -23,6 +24,7 @@ import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import rogue.action.CardFilter
 import rogue.action.DiscoveryAction
+import rogue.characters.RogueEnum
 import rogue.power.weapon.AbstractWeaponPower
 import kotlin.reflect.KClass
 
@@ -196,4 +198,12 @@ fun AbstractCard.addMod(vararg mod: AbstractCardModifier) {
     mod.forEach {
         CardModifierManager.addModifier(this, it)
     }
+}
+
+fun AbstractCard.isOtherClassCard(): Boolean {
+    val type = this.type == CardType.SKILL || this.type == CardType.POWER || this.type == CardType.ATTACK
+    val clazz =
+        this.color != RogueEnum.HS_ROGUE_CARD_COLOR && this.color != CardColor.COLORLESS && this.color != CardColor.CURSE
+
+    return type && clazz
 }

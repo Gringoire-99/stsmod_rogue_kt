@@ -38,7 +38,7 @@ class TinkersSharpswordOil() :
         }
         p?.getWeaponPower()?.apply {
             damage += addDamage
-            addDuration(addDuration)
+            duration += addDuration
             updatePowerDesc()
         }
 

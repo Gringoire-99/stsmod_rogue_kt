@@ -13,7 +13,11 @@ class WickedKnife(
     upgraded = upgraded
 ) {
     override fun makeCopy(): AbstractWeaponPowerCard {
-        return rogue.cards.power.WickedKnife(initialDamage, initialDuration)
+        val wickedKnife = rogue.cards.power.WickedKnife(initialDamage, initialDuration)
+        if(upgraded){
+            wickedKnife.upgrade()
+        }
+        return wickedKnife
     }
 
 }

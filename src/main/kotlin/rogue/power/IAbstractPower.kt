@@ -16,7 +16,9 @@ abstract class IAbstractPower(
     amount: Int = 1,
     type: PowerType = PowerType.BUFF,
     owner: AbstractCreature = AbstractDungeon.player,
-    imgPath: String? = null
+    imgPath: String? = null,
+    afterInit: () -> Unit = {
+    }
 ) : AbstractPower() {
     var powerString: PowerStrings
 
@@ -32,6 +34,7 @@ abstract class IAbstractPower(
         val imgPath128 = if (imgPath == null) "$modId/powers/${powerName}_84.png" else "${imgPath}_84.png"
         this.region48 = TextureAtlas.AtlasRegion(ImageMaster.loadImage(imgPath48), 0, 0, 32, 32)
         this.region128 = TextureAtlas.AtlasRegion(ImageMaster.loadImage(imgPath128), 0, 0, 84, 84)
+        afterInit()
         logger.info("创建能力$name")
     }
 
@@ -39,4 +42,6 @@ abstract class IAbstractPower(
         this.description = powerString.DESCRIPTIONS[0]
         name = powerString.NAME
     }
+
+
 }

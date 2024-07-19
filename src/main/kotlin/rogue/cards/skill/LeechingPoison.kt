@@ -19,7 +19,7 @@ class LeechingPoison() :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(2)
+        setMagicNumber(1)
         CardModifierManager.addModifier(this, ExhaustMod())
     }
 
@@ -36,7 +36,6 @@ class LeechingPoison() :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
             leechCount += magicNumber
-            updatePowerDesc()
         }
 
     }

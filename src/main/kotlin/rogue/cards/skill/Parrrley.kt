@@ -27,7 +27,7 @@ class Parrrley(override var isEnableTrade: Boolean = true) :
         ExhaustiveVariable.setBaseValue(this, 2)
     }
 
-    var lastDiscoveredCard: AbstractCard? = null
+    private var lastDiscoveredCard: AbstractCard? = null
     override fun upgrade() {
         useUpgrade {
             ExhaustiveVariable.upgrade(this, 1)

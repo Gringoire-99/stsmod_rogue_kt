@@ -195,6 +195,14 @@
     "NAME": "幻变的卡牌包",
     "DESCRIPTION": "{@@}将 !M! 张其他职业的{!Upgrades!|>0=升级过的}具有 *虚无 的复制置入手中"
   },
+  "HSRogue:SpectralCutlass": {
+    "NAME": "幽灵弯刀",
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 吸血： !M! NL 每次使用其他职业的牌时，获得+1/+1"
+  },
+  "HSRogue:Shadowblade": {
+    "NAME": "暗影之刃",
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 处于 *潜行 时获得 !M! 点攻击力且不会失去耐久 NL 进入 *潜行"
+  },
   "HSRogue:TradeCard": {
     "NAME": "交易",
     "DESCRIPTION": "花费1 [E] 进行 *交易 ",

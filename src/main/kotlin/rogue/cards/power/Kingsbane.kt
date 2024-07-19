@@ -17,7 +17,6 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
     ) {
     var copy: rogue.power.weapon.Kingsbane? = null
     fun setWeaponCopy(copy: rogue.power.weapon.Kingsbane) {
-        copy.duration = copy.initialDuration + copy.additionalDuration
         this.copy = copy
         weaponDuration = copy.duration
         weaponDamage = copy.damage

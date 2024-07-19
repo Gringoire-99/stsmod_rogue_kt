@@ -38,7 +38,6 @@ class EnvenomWeapon() :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
             poisonCount += magicNumber
-            updatePowerDesc()
         }
     }
 }

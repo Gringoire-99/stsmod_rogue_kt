@@ -37,8 +37,14 @@ class PerditionsBlade(
         }
     }
 
+    override fun atEndOfTurn(isPlayer: Boolean) {
+        if (isPlayer) {
+            loseDuration(1)
+        }
+    }
+
     override fun makeCopy(): AbstractWeaponPowerCard {
-        val perditionsBlade = rogue.cards.power.PerditionsBlade(this.initialDamage, this.initialDuration, this.magic)
+        val perditionsBlade = rogue.cards.power.PerditionsBlade()
         if (upgraded) perditionsBlade.upgrade()
         return perditionsBlade
     }

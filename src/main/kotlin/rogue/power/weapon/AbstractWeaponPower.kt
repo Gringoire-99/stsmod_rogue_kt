@@ -22,7 +22,6 @@ import rogue.mods.OnLastDamageTakenUpdate
 import rogue.mods.WeaponDamageMod
 import rogue.power.IAbstractPower
 import utils.makeId
-import kotlin.properties.Delegates
 
 abstract class AbstractWeaponPower(
     rawName: String,
@@ -33,29 +32,59 @@ abstract class AbstractWeaponPower(
 ) :
     IAbstractPower(powerName = AbstractWeaponPower::class.simpleName.toString(), amount = -1), NonStackablePower {
     //        武器/耐久变动时 更新描述/卡片信息
-    var damage: Int by Delegates.observable(damage) { _, _, _ ->
-        updateCard()
-    }
-    var duration: Int by Delegates.observable(duration) { _, old, new ->
-        updatePowerDesc()
-    }
-    val initialDamage: Int
-    val initialDuration: Int
+    open var damage: Int
+        get() {
+            return additionalDamage + initialDamage
+        }
+        set(value) {
+            additionalDamage += value - damage
+            flash()
+            updateCard()
+        }
+    open var duration: Int
+        get() {
+            return additionalDuration + initialDuration - tempLoseDuration
+        }
+        set(value) {
+            additionalDuration += value - duration
+            flash()
+            updatePowerDesc()
+        }
+
+    protected val initialDamage: Int
+    protected val initialDuration: Int
+    protected var additionalDuration = 0
+    open var tempLoseDuration = 0
+    protected var additionalDamage = 0
+
     private val weaponName: String
     private var damageColor: Color = Color.GREEN.cpy()
     private var durationColor: Color = Color.GREEN.cpy()
-    var poisonCount by Delegates.vetoable(0) { _, oldValue, newValue ->
-//        TODO  better abstraction 可以做成独特的模组集合（实现特定的接口来控制值的变化）/getter,setter
-        if (this is Kingsbane && newValue < oldValue) {
-            return@vetoable false
+    open var poisonCount = 0
+        set(value) {
+            field = value
+            updatePowerDesc()
+            flash()
         }
-        return@vetoable true
-    }
     var drawCount = 0
+        set(value) {
+            field = value
+            updatePowerDesc()
+            flash()
+        }
     var paralysisCount = 0
+        set(value) {
+            field = value
+            updatePowerDesc()
+            flash()
+        }
     var leechCount = 0
+        set(value) {
+            field = value
+            updatePowerDesc()
+            flash()
+        }
     val damageModifier: WeaponDamageMod = WeaponDamageMod()
-    var additionalDuration = 0
 
     init {
         this.owner = AbstractDungeon.player
@@ -63,7 +92,6 @@ abstract class AbstractWeaponPower(
         this.weaponName = CardCrawlGame.languagePack.getCardStrings(rawName.makeId()).NAME
         this.initialDamage = damage
         this.initialDuration = duration
-        this.name = weaponName
         updateDescription()
         baseDamageMods()
         getTempAttackCard()
@@ -127,11 +155,6 @@ abstract class AbstractWeaponPower(
         }
     }
 
-    fun addDuration(amount: Int) {
-        duration += amount
-        additionalDuration += amount
-    }
-
     companion object {
         var combatAttackCount: Int = 0
         var turnAttackCount = 0
@@ -150,7 +173,6 @@ abstract class AbstractWeaponPower(
      * TODO localization
      */
     fun updatePowerDesc(wDamage: Int = damage, wDuration: Int = duration) {
-        flash()
         this.description = powerString.DESCRIPTIONS[0].format(weaponName, wDamage, wDuration)
         if (leechCount > 0) {
             this.description += " NL 吸血：${leechCount}"
@@ -227,18 +249,23 @@ abstract class AbstractWeaponPower(
         updateCard(0)
     }
 
-    open fun onDestroy() {
-    }
+    open fun onDestroy() {}
 
 
-    fun loseDuration(amount: Int) {
+    protected fun loseDuration(amount: Int) {
         if (amount <= 0) {
             return
         }
-        duration -= amount
+        tempLoseDuration += amount
         if (duration <= 0) {
             addToBot(RemoveSpecificPowerAction(owner, owner, this.ID))
+            tempLoseDuration = 0
         }
+    }
+
+    override fun updateDescription() {
+        this.description = powerString.DESCRIPTIONS[0]
+        name = weaponName
     }
 
     abstract fun makeCopy(): AbstractWeaponPowerCard

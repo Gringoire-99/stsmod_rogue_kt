@@ -37,7 +37,6 @@ class SilverleafPoison() :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
             drawCount += magicNumber
-            updatePowerDesc()
         }
     }
 }

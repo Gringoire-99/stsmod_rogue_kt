@@ -35,7 +35,6 @@ class DeadlyPoison() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        utils.logger.info(p?.getWeaponPower())
         p?.getWeaponPower()?.let {
             it.damage += magicNumber
         }

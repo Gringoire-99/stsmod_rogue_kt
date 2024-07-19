@@ -36,7 +36,6 @@ class ParalyticPoison() :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
             paralysisCount += magicNumber
-            updatePowerDesc()
         }
     }
 }
