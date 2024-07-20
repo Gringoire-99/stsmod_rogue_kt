@@ -1,6 +1,7 @@
 package rogue.cards.skill
 
 import basemod.cardmods.ExhaustMod
+import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -20,7 +21,7 @@ class CrystalCore() :
     ) {
     init {
         setMagicNumber(5)
-        addMod(ExhaustMod())
+        addMod(ExhaustMod(), RetainMod())
     }
 
     override fun upgrade() {
