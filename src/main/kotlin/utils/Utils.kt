@@ -211,7 +211,7 @@ fun AbstractCard.addMod(vararg mod: AbstractCardModifier) {
     }
 }
 
-fun AbstractCard.isOtherClassCard(color: CardColor? = RogueEnum.HS_ROGUE_CARD_COLOR): Boolean {
+fun AbstractCard.isOtherClassCard(color: CardColor? = AbstractDungeon.player?.cardColor): Boolean {
     val c = color ?: RogueEnum.HS_ROGUE_CARD_COLOR
     val type = this.type == CardType.SKILL || this.type == CardType.POWER || this.type == CardType.ATTACK
     val clazz =

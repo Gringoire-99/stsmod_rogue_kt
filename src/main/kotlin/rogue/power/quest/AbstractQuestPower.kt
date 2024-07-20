@@ -23,6 +23,7 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
                 addToBot(RemoveSpecificPowerAction(owner, owner, this))
                 field = 0
             }
+            amount = questCount
         }
 
     abstract fun onComplete()

@@ -263,6 +263,14 @@
     "NAME": "水晶核心",
     "DESCRIPTION": "获得 !M! 点力量/敏捷 "
   },
+  "HSRogue:BazaarBurglary": {
+    "NAME": "劫掠集市",
+    "DESCRIPTION": "任务：使用8张其他职业的牌，奖励：远古刀锋"
+  },
+  "HSRogue:MirageBlade": {
+    "NAME": "幻象之刃",
+    "DESCRIPTION": "使用 hsrogue:武器 攻击一个敌人( !D! )"
+  },
   "HSRogue:TradeCard": {
     "NAME": "交易",
     "DESCRIPTION": "花费1 [E] 进行 *交易 ",

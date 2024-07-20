@@ -24,7 +24,6 @@ class TheCavernsBelowPower(owner: AbstractCreature) :
                 val count = playedCards.getOrPut(cardID) { 0 } + 1
                 playedCards[cardID] = count
                 questCount = playedCards.values.maxOrNull() ?: 0
-                amount = questCount
             }
 
         }
