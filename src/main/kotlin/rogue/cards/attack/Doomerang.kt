@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
 import rogue.power.weapon.AbstractWeaponPower
+import utils.addMod
 import utils.getWeaponPower
 
 class Doomerang() :
@@ -17,7 +18,7 @@ class Doomerang() :
         target = CardTarget.ENEMY
     ) {
     init {
-        CardModifierManager.addModifier(this, RetainMod())
+        addMod(RetainMod())
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {

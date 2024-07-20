@@ -5,7 +5,7 @@
 //import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 //import com.megacrit.cardcrawl.monsters.AbstractMonster
 //import rogue.cards.AbstractComboCard
-//import rogue.power.JadeGrowth
+//import rogue.power.common.JadeGrowth
 //import utils.dealDamage
 //import utils.makeId
 //

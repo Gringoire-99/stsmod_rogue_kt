@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
-import rogue.power.StealthPower
+import rogue.power.common.StealthPower
 import utils.gainBlock
 import utils.makeId
 

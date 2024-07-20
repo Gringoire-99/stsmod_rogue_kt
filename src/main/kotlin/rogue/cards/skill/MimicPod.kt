@@ -15,7 +15,6 @@ class MimicPod() :
         target = CardTarget.NONE
     ) {
 
-
     var targetCard: AbstractCard? = null
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
         addToBot(MimicAction(this))

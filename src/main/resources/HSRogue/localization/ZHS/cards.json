@@ -169,7 +169,7 @@
   },
   "HSRogue:Ambush": {
     "NAME": "伏击",
-    "DESCRIPTION": "*奥秘: 敌人的回合结束时，攻击意图不为攻击的敌人"
+    "DESCRIPTION": "*奥秘: 敌人的回合结束时，用武器攻击意图不为攻击的敌人"
   },
   "HSRogue:CloakOfShadows": {
     "NAME": "暗影斗篷",
@@ -234,6 +234,34 @@
   "HSRogue:PettyTheft": {
     "NAME": "小偷小摸",
     "DESCRIPTION": "将其他职业花费为0的 !M! 张卡置入手中"
+  },
+  "HSRogue:AcademicEspionage": {
+    "NAME": "学术剽窃",
+    "DESCRIPTION": "将 !M! 张其他职业的牌洗入你的抽牌堆，它们获得 *虚无 ， *消耗 ， 费用减1与使用后抽一张牌"
+  },
+  "HSRogue:ValeeraTheHollow": {
+    "NAME": "虚空之影瓦莉拉",
+    "DESCRIPTION": "{@@} *英雄 NL 永久潜行，将你的初始能力升级为 *死亡暗影"
+  },
+  "HSRogue:ShadowReflection": {
+    "NAME": "暗影映像",
+    "DESCRIPTION": "{@@}不可主动使用 NL 在你使用过一张卡后，变化成那张{!Upgrades!|>0=升级过的}卡"
+  },
+  "HSRogue:SherazinCorpseFlower": {
+    "NAME": "“尸魔花”瑟拉金",
+    "DESCRIPTION": "对敌人造成 !D! 点伤害 !M! 次。 消耗后将 *瑟拉金之种 加入你的手牌"
+  },
+  "HSRogue:SherazinSeed": {
+    "NAME": "瑟拉金之种",
+    "DESCRIPTION": "消耗6张卡片唤醒瑟拉金！（ !UC! /6） NL 唤醒的回合费用变为0"
+  },
+  "HSRogue:TheCavernsBelow": {
+    "NAME": "探索地下洞穴",
+    "DESCRIPTION": "任务：使用8张相同的牌（不为基础牌或无色牌），奖励： *水晶核心"
+  },
+  "HSRogue:CrystalCore": {
+    "NAME": "水晶核心",
+    "DESCRIPTION": "获得 !M! 点力量/敏捷 "
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

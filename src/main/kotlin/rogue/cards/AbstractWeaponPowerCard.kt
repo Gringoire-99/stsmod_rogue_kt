@@ -1,5 +1,6 @@
 package rogue.cards
 
+import rogue.characters.RogueEnum
 import kotlin.properties.Delegates
 
 abstract class AbstractWeaponPowerCard(
@@ -8,11 +9,13 @@ abstract class AbstractWeaponPowerCard(
     rarity: CardRarity,
     val initialDamage: Int,
     val initialDuration: Int,
-    type:CardType = CardType.POWER
+    type: CardType = CardType.POWER,
+    color: CardColor = RogueEnum.HS_ROGUE_CARD_COLOR
 ) : AbstractRogueCard(
     name, cost, type = type,
     rarity,
-    target = CardTarget.SELF
+    target = CardTarget.SELF,
+    color = color
 ) {
 
     var isWeaponDamageModified: Boolean = false

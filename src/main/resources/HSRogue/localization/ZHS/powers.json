@@ -56,7 +56,19 @@
   "HSRogue:PlagiarizePower": {
     "NAME": "抄袭",
     "DESCRIPTIONS": [
-      "*奥秘： 回合开始时如果手牌中没有小抄，则将一张小抄置入手中"
+      "奥秘： 回合开始时如果手牌中没有小抄，则将一张小抄置入手中"
+    ]
+  },
+  "HSRogue:DeathsShadowPower": {
+    "NAME": "虚空之影瓦莉拉",
+    "DESCRIPTIONS": [
+      "永久潜行，本场战斗将你的初始能力升级为死亡暗影"
+    ]
+  },
+  "HSRogue:TheCavernsBelowPower": {
+    "NAME": "探索地下洞穴",
+    "DESCRIPTIONS": [
+      "任务：使用8张相同的牌（不为基础牌或无色牌），奖励：水晶核心"
     ]
   },
   "HSRogue:RetainPower": {

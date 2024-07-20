@@ -1,12 +1,10 @@
 package rogue.cards.attack
 
 import basemod.cardmods.ExhaustMod
-import basemod.helpers.CardModifierManager
-import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
-import rogue.power.weapon.AbstractWeaponPower
+import utils.addMod
 import utils.attackWithWeapon
 import utils.getWeaponPower
 
@@ -20,7 +18,7 @@ class BladeFlurry() :
     ) {
     init {
         setMagicNumber(3)
-        CardModifierManager.addModifier(this, ExhaustMod())
+        addMod(ExhaustMod())
     }
 
     override fun upgrade() {

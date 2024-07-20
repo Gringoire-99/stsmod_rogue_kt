@@ -3,7 +3,6 @@ package rogue.cards.attack
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
 import basemod.helpers.CardModifierManager
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
@@ -17,7 +16,9 @@ class Attack(baseD: Int = 0) :
         type = CardType.ATTACK,
         rarity = CardRarity.BASIC,
         target = CardTarget.ENEMY,
-        loseDuration = 1
+        loseDuration = 1,
+        color = CardColor.COLORLESS
+
     ) {
     companion object {
         val id = Attack::class.makeId()
@@ -25,7 +26,6 @@ class Attack(baseD: Int = 0) :
 
     init {
         purgeOnUse = true
-        PurgeField.purge.set(this, true)
         setDamage(baseD)
         CardModifierManager.addModifier(this, ExhaustMod())
         CardModifierManager.addModifier(this, RetainMod())

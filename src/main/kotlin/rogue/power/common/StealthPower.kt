@@ -1,7 +1,6 @@
-package rogue.power
+package rogue.power.common
 
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnLoseBlockPower
-import com.megacrit.cardcrawl.actions.common.EndTurnAction
 import com.megacrit.cardcrawl.actions.common.GainBlockAction
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.cards.DamageInfo
@@ -9,6 +8,9 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.powers.AbstractPower
 import com.megacrit.cardcrawl.powers.DexterityPower
+import rogue.power.IAbstractPower
+import rogue.power.hero.DeathsShadowPower
+import utils.makeId
 
 class StealthPower(owner: AbstractCreature) :
     IAbstractPower(powerName = StealthPower::class.simpleName.toString(), owner = owner), OnLoseBlockPower {
@@ -24,7 +26,12 @@ class StealthPower(owner: AbstractCreature) :
     //        移除自身
     override fun atStartOfTurn() {
         flash()
-        AbstractDungeon.actionManager.addToBottom(RemoveSpecificPowerAction(owner, owner, this))
+        if (owner.hasPower(DeathsShadowPower::class.makeId())) {
+            owner?.getPower(StealthPower::class.makeId())?.amount = 1
+        } else {
+            AbstractDungeon.actionManager.addToBottom(RemoveSpecificPowerAction(owner, owner, this))
+
+        }
     }
 
     override fun onLoseBlock(info: DamageInfo?, lose: Int): Int {

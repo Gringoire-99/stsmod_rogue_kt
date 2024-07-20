@@ -1,9 +1,10 @@
-package rogue.power
+package rogue.power.common
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.actions.common.RollMoveAction
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.power.IAbstractPower
 import utils.dealDamage
 import utils.makeId
 import kotlin.random.Random

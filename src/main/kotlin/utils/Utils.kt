@@ -4,9 +4,7 @@ import Core
 import basemod.abstracts.AbstractCardModifier
 import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.actions.AbstractGameAction
-import com.megacrit.cardcrawl.actions.common.DamageAction
-import com.megacrit.cardcrawl.actions.common.DrawCardAction
-import com.megacrit.cardcrawl.actions.common.GainBlockAction
+import com.megacrit.cardcrawl.actions.common.*
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType
@@ -19,6 +17,7 @@ import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.localization.CardStrings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent
+import com.megacrit.cardcrawl.powers.AbstractPower
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import common.TradeCard
 import org.apache.logging.log4j.LogManager
@@ -79,14 +78,14 @@ fun drawCard(number: Int) {
     AbstractDungeon.actionManager.addToBottom(DrawCardAction(number))
 }
 
-//fun gainUniquePower(
-//    power: AbstractPower,
-//    target: AbstractCreature = AbstractDungeon.player,
-//    source: AbstractCreature = AbstractDungeon.player
-//) {
-//    AbstractDungeon.actionManager.addToBottom(RemoveSpecificPowerAction(target, source, power.ID))
-//    AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, source, power))
-//}
+fun applyUniquePower(
+    target: AbstractCreature = AbstractDungeon.player,
+    source: AbstractCreature = AbstractDungeon.player,
+    power: AbstractPower
+) {
+    AbstractDungeon.actionManager.addToTop(RemoveSpecificPowerAction(target, source, power.ID))
+    AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, source, power))
+}
 
 fun AbstractCreature.getWeaponPower(): AbstractWeaponPower? {
     return this.getPower(AbstractWeaponPower.id) as AbstractWeaponPower?
@@ -161,6 +160,12 @@ fun AbstractCard.mimic(target: AbstractCard) {
     this.block = this.baseBlock
     this.baseMagicNumber = target.baseMagicNumber
     this.magicNumber = this.baseMagicNumber
+    if (!retain) {
+        this.retain = target.retain
+    }
+    if (!selfRetain) {
+        this.selfRetain = target.selfRetain
+    }
     this.initializeDescription()
 }
 
@@ -218,3 +223,4 @@ fun AbstractCard.isOtherClassCard(color: CardColor? = RogueEnum.HS_ROGUE_CARD_CO
 fun getRandomMonster(): AbstractMonster {
     return AbstractDungeon.getMonsters().getRandomMonster(true)
 }
+

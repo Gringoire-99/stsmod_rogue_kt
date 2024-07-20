@@ -25,7 +25,7 @@ class LesserOnyxSpellstone() :
         target = CardTarget.ALL_ENEMY
     ), UpgradeInterface, OnExhaustInterface {
     init {
-        setDamage(9)
+        setDamage(10)
         setMagicNumber(2)
         addMod(RetainMod(), ExhaustMod())
         onLevelUp()
@@ -55,9 +55,13 @@ class LesserOnyxSpellstone() :
 
     override fun onMaxUpgrade() {
         upgradeMagicNumber(2)
+        upgradeDamage(2)
         onLevelUp()
     }
 
+    /**
+     * TODO localization
+     */
     fun onLevelUp() {
         if (level == 2) {
             this.name = "法术黑曜石"

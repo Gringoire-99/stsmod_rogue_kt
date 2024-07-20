@@ -37,7 +37,5 @@ class SISevenExtortion(override var isEnableTrade: Boolean = true) :
         drawCard(draw)
         upgradeDamage(if (upgraded) 3 else 5)
         upgradeMagicNumber(if (upgraded) 1 else 2)
-        isDamageModified = true
-        isMagicNumberModified = true
     }
 }

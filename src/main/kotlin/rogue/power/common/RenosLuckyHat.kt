@@ -1,4 +1,4 @@
-package rogue.power
+package rogue.power.common
 
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.powers.DexterityPower
 import com.megacrit.cardcrawl.powers.StrengthPower
 import rogue.action.AddCardInDiscardPile
+import rogue.power.IAbstractPower
 
 
 class RenosLuckyHat(owner: AbstractCreature, val copy: rogue.cards.power.RenosLuckyHat) :

@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponPowerCard
-import rogue.power.TheLobotomizerPower
+import rogue.power.common.TheLobotomizerPower
 
 class TheLobotomizer(
     damage: Int = 3,

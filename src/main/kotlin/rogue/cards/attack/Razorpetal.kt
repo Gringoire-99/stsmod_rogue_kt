@@ -2,10 +2,10 @@ package rogue.cards.attack
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
+import utils.addMod
 import utils.dealDamage
 
 class Razorpetal() :
@@ -14,12 +14,12 @@ class Razorpetal() :
         cost = 0,
         type = CardType.ATTACK,
         rarity = CardRarity.SPECIAL,
-        target = CardTarget.ENEMY
+        target = CardTarget.ENEMY,
+        color = CardColor.COLORLESS
     ) {
     init {
         setDamage(3)
-        CardModifierManager.addModifier(this, RetainMod())
-        CardModifierManager.addModifier(this, ExhaustMod())
+        addMod(RetainMod(), ExhaustMod())
     }
 
     override fun upgrade() {

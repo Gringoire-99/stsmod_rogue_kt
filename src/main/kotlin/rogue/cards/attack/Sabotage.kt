@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import rogue.action.XCardAction
 import rogue.cards.AbstractWeaponCard
-import rogue.power.StealthPower
+import rogue.power.common.StealthPower
 import utils.attackWithWeapon
 import utils.makeId
 

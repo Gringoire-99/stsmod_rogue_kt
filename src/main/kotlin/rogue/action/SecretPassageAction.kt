@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.DrawCardAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
-import rogue.power.RetainPower
+import rogue.power.common.RetainPower
 import kotlin.math.max
 
 class SecretPassageAction(val p: AbstractPlayer = AbstractDungeon.player, val upgraded: Boolean = false, val draw: Int = 6) :

@@ -2,7 +2,7 @@ package rogue.power.weapon
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import rogue.cards.AbstractWeaponPowerCard
-import rogue.power.StealthPower
+import rogue.power.common.StealthPower
 import utils.makeId
 
 class Shadowblade(

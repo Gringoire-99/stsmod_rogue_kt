@@ -9,7 +9,7 @@ class WickedKnife(initialDamage: Int = 3, initialDuration: Int = 3) :
     AbstractWeaponPowerCard(
         name = WickedKnife::class.simpleName.toString(),
         cost = 1,
-        rarity = CardRarity.SPECIAL, initialDamage, initialDuration,
+        rarity = CardRarity.SPECIAL, initialDamage, initialDuration, color = CardColor.COLORLESS
     ) {
 
 

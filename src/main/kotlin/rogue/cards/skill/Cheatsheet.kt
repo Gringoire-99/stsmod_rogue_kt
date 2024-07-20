@@ -16,7 +16,8 @@ class Cheatsheet() :
         cost = -2,
         type = CardType.SKILL,
         rarity = CardRarity.SPECIAL,
-        target = CardTarget.NONE
+        target = CardTarget.NONE,
+        color = CardColor.COLORLESS
     ) {
     private var targetCard: AbstractCard? = null
 

@@ -1,11 +1,11 @@
 package rogue.cards.power
 
 import basemod.cardmods.InnateMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
+import utils.addMod
 
 class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
     AbstractWeaponPowerCard(
@@ -32,7 +32,7 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
 
     override fun upgrade() {
         useUpgrade {
-            CardModifierManager.addModifier(this,InnateMod())
+            addMod(InnateMod())
         }
     }
 

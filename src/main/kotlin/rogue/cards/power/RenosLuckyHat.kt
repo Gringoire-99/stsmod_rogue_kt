@@ -16,7 +16,7 @@ class RenosLuckyHat() :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(1)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {
@@ -26,7 +26,7 @@ class RenosLuckyHat() :
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return !AbstractDungeon.player.hasPower(rogue.power.RenosLuckyHat::class.makeId())
+        return !AbstractDungeon.player.hasPower(rogue.power.common.RenosLuckyHat::class.makeId())
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
@@ -34,7 +34,10 @@ class RenosLuckyHat() :
             ApplyPowerAction(
                 p,
                 p,
-                rogue.power.RenosLuckyHat(p ?: AbstractDungeon.player, this.makeStatEquivalentCopy() as RenosLuckyHat),
+                rogue.power.common.RenosLuckyHat(
+                    p ?: AbstractDungeon.player,
+                    this.makeStatEquivalentCopy() as RenosLuckyHat
+                ),
                 1
             )
         )

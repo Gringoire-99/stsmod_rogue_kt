@@ -28,7 +28,7 @@ class SpectralCutlass(
     }
 
     override fun makeCopy(): AbstractWeaponPowerCard {
-        val c = rogue.cards.power.SpectralCutlass(this.initialDamage, this.initialDuration, this.magic)
+        val c = rogue.cards.power.SpectralCutlass()
         if (upgraded) c.upgrade()
         return c
     }
