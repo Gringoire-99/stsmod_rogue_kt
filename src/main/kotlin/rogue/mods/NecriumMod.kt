@@ -45,6 +45,6 @@ class NecriumMod : AbstractCardModifier() {
     }
 
     override fun modifyDescription(rawDescription: String?, card: AbstractCard?): String {
-        return "$rawDescription NL *死金注射"
+        return "$rawDescription NL *死金"
     }
 }

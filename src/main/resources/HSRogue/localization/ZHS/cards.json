@@ -209,7 +209,7 @@
   },
   "HSRogue:NecriumBlade": {
     "NAME": "死金匕首",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予： *死金注射"
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予： *死金"
   },
   "HSRogue:UnderbellyFence": {
     "NAME": "下水道销赃人",
@@ -225,7 +225,7 @@
   },
   "HSRogue:NecriumVial": {
     "NAME": "死金药剂",
-    "DESCRIPTION": "选择弃牌堆最多 !M! 张牌，赋予： *死金注射"
+    "DESCRIPTION": "选择弃牌堆最多 !M! 张牌，赋予： *死金"
   },
   "HSRogue:LesserOnyxSpellstone": {
     "NAME": "次级法术黑曜石",
@@ -270,6 +270,14 @@
   "HSRogue:MirageBlade": {
     "NAME": "幻象之刃",
     "DESCRIPTION": "使用 hsrogue:武器 攻击一个敌人( !D! )"
+  },
+  "HSRogue:PotionOfIllusion": {
+    "NAME": "幻觉药水",
+    "DESCRIPTION": "复制你的手牌,使其获得虚无和消耗"
+  },
+  "HSRogue:MyraRotspring": {
+    "NAME": "迈拉·腐泉",
+    "DESCRIPTION": "选择一张手牌注射死金，这张牌在消耗后会给随机手牌附加相同的效果"
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

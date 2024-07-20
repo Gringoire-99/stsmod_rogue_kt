@@ -1,0 +1,16 @@
+package rogue.action
+
+import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import rogue.mods.NecriumMod
+import rogue.mods.SpreadNecriumMod
+import utils.addMod
+
+class SpreadNecriumAction() : AbstractGameAction() {
+    override fun update() {
+        val group = AbstractDungeon.player.hand.group
+        val random = group.randomOrNull()
+        random?.addMod(NecriumMod(), SpreadNecriumMod())
+        isDone = true
+    }
+}
