@@ -24,8 +24,6 @@ abstract class AbstractRogueCard(
     rarity,
     target
 ) {
-    init {
-    }
 
     fun setDamage(d: Int) {
         this.baseDamage = d

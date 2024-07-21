@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
 import rogue.power.IAbstractPower
 
 
-class RenosLuckyHat(owner: AbstractCreature, val copy: rogue.cards.power.RenosLuckyHat) :
+class RenosLuckyHat(owner: AbstractCreature, private val copy: rogue.cards.power.RenosLuckyHat) :
     IAbstractPower(powerName = RenosLuckyHat::class.simpleName.toString(), owner = owner), NonStackablePower {
     init {
         this.flash()

@@ -21,7 +21,7 @@ class TheLobotomizerPower(owner: AbstractMonster, amount: Int = 1) :
         effect()
     }
 
-    fun effect() {
+    private fun effect() {
         if (owner is AbstractMonster) {
             val amount = (owner.getPower(TheLobotomizerPower::class.makeId())?.amount ?: 0) + this.amount
             if (amount < 0) {

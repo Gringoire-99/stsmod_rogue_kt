@@ -9,7 +9,7 @@ import rogue.cards.AbstractRogueCard
 import utils.addMod
 import utils.generateCardChoices
 
-class TwistedPack() :
+class TwistedPack :
     AbstractRogueCard(
         name = TwistedPack::class.simpleName.toString(),
         cost = 1,

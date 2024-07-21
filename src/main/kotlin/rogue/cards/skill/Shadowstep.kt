@@ -7,7 +7,7 @@ import rogue.action.DrawCardFromDiscardPileAction
 import rogue.cards.AbstractComboCard
 import rogue.mods.AfterUsesMod
 
-class Shadowstep() :
+class Shadowstep :
     AbstractComboCard(
         name = Shadowstep::class.simpleName.toString(),
         cost = 0,
@@ -34,6 +34,6 @@ class Shadowstep() :
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return isComboOn && p?.discardPile?.isEmpty() == false
+        return isComboOn && p?.discardPile?.isEmpty == false
     }
 }

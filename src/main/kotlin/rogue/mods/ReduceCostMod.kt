@@ -9,10 +9,10 @@ import kotlin.math.max
 
 class ReduceCostMod(
     val amount: Int = 1,
-    val removeOnPlay: Boolean = false,
-    val removeOnOtherCardPlayed: Boolean = false,
-    val removeOnEndOfTurn: Boolean = false,
-    val isTurnEffect: Boolean = false
+    private val removeOnPlay: Boolean = false,
+    private val removeOnOtherCardPlayed: Boolean = false,
+    private val removeOnEndOfTurn: Boolean = false,
+    private val isTurnEffect: Boolean = false
 ) : AbstractCardModifier() {
     companion object {
         val id = ReduceCostMod::class.makeId()

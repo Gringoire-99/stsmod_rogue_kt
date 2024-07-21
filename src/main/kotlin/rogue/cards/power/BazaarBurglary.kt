@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractQuestCard
 import rogue.power.quest.BazaarBurglaryPower
 
-class BazaarBurglary() :
+class BazaarBurglary :
     AbstractQuestCard(
         rawName = BazaarBurglary::class.simpleName.toString()
     ) {

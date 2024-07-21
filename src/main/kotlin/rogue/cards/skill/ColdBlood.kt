@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.LoseStrengthPower
 import com.megacrit.cardcrawl.powers.StrengthPower
 import rogue.cards.AbstractComboCard
 
-class ColdBlood() :
+class ColdBlood :
     AbstractComboCard(
         name = ColdBlood::class.simpleName.toString(),
         cost = 0,

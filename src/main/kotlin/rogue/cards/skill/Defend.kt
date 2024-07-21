@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import utils.gainBlock
 
-class Defend() :
+class Defend :
     AbstractRogueCard(
         name = Defend::class.simpleName.toString(),
         cost = 1,

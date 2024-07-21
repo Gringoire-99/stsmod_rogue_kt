@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import utils.makeId
 
-class RenosLuckyHat() :
+class RenosLuckyHat :
     AbstractRogueCard(
         name = RenosLuckyHat::class.simpleName.toString(),
         cost = 1,

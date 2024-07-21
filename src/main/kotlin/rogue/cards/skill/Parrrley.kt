@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.action.CardFilter
+import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import rogue.cards.Tradeable
 import utils.discovery

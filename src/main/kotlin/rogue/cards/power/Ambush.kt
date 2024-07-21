@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.power.secret.AmbushPower
 import utils.makeId
 
-class Ambush() :
+class Ambush :
     AbstractRogueCard(
         name = Ambush::class.simpleName.toString(),
         cost = 1,

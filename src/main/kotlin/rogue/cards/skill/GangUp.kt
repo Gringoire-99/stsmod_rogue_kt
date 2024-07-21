@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
 import rogue.cards.AbstractRogueCard
 
-class GangUp() :
+class GangUp :
     AbstractRogueCard(
         name = GangUp::class.simpleName.toString(),
         cost = 1,

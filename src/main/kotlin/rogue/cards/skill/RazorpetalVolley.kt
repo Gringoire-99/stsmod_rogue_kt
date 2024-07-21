@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import rogue.cards.attack.Razorpetal
 
-class RazorpetalVolley() :
+class RazorpetalVolley :
     AbstractRogueCard(
         name = RazorpetalVolley::class.simpleName.toString(),
         cost = 1,

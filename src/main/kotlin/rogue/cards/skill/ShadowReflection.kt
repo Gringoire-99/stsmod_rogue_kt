@@ -10,7 +10,7 @@ import rogue.cards.Mimicable
 import utils.addMod
 import utils.mimic
 
-class ShadowReflection() :
+class ShadowReflection :
     AbstractRogueCard(
         name = ShadowReflection::class.simpleName.toString(),
         cost = -2,

@@ -12,7 +12,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.power.common.CrystalCorePower
 import utils.addMod
 
-class CrystalCore() :
+class CrystalCore :
     AbstractRogueCard(
         name = CrystalCore::class.simpleName.toString(),
         cost = 2,

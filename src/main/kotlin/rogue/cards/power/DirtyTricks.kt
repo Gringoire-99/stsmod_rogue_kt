@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.power.secret.DirtyTricksPower
 import utils.makeId
 
-class DirtyTricks() :
+class DirtyTricks :
     AbstractRogueCard(
         name = DirtyTricks::class.simpleName.toString(),
         cost = 1,

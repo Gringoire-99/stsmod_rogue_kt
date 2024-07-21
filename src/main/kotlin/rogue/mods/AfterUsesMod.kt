@@ -3,7 +3,7 @@ package rogue.mods
 import basemod.abstracts.AbstractCardModifier
 import com.megacrit.cardcrawl.cards.AbstractCard
 
-class AfterUsesMod(var uses: Int = Int.MAX_VALUE, val cb: (card: AbstractCard?) -> Unit = {}) : AbstractCardModifier() {
+class AfterUsesMod(private var uses: Int = Int.MAX_VALUE, val cb: (card: AbstractCard?) -> Unit = {}) : AbstractCardModifier() {
 
 
     override fun removeOnCardPlayed(card: AbstractCard?): Boolean {

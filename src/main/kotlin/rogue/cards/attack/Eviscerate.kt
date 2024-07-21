@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.VulnerablePower
 import rogue.cards.AbstractComboCard
 import utils.dealDamage
 
-class Eviscerate() :
+class Eviscerate :
     AbstractComboCard(
         name = Eviscerate::class.simpleName.toString(),
         cost = 1,

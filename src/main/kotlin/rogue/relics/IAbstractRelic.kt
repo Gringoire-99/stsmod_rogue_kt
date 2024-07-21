@@ -3,6 +3,7 @@ package rogue.relics
 import basemod.abstracts.CustomRelic
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.helpers.ImageMaster
+import com.megacrit.cardcrawl.localization.RelicStrings
 import utils.logger
 import utils.makeId
 import utils.modId
@@ -16,7 +17,7 @@ abstract class IAbstractRelic(
 ) :
     CustomRelic(name.makeId(), ImageMaster.loadImage(getImgPath(name)), tier, sfx) {
 
-    val relicString = CardCrawlGame.languagePack.getRelicStrings(relicId)
+    private val relicString: RelicStrings = CardCrawlGame.languagePack.getRelicStrings(relicId)
 
     init {
         DESCRIPTIONS[0] = relicString.DESCRIPTIONS[0]

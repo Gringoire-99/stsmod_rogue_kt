@@ -6,7 +6,7 @@ import rogue.cards.AbstractRogueCard
 import utils.dealDamage
 
 
-class Strike() :
+class Strike :
     AbstractRogueCard(
         name = Strike::class.simpleName.toString(),
         cost = 1,

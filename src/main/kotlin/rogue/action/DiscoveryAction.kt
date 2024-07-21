@@ -3,10 +3,10 @@ package rogue.action
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.cards.AbstractCard
-import com.megacrit.cardcrawl.cards.AbstractCard.*
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.screens.CardRewardScreen
+import common.CardFilter
 import utils.generateCardChoices
 
 class DiscoveryAction
@@ -45,12 +45,3 @@ class DiscoveryAction
 
 
 }
-
-class CardFilter(
-    val isUpgraded: Boolean = false,
-    val cardType: HashSet<CardType> = hashSetOf(CardType.SKILL, CardType.POWER, CardType.ATTACK),
-    val cardRarity: HashSet<CardRarity> = hashSetOf(CardRarity.COMMON, CardRarity.UNCOMMON, CardRarity.RARE),
-    val cardColor: HashSet<CardColor> = hashSetOf(CardColor.RED, CardColor.BLUE, CardColor.GREEN, CardColor.PURPLE),
-    val predicate: ((card: AbstractCard) -> Boolean)? = null,
-    val costFilter: (Int) -> Boolean = { true }
-)

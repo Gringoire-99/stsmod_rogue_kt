@@ -9,7 +9,7 @@ import rogue.power.common.StealthPower
 import utils.gainBlock
 import utils.makeId
 
-class Conceal() :
+class Conceal :
     AbstractRogueCard(
         name = Conceal::class.simpleName.toString(),
         cost = 1,

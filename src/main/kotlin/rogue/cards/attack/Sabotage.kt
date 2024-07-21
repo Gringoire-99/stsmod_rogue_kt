@@ -10,7 +10,7 @@ import rogue.power.common.StealthPower
 import utils.attackWithWeapon
 import utils.makeId
 
-class Sabotage() :
+class Sabotage :
     AbstractWeaponCard(
         name = Sabotage::class.simpleName.toString(),
         cost = -1,

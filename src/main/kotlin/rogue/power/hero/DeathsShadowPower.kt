@@ -4,7 +4,6 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.action.GetUniqueCardAction
 import rogue.cards.skill.ShadowReflection
-import rogue.power.AbstractHeroPower
 import rogue.power.common.StealthPower
 
 class DeathsShadowPower(owner: AbstractPlayer) :

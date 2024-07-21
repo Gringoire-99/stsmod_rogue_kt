@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import utils.*
 
-class Backstab() :
+class Backstab :
     AbstractRogueCard(
         name = Backstab::class.simpleName.toString(),
         cost = 0,

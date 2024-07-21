@@ -1,10 +1,8 @@
 package rogue.mods
 
 import com.evacipated.cardcrawl.mod.stslib.damagemods.AbstractDamageModifier
-import com.megacrit.cardcrawl.actions.common.HealAction
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.core.AbstractCreature
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 typealias OnAttack = (info: DamageInfo?, damageAmount: Int, target: AbstractCreature?) -> Unit
 typealias OnAttacksToChangeDamage = (info: DamageInfo?, damageAmount: Int, target: AbstractCreature?) -> Int

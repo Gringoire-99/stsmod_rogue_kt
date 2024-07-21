@@ -13,7 +13,7 @@ import rogue.cards.attack.Backstab
 import rogue.cards.attack.FanOfKnives
 import utils.addMod
 
-class ValeerasGift() :
+class ValeerasGift :
     AbstractRogueCard(
         name = ValeerasGift::class.simpleName.toString(),
         cost = 1,

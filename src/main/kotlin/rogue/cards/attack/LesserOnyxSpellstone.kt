@@ -16,7 +16,7 @@ import utils.addMod
 import utils.getRandomMonster
 import utils.modId
 
-class LesserOnyxSpellstone() :
+class LesserOnyxSpellstone :
     AbstractRogueCard(
         name = LesserOnyxSpellstone::class.simpleName.toString(),
         cost = 3,

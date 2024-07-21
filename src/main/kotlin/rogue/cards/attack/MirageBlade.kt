@@ -7,7 +7,7 @@ import rogue.cards.AbstractWeaponCard
 import utils.addMod
 import utils.attackWithWeapon
 
-class MirageBlade() :
+class MirageBlade :
     AbstractWeaponCard(
         name = MirageBlade::class.simpleName.toString(),
         cost = 0,

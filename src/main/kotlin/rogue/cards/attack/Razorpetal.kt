@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import utils.addMod
 import utils.dealDamage
 
-class Razorpetal() :
+class Razorpetal :
     AbstractRogueCard(
         name = Razorpetal::class.simpleName.toString(),
         cost = 0,

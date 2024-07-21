@@ -5,13 +5,13 @@ import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.action.CardFilter
+import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import rogue.cards.Mimicable
 import utils.generateCardChoices
 import utils.mimic
 
-class Cheatsheet() :
+class Cheatsheet :
     AbstractRogueCard(
         name = Cheatsheet::class.simpleName.toString(),
         cost = -2,

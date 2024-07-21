@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
 import utils.drawCard
 
-class CounterfeitCoin() :
+class CounterfeitCoin :
     AbstractRogueCard(
         name = CounterfeitCoin::class.simpleName.toString(),
         cost = 0,

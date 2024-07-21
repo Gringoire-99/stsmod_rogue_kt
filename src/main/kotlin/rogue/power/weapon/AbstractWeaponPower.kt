@@ -17,7 +17,6 @@ import com.megacrit.cardcrawl.powers.GainStrengthPower
 import com.megacrit.cardcrawl.powers.PoisonPower
 import com.megacrit.cardcrawl.powers.StrengthPower
 import com.megacrit.cardcrawl.powers.WeakPower
-import rogue.cards.AbstractWeaponCard
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.attack.Attack
 import rogue.mods.OnAttack
@@ -120,7 +119,7 @@ abstract class AbstractWeaponPower(
                 poisonCount -= d
             }
         }
-        val drawEffect: OnAttack = { info: DamageInfo?, damageAmount: Int, target: AbstractCreature? ->
+        val drawEffect: OnAttack = { _: DamageInfo?, _: Int, _: AbstractCreature? ->
             if (drawCount > 0) {
                 addToTop(DrawCardAction(owner, drawCount))
             }
@@ -149,7 +148,6 @@ abstract class AbstractWeaponPower(
         var turnAttackCount = 0
         var isGetAttackCard = false
         val id = AbstractWeaponPower::class.makeId()
-        val listOfWeaponCard = hashSetOf<AbstractWeaponCard>()
     }
 
     override fun atStartOfTurnPostDraw() {
@@ -180,16 +178,16 @@ abstract class AbstractWeaponPower(
 
     override fun renderAmount(sb: SpriteBatch?, x: Float, y: Float, c: Color?) {
         super.renderAmount(sb, x, y, c)
-        if (damage >= initialDamage) {
-            damageColor = Color.GREEN.cpy()
+        damageColor = if (damage >= initialDamage) {
+            Color.GREEN.cpy()
         } else {
-            damageColor = Color.RED.cpy()
+            Color.RED.cpy()
         }
 
-        if (duration >= initialDuration) {
-            durationColor = Color.GREEN.cpy()
+        durationColor = if (duration >= initialDuration) {
+            Color.GREEN.cpy()
         } else {
-            durationColor = Color.RED.cpy()
+            Color.RED.cpy()
         }
         FontHelper.renderFontCentered(
             sb,

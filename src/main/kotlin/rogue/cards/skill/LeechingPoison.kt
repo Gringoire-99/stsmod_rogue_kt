@@ -10,7 +10,7 @@ import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
-class LeechingPoison() :
+class LeechingPoison :
     AbstractRogueCard(
         name = LeechingPoison::class.simpleName.toString(),
         cost = 0,

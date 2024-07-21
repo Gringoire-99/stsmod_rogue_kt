@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import rogue.power.weapon.AbstractWeaponPower
 
-class EquipWeaponAction(val new: AbstractWeaponPower) : AbstractGameAction() {
+class EquipWeaponAction(private val new: AbstractWeaponPower) : AbstractGameAction() {
     override fun update() {
 //        检查是否有武器装备
         AbstractDungeon.actionManager.addToBottom(

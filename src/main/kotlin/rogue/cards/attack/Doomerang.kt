@@ -9,7 +9,7 @@ import rogue.power.weapon.AbstractWeaponPower
 import utils.addMod
 import utils.getWeaponPower
 
-class Doomerang() :
+class Doomerang :
     AbstractWeaponCard(
         name = Doomerang::class.simpleName.toString(),
         cost = 1,

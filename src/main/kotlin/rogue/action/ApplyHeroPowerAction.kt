@@ -4,7 +4,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
-import rogue.power.AbstractHeroPower
+import rogue.power.hero.AbstractHeroPower
 
 class ApplyHeroPowerAction(val p: AbstractPlayer, val power: AbstractHeroPower) : AbstractGameAction() {
     override fun update() {

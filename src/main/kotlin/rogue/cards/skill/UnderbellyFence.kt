@@ -9,7 +9,7 @@ import rogue.cards.AbstractRogueCard
 import utils.drawCard
 import utils.isOtherClassCard
 
-class UnderbellyFence() :
+class UnderbellyFence :
     AbstractRogueCard(
         name = UnderbellyFence::class.simpleName.toString(),
         cost = 1,

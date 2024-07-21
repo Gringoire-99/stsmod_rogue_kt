@@ -10,7 +10,7 @@ import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
-class SilverleafPoison() :
+class SilverleafPoison :
     AbstractRogueCard(
         name = SilverleafPoison::class.simpleName.toString(),
         cost = 0,

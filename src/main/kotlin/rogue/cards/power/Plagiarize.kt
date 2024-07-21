@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.power.secret.PlagiarizePower
 import utils.makeId
 
-class Plagiarize() :
+class Plagiarize :
     AbstractRogueCard(
         name = Plagiarize::class.simpleName.toString(),
         cost = 1,

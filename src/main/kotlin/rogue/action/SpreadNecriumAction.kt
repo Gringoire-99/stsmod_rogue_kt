@@ -6,7 +6,7 @@ import rogue.mods.NecriumMod
 import rogue.mods.SpreadNecriumMod
 import utils.addMod
 
-class SpreadNecriumAction() : AbstractGameAction() {
+class SpreadNecriumAction : AbstractGameAction() {
     override fun update() {
         val group = AbstractDungeon.player.hand.group
         val random = group.randomOrNull()

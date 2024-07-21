@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import rogue.mods.ReduceCostMod
-import rogue.power.AbstractHeroPower
 import rogue.power.common.StealthPower
 import utils.addMod
 import utils.discovery
@@ -30,7 +29,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
             useCount--
         }
     }
-    val ability1 = { c: AbstractCard ->
+    val ability1 = { _: AbstractCard ->
         addToBot(ApplyPowerAction(owner, owner, StealthPower(owner)))
         gainBlock(owner, 4)
     }
@@ -41,12 +40,12 @@ class TessGreymanePower(owner: AbstractPlayer) :
         useEnergy = 0
         useCount++
     }
-    val ability4 = { c: AbstractCard ->
+    private val ability4 = { c: AbstractCard ->
         ability1(c)
         ability2(c)
     }
     var specialAbility: (AbstractCard) -> Unit = ability1
-    var specialAbilityCount = 1
+    private var specialAbilityCount = 1
         set(value) {
             field = value
             when (field) {

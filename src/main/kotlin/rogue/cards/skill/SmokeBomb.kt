@@ -13,7 +13,7 @@ import rogue.power.common.StealthPower
 import utils.addMod
 import utils.gainBlock
 
-class SmokeBomb() :
+class SmokeBomb :
     AbstractRogueCard(
         name = SmokeBomb::class.simpleName.toString(),
         cost = 0,

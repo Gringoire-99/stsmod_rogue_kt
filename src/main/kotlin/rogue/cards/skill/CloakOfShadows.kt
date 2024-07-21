@@ -12,7 +12,7 @@ import rogue.power.common.StealthPower
 import utils.gainBlock
 import utils.makeId
 
-class CloakOfShadows() :
+class CloakOfShadows :
     AbstractRogueCard(
         name = CloakOfShadows::class.simpleName.toString(),
         cost = 2,

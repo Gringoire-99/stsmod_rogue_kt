@@ -15,12 +15,11 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
         initialDamage = wDamage,
         initialDuration = wDuration,
     ) {
-    var copy: rogue.power.weapon.Kingsbane? = null
+    private var copy: rogue.power.weapon.Kingsbane? = null
     fun setWeaponCopy(copy: rogue.power.weapon.Kingsbane) {
         this.copy = copy
         weaponDuration = copy.duration
         weaponDamage = copy.damage
-        utils.logger.info("copyed duration ${copy.duration} damage ${copy.damage} $copy")
         if (copy.damage > initialDamage) {
             isWeaponDamageModified = true
         }

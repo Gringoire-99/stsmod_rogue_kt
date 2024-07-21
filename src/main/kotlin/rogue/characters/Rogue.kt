@@ -3,7 +3,6 @@ package rogue.characters
 import basemod.abstracts.CustomPlayer
 import com.badlogic.gdx.graphics.Color
 import com.badlogic.gdx.graphics.g2d.BitmapFont
-import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -24,11 +23,11 @@ import rogue.cards.skill.Defend
 import rogue.relics.RogueBaseAbility
 import utils.*
 
-class Rogue() : CustomPlayer(
-    name, playerClass, orbTextures, orbVfxPath, layerSpeed, null, null
+class Rogue : CustomPlayer(
+    name, playerClass, orbTextures, ORB_VFX_PATH, layerSpeed, null, null
 ) {
     companion object {
-        val name = CardCrawlGame.playerName
+        val name: String = CardCrawlGame.playerName
         val playerClass = RogueEnum.HS_ROGUE_CLASS
         val orbTextures = arrayOf(
             IMG_orb_layer_1,
@@ -43,12 +42,12 @@ class Rogue() : CustomPlayer(
             IMG_orb_layer_1,
             IMG_orb_layer_1,
         )
-        val orbVfxPath = IMG_orb_vfx
+        const val ORB_VFX_PATH = IMG_orb_vfx
         val layerSpeed = arrayOf(-40.0f, -32.0f, 20.0f, -20.0f, 0.0f, -10.0f, -8.0f, 5.0f, -5.0f, 0.0f).toFloatArray()
         val characterStrings: CharacterStrings = CardCrawlGame.languagePack.getCharacterString(Rogue::class.makeId())
-        val MY_CHARACTER_SHOULDER_2 = IMG_Valeera_shoulder
-        val MY_CHARACTER_SHOULDER_1 = IMG_Valeera_shoulder
-        val CORPSE_IMAGE = IMG_Valeera_corpse
+        const val MY_CHARACTER_SHOULDER_2 = IMG_Valeera_shoulder
+        const val MY_CHARACTER_SHOULDER_1 = IMG_Valeera_shoulder
+        const val CORPSE_IMAGE = IMG_Valeera_corpse
     }
 
     init {
@@ -61,7 +60,7 @@ class Rogue() : CustomPlayer(
         // 初始化你的人物，如果你的人物只有一张图，那么第一个参数填写你人物图片的路径。
         this.initializeClass(
             IMG_Valeera_p,  // 人物图片
-            MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1, Rogue.CORPSE_IMAGE,  // 人物死亡图像
+            MY_CHARACTER_SHOULDER_2, MY_CHARACTER_SHOULDER_1, CORPSE_IMAGE,  // 人物死亡图像
             this.loadout, 0.0f, 0.0f, 200.0f, 220.0f,  // 人物碰撞箱大小，越大的人物模型这个越大
             EnergyManager(3) // 初始每回合的能量
         )
@@ -166,7 +165,7 @@ class Rogue() : CustomPlayer(
         return Rogue_Color
     }
 
-    override fun getSpireHeartSlashEffect(): Array<AbstractGameAction.AttackEffect> {
+    override fun getSpireHeartSlashEffect(): Array<AttackEffect> {
         return arrayOf(
             AttackEffect.SLASH_HEAVY,
             AttackEffect.FIRE,

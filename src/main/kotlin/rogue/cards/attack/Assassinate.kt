@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower
 import rogue.cards.AbstractWeaponCard
 import utils.attackWithWeapon
 
-class Assassinate() : AbstractWeaponCard(
+class Assassinate : AbstractWeaponCard(
     name = Assassinate::class.simpleName.toString(),
     cost = 1,
     type = CardType.ATTACK,

@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.power.secret.EvasionPower
 import utils.makeId
 
-class Evasion() :
+class Evasion :
     AbstractRogueCard(
         name = Evasion::class.simpleName.toString(),
         cost = 1,

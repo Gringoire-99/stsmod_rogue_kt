@@ -10,7 +10,7 @@ import rogue.mods.NecriumMod
 import rogue.mods.SpreadNecriumMod
 import utils.addMod
 
-class MyraRotspring() :
+class MyraRotspring :
     AbstractRogueCard(
         name = MyraRotspring::class.simpleName.toString(),
         cost = 1,

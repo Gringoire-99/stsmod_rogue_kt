@@ -14,7 +14,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.mods.DamageEffectMod
 import utils.dealDamage
 
-class Sap() :
+class Sap :
     AbstractRogueCard(
         name = Sap::class.simpleName.toString(),
         cost = 1,

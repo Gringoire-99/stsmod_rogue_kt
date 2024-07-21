@@ -6,7 +6,7 @@ import rogue.cards.AbstractRogueCard
 import utils.drawCard
 import utils.gainBlock
 
-class Sprint() :
+class Sprint :
     AbstractRogueCard(
         name = Sprint::class.simpleName.toString(),
         cost = 2,

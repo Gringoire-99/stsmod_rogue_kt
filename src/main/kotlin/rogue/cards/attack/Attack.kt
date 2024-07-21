@@ -9,7 +9,7 @@ import utils.addMod
 import utils.attackWithWeapon
 import utils.makeId
 
-class Attack() :
+class Attack :
     AbstractWeaponCard(
         name = Attack::class.simpleName.toString(),
         cost = 0,

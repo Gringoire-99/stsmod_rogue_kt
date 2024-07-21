@@ -3,12 +3,12 @@ package rogue.cards.skill
 import basemod.cardmods.ExhaustMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.action.CardFilter
+import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import utils.addMod
 import utils.discovery
 
-class DragonsHoard() :
+class DragonsHoard :
     AbstractRogueCard(
         name = DragonsHoard::class.simpleName.toString(),
         cost = 0,

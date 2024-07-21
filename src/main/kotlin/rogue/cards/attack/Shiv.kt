@@ -10,7 +10,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.mods.DamageEffectMod
 import utils.dealDamage
 
-class Shiv() :
+class Shiv :
     AbstractRogueCard(
         name = Shiv::class.simpleName.toString(),
         cost = 1,

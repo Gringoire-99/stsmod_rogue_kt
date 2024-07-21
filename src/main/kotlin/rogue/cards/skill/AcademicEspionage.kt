@@ -11,7 +11,7 @@ import rogue.mods.ReduceCostMod
 import utils.addMod
 import utils.generateCardChoices
 
-class AcademicEspionage() :
+class AcademicEspionage :
     AbstractRogueCard(
         name = AcademicEspionage::class.simpleName.toString(),
         cost = 2,

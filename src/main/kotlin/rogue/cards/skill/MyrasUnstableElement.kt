@@ -8,7 +8,7 @@ import rogue.action.MyrasUnstableElementAction
 import rogue.cards.AbstractRogueCard
 import utils.addMod
 
-class MyrasUnstableElement() :
+class MyrasUnstableElement :
     AbstractRogueCard(
         name = MyrasUnstableElement::class.simpleName.toString(),
         cost = 1,

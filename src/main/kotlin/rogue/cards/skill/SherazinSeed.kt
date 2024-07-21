@@ -13,7 +13,7 @@ import rogue.cards.UpgradeInterface
 import rogue.cards.attack.SherazinCorpseFlower
 import utils.addMod
 
-class SherazinSeed() :
+class SherazinSeed :
     AbstractRogueCard(
         name = SherazinSeed::class.simpleName.toString(),
         cost = -2,

@@ -7,7 +7,7 @@ import rogue.cards.AbstractComboCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
-class TinkersSharpswordOil() :
+class TinkersSharpswordOil :
     AbstractComboCard(
         name = TinkersSharpswordOil::class.simpleName.toString(),
         cost = 1,

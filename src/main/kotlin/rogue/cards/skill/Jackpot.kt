@@ -4,12 +4,12 @@ import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.action.CardFilter
+import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import utils.addMod
 import utils.generateCardChoices
 
-class Jackpot() :
+class Jackpot :
     AbstractRogueCard(
         name = Jackpot::class.simpleName.toString(),
         cost = 0,
@@ -27,7 +27,7 @@ class Jackpot() :
         }
     }
 
-    val filter = CardFilter(costFilter = { it >= 2 })
+    private val filter = CardFilter(costFilter = { it >= 2 })
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val generateCardChoices = generateCardChoices(filter, magicNumber)
         generateCardChoices.forEach {

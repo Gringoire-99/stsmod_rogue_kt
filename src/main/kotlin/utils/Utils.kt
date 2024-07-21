@@ -19,10 +19,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent
 import com.megacrit.cardcrawl.powers.AbstractPower
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
+import common.CardFilter
 import common.TradeCard
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
-import rogue.action.CardFilter
 import rogue.action.DiscoveryAction
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.Mimicable

@@ -8,7 +8,7 @@ import utils.addMod
 import utils.attackWithWeapon
 import utils.getWeaponPower
 
-class BladeFlurry() :
+class BladeFlurry :
     AbstractWeaponCard(
         name = BladeFlurry::class.simpleName.toString(),
         cost = 1,
@@ -28,10 +28,9 @@ class BladeFlurry() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        var count = 0
         p?.apply {
             getWeaponPower()?.apply {
-                count = if (duration > magicNumber) magicNumber else duration
+                val count: Int = if (duration > magicNumber) magicNumber else duration
                 repeat(count) {
                     p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDuration = 1)
                 }

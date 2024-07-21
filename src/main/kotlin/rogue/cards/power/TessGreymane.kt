@@ -7,7 +7,7 @@ import rogue.cards.AbstractHeroCard
 import rogue.power.hero.TessGreymanePower
 import utils.gainBlock
 
-class TessGreymane() :
+class TessGreymane :
     AbstractHeroCard(TessGreymane::class.simpleName.toString()) {
 
 

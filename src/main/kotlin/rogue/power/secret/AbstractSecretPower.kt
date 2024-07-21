@@ -11,6 +11,4 @@ abstract class AbstractSecretPower(rawName: String, owner: AbstractCreature) :
         owner = owner,
         imgPath = "$modId/powers/${AbstractSecretPower::class.simpleName.toString()}",
         amount = -1
-    ), NonStackablePower {
-
-}
+    ), NonStackablePower

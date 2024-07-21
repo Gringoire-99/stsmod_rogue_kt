@@ -7,7 +7,7 @@ import rogue.cards.AbstractHeroCard
 import rogue.power.hero.DeathsShadowPower
 import utils.gainBlock
 
-class ValeeraTheHollow() :
+class ValeeraTheHollow :
     AbstractHeroCard(ValeeraTheHollow::class.simpleName.toString()) {
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {

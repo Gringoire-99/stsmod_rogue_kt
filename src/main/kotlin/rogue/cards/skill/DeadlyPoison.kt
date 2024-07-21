@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
-class DeadlyPoison() :
+class DeadlyPoison :
     AbstractRogueCard(
         name = DeadlyPoison::class.simpleName.toString(),
         cost = 0,

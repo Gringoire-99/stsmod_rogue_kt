@@ -1,7 +1,6 @@
 package rogue.cards.skill
 
 import basemod.cardmods.ExhaustMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -9,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
-class EnvenomWeapon() :
+class EnvenomWeapon :
     AbstractRogueCard(
         name = EnvenomWeapon::class.simpleName.toString(),
         cost = 1,
@@ -27,7 +26,7 @@ class EnvenomWeapon() :
     override fun upgrade() {
         useUpgrade {
             upgradeMagicNumber(10)
-           exhaust = false
+            exhaust = false
         }
     }
 

@@ -8,7 +8,7 @@ import rogue.action.CopyHandAction
 import rogue.cards.AbstractRogueCard
 import utils.addMod
 
-class PotionOfIllusion() :
+class PotionOfIllusion :
     AbstractRogueCard(
         name = PotionOfIllusion::class.simpleName.toString(),
         cost = 2,

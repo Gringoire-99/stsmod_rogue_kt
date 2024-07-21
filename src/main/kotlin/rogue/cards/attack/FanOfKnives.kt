@@ -7,7 +7,7 @@ import rogue.cards.AbstractRogueCard
 import utils.attackWithWeapon
 import utils.isWeaponEquipped
 
-class FanOfKnives() :
+class FanOfKnives :
     AbstractRogueCard(
         name = FanOfKnives::class.simpleName.toString(),
         cost = 1,

@@ -11,7 +11,7 @@ import rogue.mods.AfterUsesMod
 import rogue.mods.TurnEffectMod
 import utils.addMod
 
-class Preparation() :
+class Preparation :
     AbstractRogueCard(
         name = Preparation::class.simpleName.toString(),
         cost = 0,

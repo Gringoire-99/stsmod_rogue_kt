@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.SecretPassageAction
 import rogue.cards.AbstractRogueCard
 
-class SecretPassage() :
+class SecretPassage :
     AbstractRogueCard(
         name = SecretPassage::class.simpleName.toString(),
         cost = 1,

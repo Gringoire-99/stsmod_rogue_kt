@@ -7,7 +7,7 @@ import rogue.action.MimicAction
 import rogue.cards.AbstractRogueCard
 import rogue.cards.Mimicable
 
-class MimicPod() :
+class MimicPod :
     AbstractRogueCard(
         name = MimicPod::class.simpleName.toString(),
         cost = -2,

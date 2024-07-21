@@ -10,7 +10,7 @@ import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
-class ParalyticPoison() :
+class ParalyticPoison :
     AbstractRogueCard(
         name = ParalyticPoison::class.simpleName.toString(),
         cost = 0,

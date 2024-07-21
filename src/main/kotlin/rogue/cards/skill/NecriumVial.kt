@@ -10,7 +10,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.mods.NecriumMod
 import utils.addMod
 
-class NecriumVial() :
+class NecriumVial :
     AbstractRogueCard(
         name = NecriumVial::class.simpleName.toString(),
         cost = 2,

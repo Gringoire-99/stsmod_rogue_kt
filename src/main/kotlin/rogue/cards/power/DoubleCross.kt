@@ -8,7 +8,7 @@ import rogue.cards.AbstractRogueCard
 import rogue.power.secret.DoubleCrossPower
 import utils.makeId
 
-class DoubleCross() :
+class DoubleCross :
     AbstractRogueCard(
         name = DoubleCross::class.simpleName.toString(),
         cost = 1,

@@ -3,11 +3,11 @@ package rogue.cards.skill
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.action.CardFilter
+import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import utils.generateCardChoices
 
-class PettyTheft() :
+class PettyTheft :
     AbstractRogueCard(
         name = PettyTheft::class.simpleName.toString(),
         cost = 1,
@@ -26,7 +26,7 @@ class PettyTheft() :
         }
     }
 
-    val filter = CardFilter(costFilter = { it == 0 })
+    private val filter = CardFilter(costFilter = { it == 0 })
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val generateCardChoices = generateCardChoices(filter, magicNumber)
         generateCardChoices.forEach {

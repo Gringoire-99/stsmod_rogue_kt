@@ -1,7 +1,8 @@
-package rogue.power
+package rogue.power.hero
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.helpers.RelicLibrary
+import rogue.power.IAbstractPower
 import rogue.relics.RogueBaseAbility
 import utils.makeId
 
