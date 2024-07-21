@@ -24,6 +24,7 @@ import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import rogue.action.CardFilter
 import rogue.action.DiscoveryAction
+import rogue.cards.AbstractWeaponPowerCard
 import rogue.characters.RogueEnum
 import rogue.power.weapon.AbstractWeaponPower
 import kotlin.reflect.KClass
@@ -224,3 +225,30 @@ fun getRandomMonster(): AbstractMonster {
     return AbstractDungeon.getMonsters().getRandomMonster(true)
 }
 
+fun AbstractCard.upDamage(amount: Int) {
+    this.baseDamage += amount
+    this.upgradedDamage = true
+}
+
+fun AbstractCard.upBlock(amount: Int) {
+    this.baseBlock += amount
+    this.upgradedBlock = true
+}
+
+fun AbstractCard.upMagicNumber(amount: Int) {
+    this.baseMagicNumber += amount
+    this.magicNumber = this.baseMagicNumber
+    this.upgradedMagicNumber = true
+}
+
+fun AbstractCard.upBase(magic: Int) {
+    this.apply {
+        upDamage(magic)
+        upBlock(magic)
+        upMagicNumber(magic)
+        if (this is AbstractWeaponPowerCard) {
+            this.weaponDamage += magic
+            this.weaponDuration += magic
+        }
+    }
+}

@@ -1,6 +1,7 @@
 package rogue.power.weapon
 
-import rogue.action.AddCardInDiscardPile
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
 import rogue.cards.AbstractWeaponPowerCard
 
 class Kingsbane(
@@ -51,7 +52,7 @@ class Kingsbane(
         new.apply {
             setWeaponCopy(this@Kingsbane)
         }
-        addToTop(AddCardInDiscardPile(new))
+        AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(new))
     }
 
     override fun makeCopy(): AbstractWeaponPowerCard {

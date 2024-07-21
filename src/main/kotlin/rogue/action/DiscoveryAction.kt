@@ -1,13 +1,12 @@
 package rogue.action
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.AbstractCard.*
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.screens.CardRewardScreen
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToHandEffect
 import utils.generateCardChoices
 
 class DiscoveryAction
@@ -34,20 +33,7 @@ class DiscoveryAction
             if (AbstractDungeon.cardRewardScreen.discoveryCard != null) {
                 val disCard = AbstractDungeon.cardRewardScreen.discoveryCard.makeStatEquivalentCopy()
                 cb(disCard)
-                disCard.current_x = -1000.0f * Settings.xScale
-                if (AbstractDungeon.player.hand.size() < 10) {
-                    AbstractDungeon.effectList.add(
-                        ShowCardAndAddToHandEffect(
-                            disCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f
-                        )
-                    )
-                } else {
-                    AbstractDungeon.effectList.add(
-                        ShowCardAndAddToDiscardEffect(
-                            disCard, Settings.WIDTH / 2.0f, Settings.HEIGHT / 2.0f
-                        )
-                    )
-                }
+                addToBot(MakeTempCardInHandAction(disCard))
                 AbstractDungeon.cardRewardScreen.discoveryCard = null
             }
 

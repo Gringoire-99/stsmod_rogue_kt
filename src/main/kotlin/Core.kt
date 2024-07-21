@@ -38,29 +38,29 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
 
     companion object {
         // 人物选择界面按钮的图片
-        val CHAR_BUTTON: String = IMG_Select_Btn
+        const val CHAR_BUTTON: String = IMG_Select_Btn
 
         // 人物选择界面的图像
-        val CHAR_PORTRAIT: String = IMG_Valeera
+        const val CHAR_PORTRAIT: String = IMG_Valeera
 
         // 卡牌背景（小）
-        val BG_ATTACK_512: String = IMG_Attack_bg_sm
-        val BG_SKILL_512: String = IMG_Skill_bg_sm
-        val BG_POWER_512: String = IMG_Power_bg_sm
+        const val BG_ATTACK_512: String = IMG_Attack_bg_sm
+        const val BG_SKILL_512: String = IMG_Skill_bg_sm
+        const val BG_POWER_512: String = IMG_Power_bg_sm
 
         // 左上角的能量图标
-        val ENERGY_ORB: String = IMG_orb_cost
+        const val ENERGY_ORB: String = IMG_orb_cost
 
         // 卡牌背景（大）
-        val BG_ATTACK_1024: String = IMG_Attack_bg_lg
-        val BG_SKILL_1024: String = IMG_Skill_bg_lg
-        val BG_POWER_1024: String = IMG_Power_bg_lg
+        const val BG_ATTACK_1024: String = IMG_Attack_bg_lg
+        const val BG_SKILL_1024: String = IMG_Skill_bg_lg
+        const val BG_POWER_1024: String = IMG_Power_bg_lg
 
         // 大能量（用于大图展示）
-        val BIG_ORB: String = IMG_orb_lg
+        const val BIG_ORB: String = IMG_orb_lg
 
         // 小能量（用于描述等）
-        val SMALL_ORB: String = IMG_orb_sm
+        const val SMALL_ORB: String = IMG_orb_sm
 
         @JvmStatic
         fun initialize() {

@@ -5,8 +5,9 @@ import basemod.helpers.CardModifierManager
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.action.AddCardInDiscardPile
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
 import rogue.cards.AbstractRogueCard
 
 class GangUp() :
@@ -28,11 +29,11 @@ class GangUp() :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToBot(SelectCardsInHandAction(1, "选择一张卡消耗", false, false, { true }) { cards ->
-            cards[0].apply {
-                repeat(3) {
-                    addToTop(AddCardInDiscardPile(makeStatEquivalentCopy()))
+            cards.forEach {
+                repeat(magicNumber) {
+                    AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(this.makeStatEquivalentCopy()))
                 }
-                addToBot(ExhaustSpecificCardAction(this@apply, p?.hand))
+                addToBot(ExhaustSpecificCardAction(it, p?.hand))
             }
         })
     }

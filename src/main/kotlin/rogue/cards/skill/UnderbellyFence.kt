@@ -39,7 +39,7 @@ class UnderbellyFence() :
             val t = cards[0]
             addToBot(GainEnergyAction(1))
             drawCard(1)
-            if (t.isOtherClassCard(p?.cardColor)) {
+            if (t.isOtherClassCard()) {
                 addToBot(GainEnergyAction(magicNumber))
                 drawCard(magicNumber)
             }

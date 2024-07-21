@@ -19,6 +19,7 @@ class MyraRotspring() :
         target = CardTarget.SELF
     ) {
     init {
+        setMagicNumber(1)
         addMod(ExhaustMod())
     }
 
@@ -29,7 +30,7 @@ class MyraRotspring() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(SelectCardsInHandAction(1, "选择一张卡", false, false, { true }) { cards ->
+        addToBot(SelectCardsInHandAction(magicNumber, "选择一张卡", false, false, { true }) { cards ->
             cards.forEach {
                 it.addMod(NecriumMod(), SpreadNecriumMod())
             }

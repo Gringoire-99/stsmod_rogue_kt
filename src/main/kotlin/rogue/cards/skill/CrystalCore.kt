@@ -7,31 +7,38 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.DexterityPower
 import com.megacrit.cardcrawl.powers.StrengthPower
+import rogue.action.CrystalCoreAction
 import rogue.cards.AbstractRogueCard
+import rogue.power.common.CrystalCorePower
 import utils.addMod
 
 class CrystalCore() :
     AbstractRogueCard(
         name = CrystalCore::class.simpleName.toString(),
-        cost = 3,
+        cost = 2,
         type = CardType.SKILL,
         rarity = CardRarity.SPECIAL,
         target = CardTarget.SELF,
         color = CardColor.COLORLESS
     ) {
     init {
-        setMagicNumber(5)
+        setMagicNumber(2)
         addMod(ExhaustMod(), RetainMod())
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(2)
+            upgradeMagicNumber(1)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, StrengthPower(p, magicNumber), magicNumber))
-        addToBot(ApplyPowerAction(p, p, DexterityPower(p, magicNumber), magicNumber))
+        p?.apply {
+            addToBot(ApplyPowerAction(p, p, StrengthPower(p, magicNumber), magicNumber))
+            addToBot(ApplyPowerAction(p, p, DexterityPower(p, magicNumber), magicNumber))
+            addToBot(CrystalCoreAction(magicNumber))
+            addToBot(ApplyPowerAction(p, p, CrystalCorePower(p, magicNumber)))
+        }
     }
+
 }

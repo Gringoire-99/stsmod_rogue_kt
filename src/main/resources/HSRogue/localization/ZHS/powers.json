@@ -83,6 +83,12 @@
       "你的武器永久获得+2/+2，回合开始时将一张幻象之刃置入手中"
     ]
   },
+  "HSRogue:CrystalCorePower": {
+    "NAME": "水晶核心",
+    "DESCRIPTIONS": [
+      "这场战斗你的卡片永久强化%d点"
+    ]
+  },
   "HSRogue:RetainPower": {
     "NAME": "留了一手",
     "DESCRIPTIONS": [

@@ -6,9 +6,10 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.powers.DexterityPower
 import com.megacrit.cardcrawl.powers.StrengthPower
-import rogue.action.AddCardInDiscardPile
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
 import rogue.power.IAbstractPower
 
 
@@ -28,7 +29,7 @@ class RenosLuckyHat(owner: AbstractCreature, val copy: rogue.cards.power.RenosLu
             this.flash()
             addToTop(ApplyPowerAction(owner, owner, StrengthPower(owner, -copy.magicNumber), -copy.magicNumber))
             addToTop(ApplyPowerAction(owner, owner, DexterityPower(owner, -copy.magicNumber), -copy.magicNumber))
-            addToTop(AddCardInDiscardPile(copy))
+            AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(copy))
             addToTop(RemoveSpecificPowerAction(owner, info.owner, this))
         }
         return damageAmount

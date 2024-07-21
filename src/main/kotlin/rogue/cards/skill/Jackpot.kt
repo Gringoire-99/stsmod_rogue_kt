@@ -12,7 +12,7 @@ import utils.generateCardChoices
 class Jackpot() :
     AbstractRogueCard(
         name = Jackpot::class.simpleName.toString(),
-        cost = 1,
+        cost = 0,
         type = CardType.SKILL,
         rarity = CardRarity.UNCOMMON,
         target = CardTarget.SELF

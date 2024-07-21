@@ -41,10 +41,12 @@ class ValeerasGift() :
                 false,
                 { true },
             ) { cards ->
-                val target = cards[0]
-                target.addMod(EtherealMod())
-                p?.apply {
-                    addToBot(MakeTempCardInHandAction(target))
+                cards.forEach {
+                    val target = it
+                    target.addMod(EtherealMod())
+                    p?.apply {
+                        addToBot(MakeTempCardInHandAction(target))
+                    }
                 }
             }
         )

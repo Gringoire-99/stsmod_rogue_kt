@@ -23,7 +23,7 @@ class Doomerang() :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
-            attack(target = m, damage = damage)
+            attack(target = m, damage = this@Doomerang.damage)
             p.powers.removeIf {
                 it.ID == AbstractWeaponPower.id
             }

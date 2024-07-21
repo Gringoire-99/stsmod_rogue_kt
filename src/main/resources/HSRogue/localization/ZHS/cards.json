@@ -261,7 +261,7 @@
   },
   "HSRogue:CrystalCore": {
     "NAME": "水晶核心",
-    "DESCRIPTION": "获得 !M! 点 NL 力量/敏捷 "
+    "DESCRIPTION": "强化你的所有卡片 !M! 点 NL 获得 !M! 点力量/敏捷"
   },
   "HSRogue:BazaarBurglary": {
     "NAME": "劫掠集市",
@@ -277,7 +277,7 @@
   },
   "HSRogue:MyraRotspring": {
     "NAME": "迈拉·腐泉",
-    "DESCRIPTION": "选择一张手牌注射死金，这张牌在消耗后会给随机手牌附加相同的效果"
+    "DESCRIPTION": "选择 !M! 张手牌注射死金，这张牌在消耗后会给随机手牌附加相同的效果"
   },
   "HSRogue:MyrasUnstableElement": {
     "NAME": "迈拉的不稳定元素",
