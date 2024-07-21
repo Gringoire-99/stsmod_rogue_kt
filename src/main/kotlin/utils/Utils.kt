@@ -8,10 +8,12 @@ import com.megacrit.cardcrawl.actions.common.*
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType
+import com.megacrit.cardcrawl.cards.CardQueueItem
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.helpers.CardLibrary
 import com.megacrit.cardcrawl.localization.CardStrings
@@ -218,9 +220,10 @@ fun AbstractCard.addMod(vararg mod: AbstractCardModifier) {
 
 fun AbstractCard.isOtherClassCard(color: CardColor? = AbstractDungeon.player?.cardColor): Boolean {
     val c = color ?: RogueEnum.HS_ROGUE_CARD_COLOR
+    val targetColor = if (this is Mimicable) this.targetCard?.color else color
     val type = this.type == CardType.SKILL || this.type == CardType.POWER || this.type == CardType.ATTACK
     val clazz =
-        this.color != c && this.color != CardColor.COLORLESS && this.color != CardColor.CURSE
+        targetColor != c && targetColor != CardColor.COLORLESS && targetColor != CardColor.CURSE && targetColor != null
 
     return type && clazz
 }
@@ -255,4 +258,29 @@ fun AbstractCard.upBase(magic: Int) {
             this.weaponDuration += magic
         }
     }
+}
+
+fun AbstractCard.addToQueue(card: AbstractCard, t: AbstractCreature?, purge: Boolean = false, random: Boolean = false) {
+    if (!AbstractDungeon.player.limbo.contains(card)) {
+        AbstractDungeon.player.limbo.addToBottom(this)
+    }
+    this.current_x = card.current_x
+    this.current_y = card.current_y
+    this.target_x = Settings.WIDTH.toFloat() / 2.0f - 300.0f * Settings.scale
+    this.target_y = Settings.HEIGHT.toFloat() / 2.0f
+    val m = if (t is AbstractMonster) t else null
+    if (t is AbstractMonster) {
+        this.calculateCardDamage(t)
+    }
+    this.purgeOnUse = purge
+    if (random) {
+        AbstractDungeon.actionManager.addCardQueueItem(
+            CardQueueItem(this, true, card.energyOnUse, true, true),
+        )
+    } else {
+        AbstractDungeon.actionManager.addCardQueueItem(
+            CardQueueItem(this, m, card.energyOnUse, true, true),
+        )
+    }
+
 }

@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor
 import com.megacrit.cardcrawl.cards.AbstractCard.CardTags
 import com.megacrit.cardcrawl.core.AbstractCreature
-import rogue.cards.skill.CrystalCore
+import rogue.cards.power.CrystalCore
 
 class TheCavernsBelowPower(owner: AbstractCreature) :
     AbstractQuestPower(rawName = TheCavernsBelowPower::class.simpleName.toString(), owner = owner) {

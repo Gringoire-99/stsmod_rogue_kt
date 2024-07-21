@@ -23,6 +23,7 @@ class MyrasUnstableElement :
     override fun upgrade() {
         useUpgrade {
             addMod(RetainMod())
+            upgradeBaseCost(0)
         }
     }
 

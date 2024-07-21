@@ -14,7 +14,7 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
         powerName = rawName,
         owner = owner,
         imgPath = "$modId/powers/${AbstractQuestPower::class.simpleName.toString()}",
-        amount = -1
+        amount = 0
     ), NonStackablePower {
     abstract val maxCount: Int
     var questCount = 0

@@ -1,4 +1,4 @@
-package rogue.cards.skill
+package rogue.cards.power
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
@@ -16,7 +16,7 @@ class CrystalCore :
     AbstractRogueCard(
         name = CrystalCore::class.simpleName.toString(),
         cost = 2,
-        type = CardType.SKILL,
+        type = CardType.POWER,
         rarity = CardRarity.SPECIAL,
         target = CardTarget.SELF,
         color = CardColor.COLORLESS
