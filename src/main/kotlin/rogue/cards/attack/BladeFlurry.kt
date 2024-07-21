@@ -32,10 +32,11 @@ class BladeFlurry() :
         p?.apply {
             getWeaponPower()?.apply {
                 count = if (duration > magicNumber) magicNumber else duration
+                repeat(count) {
+                    p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDuration = 1)
+                }
             }
         }
-        repeat(count) {
-            p?.attackWithWeapon(damage = damage, loseDuration = 1)
-        }
+
     }
 }

@@ -23,7 +23,7 @@ class Kingsbane(
             }
             additionalDamage = value - initialDamage
             flash()
-            updateCard()
+            updatePowerDesc()
         }
     override var duration: Int
         get() = super.duration
@@ -48,19 +48,15 @@ class Kingsbane(
         }
 
     override fun onDestroy() {
-        val new = rogue.cards.power.Kingsbane()
-        new.apply {
-            setWeaponCopy(this@Kingsbane)
-        }
-        AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(new))
+        AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(makeCopy()))
     }
 
     override fun makeCopy(): AbstractWeaponPowerCard {
         val new = rogue.cards.power.Kingsbane()
         new.apply {
             setWeaponCopy(this@Kingsbane)
+            upgrade()
         }
-        if (upgraded) new.upgrade()
         return new
     }
 }

@@ -31,7 +31,7 @@ class RogueBaseAbility(
     }
 
     override fun onRightClick() {
-        baseRightClick()
+        rightClick()
     }
 
     override fun atBattleStart() {

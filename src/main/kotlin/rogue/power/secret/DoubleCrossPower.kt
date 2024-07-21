@@ -1,13 +1,12 @@
 package rogue.power.secret
 
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import utils.drawCard
 
 
 class DoubleCrossPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
-    AbstractSecretPower(rawName = DoubleCrossPower::class.simpleName.toString(), owner = owner), NonStackablePower {
+    AbstractSecretPower(rawName = DoubleCrossPower::class.simpleName.toString(), owner = owner) {
 
 
 

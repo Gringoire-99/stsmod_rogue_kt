@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.CardFilter
 import rogue.cards.AbstractRogueCard
+import rogue.cards.Mimicable
 import utils.generateCardChoices
 import utils.mimic
 
@@ -18,8 +19,8 @@ class Cheatsheet() :
         rarity = CardRarity.SPECIAL,
         target = CardTarget.NONE,
         color = CardColor.COLORLESS
-    ) {
-    private var targetCard: AbstractCard? = null
+    ), Mimicable {
+    override var targetCard: AbstractCard? = null
 
     init {
         CardModifierManager.addModifier(this, RetainMod())
@@ -31,15 +32,19 @@ class Cheatsheet() :
             t.upgrade()
         }
         this.mimic(t)
-        targetCard = t
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        val target = targetCard
-        return target?.canUse(p, m) ?: false
+        return targetCard?.canUse(p, m) ?: false
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         targetCard?.use(p, m)
+    }
+
+    override fun makeStatEquivalentCopy(): AbstractCard {
+        val copy = super.makeStatEquivalentCopy()
+        (copy as Mimicable).targetCard = targetCard
+        return copy
     }
 }

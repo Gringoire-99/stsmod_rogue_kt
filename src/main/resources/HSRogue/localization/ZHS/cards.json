@@ -283,6 +283,10 @@
     "NAME": "迈拉的不稳定元素",
     "DESCRIPTION": "抽满你的手牌，消耗处于抽牌堆的其他牌"
   },
+  "HSRogue:TessGreymane": {
+    "NAME": "苔丝·格雷迈恩",
+    "DESCRIPTION": "*英雄 NL 你的初始能力升级为 *翻找(主动) "
+  },
   "HSRogue:TradeCard": {
     "NAME": "交易",
     "DESCRIPTION": "花费1 [E] 进行 *交易 ",

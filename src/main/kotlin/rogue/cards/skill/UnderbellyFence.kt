@@ -1,6 +1,7 @@
 package rogue.cards.skill
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -36,13 +37,18 @@ class UnderbellyFence() :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToBot(SelectCardsInHandAction(1, "选择一张卡消耗", false, false, { true }) { cards ->
-            val t = cards[0]
-            addToBot(GainEnergyAction(1))
-            drawCard(1)
-            if (t.isOtherClassCard()) {
-                addToBot(GainEnergyAction(magicNumber))
-                drawCard(magicNumber)
+            cards.forEach {
+                addToBot(GainEnergyAction(1))
+                drawCard(1)
+                if (it.isOtherClassCard()) {
+                    addToBot(GainEnergyAction(magicNumber))
+                    drawCard(magicNumber)
+                }
+                p?.apply {
+                    addToBot(ExhaustSpecificCardAction(it, p.hand))
+                }
             }
+
         })
     }
 }

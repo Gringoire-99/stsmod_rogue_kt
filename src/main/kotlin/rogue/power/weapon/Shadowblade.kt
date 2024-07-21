@@ -29,7 +29,7 @@ class Shadowblade(
         set(value) {
             additionalDamage += value - damage
             flash()
-            updateCard()
+            updatePowerDesc()
         }
     override var tempLoseDuration: Int = 0
         set(value) {

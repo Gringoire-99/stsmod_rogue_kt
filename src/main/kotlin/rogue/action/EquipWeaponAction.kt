@@ -21,7 +21,6 @@ class EquipWeaponAction(val new: AbstractWeaponPower) : AbstractGameAction() {
                 AbstractDungeon.player, AbstractDungeon.player, new
             )
         )
-        new.updateCard()
         isDone = true
     }
 }

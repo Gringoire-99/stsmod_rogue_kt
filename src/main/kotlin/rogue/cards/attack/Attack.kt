@@ -2,14 +2,14 @@ package rogue.cards.attack
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
+import utils.addMod
 import utils.attackWithWeapon
 import utils.makeId
 
-class Attack(baseD: Int = 0) :
+class Attack() :
     AbstractWeaponCard(
         name = Attack::class.simpleName.toString(),
         cost = 0,
@@ -26,9 +26,7 @@ class Attack(baseD: Int = 0) :
 
     init {
         purgeOnUse = true
-        setDamage(baseD)
-        CardModifierManager.addModifier(this, ExhaustMod())
-        CardModifierManager.addModifier(this, RetainMod())
+        addMod(ExhaustMod(), RetainMod())
     }
 
     override fun upgrade() {

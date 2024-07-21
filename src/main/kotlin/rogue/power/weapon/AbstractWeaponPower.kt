@@ -13,7 +13,10 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.helpers.FontHelper
-import com.megacrit.cardcrawl.powers.*
+import com.megacrit.cardcrawl.powers.GainStrengthPower
+import com.megacrit.cardcrawl.powers.PoisonPower
+import com.megacrit.cardcrawl.powers.StrengthPower
+import com.megacrit.cardcrawl.powers.WeakPower
 import rogue.cards.AbstractWeaponCard
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.attack.Attack
@@ -39,7 +42,7 @@ abstract class AbstractWeaponPower(
         set(value) {
             additionalDamage += value - damage
             flash()
-            updateCard()
+            updatePowerDesc()
         }
     open var duration: Int
         get() {
@@ -131,29 +134,15 @@ abstract class AbstractWeaponPower(
     }
 
 
-    fun updateCard(d: Int = damage) {
-        updatePowerDesc()
-//        更新所有
-        listOfWeaponCard.forEach {
-            it.updateDamage(d)
-        }
-    }
-
     private fun getTempAttackCard() {
         val find = AbstractDungeon.player.hand.group.find { it.cardID == Attack.id }
         if (find == null && !isGetAttackCard) {
-            AbstractDungeon.player.hand.addToHand(Attack(damage))
+            addToBot(MakeTempCardInHandAction(Attack()))
             isGetAttackCard = true
             flash()
         }
     }
 
-
-    override fun onApplyPower(power: AbstractPower?, target: AbstractCreature?, source: AbstractCreature?) {
-        if (target == AbstractDungeon.player) {
-            updateCard()
-        }
-    }
 
     companion object {
         var combatAttackCount: Int = 0
@@ -220,6 +209,7 @@ abstract class AbstractWeaponPower(
         )
     }
 
+
     //使用武器对一个敌人造成武器伤害
     fun attack(
         target: AbstractCreature? = AbstractDungeon.getRandomMonster(),
@@ -246,7 +236,6 @@ abstract class AbstractWeaponPower(
 
     override fun onRemove() {
         onDestroy()
-        updateCard(0)
     }
 
     open fun onDestroy() {}
@@ -263,7 +252,7 @@ abstract class AbstractWeaponPower(
         }
     }
 
-    override fun updateDescription() {
+    final override fun updateDescription() {
         this.description = powerString.DESCRIPTIONS[0]
         name = weaponName
     }

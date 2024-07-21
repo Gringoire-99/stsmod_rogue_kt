@@ -89,6 +89,12 @@
       "这场战斗你的卡片永久强化%d点"
     ]
   },
+  "HSRogue:TessGreymanePower": {
+    "NAME": "翻找",
+    "DESCRIPTIONS": [
+      "一回合一次，消耗1 [E] 发现其他职业的牌，使其获得保留 NL 被动效果：每回合翻找依次获得下列效果之一： NL 1.隐形斗篷：翻找后获得4格挡与潜行 NL 2.顺手牵羊：发现的牌费用变为0 NL 3.狼神崇拜: 技能费用变为0，可以用两次 NL 4.上述所有效果"
+    ]
+  },
   "HSRogue:RetainPower": {
     "NAME": "留了一手",
     "DESCRIPTIONS": [

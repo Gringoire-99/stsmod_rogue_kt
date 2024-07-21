@@ -1,6 +1,5 @@
 package rogue.power.secret
 
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import rogue.power.weapon.AbstractWeaponPower
@@ -8,7 +7,7 @@ import utils.isAttackIntent
 
 
 class AmbushPower(owner: AbstractPlayer) :
-    AbstractSecretPower(rawName = AmbushPower::class.simpleName.toString(), owner = owner), NonStackablePower {
+    AbstractSecretPower(rawName = AmbushPower::class.simpleName.toString(), owner = owner) {
 
 
     override fun atEndOfRound() {

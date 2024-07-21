@@ -25,6 +25,7 @@ import org.apache.logging.log4j.Logger
 import rogue.action.CardFilter
 import rogue.action.DiscoveryAction
 import rogue.cards.AbstractWeaponPowerCard
+import rogue.cards.Mimicable
 import rogue.characters.RogueEnum
 import rogue.power.weapon.AbstractWeaponPower
 import kotlin.reflect.KClass
@@ -166,6 +167,9 @@ fun AbstractCard.mimic(target: AbstractCard) {
     }
     if (!selfRetain) {
         this.selfRetain = target.selfRetain
+    }
+    if (this is Mimicable) {
+        this.targetCard = target
     }
     this.initializeDescription()
 }

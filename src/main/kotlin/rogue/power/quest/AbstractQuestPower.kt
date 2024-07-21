@@ -1,8 +1,11 @@
 package rogue.power.quest
 
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.helpers.FontHelper
 import rogue.power.IAbstractPower
 import utils.modId
 
@@ -25,6 +28,18 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
             }
             amount = questCount
         }
+
+    override fun renderAmount(sb: SpriteBatch?, x: Float, y: Float, c: Color?) {
+        FontHelper.renderFontCentered(
+            sb,
+            FontHelper.powerAmountFont,
+            "${amount}/${maxCount}",
+            x,
+            y,
+            Color.GREEN
+        )
+
+    }
 
     abstract fun onComplete()
 

@@ -1,13 +1,12 @@
 package rogue.power.secret
 
-import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.powers.AbstractPower
 import com.megacrit.cardcrawl.powers.DexterityPower
 import utils.gainBlock
 
 class EvasionPower(owner: AbstractPlayer, val magicNumber: Int = 9) :
-    AbstractSecretPower(rawName = EvasionPower::class.simpleName.toString(), owner = owner), NonStackablePower {
+    AbstractSecretPower(rawName = EvasionPower::class.simpleName.toString(), owner = owner) {
 
 
     override fun atEndOfTurn(isPlayer: Boolean) {

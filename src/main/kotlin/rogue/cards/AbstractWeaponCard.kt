@@ -4,12 +4,11 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.characters.RogueEnum
-import rogue.power.weapon.AbstractWeaponPower
 import utils.getWeaponPower
 import utils.isWeaponEquipped
 
 /**
- * 需要武器才能打出的一类卡,例如致命膏药，剑刃乱舞
+ * 需要武器才能打出的一类卡,例如剑刃乱舞，伤害会被附加武器伤害
  */
 abstract class AbstractWeaponCard(
     name: String,
@@ -22,41 +21,35 @@ abstract class AbstractWeaponCard(
 ) :
     AbstractRogueCard(
         name, cost, type, rarity, target, color = color
-    ) {
+    ), OnCalculateCardDamage {
+
     init {
         setDamage(0)
-        AbstractWeaponPower.listOfWeaponCard.add(this)
-        if (AbstractDungeon.player != null) {
-            initDamage()
-        }
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
         return (p ?: AbstractDungeon.player).isWeaponEquipped()
     }
 
-    fun updateDamage(d: Int) {
-        baseDamage = d
+
+    override fun modifyTempBaseDamage(baseDamage: IntArray) {
+        AbstractDungeon.player?.apply {
+            val weaponPower = getWeaponPower()
+            weaponPower?.apply {
+                baseDamage[0] = baseDamage[0] + weaponPower.damage
+            }
+        }
     }
 
-
-    override fun triggerWhenDrawn() {
-        initDamage()
-    }
-
-    override fun triggerWhenCopied() {
-        initDamage()
-    }
-
-    /**
-     * 绑定武器的伤害
-     * （不知道是什么原因DamageModifier修改基础伤害的函数会不断执行，故弃用）
-     *  TODO 尝试使用patch修改
-     */
-    private fun initDamage() {
-        val weaponPower = AbstractDungeon.player?.getWeaponPower()
-        baseDamage = weaponPower?.damage ?: 0
-        utils.logger.info("初始化 武器牌攻击 $baseDamage $weaponPower")
+    override fun modifyTempBaseDamageMulti(baseDamages: FloatArray) {
+        AbstractDungeon.player?.apply {
+            val weaponPower = getWeaponPower()
+            weaponPower?.apply {
+                baseDamages.forEachIndexed { index, d ->
+                    baseDamages[index] = d + weaponPower.damage
+                }
+            }
+        }
     }
 
 }

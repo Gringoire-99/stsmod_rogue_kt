@@ -1,7 +1,5 @@
 package rogue.cards.skill
 
-import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -30,7 +28,7 @@ class DeadlyPoison() :
 
     override fun upgrade() {
         useUpgrade {
-            CardModifierManager.addModifier(this, RetainMod())
+            upgradeMagicNumber(2)
         }
     }
 
