@@ -1,13 +1,13 @@
 package rogue.cards.skill
 
 import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import rogue.cards.Mimicable
+import utils.addMod
 import utils.generateCardChoices
 import utils.mimic
 
@@ -23,15 +23,18 @@ class Cheatsheet :
     override var targetCard: AbstractCard? = null
 
     init {
-        CardModifierManager.addModifier(this, RetainMod())
+        addMod(RetainMod())
     }
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
-        val t = generateCardChoices(CardFilter(), 1)[0]
-        if (upgraded) {
-            t.upgrade()
+        val cardFilter = CardFilter(isUpgraded = upgraded)
+        val t = generateCardChoices(cardFilter, 1).firstOrNull()
+        t?.apply {
+            if (upgraded) {
+                t.upgrade()
+            }
+            this.mimic(t)
         }
-        this.mimic(t)
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {

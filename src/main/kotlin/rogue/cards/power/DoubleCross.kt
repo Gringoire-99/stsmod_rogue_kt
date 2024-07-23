@@ -30,7 +30,9 @@ class DoubleCross :
     }
 
     override fun upgrade() {
-        upgradeMagicNumber(1)
+        useUpgrade {
+            upgradeMagicNumber(1)
+        }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {

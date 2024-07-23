@@ -30,6 +30,7 @@ import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.Mimicable
 import rogue.characters.RogueEnum
 import rogue.power.weapon.AbstractWeaponPower
+import kotlin.math.min
 import kotlin.reflect.KClass
 
 val logger: Logger = LogManager.getLogger(Core.Companion::class.java.name)
@@ -179,13 +180,10 @@ fun AbstractCard.mimic(target: AbstractCard) {
 fun generateCardChoices(cardFilter: CardFilter = CardFilter(), number: Int = 4): ArrayList<AbstractCard> {
     val allCards = CardLibrary.getAllCards() as ArrayList<AbstractCard>
     val result = arrayListOf<AbstractCard>()
+    val abstractCards: ArrayList<AbstractCard>
     if (cardFilter.predicate != null) {
-        val abstractCards = allCards.filter(cardFilter.predicate) as ArrayList<AbstractCard>
-        repeat(4) {
-            result.add(abstractCards.random().makeSameInstanceOf())
-        }
+        abstractCards = allCards.filter(cardFilter.predicate).shuffled() as ArrayList<AbstractCard>
     } else {
-
         val cardType: (AbstractCard) -> Boolean = {
             it.type in cardFilter.cardType
         }
@@ -193,21 +191,21 @@ fun generateCardChoices(cardFilter: CardFilter = CardFilter(), number: Int = 4):
             it.rarity in cardFilter.cardRarity
         }
         val cardColor: (AbstractCard) -> Boolean = {
-            it.color in cardFilter.cardColor
+            it.color !in cardFilter.excludeColor
         }
         val costFilter: (AbstractCard) -> Boolean = {
             cardFilter.costFilter(it.cost)
         }
-        val abstractCards = allCards.filter {
-            cardType(it) && cardType(it) && cardRarity(it) && cardColor(it) && costFilter(it)
-        } as ArrayList<AbstractCard>
-        repeat(number) {
-            val c = abstractCards.random().makeSameInstanceOf()
-            if (cardFilter.isUpgraded) {
-                c.upgrade()
-            }
-            result.add(c)
+        val tagFilter: (AbstractCard) -> Boolean = {
+            it.tags.all { it !in cardFilter.excludeTags }
         }
+        abstractCards = allCards.filter {
+            cardType(it) && cardRarity(it) && cardColor(it) && costFilter(it) && tagFilter(it)
+        }.shuffled() as ArrayList<AbstractCard>
+    }
+    result.addAll(abstractCards.take(min(abstractCards.size, number)))
+    if (cardFilter.isUpgraded) {
+        allCards.forEach { it.upgrade() }
     }
     return result
 }

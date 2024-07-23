@@ -38,7 +38,7 @@ class LesserOnyxSpellstone :
     }
 
     override var level: Int = 1
-    override val maxUpgradeCount: Int = 6
+    override val maxUpgradeCount: Int = 4
 
     override var upgradeCount = 0
         set(value) {

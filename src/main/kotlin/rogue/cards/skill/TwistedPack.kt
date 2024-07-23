@@ -5,6 +5,7 @@ import basemod.cardmods.ExhaustMod
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import utils.addMod
 import utils.generateCardChoices
@@ -29,11 +30,8 @@ class TwistedPack :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        val cards = generateCardChoices(number = magicNumber)
+        val cards = generateCardChoices(number = magicNumber, cardFilter = CardFilter(isUpgraded = upgraded))
         cards.forEach {
-            if (upgraded) {
-                it.upgrade()
-            }
             it.addMod(EtherealMod())
             p?.apply {
                 addToBot(MakeTempCardInHandAction(it))

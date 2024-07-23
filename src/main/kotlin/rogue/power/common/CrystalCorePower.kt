@@ -13,9 +13,6 @@ class CrystalCorePower(owner: AbstractPlayer, val magic: Int = 3) :
     IAbstractPower(powerName = CrystalCorePower::class.simpleName.toString(), owner = owner, amount = -1),
     NonStackablePower, OnMakeTempCard {
 
-    init {
-        updateDescription()
-    }
 
     override fun onMakeTempCard(c: AbstractCard) {
         flash()

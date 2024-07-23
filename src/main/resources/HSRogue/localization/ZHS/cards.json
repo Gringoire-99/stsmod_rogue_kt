@@ -184,6 +184,7 @@
     "DESCRIPTION": "{@@}*奥秘： 回合开始时如果手牌中没有小抄，则将一张{!Upgrades!|>0=升级过的}小抄置入手中"
   },
   "HSRogue:Cheatsheet": {
+    "NAME": "小抄",
     "DESCRIPTION": "{@@}每次使用一张牌后，随机变化为其他职业的一张{!Upgrades!|>0=升级过的}牌"
   },
   "HSRogue:ValeerasGift": {
@@ -289,6 +290,22 @@
   "HSRogue:ShadowOfDemise": {
     "NAME": "殒命暗影",
     "DESCRIPTION": "变化为你最后使用的一张技能牌，它的效果增强 !M! 点 NL 此牌可无限强化"
+  },
+  "HSRogue:SonyaShadowdancer": {
+    "NAME": "影武者索尼娅",
+    "DESCRIPTION": "当你使用一张费用为0的牌时，将一张费用为1的临时复制置入手中"
+  },
+  "HSRogue:SonyaWaterdancer": {
+    "NAME": "水上武者索尼娅",
+    "DESCRIPTION": "当你使用一张费用为1的牌时，将一张费用为0的临时复制置入手中"
+  },
+  "HSRogue:VelarokWindblade": {
+    "NAME": "威拉罗克·温布雷",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 使用一张另一职业的卡牌以揭示威拉罗克的真正形态！"
+  },
+  "HSRogue:EdwinVanCleef": {
+    "NAME": "艾德温·范克里夫",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 本回合每使用一张卡伤害增加 !M! 点"
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

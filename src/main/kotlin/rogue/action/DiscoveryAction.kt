@@ -19,9 +19,10 @@ class DiscoveryAction
     }
 
     override fun update() {
+
         if (this.duration == Settings.ACTION_DUR_FAST) {
             AbstractDungeon.cardRewardScreen.customCombatOpen(
-                generateCardChoices(cardFilter),
+                ArrayList(generateCardChoices(cardFilter).take(4)),
                 CardRewardScreen.TEXT[1],
                 true
             )
