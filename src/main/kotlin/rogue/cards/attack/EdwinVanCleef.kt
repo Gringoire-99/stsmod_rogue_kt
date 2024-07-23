@@ -5,13 +5,13 @@ import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import rogue.cards.AbstractRogueCard
+import rogue.cards.AbstractComboCard
 import rogue.cards.OnCalculateCardDamage
 import utils.addMod
 import utils.dealDamage
 
 class EdwinVanCleef() :
-    AbstractRogueCard(
+    AbstractComboCard(
         name = EdwinVanCleef::class.simpleName.toString(),
         cost = 1,
         type = CardType.ATTACK,
@@ -24,8 +24,14 @@ class EdwinVanCleef() :
         addMod(RetainMod(), ExhaustMod())
     }
 
+    var additionalDamage = 0
+    override fun atTurnStart() {
+        additionalDamage = 0
+    }
+
     override fun modifyTempBaseDamage(baseDamage: IntArray) {
-        baseDamage[0] = baseDamage[0] + AbstractDungeon.actionManager.cardsPlayedThisTurn.size * magicNumber
+        additionalDamage = AbstractDungeon.actionManager.cardsPlayedThisTurn.size * magicNumber
+        baseDamage[0] = baseDamage[0] + additionalDamage
     }
 
     override fun upgrade() {
@@ -35,6 +41,9 @@ class EdwinVanCleef() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        useCombo {
+            damage += additionalDamage
+        }
         dealDamage(p, m, damage)
     }
 }

@@ -196,16 +196,23 @@ fun generateCardChoices(cardFilter: CardFilter = CardFilter(), number: Int = 4):
         val costFilter: (AbstractCard) -> Boolean = {
             cardFilter.costFilter(it.cost)
         }
-        val tagFilter: (AbstractCard) -> Boolean = {
+        val tagFilterExclude: (AbstractCard) -> Boolean = {
             it.tags.all { it !in cardFilter.excludeTags }
         }
+        val tagFilterInclude: (AbstractCard) -> Boolean = {
+            cardFilter.includeTags.size == 0 || it.tags.any { t ->
+                t in cardFilter.includeTags
+            }
+        }
         abstractCards = allCards.filter {
-            cardType(it) && cardRarity(it) && cardColor(it) && costFilter(it) && tagFilter(it)
+            cardType(it) && cardRarity(it) && cardColor(it) && costFilter(it) && tagFilterExclude(it) && tagFilterInclude(
+                it
+            )
         }.shuffled() as ArrayList<AbstractCard>
     }
-    result.addAll(abstractCards.take(min(abstractCards.size, number)))
+    result.addAll(abstractCards.take(min(abstractCards.size, number)).map { it.makeStatEquivalentCopy() })
     if (cardFilter.isUpgraded) {
-        allCards.forEach { it.upgrade() }
+        result.forEach { it.upgrade() }
     }
     return result
 }

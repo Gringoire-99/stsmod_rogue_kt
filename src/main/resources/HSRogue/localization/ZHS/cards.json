@@ -305,7 +305,15 @@
   },
   "HSRogue:EdwinVanCleef": {
     "NAME": "艾德温·范克里夫",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 本回合每使用一张卡伤害增加 !M! 点"
+    "DESCRIPTION": "造成 !D! 点伤害 NL 连击：本回合每使用一张卡伤害增加 !M! 点"
+  },
+  "HSRogue:MaestraMaskMerchant": {
+    "NAME": "面具变装大师",
+    "DESCRIPTION": "抽到/每回合开始时都会变化为一张其他职业的形态牌"
+  },
+  "HSRogue:ShadowcrafterScabbs": {
+    "NAME": "迅影匠师斯卡布斯",
+    "DESCRIPTION": "英雄 NL 你的初始能力升级为 *手法娴熟 NL 击晕所有怪物"
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

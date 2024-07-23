@@ -15,6 +15,7 @@ class DeathsShadowPower(owner: AbstractPlayer) :
     }
     override val afterApply = {
         addToBot(ApplyPowerAction(owner, owner, StealthPower(owner)))
+        addToBot(GetUniqueCardAction(ShadowReflection()))
         getBaseAbility()?.startOfTurn = ability
     }
 

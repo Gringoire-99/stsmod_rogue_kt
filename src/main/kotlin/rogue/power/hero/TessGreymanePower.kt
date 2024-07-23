@@ -12,11 +12,11 @@ import utils.discovery
 import utils.gainBlock
 
 class TessGreymanePower(owner: AbstractPlayer) :
-    AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString()) {
-    private var useCount = 1
+    AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString(), amount = 1) {
+
     private var useEnergy = 1
     override val ability: () -> Unit = {
-        if (useCount > 0) {
+        if (amount > 0) {
             val currentEnergy = EnergyPanel.getCurrentEnergy()
             if (currentEnergy - useEnergy >= 0) {
                 EnergyPanel.useEnergy(useEnergy)
@@ -26,7 +26,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
                     it.addMod(RetainMod())
                 }
             }
-            useCount--
+            amount--
         }
     }
     val ability1 = { _: AbstractCard ->
@@ -38,7 +38,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
     }
     val ability3 = {
         useEnergy = 0
-        useCount++
+        amount++
     }
     private val ability4 = { c: AbstractCard ->
         ability1(c)
@@ -52,6 +52,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
                 1 -> specialAbility = ability1
                 2 -> specialAbility = ability2
                 3 -> {
+                    specialAbility = {}
                     ability3()
                 }
 
@@ -68,7 +69,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
     }
 
     override fun atStartOfTurnPostDraw() {
-        useCount = 1
+        amount = 1
         useEnergy = 1
         specialAbilityCount++
     }

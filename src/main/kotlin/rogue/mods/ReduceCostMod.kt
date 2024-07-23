@@ -1,11 +1,13 @@
 package rogue.mods
 
 import basemod.abstracts.AbstractCardModifier
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
+import rogue.action.RemoveEndOfTurnModsAction
+import utils.logger
 import utils.makeId
 import kotlin.math.max
+import kotlin.math.min
 
 class ReduceCostMod(
     val amount: Int = 1,
@@ -23,8 +25,10 @@ class ReduceCostMod(
             if (!isTurnEffect) {
                 updateCost(-amount)
             } else {
+                logger.info("costForTurn $costForTurn amount $amount")
                 costForTurn = max(0, costForTurn - amount)
             }
+            isCostModified = true
         }
     }
 
@@ -33,8 +37,10 @@ class ReduceCostMod(
             if (!isTurnEffect) {
                 updateCost(amount)
             } else {
-                costForTurn += amount
+                logger.info("costForTurn $costForTurn amount $amount")
+                costForTurn = min(cost, costForTurn + amount)
             }
+            isCostModified = false
         }
     }
 
@@ -44,7 +50,7 @@ class ReduceCostMod(
 
     override fun onOtherCardPlayed(card: AbstractCard?, otherCard: AbstractCard?, group: CardGroup?) {
         if (removeOnOtherCardPlayed) {
-            CardModifierManager.removeModifiersById(card, id, true)
+            addToTop(RemoveEndOfTurnModsAction())
         }
     }
 
@@ -59,4 +65,5 @@ class ReduceCostMod(
     override fun makeCopy(): AbstractCardModifier {
         return ReduceCostMod()
     }
+
 }

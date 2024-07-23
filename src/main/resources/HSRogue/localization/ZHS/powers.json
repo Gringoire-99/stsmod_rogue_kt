@@ -104,7 +104,13 @@
   "HSRogue:WaterdancePower": {
     "NAME": "水舞",
     "DESCRIPTIONS": [
-      "当你使用一张1牌时，将一张费用为0的临时复制加入你的手牌,还有%d次，"
+      "当你使用一张费用为1牌时，将一张费用为0的临时复制加入你的手牌,还有%d次，"
+    ]
+  },
+  "HSRogue:SleightOfHandPower": {
+    "NAME": "手法娴熟",
+    "DESCRIPTIONS": [
+      "减少下一张手牌费用1点，两层充能，每回合回复一点"
     ]
   },
   "HSRogue:RetainPower": {

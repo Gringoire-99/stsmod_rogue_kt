@@ -18,5 +18,6 @@ class CardFilter(
         AbstractDungeon.player?.cardColor ?: RogueEnum.HS_ROGUE_CARD_COLOR,
         CardColor.COLORLESS,
         CardColor.CURSE
-    )
+    ),
+    val includeTags: HashSet<CardTags> = hashSetOf()
 )
