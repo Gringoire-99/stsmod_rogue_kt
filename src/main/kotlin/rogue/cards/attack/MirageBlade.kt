@@ -19,7 +19,7 @@ class MirageBlade :
     init {
         purgeOnUse = true
         addMod(RetainMod())
-        setMagicNumber(1)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {

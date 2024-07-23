@@ -9,7 +9,7 @@ import rogue.cards.power.CrystalCore
 
 class TheCavernsBelowPower(owner: AbstractCreature) :
     AbstractQuestPower(rawName = TheCavernsBelowPower::class.simpleName.toString(), owner = owner) {
-    override val maxCount: Int = 8
+    override val maxCount: Int = 6
     override fun onComplete() {
         addToBot(MakeTempCardInHandAction(CrystalCore()))
     }

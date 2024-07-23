@@ -22,8 +22,8 @@ class SpectralCutlass(
 
     override fun onAfterUseCard(card: AbstractCard?, action: UseCardAction?) {
         if (card?.isOtherClassCard((owner as? AbstractPlayer)?.cardColor) == true) {
-            duration++
-            damage++
+            duration += magic
+            damage += magic
         }
     }
 

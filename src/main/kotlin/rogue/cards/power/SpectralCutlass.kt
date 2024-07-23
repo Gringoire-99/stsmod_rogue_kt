@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class SpectralCutlass(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 2) :
+class SpectralCutlass(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 1) :
     AbstractWeaponPowerCard(
         name = SpectralCutlass::class.simpleName.toString(),
         cost = 2,
@@ -20,6 +20,7 @@ class SpectralCutlass(initialDamage: Int = 3, initialDuration: Int = 3, magic: I
     override fun upgrade() {
         useUpgrade {
             upgradeBaseCost(1)
+            upgradeMagicNumber(1)
         }
     }
 

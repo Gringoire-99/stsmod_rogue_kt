@@ -218,13 +218,12 @@ fun AbstractCard.addMod(vararg mod: AbstractCardModifier) {
     }
 }
 
-fun AbstractCard.isOtherClassCard(color: CardColor? = AbstractDungeon.player?.cardColor): Boolean {
-    val c = color ?: RogueEnum.HS_ROGUE_CARD_COLOR
-    val targetColor = if (this is Mimicable) this.targetCard?.color else color
+fun AbstractCard.isOtherClassCard(pColor: CardColor? = AbstractDungeon.player?.cardColor): Boolean {
+    val thisColor = if (this is Mimicable) this.targetCard?.color else color
+    val playerColor = pColor ?: AbstractDungeon.player?.cardColor ?: RogueEnum.HS_ROGUE_CARD_COLOR
     val type = this.type == CardType.SKILL || this.type == CardType.POWER || this.type == CardType.ATTACK
     val clazz =
-        targetColor != c && targetColor != CardColor.COLORLESS && targetColor != CardColor.CURSE && targetColor != null
-
+        thisColor != playerColor && thisColor != CardColor.COLORLESS && thisColor != CardColor.CURSE && thisColor != null
     return type && clazz
 }
 

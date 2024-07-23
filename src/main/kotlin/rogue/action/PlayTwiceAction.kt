@@ -8,7 +8,7 @@ import utils.addToQueue
 
 class PlayTwiceAction(val card: AbstractCard, val target: AbstractCreature?) : AbstractGameAction() {
     override fun update() {
-        val tmp: AbstractCard = card.makeSameInstanceOf()
+        val tmp: AbstractCard = card.makeStatEquivalentCopy()
         if (tmp is Tradeable) {
             tmp.isEnableTrade = false
         }

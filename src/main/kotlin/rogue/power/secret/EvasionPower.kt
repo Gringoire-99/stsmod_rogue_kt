@@ -24,6 +24,7 @@ class EvasionPower(owner: AbstractPlayer, val magicNumber: Int = 9) :
         }
     }
 
+
     override fun updateDescription() {
         description = powerString.DESCRIPTIONS[0].format(magicNumber)
         name = powerString.NAME

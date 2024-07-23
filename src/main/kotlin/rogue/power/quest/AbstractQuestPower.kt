@@ -36,10 +36,11 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
             "${amount}/${maxCount}",
             x,
             y,
-            Color.GREEN
+            Color.GREEN.cpy()
         )
 
     }
+
 
     abstract fun onComplete()
 

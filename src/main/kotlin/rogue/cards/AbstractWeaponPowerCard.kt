@@ -1,6 +1,8 @@
 package rogue.cards
 
+import basemod.cardmods.RetainMod
 import rogue.characters.RogueEnum
+import utils.addMod
 import kotlin.properties.Delegates
 
 abstract class AbstractWeaponPowerCard(
@@ -17,6 +19,9 @@ abstract class AbstractWeaponPowerCard(
     target = CardTarget.SELF,
     color = color
 ) {
+    init {
+        addMod(RetainMod())
+    }
 
     var isWeaponDamageModified: Boolean = false
     var isWeaponDurationModified: Boolean = false

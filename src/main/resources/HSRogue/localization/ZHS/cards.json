@@ -9,7 +9,7 @@
   },
   "HSRogue:Attack": {
     "NAME": "攻击！",
-    "DESCRIPTION": "{@@}使用 hsrogue:武器 攻击一个敌人( !D! ){!Upgrades!|0= NL 消耗1的武器耐久}"
+    "DESCRIPTION": "{@@}造成 !D! 点的 hsrogue:武器 伤害。 {!Upgrades!|0= NL 消耗1的武器耐久}"
   },
   "HSRogue:Backstab": {
     "NAME": "背刺",
@@ -17,11 +17,11 @@
   },
   "HSRogue:FanOfKnives": {
     "NAME": "刀扇",
-    "DESCRIPTION": "用 hsrogue:武器 攻击随机敌人 !M! 次，造成3点固定伤害"
+    "DESCRIPTION": "造成3点固定的 hsrogue:武器 伤害 NL !M! 次"
   },
   "HSRogue:BladeFlurry": {
     "NAME": "剑刃乱舞",
-    "DESCRIPTION": "{@@}使用 hsrogue:武器 攻击随机敌人，每有一点耐久攻击一次，最多攻击 !M! 次。失去等量耐久"
+    "DESCRIPTION": "{@@}随机造成 !D! 点 hsrogue:武器 伤害，每有一点耐久攻击一次，最多攻击 !M! 次。失去等量耐久"
   },
   "HSRogue:DeadlyPoison": {
     "NAME": "致命药膏",
@@ -57,7 +57,7 @@
   },
   "HSRogue:Assassinate": {
     "NAME": "刺杀",
-    "DESCRIPTION": "使用 hsrogue:武器 攻击一个敌人， *敏捷 在此牌上发挥 !M! 倍效果 ( !D! )"
+    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害， *敏捷 在此牌上发挥 !M! 倍效果"
   },
   "HSRogue:Vanish": {
     "NAME": "消失",
@@ -89,11 +89,11 @@
   },
   "HSRogue:Doomerang": {
     "NAME": "末日回旋镖",
-    "DESCRIPTION": "{@@}投掷你的武器，它会造成伤害然后回到你的手中{!Upgrades!|>0= NL 并使其减少1 [E] 与 *保留 }"
+    "DESCRIPTION": "{@@}投掷你的武器，它会造成 !D! 点伤害然后回到你的手中{!Upgrades!|>0= NL 并使其减少1 [E] }"
   },
   "HSRogue:Sabotage": {
     "NAME": "暗中破坏",
-    "DESCRIPTION": "{@@}对目标造成武器伤害{!Upgrades!|@=x|>0=x+1}次，处于潜行时 *回馈: !M!  "
+    "DESCRIPTION": "{@@}对目标造成 !D! 点武器伤害{!Upgrades!|@=x|>0=x+1}次，处于潜行时 *回馈: !M!  "
   },
   "HSRogue:SISevenExtortion": {
     "NAME": "军情七处的要挟",
@@ -149,7 +149,7 @@
   },
   "HSRogue:SecretPassage": {
     "NAME": "秘密通道",
-    "DESCRIPTION": "{@@}暂时移除你的手牌 NL 抽 {!Upgrades!|>0=同等数量(至少 !M! )张|0= !M! } 张牌。 NL 下回合换回"
+    "DESCRIPTION": "{@@}暂时移除你的手牌 NL 抽 !M! 张牌。 NL 下回合换回"
   },
   "HSRogue:SmokeBomb": {
     "NAME": "烟雾弹",
@@ -184,7 +184,6 @@
     "DESCRIPTION": "{@@}*奥秘： 回合开始时如果手牌中没有小抄，则将一张{!Upgrades!|>0=升级过的}小抄置入手中"
   },
   "HSRogue:Cheatsheet": {
-    "NAME": "小抄",
     "DESCRIPTION": "{@@}每次使用一张牌后，随机变化为其他职业的一张{!Upgrades!|>0=升级过的}牌"
   },
   "HSRogue:ValeerasGift": {
@@ -197,7 +196,7 @@
   },
   "HSRogue:SpectralCutlass": {
     "NAME": "幽灵弯刀",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 吸血： !M! NL 每次使用其他职业的牌时，获得+1/+1"
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 吸血： !M! NL 每次使用其他职业的牌时，获得+ !M! /+ !M!"
   },
   "HSRogue:Shadowblade": {
     "NAME": "暗影之刃",
@@ -229,7 +228,7 @@
   },
   "HSRogue:LesserOnyxSpellstone": {
     "NAME": "次级法术黑曜石",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 消耗卡片以升级（ !UC! /6）"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 消耗卡片以升级（ !UC! / !UCM! ）"
   },
   "HSRogue:PettyTheft": {
     "NAME": "小偷小摸",
@@ -253,23 +252,23 @@
   },
   "HSRogue:SherazinSeed": {
     "NAME": "瑟拉金之种",
-    "DESCRIPTION": "消耗6张卡片唤醒瑟拉金！（ !UC! /6） NL 唤醒的回合费用变为0"
+    "DESCRIPTION": "消耗6张卡片唤醒瑟拉金！（ !UC! / !UCM! ） NL 唤醒的回合费用变为0"
   },
   "HSRogue:TheCavernsBelow": {
     "NAME": "探索地下洞穴",
-    "DESCRIPTION": "任务：使用8张相同的牌（不为基础牌或无色牌），奖励： *水晶核心"
+    "DESCRIPTION": "任务：使用6张相同的牌（不为基础牌或无色牌），奖励： *水晶核心"
   },
   "HSRogue:CrystalCore": {
     "NAME": "水晶核心",
-    "DESCRIPTION": "强化你的所有卡片 !M! 点 NL 获得 !M! 点力量/敏捷"
+    "DESCRIPTION": "本场战斗强化你的所有卡片 !M! 点 NL 获得 !M! 点力量/敏捷"
   },
   "HSRogue:BazaarBurglary": {
     "NAME": "劫掠集市",
-    "DESCRIPTION": "任务：使用8张其他职业的牌，奖励：远古刀锋"
+    "DESCRIPTION": "任务：使用6张其他职业的牌，奖励：远古刀锋"
   },
   "HSRogue:MirageBlade": {
     "NAME": "幻象之刃",
-    "DESCRIPTION": "使用 hsrogue:武器 攻击一个敌人( !D! ) !M! 次"
+    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害 !M! 次"
   },
   "HSRogue:PotionOfIllusion": {
     "NAME": "幻觉药水",
@@ -286,6 +285,10 @@
   "HSRogue:TessGreymane": {
     "NAME": "苔丝·格雷迈恩",
     "DESCRIPTION": "*英雄 NL 你的初始能力升级为 *翻找(主动) "
+  },
+  "HSRogue:ShadowOfDemise": {
+    "NAME": "殒命暗影",
+    "DESCRIPTION": "变化为你最后使用的一张技能牌，它的效果增强 !M! 点 NL 此牌可无限强化"
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

@@ -13,7 +13,7 @@ class SecretPassage :
         name = SecretPassage::class.simpleName.toString(),
         cost = 1,
         type = CardType.SKILL,
-        rarity = CardRarity.RARE,
+        rarity = CardRarity.UNCOMMON,
         target = CardTarget.SELF
     ) {
     init {
@@ -29,7 +29,7 @@ class SecretPassage :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(SecretPassageAction(p = p ?: AbstractDungeon.player, upgraded = upgraded, draw = magicNumber))
+        addToBot(SecretPassageAction(p = p ?: AbstractDungeon.player, draw = magicNumber))
 
     }
 }

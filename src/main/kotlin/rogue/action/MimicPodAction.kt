@@ -6,7 +6,7 @@ import rogue.cards.skill.MimicPod
 import utils.mimic
 import kotlin.random.Random
 
-class MimicAction(val card: MimicPod) : AbstractGameAction() {
+class MimicPodAction(val card: MimicPod) : AbstractGameAction() {
     override fun update() {
         card.apply {
             val g = AbstractDungeon.player.hand.group

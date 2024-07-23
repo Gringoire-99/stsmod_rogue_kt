@@ -21,6 +21,6 @@ class PlagiarizePower(owner: AbstractPlayer, val upgraded: Boolean = false) :
         if (upgraded) {
             cheatsheet.upgrade()
         }
-        GetUniqueCardAction(cheatsheet)
+        addToBot(GetUniqueCardAction(cheatsheet))
     }
 }

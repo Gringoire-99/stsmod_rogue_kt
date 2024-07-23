@@ -94,9 +94,10 @@ abstract class AbstractWeaponPower(
         this.weaponName = CardCrawlGame.languagePack.getCardStrings(rawName.makeId()).NAME
         this.initialDamage = damage
         this.initialDuration = duration
-        updateDescription()
         baseDamageMods()
         getTempAttackCard()
+        this.updateDescription()
+        updatePowerDesc()
     }
 
     private fun baseDamageMods() {
@@ -250,7 +251,7 @@ abstract class AbstractWeaponPower(
         }
     }
 
-    final override fun updateDescription() {
+    override fun updateDescription() {
         this.description = powerString.DESCRIPTIONS[0]
         name = weaponName
     }

@@ -34,8 +34,8 @@ abstract class IAbstractPower(
         this.region48 = TextureAtlas.AtlasRegion(ImageMaster.loadImage(imgPath48), 0, 0, 32, 32)
         this.region128 = TextureAtlas.AtlasRegion(ImageMaster.loadImage(imgPath128), 0, 0, 84, 84)
         afterInit()
+        updateDescription()
         logger.info("创建能力$name")
-        this.updateDescription()
     }
 
     override fun updateDescription() {

@@ -1,10 +1,10 @@
 package rogue.cards.attack
 
 import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
+import rogue.mods.ReduceCostMod
 import rogue.power.weapon.AbstractWeaponPower
 import utils.addMod
 import utils.getWeaponPower
@@ -29,9 +29,7 @@ class Doomerang :
             }
             val copy = makeCopy()
             if (this@Doomerang.upgraded) {
-                copy.cost = if (copy.cost - 1 < 0) 0 else copy.cost - 1
-                copy.costForTurn = copy.cost
-                CardModifierManager.addModifier(copy, RetainMod())
+                copy.addMod(ReduceCostMod(1))
             }
             p.hand.addToHand(copy)
 

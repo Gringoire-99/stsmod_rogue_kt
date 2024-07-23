@@ -8,7 +8,7 @@ import utils.isOtherClassCard
 
 class BazaarBurglaryPower(owner: AbstractPlayer) :
     AbstractQuestPower(rawName = BazaarBurglaryPower::class.simpleName.toString(), owner = owner) {
-    override val maxCount: Int = 8
+    override val maxCount: Int = 6
     override fun onComplete() {
         (owner as? AbstractPlayer)?.apply {
             addToBot(ApplyPowerAction(this@apply, this@apply, AncientBlades(this@apply)))
