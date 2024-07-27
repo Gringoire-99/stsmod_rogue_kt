@@ -40,7 +40,7 @@ class ShadowOfDemise() :
             if (otherCard.type == CardType.SKILL && otherCard != this@ShadowOfDemise) {
                 val copy: AbstractCard = otherCard.makeStatEquivalentCopy()
                 copy.upBase(realMagic)
-                this.mimic(copy)
+                this@ShadowOfDemise.mimic(copy)
                 if (timesUpgraded > 0) {
                     updateName()
                 }

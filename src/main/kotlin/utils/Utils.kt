@@ -22,7 +22,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster.Intent
 import com.megacrit.cardcrawl.powers.AbstractPower
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import common.CardFilter
-import common.TradeCard
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import rogue.action.DiscoveryAction
@@ -123,11 +122,9 @@ fun Intent.isAttackIntent(): Boolean {
     return name == name1 || name == name2 || name == name3 || name == name4
 }
 
-val tradeStrings = CardCrawlGame.languagePack.getCardStrings(TradeCard::class.makeId())
 
-
-fun discovery(cardFilter: CardFilter = CardFilter(), cb: (card: AbstractCard) -> Unit = {}) {
-    AbstractDungeon.actionManager.addToBottom(DiscoveryAction(cardFilter, cb))
+fun discovery(cardFilter: CardFilter = CardFilter(), upgraded: Boolean = false, cb: (card: AbstractCard) -> Unit = {}) {
+    AbstractDungeon.actionManager.addToBottom(DiscoveryAction(cardFilter, upgraded, cb))
 }
 
 fun canPlayTradeCard(card: AbstractCard): Boolean {
@@ -146,7 +143,7 @@ fun AbstractCard.mimic(target: AbstractCard) {
     if (target.cost == -1) {
         energyOnUse = target.energyOnUse
     }
-
+    this.target = target.target
     cost = target.cost
     costForTurn = target.costForTurn
     freeToPlayOnce = target.freeToPlayOnce
@@ -177,49 +174,29 @@ fun AbstractCard.mimic(target: AbstractCard) {
     this.initializeDescription()
 }
 
-fun generateCardChoices(cardFilter: CardFilter = CardFilter(), number: Int = 4): ArrayList<AbstractCard> {
-    val allCards = CardLibrary.getAllCards() as ArrayList<AbstractCard>
-    val result = arrayListOf<AbstractCard>()
-    val abstractCards: ArrayList<AbstractCard>
-    if (cardFilter.predicate != null) {
-        abstractCards = allCards.filter(cardFilter.predicate).shuffled() as ArrayList<AbstractCard>
-    } else {
-        val cardType: (AbstractCard) -> Boolean = {
-            it.type in cardFilter.cardType
-        }
-        val cardRarity: (AbstractCard) -> Boolean = {
-            it.rarity in cardFilter.cardRarity
-        }
-        val cardColor: (AbstractCard) -> Boolean = {
-            it.color !in cardFilter.excludeColor
-        }
-        val costFilter: (AbstractCard) -> Boolean = {
-            cardFilter.costFilter(it.cost)
-        }
-        val tagFilterExclude: (AbstractCard) -> Boolean = {
-            it.tags.all { it !in cardFilter.excludeTags }
-        }
-        val tagFilterInclude: (AbstractCard) -> Boolean = {
-            cardFilter.includeTags.size == 0 || it.tags.any { t ->
-                t in cardFilter.includeTags
-            }
-        }
-        abstractCards = allCards.filter {
-            cardType(it) && cardRarity(it) && cardColor(it) && costFilter(it) && tagFilterExclude(it) && tagFilterInclude(
-                it
-            )
-        }.shuffled() as ArrayList<AbstractCard>
-    }
-    result.addAll(abstractCards.take(min(abstractCards.size, number)).map { it.makeStatEquivalentCopy() })
-    if (cardFilter.isUpgraded) {
+fun generateCardChoices(
+    cardFilter: CardFilter = CardFilter(),
+    number: Int = 4,
+    upgraded: Boolean = false
+): ArrayList<AbstractCard> {
+    val allCards = CardLibrary.getAllCards()
+    val filtered = cardFilter.filter(allCards)
+    val result = ArrayList(filtered.take(min(filtered.size, number)).map { it.makeSameInstanceOf() })
+    if (upgraded) {
         result.forEach { it.upgrade() }
     }
     return result
 }
 
-fun AbstractCard.addMod(vararg mod: AbstractCardModifier) {
-    mod.forEach {
+fun AbstractCard.addMod(vararg mods: AbstractCardModifier) {
+    mods.forEach {
         CardModifierManager.addModifier(this, it)
+    }
+}
+
+fun AbstractCard.removeMod(includeInherent: Boolean = false, vararg ids: String) {
+    ids.forEach {
+        CardModifierManager.removeModifiersById(this, it, includeInherent)
     }
 }
 
@@ -286,5 +263,5 @@ fun AbstractCard.addToQueue(card: AbstractCard, t: AbstractCreature?, purge: Boo
             CardQueueItem(this, m, card.energyOnUse, true, true),
         )
     }
-
 }
+

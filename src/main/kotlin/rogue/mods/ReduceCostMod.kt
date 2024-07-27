@@ -4,7 +4,6 @@ import basemod.abstracts.AbstractCardModifier
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
 import rogue.action.RemoveEndOfTurnModsAction
-import utils.logger
 import utils.makeId
 import kotlin.math.max
 import kotlin.math.min
@@ -25,11 +24,14 @@ class ReduceCostMod(
             if (!isTurnEffect) {
                 updateCost(-amount)
             } else {
-                logger.info("costForTurn $costForTurn amount $amount")
                 costForTurn = max(0, costForTurn - amount)
             }
             isCostModified = true
         }
+    }
+
+    override fun shouldApply(card: AbstractCard?): Boolean {
+        return card != null && card.cost >= 0
     }
 
     override fun onRemove(card: AbstractCard?) {
@@ -37,7 +39,6 @@ class ReduceCostMod(
             if (!isTurnEffect) {
                 updateCost(amount)
             } else {
-                logger.info("costForTurn $costForTurn amount $amount")
                 costForTurn = min(cost, costForTurn + amount)
             }
             isCostModified = false

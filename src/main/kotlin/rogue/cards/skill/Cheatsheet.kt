@@ -27,13 +27,10 @@ class Cheatsheet :
     }
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
-        val cardFilter = CardFilter(isUpgraded = upgraded)
-        val t = generateCardChoices(cardFilter, 1).firstOrNull()
+        val cardFilter = CardFilter()
+        val t = generateCardChoices(cardFilter, number = 1, upgraded = upgraded).firstOrNull()
         t?.apply {
-            if (upgraded) {
-                t.upgrade()
-            }
-            this.mimic(t)
+            this@Cheatsheet.mimic(t)
         }
     }
 

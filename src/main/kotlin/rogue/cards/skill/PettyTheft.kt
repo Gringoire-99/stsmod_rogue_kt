@@ -27,7 +27,7 @@ class PettyTheft :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        val filter = CardFilter(costFilter = { it == 0 })
+        val filter = CardFilter(cost = { it == 0 })
         val generateCardChoices = generateCardChoices(filter, magicNumber)
         generateCardChoices.forEach {
             addToBot(MakeTempCardInHandAction(it))

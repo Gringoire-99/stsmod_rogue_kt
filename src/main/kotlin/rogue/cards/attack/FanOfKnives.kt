@@ -16,7 +16,7 @@ class FanOfKnives :
         target = CardTarget.ALL_ENEMY
     ) {
     init {
-        setMagicNumber(3)
+        setMagicNumber(4)
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {

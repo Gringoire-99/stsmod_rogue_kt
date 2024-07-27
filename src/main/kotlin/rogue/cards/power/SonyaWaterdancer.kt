@@ -15,6 +15,10 @@ class SonyaWaterdancer() :
         target = CardTarget.SELF
     ) {
 
+    init {
+
+        setMagicNumber(1)
+    }
 
     override fun upgrade() {
         useUpgrade {
@@ -24,7 +28,7 @@ class SonyaWaterdancer() :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
-            addToBot(ApplyPowerAction(p, p, WaterdancePower(p), 1))
+            addToBot(ApplyPowerAction(p, p, WaterdancePower(p, magicNumber), 1))
         }
     }
 }

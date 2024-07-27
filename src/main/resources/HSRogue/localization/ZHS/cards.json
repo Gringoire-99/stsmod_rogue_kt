@@ -85,11 +85,11 @@
   },
   "HSRogue:TinkersSharpswordOil": {
     "NAME": "修补匠的磨刀油",
-    "DESCRIPTION": "使你的武器获得 !M! /1 NL 连击：效果翻倍"
+    "DESCRIPTION": "使你的武器获得 !M! /1 NL 连击：额外获得 !M! /1 "
   },
   "HSRogue:Doomerang": {
     "NAME": "末日回旋镖",
-    "DESCRIPTION": "{@@}投掷你的武器，它会造成 !D! 点伤害然后回到你的手中{!Upgrades!|>0= NL 并使其减少1 [E] }"
+    "DESCRIPTION": "{@@}投掷你的武器，它会对所有敌人造成 !D! 点伤害然后回到你的手中{!Upgrades!|>0= NL 并使其减少1 [E] }"
   },
   "HSRogue:Sabotage": {
     "NAME": "暗中破坏",
@@ -109,7 +109,7 @@
   },
   "HSRogue:Kingsbane": {
     "NAME": "弑君",
-    "DESCRIPTION": "{@@} hsrogue:武器 [ !WDamage! / !WDuration! ] NL 附加效果不会因为任何效果消失或降低 NL *亡语: 将此武器洗入你的弃牌堆"
+    "DESCRIPTION": "{@@} hsrogue:武器 [ !WDamage! / !WDuration! ] NL 附加效果不会因为任何效果消失或降低 NL *亡语: + !M! /+1,将此武器洗入你的抽牌堆"
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "黑水弯刀",
@@ -221,7 +221,7 @@
   },
   "HSRogue:Jackpot": {
     "NAME": "头等大奖",
-    "DESCRIPTION": "将其他职业花费大于等于2的 !M! 张卡置入手中，并使其获得 *保留"
+    "DESCRIPTION": "{@@}将其他职业花费大于等于2的{!Upgrades!|>0=升级过的} !M! 张卡置入手中，并使其获得 *保留"
   },
   "HSRogue:NecriumVial": {
     "NAME": "死金药剂",
@@ -293,11 +293,11 @@
   },
   "HSRogue:SonyaShadowdancer": {
     "NAME": "影武者索尼娅",
-    "DESCRIPTION": "当你使用一张费用为0的牌时，将一张费用为1的临时复制置入手中"
+    "DESCRIPTION": "当你使用一张费用为0的牌时，将一张费用为1的临时复制置入手中,每回合 !M! 次"
   },
   "HSRogue:SonyaWaterdancer": {
-    "NAME": "水上武者索尼娅",
-    "DESCRIPTION": "当你使用一张费用为1的牌时，将一张费用为0的临时复制置入手中"
+    "NAME": "水上舞者索尼娅",
+    "DESCRIPTION": "当你使用一张费用为1的牌时，将一张费用为0的临时复制置入手中,每回合 !M! 次"
   },
   "HSRogue:VelarokWindblade": {
     "NAME": "威拉罗克·温布雷",
@@ -314,6 +314,50 @@
   "HSRogue:ShadowcrafterScabbs": {
     "NAME": "迅影匠师斯卡布斯",
     "DESCRIPTION": "英雄 NL 你的初始能力升级为 *手法娴熟 NL 击晕所有怪物"
+  },
+  "HSRogue:Breakdance": {
+    "NAME": "街舞起跳",
+    "DESCRIPTION": "将弃牌堆的一张牌返回手牌，它获得 耐久： !M! "
+  },
+  "HSRogue:TripleSevens": {
+    "NAME": "三条七",
+    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 在使用 !UCM! 张牌后费用变为0 NL ( !UC! / !UCM! )"
+  },
+  "HSRogue:SpiritOfTheShark": {
+    "NAME": "鲨鱼之灵",
+    "DESCRIPTION": "你的连击效果触发两次"
+  },
+  "HSRogue:GearShift": {
+    "NAME": "换挡漂移",
+    "DESCRIPTION": "弃掉最左边的两张牌，抽 !M! 张牌"
+  },
+  "HSRogue:Deafen": {
+    "NAME": "致聋术",
+    "DESCRIPTION": "*沉默 一个敌人 NL 连击：造成 !D! 点伤害"
+  },
+  "HSRogue:GhostlyStrike": {
+    "NAME": "鬼魅攻击",
+    "DESCRIPTION": "造成 !D! 点伤害 NL 连击：抽 !M! 张牌"
+  },
+  "HSRogue:Garrote": {
+    "NAME": "锁喉",
+    "DESCRIPTION": "{@@}将 !M! 张{!Upgrades!|>0=升级过的} *流血 洗入弃牌堆"
+  },
+  "HSRogue:Bleed": {
+    "NAME": "流血",
+    "DESCRIPTION": "抽到时释放，对随机敌人造成 !D! 点伤害"
+  },
+  "HSRogue:GoneFishin": {
+    "NAME": "垂钓时光",
+    "DESCRIPTION": "探底: !M! NL 连击：抽一张牌"
+  },
+  "HSRogue:SketchyInformation": {
+    "NAME": "简略情报",
+    "DESCRIPTION": "抽 !M! 张费用为0的牌"
+  },
+  "HSRogue:QuickPick": {
+    "NAME": "急速矿锄",
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",

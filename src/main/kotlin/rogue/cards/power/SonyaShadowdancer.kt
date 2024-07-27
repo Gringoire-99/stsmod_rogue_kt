@@ -14,7 +14,9 @@ class SonyaShadowdancer() :
         rarity = CardRarity.RARE,
         target = CardTarget.SELF
     ) {
-
+    init {
+        setMagicNumber(3)
+    }
 
     override fun upgrade() {
         useUpgrade {
@@ -24,7 +26,7 @@ class SonyaShadowdancer() :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
-            addToBot(ApplyPowerAction(p, p, ShadowdancePower(p), 1))
+            addToBot(ApplyPowerAction(p, p, ShadowdancePower(p, magicNumber), magicNumber))
         }
     }
 }

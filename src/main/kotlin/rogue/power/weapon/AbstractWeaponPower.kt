@@ -60,6 +60,7 @@ abstract class AbstractWeaponPower(
     protected var additionalDamage = 0
 
     private val weaponName: String
+    private val weaponDesc: String
     private var damageColor: Color = Color.GREEN.cpy()
     private var durationColor: Color = Color.GREEN.cpy()
     open var poisonCount = 0
@@ -91,7 +92,9 @@ abstract class AbstractWeaponPower(
     init {
         this.owner = AbstractDungeon.player
 //        具体武器能力名字来源与对应的武器技能卡
-        this.weaponName = CardCrawlGame.languagePack.getCardStrings(rawName.makeId()).NAME
+        val cardStrings = CardCrawlGame.languagePack.getCardStrings(rawName.makeId())
+        this.weaponName = cardStrings.NAME
+        this.weaponDesc = cardStrings.DESCRIPTION
         this.initialDamage = damage
         this.initialDuration = duration
         baseDamageMods()
@@ -151,7 +154,7 @@ abstract class AbstractWeaponPower(
         val id = AbstractWeaponPower::class.makeId()
     }
 
-    override fun atStartOfTurnPostDraw() {
+    override fun atStartOfTurn() {
         turnAttackCount = 0
         isGetAttackCard = false
         getTempAttackCard()
@@ -160,8 +163,7 @@ abstract class AbstractWeaponPower(
     /**
      * TODO localization
      */
-    fun updatePowerDesc(wDamage: Int = damage, wDuration: Int = duration) {
-        this.description = powerString.DESCRIPTIONS[0].format(weaponName, wDamage, wDuration)
+    fun updatePowerDesc() {
         if (leechCount > 0) {
             this.description += " NL 吸血：${leechCount}"
         }
@@ -252,8 +254,8 @@ abstract class AbstractWeaponPower(
     }
 
     override fun updateDescription() {
-        this.description = powerString.DESCRIPTIONS[0]
         name = weaponName
+        this.description = powerString.DESCRIPTIONS[0].format(name, weaponDesc)
     }
 
     abstract fun makeCopy(): AbstractWeaponPowerCard

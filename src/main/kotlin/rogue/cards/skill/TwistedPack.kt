@@ -30,7 +30,7 @@ class TwistedPack :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        val cards = generateCardChoices(number = magicNumber, cardFilter = CardFilter(isUpgraded = upgraded))
+        val cards = generateCardChoices(number = magicNumber, cardFilter = CardFilter(), upgraded = upgraded)
         cards.forEach {
             it.addMod(EtherealMod())
             p?.apply {

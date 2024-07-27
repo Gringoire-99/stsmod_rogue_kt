@@ -2,7 +2,7 @@
   "HSRogue:AbstractWeaponPower": {
     "NAME": "武器",
     "DESCRIPTIONS": [
-      "已装备武器  NL #y%s NL #y攻击%d #y耐久%d "
+      "已装备武器 #y%s NL %s"
     ]
   },
   "HSRogue:StealthPower": {
@@ -104,13 +104,25 @@
   "HSRogue:WaterdancePower": {
     "NAME": "水舞",
     "DESCRIPTIONS": [
-      "当你使用一张费用为1牌时，将一张费用为0的临时复制加入你的手牌,还有%d次，"
+      "当你使用一张费用为1牌时，将一张费用为0的临时复制加入你的手牌"
     ]
   },
   "HSRogue:SleightOfHandPower": {
     "NAME": "手法娴熟",
     "DESCRIPTIONS": [
       "减少下一张手牌费用1点，两层充能，每回合回复一点"
+    ]
+  },
+  "HSRogue:SpiritOfTheSharkPower": {
+    "NAME": "鲨鱼之灵",
+    "DESCRIPTIONS": [
+      "你的连击效果触发两次"
+    ]
+  },
+  "HSRogue:SilencePower": {
+    "NAME": "被沉默",
+    "DESCRIPTIONS": [
+      "被移除了所有正面buff,回合结束时移除"
     ]
   },
   "HSRogue:RetainPower": {

@@ -1,7 +1,10 @@
 package rogue.cards
 
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import rogue.power.SpiritOfTheSharkPower
 import utils.logger
+import utils.makeId
 
 abstract class AbstractComboCard(name: String, cost: Int, type: CardType, rarity: CardRarity, target: CardTarget) :
     AbstractRogueCard(
@@ -32,6 +35,12 @@ abstract class AbstractComboCard(name: String, cost: Int, type: CardType, rarity
             comboCount++
             isEnableComboEffect = true
             cb()
+            AbstractDungeon.player?.apply {
+                if (hasPower(SpiritOfTheSharkPower::class.makeId())) {
+                    cb()
+                }
+            }
+
             logger.info("开启连击效果")
         }
         return isEnableComboEffect

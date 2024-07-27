@@ -10,7 +10,11 @@ import common.CardFilter
 import utils.generateCardChoices
 
 class DiscoveryAction
-    (private val cardFilter: CardFilter = CardFilter(), val cb: (AbstractCard) -> Unit = {}) : AbstractGameAction() {
+    (
+    private val cardFilter: CardFilter = CardFilter(),
+    val isUpgraded: Boolean = false,
+    val cb: (AbstractCard) -> Unit = {}
+) : AbstractGameAction() {
     private var retrieveCard = false
 
     init {
@@ -22,7 +26,7 @@ class DiscoveryAction
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
             AbstractDungeon.cardRewardScreen.customCombatOpen(
-                ArrayList(generateCardChoices(cardFilter).take(4)),
+                ArrayList(generateCardChoices(cardFilter, number = 4, upgraded = isUpgraded).take(4)),
                 CardRewardScreen.TEXT[1],
                 true
             )

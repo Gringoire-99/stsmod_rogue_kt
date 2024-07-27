@@ -28,8 +28,8 @@ class Jackpot :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        val filter = CardFilter(costFilter = { it >= 2 })
-        val generateCardChoices = generateCardChoices(filter, magicNumber)
+        val filter = CardFilter(cost = { it >= 2 })
+        val generateCardChoices = generateCardChoices(filter, magicNumber, upgraded = upgraded)
         generateCardChoices.forEach {
             it.addMod(RetainMod())
             addToBot(MakeTempCardInHandAction(it))

@@ -7,7 +7,7 @@ import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 import utils.addMod
 
-class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
+class Kingsbane(wDamage: Int = 3, wDuration: Int = 3, val magic: Int = 2) :
     AbstractWeaponPowerCard(
         name = Kingsbane::class.simpleName.toString(),
         cost = 1,
@@ -15,6 +15,10 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
         initialDamage = wDamage,
         initialDuration = wDuration,
     ) {
+    init {
+        setMagicNumber(magic)
+    }
+
     private var copy: rogue.power.weapon.Kingsbane? = null
     fun setWeaponCopy(copy: rogue.power.weapon.Kingsbane) {
         this.copy = copy
@@ -32,6 +36,7 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
     override fun upgrade() {
         useUpgrade {
             addMod(InnateMod())
+            upgradeMagicNumber(1)
         }
     }
 
@@ -39,7 +44,8 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3) :
         val kingsbane = copy ?: rogue.power.weapon.Kingsbane(
             damage = initialDamage,
             duration = initialDuration,
-            upgraded = upgraded
+            upgraded = upgraded,
+            magic = magicNumber
         )
         addToBot(
             EquipWeaponAction(

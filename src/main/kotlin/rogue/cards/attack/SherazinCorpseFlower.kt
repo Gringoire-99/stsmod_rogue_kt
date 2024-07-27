@@ -22,7 +22,7 @@ class SherazinCorpseFlower :
         target = CardTarget.ENEMY
     ) {
     init {
-        setDamage(3)
+        setDamage(4)
         setMagicNumber(3)
         addMod(ExhaustMod())
     }

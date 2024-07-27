@@ -9,7 +9,6 @@ class DrawCardFromDiscardPileAction(val cb: (card: AbstractCard) -> Unit = {}) :
     override fun update() {
         val topCard = AbstractDungeon.player.discardPile.topCard
         if (!AbstractDungeon.player.discardPile.isEmpty) {
-
             addToTop(
                 MoveCardsAction(
                     AbstractDungeon.player.hand,

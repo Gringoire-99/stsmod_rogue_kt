@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.TradeCard
 import rogue.cards.Tradeable
-import utils.tradeStrings
 
 class TradePatch {
     @SpirePatch2(clz = AbstractPlayer::class, method = "useCard")
@@ -30,7 +29,7 @@ class TradePatch {
                     AbstractDungeon.actionManager.addToTop(
                         SelectCardsAction(
                             arrayListOf(c, trade),
-                            tradeStrings.EXTENDED_DESCRIPTION[0]
+                            trade.tradeStrings.EXTENDED_DESCRIPTION[0]
                         ) { cards ->
                             val selection = cards[0]
                             if (selection is TradeCard) {

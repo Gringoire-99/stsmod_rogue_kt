@@ -94,6 +94,7 @@ class LesserOnyxSpellstone :
     override fun makeStatEquivalentCopy(): AbstractCard {
         val copy = super.makeStatEquivalentCopy() as LesserOnyxSpellstone
         copy.level = level
+        copy.upgradeCount = upgradeCount
         copy.onLevelUp()
         return copy
     }

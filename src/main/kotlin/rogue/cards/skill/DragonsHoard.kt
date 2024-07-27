@@ -20,9 +20,9 @@ class DragonsHoard :
         addMod(ExhaustMod())
     }
 
-    private val filter = CardFilter(isUpgraded = true, cardRarity = hashSetOf(CardRarity.RARE))
+    private val filter = CardFilter(cardRarity = hashSetOf(CardRarity.RARE))
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        discovery(filter) {
+        discovery(filter, upgraded = true) {
             if (upgraded) {
                 it.freeToPlayOnce = true
             }

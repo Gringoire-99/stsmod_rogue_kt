@@ -28,11 +28,11 @@ class Eviscerate :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        if (!useCombo {
-                dealDamage(p, m, damage + magicNumber)
-                addToBot(ApplyPowerAction(m, p, VulnerablePower(m, 2, false), 2))
-            }) {
-            dealDamage(p, m, damage)
+        var d = damage
+        useCombo {
+            d += magicNumber
+            addToBot(ApplyPowerAction(m, p, VulnerablePower(m, 2, false), 2))
         }
+        dealDamage(p, m, d)
     }
 }

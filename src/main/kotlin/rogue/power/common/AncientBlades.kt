@@ -28,7 +28,7 @@ class AncientBlades(owner: AbstractPlayer) :
         }
     }
 
-    override fun atStartOfTurnPostDraw() {
+    override fun atStartOfTurn() {
         addToBot(GetUniqueCardAction(MirageBlade()))
     }
 

@@ -2,7 +2,7 @@ package rogue.cards.skill
 
 import basemod.cardmods.EtherealMod
 import basemod.cardmods.ExhaustMod
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDiscardAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
@@ -34,8 +34,7 @@ class AcademicEspionage :
         val cards = generateCardChoices(number = magicNumber)
         cards.forEach {
             it.addMod(ExhaustMod(), EtherealMod(), ReduceCostMod(1), DrawCardMod())
-            addToBot(MakeTempCardInDrawPileAction(it, 1, true, true))
-
+            addToBot(MakeTempCardInDiscardAction(it, 1))
         }
     }
 }

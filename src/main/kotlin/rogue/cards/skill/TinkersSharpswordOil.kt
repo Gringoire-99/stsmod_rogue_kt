@@ -33,8 +33,8 @@ class TinkersSharpswordOil :
         var addDamage = magicNumber
         var addDuration = 1
         useCombo {
-            addDamage *= 2
-            addDuration *= 2
+            addDamage += addDamage
+            addDuration += addDuration
         }
         p?.getWeaponPower()?.apply {
             damage += addDamage
