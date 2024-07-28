@@ -31,10 +31,10 @@ class GangUp :
         addToBot(SelectCardsInHandAction(1, "选择一张卡消耗", false, false, { true }) { cards ->
             cards.forEach {
                 val c = it
+                addToTop(ExhaustSpecificCardAction(it, p?.hand))
                 repeat(magicNumber) {
                     AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(c.makeStatEquivalentCopy()))
                 }
-                addToBot(ExhaustSpecificCardAction(it, p?.hand))
             }
         })
     }

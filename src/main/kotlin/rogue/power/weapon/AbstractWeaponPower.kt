@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.evacipated.cardcrawl.mod.stslib.damagemods.BindingHelper
 import com.evacipated.cardcrawl.mod.stslib.damagemods.DamageModContainer
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower
-import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect
 import com.megacrit.cardcrawl.actions.common.*
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType
@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.helpers.FontHelper
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.GainStrengthPower
 import com.megacrit.cardcrawl.powers.PoisonPower
 import com.megacrit.cardcrawl.powers.StrengthPower
@@ -23,6 +24,7 @@ import rogue.mods.OnAttack
 import rogue.mods.OnLastDamageTakenUpdate
 import rogue.mods.WeaponDamageMod
 import rogue.power.IAbstractPower
+import utils.getRandomMonster
 import utils.makeId
 
 abstract class AbstractWeaponPower(
@@ -152,6 +154,10 @@ abstract class AbstractWeaponPower(
         var turnAttackCount = 0
         var isGetAttackCard = false
         val id = AbstractWeaponPower::class.makeId()
+        fun reset() {
+            isGetAttackCard = false
+            turnAttackCount = 0
+        }
     }
 
     override fun atStartOfTurn() {
@@ -213,25 +219,30 @@ abstract class AbstractWeaponPower(
 
     //使用武器对一个敌人造成武器伤害
     fun attack(
-        target: AbstractCreature? = AbstractDungeon.getRandomMonster(),
+        target: AbstractMonster? = getRandomMonster(),
         source: AbstractCreature? = owner,
         loseDuration: Int = 0,
         damage: Int = 0,
+        attackEffect: AttackEffect = AttackEffect.SLASH_DIAGONAL,
+        vfx: (target: AbstractCreature) -> Unit = {}
     ) {
         val damageModContainer = DamageModContainer(this, damageModifier)
-        val action = DamageAction(
-            target,
-            BindingHelper.makeInfo(damageModContainer, source, damage, DamageType.NORMAL),
-            AbstractGameAction.AttackEffect.BLUNT_LIGHT
-        )
-        if (duration <= 0) return
+        target?.let {
+            val action = DamageAction(
+                it,
+                BindingHelper.makeInfo(damageModContainer, source, damage, DamageType.NORMAL),
+                attackEffect
+            )
+            if (duration <= 0) return
+            vfx(it)
+            addToBot(
+                action
+            )
 
-        this.addToBot(
-            action
-        )
+            this@AbstractWeaponPower.flash()
+            loseDuration(loseDuration)
+        }
 
-        flash()
-        loseDuration(loseDuration)
 
     }
 

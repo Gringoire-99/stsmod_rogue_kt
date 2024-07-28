@@ -1,9 +1,11 @@
 package rogue.cards.power
 
+import basemod.cardmods.InnateMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
+import utils.addMod
 
 class QuickPick(initialDamage: Int = 2, initialDuration: Int = 6, magic: Int = 1) :
     AbstractWeaponPowerCard(
@@ -17,6 +19,7 @@ class QuickPick(initialDamage: Int = 2, initialDuration: Int = 6, magic: Int = 1
 
     override fun upgrade() {
         useUpgrade {
+            addMod(InnateMod())
             weaponDamage++
             weaponDuration += 2
         }

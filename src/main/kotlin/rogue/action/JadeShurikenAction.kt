@@ -14,24 +14,30 @@ import utils.makeId
 class JadeShurikenAction(val p: AbstractPlayer, val m: AbstractMonster, val card: AbstractCard) : AbstractGameAction() {
     override fun update() {
         val cards = p.hand.group.filter {
-            val id = if (it is Mimicable) it.targetCard?.cardID else it.cardID
-            id == JadeShuriken::class.makeId()
+            it.cardID == JadeShuriken::class.makeId() || (it is Mimicable && it.targetCard?.cardID == JadeShuriken::class.makeId())
         }
+
         cards.forEach { _ ->
             addToTop(
                 MoveCardsAction(
                     AbstractDungeon.player.limbo,
                     AbstractDungeon.player.hand,
                     { card: AbstractCard ->
-                        card.cardID == JadeShuriken::class.makeId()
+                        card in cards
                     },
-                    cards.size,
-                    {
-                        it.forEach { c ->
-                            c.addToQueue(card, m, random = true)
+                    cards.size
+                ) {
+                    it.forEach { c ->
+                        c.addToQueue(card, m, random = true) {
+                            MoveCardsAction(
+                                AbstractDungeon.player.discardPile, AbstractDungeon.player.limbo,
+                                { card: AbstractCard ->
+                                    card in cards
+                                }, cards.size
+                            )
                         }
                     }
-                )
+                }
             )
         }
         isDone = true

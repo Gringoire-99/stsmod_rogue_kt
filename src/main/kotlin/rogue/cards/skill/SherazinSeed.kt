@@ -4,16 +4,21 @@ import basemod.cardmods.RetainMod
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
+import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
+import rogue.cards.LevelInterface
 import rogue.cards.OnExhaustInterface
-import rogue.cards.UpgradeInterface
 import rogue.cards.attack.SherazinCorpseFlower
+import rogue.cards.impls.LevelInterfaceImpl
 import utils.addMod
 
-class SherazinSeed :
+class SherazinSeed(
+    private val upgradeImpl: LevelInterfaceImpl =
+        LevelInterfaceImpl(maxExpr = 4, maxLevel1 = 2)
+) :
     AbstractRogueCard(
         name = SherazinSeed::class.simpleName.toString(),
         cost = -2,
@@ -21,30 +26,12 @@ class SherazinSeed :
         rarity = CardRarity.SPECIAL,
         target = CardTarget.NONE,
         color = CardColor.COLORLESS
-    ), OnExhaustInterface, UpgradeInterface {
+    ), OnExhaustInterface, LevelInterface by upgradeImpl {
     init {
         addMod(RetainMod())
         PurgeField.purge.set(this, true)
-    }
-
-    override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-    }
-
-    override var upgradeCount: Int = 0
-    override val maxUpgradeCount: Int = 6
-    override var level: Int = 0
-
-    override fun onMaxUpgrade() {
-    }
-
-    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return false
-    }
-
-    override fun afterCardExhausted() {
-        upgradeCount++
-        if (upgradeCount >= maxUpgradeCount) {
-            upgradeCount = 0
+        upgradeImpl.onMaxLevelCb = {
+            resetLevel()
             val flower = SherazinCorpseFlower()
             if (upgraded) {
                 flower.upgrade()
@@ -53,5 +40,22 @@ class SherazinSeed :
             addToBot(MakeTempCardInHandAction(flower))
             addToBot(ExhaustSpecificCardAction(this, AbstractDungeon.player.hand))
         }
+    }
+
+    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
+        return false
+    }
+
+    override fun use(p0: AbstractPlayer?, p1: AbstractMonster?) {
+    }
+
+    override fun afterCardExhausted() {
+        exp++
+    }
+
+    override fun makeStatEquivalentCopy(): AbstractCard {
+        val copy = super.makeStatEquivalentCopy() as SherazinSeed
+        copy.exp = this.exp
+        return copy
     }
 }

@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
+import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
 import rogue.cards.Mimicable
 import utils.addMod
@@ -27,11 +28,13 @@ class Cheatsheet :
     }
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
-        val cardFilter = CardFilter()
-        val t = generateCardChoices(cardFilter, number = 1, upgraded = upgraded).firstOrNull()
-        t?.apply {
-            this@Cheatsheet.mimic(t)
-        }
+        addToBot(EmptyAction {
+            val cardFilter = CardFilter()
+            val t = generateCardChoices(cardFilter, number = 1, upgraded = upgraded).firstOrNull()
+            t?.apply {
+                this@Cheatsheet.mimic(t)
+            }
+        })
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {

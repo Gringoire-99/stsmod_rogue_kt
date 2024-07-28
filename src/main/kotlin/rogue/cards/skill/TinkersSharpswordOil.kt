@@ -3,6 +3,7 @@ package rogue.cards.skill
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.action.EmptyAction
 import rogue.cards.AbstractComboCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
@@ -36,11 +37,13 @@ class TinkersSharpswordOil :
             addDamage += addDamage
             addDuration += addDuration
         }
-        p?.getWeaponPower()?.apply {
-            damage += addDamage
-            duration += addDuration
-            updatePowerDesc()
-        }
+        addToBot(EmptyAction {
+            p?.getWeaponPower()?.apply {
+                damage += addDamage
+                duration += addDuration
+                updatePowerDesc()
+            }
+        })
 
     }
 }

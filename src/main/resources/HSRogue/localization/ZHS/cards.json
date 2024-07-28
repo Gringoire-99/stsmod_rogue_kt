@@ -229,7 +229,7 @@
   },
   "HSRogue:LesserOnyxSpellstone": {
     "NAME": "次级法术黑曜石",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 消耗卡片以升级（ !UC! / !UCM! ）"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 消耗卡片以升级（ !exp! / !expM! ）"
   },
   "HSRogue:PettyTheft": {
     "NAME": "小偷小摸",
@@ -253,7 +253,7 @@
   },
   "HSRogue:SherazinSeed": {
     "NAME": "瑟拉金之种",
-    "DESCRIPTION": "消耗6张卡片唤醒瑟拉金！（ !UC! / !UCM! ） NL 唤醒的回合费用变为0"
+    "DESCRIPTION": "消耗6张卡片唤醒瑟拉金！（ !exp! / !expM! ） NL 唤醒的回合费用变为0"
   },
   "HSRogue:TheCavernsBelow": {
     "NAME": "探索地下洞穴",
@@ -305,7 +305,7 @@
   },
   "HSRogue:EdwinVanCleef": {
     "NAME": "艾德温·范克里夫",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 连击：本回合每使用一张卡伤害增加 !M! 点"
+    "DESCRIPTION": "造成 !D! 点伤害 NL 本回合每使用一张卡使额外伤害增加 !M! 点, 触发连击效果时获得三倍增益 NL 连击：额外伤害额外附加一次"
   },
   "HSRogue:MaestraMaskMerchant": {
     "NAME": "面具变装大师",
@@ -321,7 +321,7 @@
   },
   "HSRogue:TripleSevens": {
     "NAME": "三条七",
-    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 在使用 !UCM! 张牌后费用变为0 NL ( !UC! / !UCM! )"
+    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 在使用 !expM! 张牌后费用变为0 NL ( !exp! / !expM! )"
   },
   "HSRogue:SpiritOfTheShark": {
     "NAME": "鲨鱼之灵",

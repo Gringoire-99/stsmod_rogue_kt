@@ -15,7 +15,7 @@ import utils.mimic
 class MaestraMaskMerchant() :
     AbstractRogueCard(
         name = MaestraMaskMerchant::class.simpleName.toString(),
-        cost = -2,
+        cost = 2,
         type = CardType.POWER,
         rarity = CardRarity.RARE,
         target = CardTarget.SELF
@@ -30,6 +30,8 @@ class MaestraMaskMerchant() :
         take?.let {
             this.mimic(it)
             this.isEthereal = false
+            this.cost = 2
+            this.costForTurn = 2
         }
     }
 

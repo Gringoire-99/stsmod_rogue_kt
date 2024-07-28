@@ -2,31 +2,31 @@ package rogue.cards.variables
 
 import basemod.abstracts.DynamicVariable
 import com.megacrit.cardcrawl.cards.AbstractCard
-import rogue.cards.UpgradeInterface
+import rogue.cards.LevelInterface
 
-class UpgradeVariable : DynamicVariable() {
+class ExpVariable : DynamicVariable() {
     override fun key(): String {
-        return "UC"
+        return "exp"
     }
 
     override fun isModified(c: AbstractCard?): Boolean {
-        if (c is UpgradeInterface) {
-            return c.upgradeCount > 0
+        if (c is LevelInterface) {
+            return c.exp > 0
         }
 
         return false
     }
 
     override fun value(c: AbstractCard?): Int {
-        if (c is UpgradeInterface) {
-            return c.upgradeCount
+        if (c is LevelInterface) {
+            return c.exp
         }
         return 0
     }
 
     override fun baseValue(c: AbstractCard?): Int {
-        if (c is UpgradeInterface) {
-            return c.upgradeCount
+        if (c is LevelInterface) {
+            return c.exp
         }
         return 0
     }

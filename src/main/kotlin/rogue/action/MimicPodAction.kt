@@ -11,17 +11,27 @@ class MimicPodAction(val card: MimicPod) : AbstractGameAction() {
         card.apply {
             val g = AbstractDungeon.player.hand.group
             val indexOfOld = g.indexOf(this)
-            if (indexOfOld == -1) {
+            if (indexOfOld == -1 || g.size <= 1) {
+                isDone = true
                 return
             }
             var pos = indexOfOld
             val nextBoolean = Random.nextBoolean()
-            if (pos + 1 == g.size) {
-                pos -= 1
-            } else if (pos == 0) {
-                pos += 1
-            } else {
-                pos = if (nextBoolean) pos + 1 else pos - 1
+
+            when (pos) {
+                g.size - 1 -> {
+                    pos -= 1
+                }
+
+                0 -> {
+                    pos += 1
+                }
+
+                else -> {
+                    if (g.size >= 3) {
+                        pos = if (nextBoolean) pos + 1 else pos - 1
+                    }
+                }
             }
 
             val target = g[pos].makeStatEquivalentCopy()

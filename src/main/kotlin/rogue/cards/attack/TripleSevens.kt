@@ -5,42 +5,39 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
-import rogue.cards.UpgradeInterface
+import rogue.cards.LevelInterface
+import rogue.cards.impls.LevelInterfaceImpl
 import utils.addMod
 import utils.dealDamage
 import utils.drawCard
 
-class TripleSevens() :
+class TripleSevens(
+    private val upgradeImpl: LevelInterfaceImpl =
+        LevelInterfaceImpl(maxExpr = 7, maxLevel1 = 2)
+) :
     AbstractRogueCard(
         name = TripleSevens::class.simpleName.toString(),
         cost = 7,
         type = CardType.ATTACK,
         rarity = CardRarity.COMMON,
         target = CardTarget.ENEMY
-    ), UpgradeInterface {
+    ), LevelInterface by upgradeImpl {
     init {
+        upgradeImpl.onMaxLevelCb = {
+            freeToPlayOnce = true
+            resetLevel()
+        }
         setDamage(7)
         setMagicNumber(7)
     }
 
-    override var upgradeCount: Int = 0
-        set(value) {
-            field = value
-            if (field >= maxUpgradeCount) {
-                onMaxUpgrade()
-                field = 0
-            }
-        }
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
-        upgradeCount++
+        if (!freeToPlayOnce) {
+            exp++
+        }
     }
 
-    override val maxUpgradeCount: Int = 7
-    override var level: Int = 1
-    override fun onMaxUpgrade() {
-        freeToPlayOnce = true
-    }
 
     override fun upgrade() {
         useUpgrade {
@@ -55,8 +52,7 @@ class TripleSevens() :
 
     override fun makeStatEquivalentCopy(): AbstractCard {
         val copy = super.makeStatEquivalentCopy() as TripleSevens
-        copy.level = level
-        copy.upgradeCount = upgradeCount
+        copy.exp = exp
         return copy
     }
 }

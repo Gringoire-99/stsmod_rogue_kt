@@ -1,10 +1,12 @@
 package rogue.cards.attack
 
 import basemod.cardmods.RetainMod
+import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.vfx.combat.ThrowDaggerEffect
 import rogue.action.JadeShurikenAction
 import rogue.cards.AbstractComboCard
 import rogue.cards.OnCalculateCardDamage
@@ -45,7 +47,10 @@ class JadeShuriken :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        dealDamage(p, m, damage)
+
+        dealDamage(p, m, damage) {
+            addToBot(VFXAction(ThrowDaggerEffect(it.hb.cX, it.hb.cY)));
+        }
         addToTop(ApplyPowerAction(p, p, JadeGrowth(p ?: AbstractDungeon.player, magicNumber), magicNumber))
         p?.apply {
             m?.apply {

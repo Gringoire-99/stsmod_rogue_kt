@@ -15,10 +15,9 @@ class RogueFeatureInitPatch {
             @SpirePostfixPatch
             fun postfix() {
                 logger.info("========= start of combat ===========")
-                AbstractComboCard.isComboOn = false
-                AbstractWeaponPower.isGetAttackCard = false
+                AbstractComboCard.reset()
+                AbstractWeaponPower.reset()
                 AbstractWeaponPower.combatAttackCount = 0
-                AbstractWeaponPower.turnAttackCount = 0
             }
         }
     }
@@ -30,9 +29,8 @@ class RogueFeatureInitPatch {
             @SpirePostfixPatch
             fun postfix() {
                 logger.info("========= start of turn ===========")
-                AbstractComboCard.isComboOn = false
-                AbstractWeaponPower.isGetAttackCard = false
-                AbstractWeaponPower.turnAttackCount = 0
+                AbstractComboCard.reset()
+                AbstractWeaponPower.reset()
             }
         }
     }

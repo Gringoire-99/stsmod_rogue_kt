@@ -2,9 +2,12 @@ package rogue.cards.attack
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
+import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.vfx.combat.ClashEffect
 import rogue.cards.AbstractComboCard
 import rogue.cards.OnCalculateCardDamage
 import utils.addMod
@@ -24,13 +27,14 @@ class EdwinVanCleef() :
         addMod(RetainMod(), ExhaustMod())
     }
 
-    var additionalDamage = 0
+    private var additionalDamage = 0
     override fun atTurnStart() {
         additionalDamage = 0
     }
 
     override fun modifyTempBaseDamage(baseDamage: IntArray) {
-        additionalDamage = AbstractDungeon.actionManager.cardsPlayedThisTurn.size * magicNumber
+        val cardPlayThisTurn = AbstractDungeon.actionManager.cardsPlayedThisTurn.size
+        additionalDamage = cardPlayThisTurn * magicNumber + magicNumber * comboCount * 3
         baseDamage[0] = baseDamage[0] + additionalDamage
     }
 
@@ -44,6 +48,8 @@ class EdwinVanCleef() :
         useCombo {
             damage += additionalDamage
         }
-        dealDamage(p, m, damage)
+        dealDamage(p, m, damage, damageEffect = AbstractGameAction.AttackEffect.BLUNT_HEAVY) {
+            addToBot(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))
+        }
     }
 }

@@ -3,7 +3,7 @@ package utils
 import Core
 import basemod.abstracts.AbstractCardModifier
 import basemod.helpers.CardModifierManager
-import com.megacrit.cardcrawl.actions.AbstractGameAction
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect
 import com.megacrit.cardcrawl.actions.common.*
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.AbstractCard.CardColor
@@ -63,15 +63,24 @@ fun dealDamage(
     p: AbstractCreature?,
     m: AbstractCreature?,
     damage: Int,
-    damageInfo: DamageInfo = DamageInfo(p ?: AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL),
+    damageInfo: DamageInfo = DamageInfo(
+        p ?: AbstractDungeon.player, damage, DamageInfo.DamageType.NORMAL,
+    ),
+    damageEffect: AttackEffect = AttackEffect.SLASH_DIAGONAL,
+    vfx: (target: AbstractCreature) -> Unit = {}
 ) {
-    AbstractDungeon.actionManager.addToBottom(
-        DamageAction(
-            m ?: AbstractDungeon.getRandomMonster(),
-            damageInfo,
-            AbstractGameAction.AttackEffect.BLUNT_LIGHT
+    val target = m ?: getRandomMonster()
+    target?.let {
+        vfx(it)
+        AbstractDungeon.actionManager.addToBottom(
+            DamageAction(
+                it,
+                damageInfo,
+                damageEffect
+            )
         )
-    )
+    }
+
 }
 
 fun gainBlock(c: AbstractCreature? = AbstractDungeon.player, b: Int) {
@@ -100,9 +109,11 @@ fun AbstractCreature.isWeaponEquipped(): Boolean {
 }
 
 fun AbstractPlayer.attackWithWeapon(
-    target: AbstractCreature? = getRandomMonster(),
+    target: AbstractMonster? = getRandomMonster(),
     damage: Int = 0,
     loseDuration: Int = 0,
+    attackEffect: AttackEffect = AttackEffect.SLASH_DIAGONAL,
+    vfx: (target: AbstractCreature) -> Unit = {}
 ) {
     this.getWeaponPower()
         ?.attack(
@@ -110,6 +121,8 @@ fun AbstractPlayer.attackWithWeapon(
             damage = damage,
             source = this,
             loseDuration = loseDuration,
+            attackEffect = attackEffect,
+            vfx = vfx
         )
 }
 
@@ -147,9 +160,9 @@ fun AbstractCard.mimic(target: AbstractCard) {
     cost = target.cost
     costForTurn = target.costForTurn
     freeToPlayOnce = target.freeToPlayOnce
-    rawDescription = target.rawDescription
     type = target.type
     portrait = target.portrait
+    jokePortrait = target.jokePortrait
     rarity = target.rarity
     this.target = target.target
     tags = target.tags
@@ -171,7 +184,7 @@ fun AbstractCard.mimic(target: AbstractCard) {
     if (this is Mimicable) {
         this.targetCard = target
     }
-    this.initializeDescription()
+    description = target.description
 }
 
 fun generateCardChoices(
@@ -209,7 +222,7 @@ fun AbstractCard.isOtherClassCard(pColor: CardColor? = AbstractDungeon.player?.c
     return type && clazz
 }
 
-fun getRandomMonster(): AbstractMonster {
+fun getRandomMonster(): AbstractMonster? {
     return AbstractDungeon.getMonsters().getRandomMonster(true)
 }
 
@@ -241,8 +254,14 @@ fun AbstractCard.upBase(magic: Int) {
     }
 }
 
-fun AbstractCard.addToQueue(card: AbstractCard, t: AbstractCreature?, purge: Boolean = false, random: Boolean = false) {
-    if (!AbstractDungeon.player.limbo.contains(card)) {
+fun AbstractCard.addToQueue(
+    card: AbstractCard,
+    t: AbstractCreature?,
+    purge: Boolean = false,
+    random: Boolean = false,
+    cb: (AbstractCard) -> Unit = {}
+) {
+    if (!AbstractDungeon.player.limbo.contains(card) && purge) {
         AbstractDungeon.player.limbo.addToBottom(this)
     }
     this.current_x = card.current_x
@@ -258,10 +277,12 @@ fun AbstractCard.addToQueue(card: AbstractCard, t: AbstractCreature?, purge: Boo
         AbstractDungeon.actionManager.addCardQueueItem(
             CardQueueItem(this, true, card.energyOnUse, true, true),
         )
+        cb(this)
     } else {
         AbstractDungeon.actionManager.addCardQueueItem(
             CardQueueItem(this, m, card.energyOnUse, true, true),
         )
+        cb(this)
     }
 }
 

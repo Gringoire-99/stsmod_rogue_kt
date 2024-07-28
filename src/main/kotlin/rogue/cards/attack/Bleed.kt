@@ -1,10 +1,13 @@
 package rogue.cards.attack
 
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.AutoplayField
+import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect
 import rogue.cards.AbstractRogueCard
 import utils.dealDamage
+import utils.drawCard
 import utils.getRandomMonster
 
 class Bleed() :
@@ -18,7 +21,6 @@ class Bleed() :
     ) {
     init {
         setDamage(2)
-        AutoplayField.autoplay.set(this, true)
     }
 
     override fun upgrade() {
@@ -27,7 +29,20 @@ class Bleed() :
         }
     }
 
+    override fun triggerWhenDrawn() {
+        AbstractDungeon.player.useCard(this, getRandomMonster(), 0)
+        drawCard(1)
+    }
+
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        dealDamage(p, getRandomMonster(), damage)
+        dealDamage(p, m, damage, damageEffect = AbstractGameAction.AttackEffect.NONE) {
+            AbstractDungeon.effectList.add(
+                FlashAtkImgEffect(
+                    it.hb.cX,
+                    it.hb.cY,
+                    AbstractGameAction.AttackEffect.NONE
+                )
+            )
+        }
     }
 }

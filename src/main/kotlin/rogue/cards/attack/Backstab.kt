@@ -18,9 +18,9 @@ class Backstab :
     }
 
     override fun upgrade() {
-      useUpgrade {
-          upgradeDamage(2)
-      }
+        useUpgrade {
+            upgradeDamage(2)
+        }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {

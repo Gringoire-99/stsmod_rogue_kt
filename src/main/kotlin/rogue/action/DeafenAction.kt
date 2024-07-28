@@ -7,15 +7,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.powers.AbstractPower.PowerType
 import rogue.power.SilencePower
 
-class DeafenAction(private val s: AbstractCreature, val m: AbstractMonster) : AbstractGameAction() {
+class DeafenAction(private val s: AbstractCreature, val m: AbstractMonster?) : AbstractGameAction() {
     override fun update() {
-        val buff = ArrayList(m.powers.filter {
-            it.type == PowerType.BUFF
-        })
-        m.powers.removeIf {
-            it.type == PowerType.BUFF
+        m?.apply {
+            val buff = ArrayList(m.powers.filter {
+                it.type == PowerType.BUFF
+            })
+            m.powers.removeIf {
+                it.type == PowerType.BUFF
+            }
+            addToBot(ApplyPowerAction(m, s, SilencePower(m, buff)))
         }
-        addToBot(ApplyPowerAction(m, s, SilencePower(m, buff)))
+
         isDone = true
     }
 }

@@ -1,8 +1,10 @@
 package rogue.cards.attack
 
+import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect
 import rogue.cards.AbstractRogueCard
 import utils.attackWithWeapon
 import utils.isWeaponEquipped
@@ -30,6 +32,7 @@ class FanOfKnives :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        addToTop(VFXAction(DaggerSprayEffect(AbstractDungeon.getMonsters().shouldFlipVfx()), 0.0f))
         repeat(magicNumber) {
             p?.attackWithWeapon(damage = 3)
         }

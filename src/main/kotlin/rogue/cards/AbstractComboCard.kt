@@ -3,7 +3,6 @@ package rogue.cards
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import rogue.power.SpiritOfTheSharkPower
-import utils.logger
 import utils.makeId
 
 abstract class AbstractComboCard(name: String, cost: Int, type: CardType, rarity: CardRarity, target: CardTarget) :
@@ -38,10 +37,9 @@ abstract class AbstractComboCard(name: String, cost: Int, type: CardType, rarity
             AbstractDungeon.player?.apply {
                 if (hasPower(SpiritOfTheSharkPower::class.makeId())) {
                     cb()
+                    comboCount++
                 }
             }
-
-            logger.info("开启连击效果")
         }
         return isEnableComboEffect
     }
@@ -52,5 +50,10 @@ abstract class AbstractComboCard(name: String, cost: Int, type: CardType, rarity
     companion object {
         var isComboOn = false
         var comboCount = 0
+        fun reset() {
+            isComboOn = false
+            comboCount = 0
+        }
     }
+
 }

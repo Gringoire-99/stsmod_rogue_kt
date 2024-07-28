@@ -1,9 +1,12 @@
 package rogue.cards.attack
 
 import basemod.cardmods.RetainMod
+import com.megacrit.cardcrawl.actions.animations.VFXAction
+import com.megacrit.cardcrawl.actions.utility.SFXAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.vfx.combat.CleaveEffect
 import rogue.action.EmptyAction
 import rogue.cards.AbstractWeaponCard
 import rogue.mods.ReduceCostMod
@@ -25,6 +28,8 @@ class Doomerang :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
+            addToBot(SFXAction("ATTACK_HEAVY"))
+            addToBot(VFXAction(p, CleaveEffect(), 0.1f))
             AbstractDungeon.getMonsters().monsters.forEach {
                 attack(target = it, damage = this@Doomerang.damage)
             }

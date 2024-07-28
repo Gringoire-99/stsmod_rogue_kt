@@ -6,6 +6,7 @@ import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
 import utils.isWeaponEquipped
@@ -34,9 +35,11 @@ class LeechingPoison :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        p?.getWeaponPower()?.apply {
-            leechCount += magicNumber
-        }
+        addToBot(EmptyAction {
+            p?.getWeaponPower()?.apply {
+                leechCount += magicNumber
+            }
+        })
 
     }
 }
