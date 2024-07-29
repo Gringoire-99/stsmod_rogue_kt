@@ -359,6 +359,15 @@
     "NAME": "急速矿锄",
     "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
   },
+  "HSRogue:FindCard": {
+    "NAME": "发现",
+    "DESCRIPTION": "选择一项",
+    "EXTENDED_DESCRIPTION": [
+      "发现一张其他职业的牌，增强其效果2点",
+      "下一张其他职业的牌打出两次",
+      "发现一张本次战斗使用过的其他职业的牌，使其费用为0"
+    ]
+  },
   "HSRogue:TradeCard": {
     "NAME": "交易",
     "DESCRIPTION": "花费1 [E] 进行 *交易 ",

@@ -14,6 +14,7 @@ class SleightOfHandPower(owner: AbstractPlayer) :
         if (amount > 0) {
             amount--
             addToBot(ReduceAllCostInHandAction())
+            this@SleightOfHandPower.flash()
         }
     }
 

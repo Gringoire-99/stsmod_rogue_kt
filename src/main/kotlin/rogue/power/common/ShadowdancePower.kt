@@ -1,13 +1,10 @@
 package rogue.power.common
 
-import basemod.cardmods.EtherealMod
-import basemod.cardmods.ExhaustMod
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
+import rogue.mods.TempCardMod
 import utils.addMod
-import utils.removeMod
 
 class ShadowdancePower(owner: AbstractPlayer, amount: Int = 3) :
     UsageLimitPower(rawName = ShadowdancePower::class.simpleName.toString(), owner = owner, amount = amount) {
@@ -21,12 +18,7 @@ class ShadowdancePower(owner: AbstractPlayer, amount: Int = 3) :
                         costForTurn = 1
                         isCostModified = true
                         freeToPlayOnce = false
-                        addMod(ExhaustMod(), EtherealMod())
-                        removeMod(true, RetainMod.ID)
-                        this.isEthereal = true
-                        this.exhaust = true
-                        this.selfRetain = false
-                        this.retain = false
+                        addMod(TempCardMod())
                     }
                     addToBot(MakeTempCardInHandAction(copy, 1))
                 }

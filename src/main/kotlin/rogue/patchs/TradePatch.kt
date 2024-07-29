@@ -46,6 +46,8 @@ class TradePatch {
                 }
                 return SpireReturn.Continue()
             }
+
+
         }
     }
 }

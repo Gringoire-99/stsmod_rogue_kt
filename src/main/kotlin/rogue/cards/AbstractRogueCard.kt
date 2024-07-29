@@ -1,6 +1,7 @@
 package rogue.cards
 
 import basemod.abstracts.CustomCard
+import com.megacrit.cardcrawl.cards.AbstractCard
 import rogue.characters.RogueEnum
 import utils.getCardImg
 import utils.getCardString
@@ -52,5 +53,8 @@ abstract class AbstractRogueCard(
         }
     }
 
+    companion object {
+        val cardUsedCombatOC = hashSetOf<AbstractCard>()
+    }
 
 }

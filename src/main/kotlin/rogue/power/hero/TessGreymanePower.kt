@@ -1,77 +1,76 @@
 package rogue.power.hero
 
-import basemod.cardmods.RetainMod
+import com.badlogic.gdx.graphics.Color
+import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
-import com.megacrit.cardcrawl.ui.panels.EnergyPanel
-import rogue.mods.ReduceCostMod
-import rogue.power.common.StealthPower
+import com.megacrit.cardcrawl.helpers.FontHelper
+import common.FindCard
+import rogue.cards.AbstractRogueCard
+import rogue.mods.TempCardMod
+import rogue.power.common.PlayTwicePower
 import utils.addMod
 import utils.discovery
-import utils.gainBlock
+import utils.upBase
+import kotlin.math.min
 
 class TessGreymanePower(owner: AbstractPlayer) :
     AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString(), amount = 1) {
 
-    private var useEnergy = 1
-    override val ability: () -> Unit = {
+    private val maxUsage = 2
+    override val ability = {
         if (amount > 0) {
-            val currentEnergy = EnergyPanel.getCurrentEnergy()
-            if (currentEnergy - useEnergy >= 0) {
-                EnergyPanel.useEnergy(useEnergy)
-                flash()
-                discovery {
-                    specialAbility(it)
-                    it.addMod(RetainMod())
-                }
-            }
             amount--
-        }
-    }
-    val ability1 = { _: AbstractCard ->
-        addToBot(ApplyPowerAction(owner, owner, StealthPower(owner)))
-        gainBlock(owner, 4)
-    }
-    val ability2 = { c: AbstractCard ->
-        c.addMod(ReduceCostMod(999))
-    }
-    val ability3 = {
-        useEnergy = 0
-        amount++
-    }
-    private val ability4 = { c: AbstractCard ->
-        ability1(c)
-        ability2(c)
-    }
-    var specialAbility: (AbstractCard) -> Unit = ability1
-    private var specialAbilityCount = 1
-        set(value) {
-            field = value
-            when (field) {
-                1 -> specialAbility = ability1
-                2 -> specialAbility = ability2
-                3 -> {
-                    specialAbility = {}
-                    ability3()
+            this@TessGreymanePower.flash()
+            val opts = arrayListOf<AbstractCard>(FindCard(0), FindCard(1), FindCard(2))
+            addToBot(SelectCardsAction(opts, "选择一项") { cards ->
+                val first = cards.firstOrNull() as? FindCard
+                when (first?.opt) {
+                    0 -> {
+                        discovery {
+                            it.upBase(2)
+                            it.addMod(TempCardMod())
+                        }
+                    }
+
+                    1 -> {
+                        addToBot(ApplyPowerAction(owner, owner, PlayTwicePower(owner, 1), 1))
+                    }
+
+                    2 -> {
+                        discovery(from = ArrayList(AbstractRogueCard.cardUsedCombatOC)) {
+                            if (it.cost > 0) {
+                                it.cost = 0
+                                it.costForTurn = 0
+                            }
+                            it.addMod(TempCardMod())
+                        }
+                    }
                 }
 
-                4 -> {
-                    ability3()
-                    specialAbility = ability4
-                    field = 0
-                }
-            }
-            flash()
+            })
         }
+    }
+
+    override fun atStartOfTurnPostDraw() {
+        amount = min(maxUsage, amount + 1)
+    }
+
     override val afterApply = {
         getBaseAbility()?.rightClick = ability
     }
 
-    override fun atStartOfTurnPostDraw() {
-        amount = 1
-        useEnergy = 1
-        specialAbilityCount++
+    override fun renderAmount(sb: SpriteBatch?, x: Float, y: Float, c: Color?) {
+        FontHelper.renderFontCentered(
+            sb,
+            FontHelper.powerAmountFont,
+            "${amount}/${maxUsage}",
+            x,
+            y,
+            Color.GREEN.cpy()
+        )
     }
 
 }

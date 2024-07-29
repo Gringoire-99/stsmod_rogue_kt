@@ -5,6 +5,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.cards.AbstractComboCard
+import rogue.cards.AbstractRogueCard
+import utils.isOtherClassCard
 
 class AfterCardPlayedPatch {
     @SpirePatch2(clz = AbstractPlayer::class, method = "useCard")
@@ -18,6 +20,11 @@ class AfterCardPlayedPatch {
                     AbstractComboCard.isComboOn = false
                 } else {
                     AbstractComboCard.isComboOn = true
+                }
+                c?.apply {
+                    if (this.isOtherClassCard() && !this.purgeOnUse) {
+                        AbstractRogueCard.cardUsedCombatOC.add(this)
+                    }
                 }
 //
 //                c?.apply {

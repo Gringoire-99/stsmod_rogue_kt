@@ -136,8 +136,13 @@ fun Intent.isAttackIntent(): Boolean {
 }
 
 
-fun discovery(cardFilter: CardFilter = CardFilter(), upgraded: Boolean = false, cb: (card: AbstractCard) -> Unit = {}) {
-    AbstractDungeon.actionManager.addToBottom(DiscoveryAction(cardFilter, upgraded, cb))
+fun discovery(
+    cardFilter: CardFilter = CardFilter(),
+    upgraded: Boolean = false,
+    from: ArrayList<AbstractCard> = CardLibrary.getAllCards(),
+    cb: (card: AbstractCard) -> Unit = {}
+) {
+    AbstractDungeon.actionManager.addToBottom(DiscoveryAction(cardFilter, upgraded, from, cb))
 }
 
 fun canPlayTradeCard(card: AbstractCard): Boolean {
@@ -190,9 +195,10 @@ fun AbstractCard.mimic(target: AbstractCard) {
 fun generateCardChoices(
     cardFilter: CardFilter = CardFilter(),
     number: Int = 4,
-    upgraded: Boolean = false
+    upgraded: Boolean = false,
+    from: ArrayList<AbstractCard> = CardLibrary.getAllCards()
 ): ArrayList<AbstractCard> {
-    val allCards = CardLibrary.getAllCards()
+    val allCards = from
     val filtered = cardFilter.filter(allCards)
     val result = ArrayList(filtered.take(min(filtered.size, number)).map { it.makeSameInstanceOf() })
     if (upgraded) {

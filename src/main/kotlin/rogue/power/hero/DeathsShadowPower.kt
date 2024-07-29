@@ -10,6 +10,7 @@ class DeathsShadowPower(owner: AbstractPlayer) :
     AbstractHeroPower(powerName = DeathsShadowPower::class.simpleName.toString(), owner = owner) {
     override val ability: () -> Unit = {
         (owner as? AbstractPlayer)?.apply {
+            this@DeathsShadowPower.flash()
             addToTop(GetUniqueCardAction(ShadowReflection()))
         }
     }

@@ -92,7 +92,7 @@
   "HSRogue:TessGreymanePower": {
     "NAME": "翻找",
     "DESCRIPTIONS": [
-      "一回合一次，消耗1 [E] 发现其他职业的牌，使其获得保留 NL 被动效果：每回合翻找依次获得下列效果之一： NL 1.隐形斗篷：翻找后获得4格挡与潜行 NL 2.顺手牵羊：发现的牌费用变为0 NL 3.狼神崇拜: 技能费用变为0，可以用两次 NL 4.上述所有效果"
+      "选择一项： NL 1. 发现一张其他职业的临时的牌，使其增强两点 NL 2.下一张其他职业的牌打出两次 3.发现一张本场战斗使用过的其他职业的牌，使其费用为0，两层充能，每回合回复一点"
     ]
   },
   "HSRogue:ShadowdancePower": {
@@ -125,7 +125,13 @@
       "被移除了所有正面buff,回合结束时移除"
     ]
   },
-  "HSRogue:RetainPower": {
+  "HSRogue:PlayTwicePower": {
+    "NAME": "打出两次",
+    "DESCRIPTIONS": [
+      "下一张其他职业的牌打出两次"
+    ]
+  },
+  "HSRogue:SecretPassageBackupPower": {
     "NAME": "留了一手",
     "DESCRIPTIONS": [
       "回合开始时，置入移除的手牌"

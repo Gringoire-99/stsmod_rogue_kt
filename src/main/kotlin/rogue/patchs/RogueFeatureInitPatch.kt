@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePatch2
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.cards.AbstractComboCard
+import rogue.cards.AbstractRogueCard
 import rogue.power.weapon.AbstractWeaponPower
 import utils.logger
 
@@ -18,6 +19,7 @@ class RogueFeatureInitPatch {
                 AbstractComboCard.reset()
                 AbstractWeaponPower.reset()
                 AbstractWeaponPower.combatAttackCount = 0
+                AbstractRogueCard.cardUsedCombatOC.clear()
             }
         }
     }

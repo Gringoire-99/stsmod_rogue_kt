@@ -1,13 +1,10 @@
 package rogue.power.common
 
-import basemod.cardmods.EtherealMod
-import basemod.cardmods.ExhaustMod
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
+import rogue.mods.TempCardMod
 import utils.addMod
-import utils.removeMod
 
 class WaterdancePower(owner: AbstractPlayer, amount: Int = 1) :
     UsageLimitPower(rawName = WaterdancePower::class.simpleName.toString(), owner = owner, amount = amount) {
@@ -18,12 +15,7 @@ class WaterdancePower(owner: AbstractPlayer, amount: Int = 1) :
                 usePower {
                     addToBot(MakeTempCardInHandAction(this.makeStatEquivalentCopy().apply {
                         freeToPlayOnce = true
-                        addMod(ExhaustMod(), EtherealMod())
-                        removeMod(true, RetainMod.ID)
-                        this.isEthereal = true
-                        this.exhaust = true
-                        this.selfRetain = false
-                        this.retain = false
+                        addMod(TempCardMod())
                     }))
                 }
             }

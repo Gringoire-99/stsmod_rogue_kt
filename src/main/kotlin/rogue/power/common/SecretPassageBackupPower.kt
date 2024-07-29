@@ -8,8 +8,9 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import rogue.power.IAbstractPower
 
-class RetainPower(owner: AbstractPlayer = AbstractDungeon.player, val cards: ArrayList<AbstractCard>) :
-    IAbstractPower(powerName = RetainPower::class.simpleName.toString(), owner = owner), NonStackablePower {
+class SecretPassageBackupPower(owner: AbstractPlayer = AbstractDungeon.player, val cards: ArrayList<AbstractCard>) :
+    IAbstractPower(powerName = SecretPassageBackupPower::class.simpleName.toString(), owner = owner),
+    NonStackablePower {
 
     override fun atStartOfTurnPostDraw() {
         cards.forEach {
