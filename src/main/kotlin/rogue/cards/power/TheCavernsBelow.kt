@@ -8,8 +8,9 @@ import utils.applyUniquePower
 
 class TheCavernsBelow : AbstractQuestCard(TheCavernsBelow::class.simpleName.toString()) {
     init {
-        cardsToPreview = CrystalCore()
+        cardsToPreview = CrystalCore.preview
     }
+
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
             applyUniquePower(p, p, TheCavernsBelowPower(p))

@@ -26,7 +26,7 @@ class CounterfeitCoin :
 
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(GainEnergyAction(magicNumber))
+        addToTop(GainEnergyAction(magicNumber))
         if (upgraded) {
             drawCard(magicNumber)
         }

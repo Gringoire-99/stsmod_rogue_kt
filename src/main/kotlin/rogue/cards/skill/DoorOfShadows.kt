@@ -38,6 +38,11 @@ class DoorOfShadows(
             this.loadCardImage("$modId/cards/skill/DoorOfShadowsInfused.png")
             initializeTitle()
         }
+        cardsToPreview = preview
+    }
+
+    companion object {
+        val preview = DoorOfShadows().apply { level = 2 }
     }
 
     override fun upgrade() {

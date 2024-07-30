@@ -22,11 +22,15 @@ class TheCoin() :
         addMod(ExhaustMod(), RetainMod())
     }
 
+    companion object {
+        val preview = TheCoin()
+    }
+
     override fun upgrade() {
         useUpgrade { upgradeMagicNumber(1) }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(GainEnergyAction(magicNumber))
+        addToTop(GainEnergyAction(magicNumber))
     }
 }

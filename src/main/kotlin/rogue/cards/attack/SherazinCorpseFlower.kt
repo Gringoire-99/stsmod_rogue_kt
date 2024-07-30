@@ -25,7 +25,11 @@ class SherazinCorpseFlower :
         setDamage(4)
         setMagicNumber(3)
         addMod(ExhaustMod())
-        cardsToPreview = SherazinSeed()
+        cardsToPreview = SherazinSeed.preview
+    }
+
+    companion object {
+        val preview = SherazinCorpseFlower()
     }
 
     override fun upgrade() {

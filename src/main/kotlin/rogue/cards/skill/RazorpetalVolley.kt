@@ -19,7 +19,7 @@ class RazorpetalVolley :
     init {
         setMagicNumber(3)
         CardModifierManager.addModifier(this, ExhaustMod())
-        cardsToPreview = Razorpetal()
+        cardsToPreview = Razorpetal.preview
     }
 
     override fun upgrade() {

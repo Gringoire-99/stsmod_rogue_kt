@@ -13,7 +13,7 @@ class PotionOfIllusion :
         name = PotionOfIllusion::class.simpleName.toString(),
         cost = 2,
         type = CardType.SKILL,
-        rarity = CardRarity.RARE,
+        rarity = CardRarity.UNCOMMON,
         target = CardTarget.SELF
     ) {
     init {

@@ -13,9 +13,8 @@ class BazaarBurglary :
         rawName = BazaarBurglary::class.simpleName.toString()
     ) {
     init {
-        cardsToPreview = MirageBlade()
+        cardsToPreview = MirageBlade.preview
     }
-
 
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {

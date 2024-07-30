@@ -34,8 +34,6 @@ class BounceAroundAction(val upgraded: Boolean = false) : AbstractGameAction() {
     private fun play(c: AbstractCard, use: Int) {
         addToBot(EmptyAction {
             val m = getRandomMonster()
-            val p = AbstractDungeon.player
-            val canPlay = c.canUse(p, m)
             if (c.cardPlayable(m) && (c.freeToPlayOnce || use == -1 || use <= EnergyPanel.getCurrentEnergy())) {
                 AbstractDungeon.actionManager.addCardQueueItem(
                     CardQueueItem(c, true, 0, true, true),

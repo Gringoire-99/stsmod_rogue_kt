@@ -2,6 +2,7 @@ package rogue.cards.skill
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
+import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.GraveField
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.MyrasUnstableElementAction
@@ -18,6 +19,7 @@ class MyrasUnstableElement :
     ) {
     init {
         addMod(ExhaustMod())
+        GraveField.grave.set(this, true)
     }
 
     override fun upgrade() {

@@ -32,6 +32,10 @@ class CrystalCore :
         }
     }
 
+    companion object {
+        val preview = CrystalCore()
+    }
+
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
             addToBot(ApplyPowerAction(p, p, StrengthPower(p, magicNumber), magicNumber))

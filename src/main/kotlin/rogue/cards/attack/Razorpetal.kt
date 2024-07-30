@@ -22,6 +22,10 @@ class Razorpetal :
         addMod(RetainMod(), ExhaustMod())
     }
 
+    companion object {
+        val preview = Razorpetal()
+    }
+
     override fun upgrade() {
         useUpgrade {
             upgradeDamage(2)

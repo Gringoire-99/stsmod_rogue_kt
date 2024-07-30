@@ -28,7 +28,7 @@ class SherazinSeed(
     ), OnExhaustInterface, LevelInterface by upgradeImpl {
     init {
         addMod(RetainMod())
-        cardsToPreview = SherazinCorpseFlower()
+        cardsToPreview = SherazinCorpseFlower.preview
         upgradeImpl.onMaxLevelCb = {
             resetLevel()
             val flower = SherazinCorpseFlower()
@@ -39,6 +39,10 @@ class SherazinSeed(
             addToBot(MakeTempCardInHandAction(flower))
             addToBot(ExhaustSpecificCardAction(this, AbstractDungeon.player.hand))
         }
+    }
+
+    companion object {
+        val preview = SherazinSeed()
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {

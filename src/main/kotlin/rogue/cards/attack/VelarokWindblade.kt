@@ -32,7 +32,11 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
             initializeDescription()
             initializeTitle()
         }
-        cardsToPreview = VelarokWindblade().apply { level = 2 }
+        cardsToPreview = preview
+    }
+
+    companion object {
+        val preview = VelarokWindblade().apply { level = 2 }
     }
 
     private var isRealForm = false

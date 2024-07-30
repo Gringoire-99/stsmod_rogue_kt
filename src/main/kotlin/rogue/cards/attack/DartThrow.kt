@@ -24,7 +24,7 @@ class DartThrow() :
     init {
         setMagicNumber(2)
         setDamage(3)
-        cardsToPreview = TheCoin()
+        cardsToPreview = TheCoin.preview
         ExhaustiveVariable.setBaseValue(this, 2)
     }
 

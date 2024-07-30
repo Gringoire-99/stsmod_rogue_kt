@@ -1,5 +1,6 @@
 package rogue.cards.attack
 
+import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
@@ -18,8 +19,12 @@ class MirageBlade :
     ) {
     init {
         purgeOnUse = true
-        addMod(RetainMod())
+        addMod(RetainMod(), ExhaustMod())
         setMagicNumber(2)
+    }
+
+    companion object {
+        val preview = MirageBlade()
     }
 
     override fun upgrade() {

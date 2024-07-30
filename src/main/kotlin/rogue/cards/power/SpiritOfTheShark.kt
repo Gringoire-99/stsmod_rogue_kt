@@ -22,6 +22,10 @@ class SpiritOfTheShark() :
         }
     }
 
+    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
+        return super.canUse(p, m)
+    }
+
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToTop(ApplyPowerAction(p, p, SpiritOfTheSharkPower(p ?: AbstractDungeon.player)))
     }
