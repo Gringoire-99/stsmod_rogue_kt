@@ -25,8 +25,8 @@ import common.CardFilter
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import rogue.action.DiscoveryAction
+import rogue.cards.AbstractMimicCard
 import rogue.cards.AbstractWeaponPowerCard
-import rogue.cards.Mimicable
 import rogue.characters.RogueEnum
 import rogue.power.weapon.AbstractWeaponPower
 import kotlin.math.min
@@ -153,44 +153,47 @@ fun canPlayTradeCard(card: AbstractCard): Boolean {
         return card.hasEnoughEnergy()
     }
 }
-
-fun AbstractCard.mimic(target: AbstractCard) {
-    if (upgraded) {
-        target.upgrade()
-    }
-    if (target.cost == -1) {
-        energyOnUse = target.energyOnUse
-    }
-    this.target = target.target
-    cost = target.cost
-    costForTurn = target.costForTurn
-    freeToPlayOnce = target.freeToPlayOnce
-    type = target.type
-    portrait = target.portrait
-    jokePortrait = target.jokePortrait
-    rarity = target.rarity
-    this.target = target.target
-    tags = target.tags
-    exhaust = target.exhaust
-    isEthereal = target.isEthereal
-    this.cardsToPreview = target.cardsToPreview
-    this.baseDamage = target.baseDamage
-    this.damage = this.baseDamage
-    this.baseBlock = target.baseBlock
-    this.block = this.baseBlock
-    this.baseMagicNumber = target.baseMagicNumber
-    this.magicNumber = this.baseMagicNumber
-    if (!retain) {
-        this.retain = target.retain
-    }
-    if (!selfRetain) {
-        this.selfRetain = target.selfRetain
-    }
-    if (this is Mimicable) {
-        this.targetCard = target
-    }
-    description = target.description
-}
+//
+//fun AbstractCard.mimic(target: AbstractCard) {
+//    if (upgraded) {
+//        target.upgrade()
+//    }
+//    if (target.cost == -1) {
+//        energyOnUse = target.energyOnUse
+//    }
+//    this.target = target.target
+//    cost = target.cost
+//    costForTurn = target.costForTurn
+//    freeToPlayOnce = target.freeToPlayOnce
+//    type = target.type
+//    portrait = target.portrait
+//    jokePortrait = target.jokePortrait
+//    rarity = target.rarity
+//    this.target = target.target
+//    tags = target.tags
+//    exhaust = target.exhaust
+//    isEthereal = target.isEthereal
+//    this.cardsToPreview = target.cardsToPreview
+//    this.baseDamage = target.baseDamage
+//    this.damage = this.baseDamage
+//    this.baseBlock = target.baseBlock
+//    this.block = this.baseBlock
+//    this.baseMagicNumber = target.baseMagicNumber
+//    this.magicNumber = this.baseMagicNumber
+//    this.rawDescription = "变化为了 ${target.name}"
+//    this.cardsToPreview = target
+//    this.initializeDescription()
+//    if (!retain) {
+//        this.retain = target.retain
+//    }
+//    if (!selfRetain) {
+//        this.selfRetain = target.selfRetain
+//    }
+//    if (this is Mimicable) {
+//        this.targetCard = target
+//    }
+//
+//}
 
 fun generateCardChoices(
     cardFilter: CardFilter = CardFilter(),
@@ -220,7 +223,7 @@ fun AbstractCard.removeMod(includeInherent: Boolean = false, vararg ids: String)
 }
 
 fun AbstractCard.isOtherClassCard(pColor: CardColor? = AbstractDungeon.player?.cardColor): Boolean {
-    val thisColor = if (this is Mimicable) this.targetCard?.color else color
+    val thisColor = if (this is AbstractMimicCard) this.mimicTarget?.color else color
     val playerColor = pColor ?: AbstractDungeon.player?.cardColor ?: RogueEnum.HS_ROGUE_CARD_COLOR
     val type = this.type == CardType.SKILL || this.type == CardType.POWER || this.type == CardType.ATTACK
     val clazz =

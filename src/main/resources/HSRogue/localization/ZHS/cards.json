@@ -65,7 +65,7 @@
   },
   "HSRogue:Shiv": {
     "NAME": "毒刃",
-    "DESCRIPTION": "造成 !D! 点伤害，给予造成伤害的 *中毒 "
+    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌"
   },
   "HSRogue:LeechingPoison": {
     "NAME": "吸血药膏",
@@ -229,7 +229,7 @@
   },
   "HSRogue:LesserOnyxSpellstone": {
     "NAME": "次级法术黑曜石",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 消耗卡片以升级（ !exp! / !expM! ）"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 注能 !expM! (消耗手牌)：增强效果（ !exp! / !expM! ）"
   },
   "HSRogue:PettyTheft": {
     "NAME": "小偷小摸",
@@ -253,7 +253,7 @@
   },
   "HSRogue:SherazinSeed": {
     "NAME": "瑟拉金之种",
-    "DESCRIPTION": "消耗6张卡片唤醒瑟拉金！（ !exp! / !expM! ） NL 唤醒的回合费用变为0"
+    "DESCRIPTION": "注能 !expM! (消耗卡片)：唤醒瑟拉金！（ !exp! / !expM! ） NL 唤醒的回合费用变为0"
   },
   "HSRogue:TheCavernsBelow": {
     "NAME": "探索地下洞穴",
@@ -285,7 +285,7 @@
   },
   "HSRogue:TessGreymane": {
     "NAME": "苔丝·格雷迈恩",
-    "DESCRIPTION": "*英雄 NL 你的初始能力升级为 *翻找(主动) "
+    "DESCRIPTION": "*英雄 NL 本回合每使用一张其他职业的牌，费用减1 NL 你的初始能力升级为 *翻找(主动) "
   },
   "HSRogue:ShadowOfDemise": {
     "NAME": "殒命暗影",
@@ -321,7 +321,7 @@
   },
   "HSRogue:TripleSevens": {
     "NAME": "三条七",
-    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 在使用 !expM! 张牌后费用变为0 NL ( !exp! / !expM! )"
+    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 注能 !expM! (使用卡片)：费用变为0 NL ( !exp! / !expM! )"
   },
   "HSRogue:SpiritOfTheShark": {
     "NAME": "鲨鱼之灵",
@@ -358,6 +358,10 @@
   "HSRogue:QuickPick": {
     "NAME": "急速矿锄",
     "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
+  },
+  "HSRogue:DoorOfShadows": {
+    "NAME": "暗影之门",
+    "DESCRIPTION": "将消耗堆的一张牌置入手中，注能 !expM! (消耗卡片)： 使其费用变为0  ( !exp! / !expM! )"
   },
   "HSRogue:FindCard": {
     "NAME": "发现",

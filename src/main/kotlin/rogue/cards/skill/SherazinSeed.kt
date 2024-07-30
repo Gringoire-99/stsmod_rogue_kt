@@ -16,7 +16,7 @@ import rogue.cards.impls.LevelInterfaceImpl
 import utils.addMod
 
 class SherazinSeed(
-    private val upgradeImpl: LevelInterfaceImpl =
+    private val upgradeImpl: LevelInterface =
         LevelInterfaceImpl(maxExpr = 4, maxLevel1 = 2)
 ) :
     AbstractRogueCard(

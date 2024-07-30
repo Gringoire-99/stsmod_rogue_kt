@@ -18,7 +18,7 @@ import utils.getRandomMonster
 import utils.modId
 
 class LesserOnyxSpellstone(
-    private val upgradeImpl: LevelInterfaceImpl =
+    private val upgradeImpl: LevelInterface =
         LevelInterfaceImpl(maxExpr = 4, maxLevel1 = 3)
 ) :
     AbstractRogueCard(
@@ -72,7 +72,7 @@ class LesserOnyxSpellstone(
     }
 
     override fun afterCardExhausted() {
-        if (level < maxLevel) {
+        if (!isMaxLevel()) {
             exp++
         }
     }
@@ -80,7 +80,7 @@ class LesserOnyxSpellstone(
     override fun makeStatEquivalentCopy(): AbstractCard {
         val copy = super.makeStatEquivalentCopy() as LesserOnyxSpellstone
         copy.level = level
-        copy.exp = this.exp
+        copy.exp = exp
         return copy
     }
 

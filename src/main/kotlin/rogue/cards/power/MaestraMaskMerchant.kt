@@ -2,59 +2,40 @@ package rogue.cards.power
 
 import basemod.cardmods.RetainMod
 import basemod.helpers.BaseModCardTags
-import com.megacrit.cardcrawl.cards.AbstractCard
-import com.megacrit.cardcrawl.characters.AbstractPlayer
-import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
-import rogue.cards.AbstractRogueCard
-import rogue.cards.Mimicable
+import rogue.cards.AbstractMimicCard
 import utils.addMod
 import utils.generateCardChoices
-import utils.mimic
 
 class MaestraMaskMerchant() :
-    AbstractRogueCard(
+    AbstractMimicCard(
         name = MaestraMaskMerchant::class.simpleName.toString(),
         cost = 2,
         type = CardType.POWER,
         rarity = CardRarity.RARE,
         target = CardTarget.SELF
-    ), Mimicable {
+    ) {
     init {
         addMod(RetainMod())
         tags.add(BaseModCardTags.FORM)
     }
 
     override fun atTurnStartPreDraw() {
+        mimicToRandomForm()
+    }
+
+    private fun mimicToRandomForm() {
         val take = generateCardChoices(CardFilter(includeTags = hashSetOf(BaseModCardTags.FORM)), 1).firstOrNull()
         take?.let {
             this.mimic(it)
-            this.isEthereal = false
             this.cost = 2
             this.costForTurn = 2
         }
     }
 
     override fun triggerWhenDrawn() {
-        val take = generateCardChoices(CardFilter(includeTags = hashSetOf(BaseModCardTags.FORM)), 1).firstOrNull()
-        take?.let {
-            this.mimic(it)
-            this.isEthereal = false
-        }
+        mimicToRandomForm()
     }
 
-    override var targetCard: AbstractCard? = null
-    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return targetCard?.canUse(p, m) ?: false
-    }
 
-    override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        targetCard?.use(p, m)
-    }
-
-    override fun makeStatEquivalentCopy(): AbstractCard {
-        val copy = super.makeStatEquivalentCopy()
-        (copy as Mimicable).targetCard = targetCard
-        return copy
-    }
 }

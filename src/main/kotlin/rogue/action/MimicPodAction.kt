@@ -3,7 +3,6 @@ package rogue.action
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import rogue.cards.skill.MimicPod
-import utils.mimic
 import kotlin.random.Random
 
 class MimicPodAction(val card: MimicPod) : AbstractGameAction() {

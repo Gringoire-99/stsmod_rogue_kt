@@ -2,26 +2,20 @@ package rogue.cards.skill
 
 import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.cards.AbstractCard
-import com.megacrit.cardcrawl.characters.AbstractPlayer
-import com.megacrit.cardcrawl.monsters.AbstractMonster
-import common.CardFilter
 import rogue.action.EmptyAction
-import rogue.cards.AbstractRogueCard
-import rogue.cards.Mimicable
+import rogue.cards.AbstractMimicCard
 import utils.addMod
 import utils.generateCardChoices
-import utils.mimic
 
 class Cheatsheet :
-    AbstractRogueCard(
+    AbstractMimicCard(
         name = Cheatsheet::class.simpleName.toString(),
         cost = -2,
         type = CardType.SKILL,
         rarity = CardRarity.SPECIAL,
         target = CardTarget.NONE,
         color = CardColor.COLORLESS
-    ), Mimicable {
-    override var targetCard: AbstractCard? = null
+    ) {
 
     init {
         addMod(RetainMod())
@@ -29,25 +23,10 @@ class Cheatsheet :
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
         addToBot(EmptyAction {
-            val cardFilter = CardFilter()
-            val t = generateCardChoices(cardFilter, number = 1, upgraded = upgraded).firstOrNull()
-            t?.apply {
-                this@Cheatsheet.mimic(t)
+            generateCardChoices(number = 1, upgraded = upgraded).firstOrNull()?.let {
+                this.mimic(it)
             }
         })
     }
 
-    override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return targetCard?.canUse(p, m) ?: false
-    }
-
-    override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        targetCard?.use(p, m)
-    }
-
-    override fun makeStatEquivalentCopy(): AbstractCard {
-        val copy = super.makeStatEquivalentCopy()
-        (copy as Mimicable).targetCard = targetCard
-        return copy
-    }
 }

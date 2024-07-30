@@ -7,11 +7,11 @@ import kotlin.math.max
 class LevelInterfaceImpl(
     maxExpr: Int,
     maxLevel1: Int,
-    val currentLevel: Int = 1,
+    private val currentLevel: Int = 1,
     currentExp: Int = 0,
-    var onMaxExpCb: () -> Unit = {},
-    var onLevelUpCb: () -> Unit = {},
-    var onMaxLevelCb: () -> Unit = {}
+    override var onMaxExpCb: () -> Unit = {},
+    override var onLevelUpCb: () -> Unit = {},
+    override var onMaxLevelCb: () -> Unit = {}
 ) :
     LevelInterface {
     override val maxExp: Int = max(0, maxExpr)
@@ -50,17 +50,7 @@ class LevelInterfaceImpl(
         exp -= maxExp
     }
 
-    override fun onMaxExp() {
-        onMaxExpCb()
-    }
 
-    override fun onLevelUp() {
-        onLevelUpCb()
-    }
-
-    override fun onMaxLevel() {
-        onMaxLevelCb()
-    }
 
     override fun setInitialLevel(level: Int) {
         tempDisableHooks = true

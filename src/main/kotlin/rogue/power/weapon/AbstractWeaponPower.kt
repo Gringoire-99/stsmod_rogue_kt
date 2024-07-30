@@ -266,7 +266,7 @@ abstract class AbstractWeaponPower(
 
     override fun updateDescription() {
         name = weaponName
-        this.description = powerString.DESCRIPTIONS[0].format(name)
+        this.description = powerString.DESCRIPTIONS[0]
     }
 
     abstract fun makeCopy(): AbstractWeaponPowerCard

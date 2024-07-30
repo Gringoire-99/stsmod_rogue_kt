@@ -19,7 +19,6 @@ class SpectralCutlass(initialDamage: Int = 3, initialDuration: Int = 3, magic: I
 
     override fun upgrade() {
         useUpgrade {
-            upgradeBaseCost(1)
             upgradeMagicNumber(1)
         }
     }

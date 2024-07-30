@@ -2,7 +2,7 @@
   "HSRogue:AbstractWeaponPower": {
     "NAME": "武器",
     "DESCRIPTIONS": [
-      "已装备武器 #y%s NL %s"
+      "已装备武器"
     ]
   },
   "HSRogue:StealthPower": {

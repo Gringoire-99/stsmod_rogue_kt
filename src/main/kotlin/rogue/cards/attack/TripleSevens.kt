@@ -12,7 +12,7 @@ import utils.dealDamage
 import utils.drawCard
 
 class TripleSevens(
-    private val upgradeImpl: LevelInterfaceImpl =
+    private val upgradeImpl: LevelInterface =
         LevelInterfaceImpl(maxExpr = 7, maxLevel1 = 2)
 ) :
     AbstractRogueCard(

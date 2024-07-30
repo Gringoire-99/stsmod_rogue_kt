@@ -98,7 +98,6 @@ fun AbstractCard.call() {
             if (it is OnMakeTempCard) {
                 it.onMakeTempCard(this@call)
             }
-
         }
     }
 }

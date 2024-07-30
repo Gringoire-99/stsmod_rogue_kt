@@ -23,7 +23,6 @@ class SketchyInformation() :
     override fun upgrade() {
         useUpgrade {
             addMod(InnateMod())
-            upgradeMagicNumber(2)
         }
     }
 

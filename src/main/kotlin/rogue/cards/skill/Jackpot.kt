@@ -1,5 +1,6 @@
 package rogue.cards.skill
 
+import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -33,6 +34,7 @@ class Jackpot :
         generateCardChoices.forEach {
             it.addMod(RetainMod())
             addToBot(MakeTempCardInHandAction(it))
+            it.addMod(ExhaustMod())
         }
 
     }
