@@ -19,8 +19,6 @@ class DeadlyPoison :
     init {
         setMagicNumber(4)
         ExhaustiveVariable.setBaseValue(this, 2)
-
-
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {

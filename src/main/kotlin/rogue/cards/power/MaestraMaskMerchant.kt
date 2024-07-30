@@ -6,6 +6,7 @@ import common.CardFilter
 import rogue.cards.AbstractMimicCard
 import utils.addMod
 import utils.generateCardChoices
+import kotlin.math.min
 
 class MaestraMaskMerchant() :
     AbstractMimicCard(
@@ -27,9 +28,9 @@ class MaestraMaskMerchant() :
     private fun mimicToRandomForm() {
         val take = generateCardChoices(CardFilter(includeTags = hashSetOf(BaseModCardTags.FORM)), 1).firstOrNull()
         take?.let {
+            it.cost = min(it.cost, this.cost)
+            it.costForTurn = min(it.costForTurn, this.costForTurn)
             this.mimic(it)
-            this.cost = 2
-            this.costForTurn = 2
         }
     }
 

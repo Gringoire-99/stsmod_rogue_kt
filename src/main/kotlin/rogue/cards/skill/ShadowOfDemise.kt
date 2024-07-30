@@ -15,11 +15,12 @@ class ShadowOfDemise() :
         rarity = CardRarity.RARE,
         target = CardTarget.NONE
     ) {
-
+    val initializerName: String
 
     init {
         setMagicNumber(1)
         addMod(RetainMod(), ExhaustMod())
+        initializerName = name
     }
 
     override fun upgrade() {
@@ -50,7 +51,7 @@ class ShadowOfDemise() :
         if (mimicTarget != null) {
             this.name = "${mimicTarget?.name}+${timesUpgraded}"
         } else {
-            this.name = "${name}+${timesUpgraded}"
+            this.name = "${initializerName}+${timesUpgraded}"
         }
         initializeTitle()
     }

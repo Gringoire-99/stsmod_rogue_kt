@@ -3,7 +3,6 @@ package rogue.cards.skill
 import basemod.cardmods.EtherealMod
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -22,8 +21,8 @@ class ValeerasGift :
         target = CardTarget.SELF
     ) {
     init {
-        CardModifierManager.addModifier(this, RetainMod())
-        CardModifierManager.addModifier(this, ExhaustMod())
+        addMod(RetainMod(), ExhaustMod())
+        setMagicNumber(1)
     }
 
     override fun upgrade() {
@@ -33,22 +32,24 @@ class ValeerasGift :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(
-            SelectCardsAction(
-                arrayListOf(Backstab(), DeadlyPoison(), FanOfKnives()),
-                1,
-                "选择一项",
-                false,
-                { true },
-            ) { cards ->
-                cards.forEach {
-                    val target = it
-                    target.addMod(EtherealMod())
-                    p?.apply {
-                        addToBot(MakeTempCardInHandAction(target))
+        repeat(magicNumber) {
+            addToBot(
+                SelectCardsAction(
+                    arrayListOf(Backstab(), DeadlyPoison(), FanOfKnives()),
+                    1,
+                    "选择一项",
+                    false,
+                    { true },
+                ) { cards ->
+                    cards.forEach {
+                        val target = it
+                        target.addMod(EtherealMod())
+                        p?.apply {
+                            addToBot(MakeTempCardInHandAction(target))
+                        }
                     }
                 }
-            }
-        )
+            )
+        }
     }
 }

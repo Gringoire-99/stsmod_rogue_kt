@@ -37,7 +37,6 @@ class EdwinVanCleef() :
         additionalDamage = cardPlayThisTurn * magicNumber + magicNumber * comboCount * 3
         baseDamage[0] = baseDamage[0] + additionalDamage
     }
-
     override fun upgrade() {
         useUpgrade {
             upgradeMagicNumber(1)

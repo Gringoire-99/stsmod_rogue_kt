@@ -25,6 +25,7 @@ class SherazinCorpseFlower :
         setDamage(4)
         setMagicNumber(3)
         addMod(ExhaustMod())
+        cardsToPreview = SherazinSeed()
     }
 
     override fun upgrade() {

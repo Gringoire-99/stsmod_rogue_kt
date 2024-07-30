@@ -1,7 +1,6 @@
 package rogue.cards.skill
 
 import basemod.cardmods.RetainMod
-import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PurgeField
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.cards.AbstractCard
@@ -29,7 +28,7 @@ class SherazinSeed(
     ), OnExhaustInterface, LevelInterface by upgradeImpl {
     init {
         addMod(RetainMod())
-        PurgeField.purge.set(this, true)
+        cardsToPreview = SherazinCorpseFlower()
         upgradeImpl.onMaxLevelCb = {
             resetLevel()
             val flower = SherazinCorpseFlower()

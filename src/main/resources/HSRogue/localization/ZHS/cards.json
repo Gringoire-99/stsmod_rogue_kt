@@ -189,7 +189,7 @@
   },
   "HSRogue:ValeerasGift": {
     "NAME": "瓦莉拉的礼物",
-    "DESCRIPTION": "从 *背刺 ， *刀扇 ， *致命药膏 中选择一项，将具有 *虚无 的复制置入手中"
+    "DESCRIPTION": "从 *背刺 ， *刀扇 ， *致命药膏 中选择一项 !M! 次，将具有 *虚无 的复制置入手中"
   },
   "HSRogue:TwistedPack": {
     "NAME": "幻变的卡牌包",
@@ -362,6 +362,18 @@
   "HSRogue:DoorOfShadows": {
     "NAME": "暗影之门",
     "DESCRIPTION": "将消耗堆的一张牌置入手中，注能 !expM! (消耗卡片)： 使其费用变为0  ( !exp! / !expM! )"
+  },
+  "HSRogue:BounceAround": {
+    "NAME": "舞动全场(ft.迦罗娜)",
+    "DESCRIPTION": "{@@}重新打出本回合打出的牌 NL （需要消耗能量{!Upgrades!|>0=,最大不超过1}） "
+  },
+  "HSRogue:TheCoin": {
+    "NAME": "幸运币",
+    "DESCRIPTION": "获得 !M! [E]"
+  },
+  "HSRogue:DartThrow": {
+    "NAME": "飞镖投掷",
+    "DESCRIPTION": "随机扔 !M! 个飞镖造成 !D! 点伤害，击中同个目标时获得一个幸运币 NL 连击：多扔一个 NL 消耗性: !stslib:ex!"
   },
   "HSRogue:FindCard": {
     "NAME": "发现",

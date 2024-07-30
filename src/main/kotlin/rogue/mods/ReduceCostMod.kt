@@ -1,6 +1,7 @@
 package rogue.mods
 
 import basemod.abstracts.AbstractCardModifier
+import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
 import rogue.action.RemoveEndOfTurnModsAction
@@ -31,7 +32,7 @@ class ReduceCostMod(
     }
 
     override fun shouldApply(card: AbstractCard?): Boolean {
-        return card != null && card.cost >= 0
+        return card != null && card.cost >= 0 && !CardModifierManager.hasModifier(card, id)
     }
 
     override fun onRemove(card: AbstractCard?) {
