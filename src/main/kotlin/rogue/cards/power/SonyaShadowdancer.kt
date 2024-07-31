@@ -9,18 +9,18 @@ import rogue.power.common.ShadowdancePower
 class SonyaShadowdancer() :
     AbstractRogueCard(
         name = SonyaShadowdancer::class.simpleName.toString(),
-        cost = 3,
+        cost = 1,
         type = CardType.POWER,
         rarity = CardRarity.RARE,
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(3)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeBaseCost(2)
+            upgradeBaseCost(0)
         }
     }
 

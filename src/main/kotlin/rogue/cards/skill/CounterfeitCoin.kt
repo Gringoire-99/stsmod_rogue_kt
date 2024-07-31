@@ -2,11 +2,11 @@ package rogue.cards.skill
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
-import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
+import utils.addMod
 import utils.drawCard
 
 class CounterfeitCoin :
@@ -19,8 +19,7 @@ class CounterfeitCoin :
     ) {
     init {
         setMagicNumber(1)
-        CardModifierManager.addModifier(this, ExhaustMod())
-        CardModifierManager.addModifier(this, RetainMod())
+        addMod(ExhaustMod(), RetainMod())
 
     }
 

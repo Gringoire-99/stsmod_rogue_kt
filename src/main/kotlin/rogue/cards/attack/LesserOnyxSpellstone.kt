@@ -54,6 +54,7 @@ class LesserOnyxSpellstone(
     override fun upgrade() {
         useUpgrade {
             upgradeDamage(4)
+            upgradeBaseCost(2)
         }
     }
 
@@ -72,6 +73,7 @@ class LesserOnyxSpellstone(
     }
 
     override fun afterCardExhausted() {
+        utils.logger.info("============$name $exp card exhausted =======")
         if (!isMaxLevel()) {
             exp++
         }

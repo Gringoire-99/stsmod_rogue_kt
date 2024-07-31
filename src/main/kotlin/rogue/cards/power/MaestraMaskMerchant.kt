@@ -21,6 +21,12 @@ class MaestraMaskMerchant() :
         tags.add(BaseModCardTags.FORM)
     }
 
+    override fun upgrade() {
+        useUpgrade {
+            upgradeBaseCost(1)
+        }
+    }
+
     override fun atTurnStartPreDraw() {
         mimicToRandomForm()
     }
@@ -30,7 +36,11 @@ class MaestraMaskMerchant() :
         take?.let {
             it.cost = min(it.cost, this.cost)
             it.costForTurn = min(it.costForTurn, this.costForTurn)
+            if (upgraded) it.upgrade()
             this.mimic(it)
+            this.isEthereal = false
+            retain = true
+            selfRetain = true
         }
     }
 

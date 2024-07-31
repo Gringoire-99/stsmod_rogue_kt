@@ -29,13 +29,11 @@ class SISevenExtortion(override var isEnableTrade: Boolean = true) :
         addToTop(GainGoldAction(magicNumber))
         dealDamage(p, m, damage)
         drawCard(magicNumber)
-
     }
 
     override fun onTrade() {
-        val draw = if (upgraded) 3 else 2
-        drawCard(draw)
-        upgradeDamage(if (upgraded) 3 else 5)
-        upgradeMagicNumber(if (upgraded) 1 else 2)
+        drawCard(if (upgraded) 3 else 2)
+        upgradeDamage(if (upgraded) 5 else 3)
+        upgradeMagicNumber(if (upgraded) 2 else 1)
     }
 }

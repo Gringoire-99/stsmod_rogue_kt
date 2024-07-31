@@ -16,7 +16,7 @@ class TempCardMod : AbstractCardModifier() {
     }
 
     override fun shouldApply(card: AbstractCard?): Boolean {
-        return CardModifierManager.hasModifier(card, id)
+        return !CardModifierManager.hasModifier(card, id)
     }
 
     override fun onInitialApplication(card: AbstractCard?) {

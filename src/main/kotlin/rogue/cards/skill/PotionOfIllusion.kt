@@ -23,6 +23,7 @@ class PotionOfIllusion :
     override fun upgrade() {
         useUpgrade {
             addMod(RetainMod())
+            upgradeBaseCost(1)
         }
     }
 

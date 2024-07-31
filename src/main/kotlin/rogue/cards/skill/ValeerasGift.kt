@@ -45,7 +45,7 @@ class ValeerasGift :
                         val target = it
                         target.addMod(EtherealMod())
                         p?.apply {
-                            addToBot(MakeTempCardInHandAction(target))
+                            addToBot(MakeTempCardInHandAction(target).apply { upgrade() })
                         }
                     }
                 }

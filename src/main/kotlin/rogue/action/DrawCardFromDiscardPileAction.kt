@@ -7,21 +7,16 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 
 class DrawCardFromDiscardPileAction(val cb: (card: AbstractCard) -> Unit = {}) : AbstractGameAction() {
     override fun update() {
-        val topCard = AbstractDungeon.player.discardPile.topCard
-        if (!AbstractDungeon.player.discardPile.isEmpty) {
-            addToTop(
+        val last = AbstractDungeon.player.discardPile.group.lastOrNull()
+        if (last != null) {
+            cb(last)
+            addToBot(
                 MoveCardsAction(
                     AbstractDungeon.player.hand,
                     AbstractDungeon.player.discardPile,
-                    { card: AbstractCard ->
-                        card == topCard
-                    },
-                    { cards ->
-                        cb(cards[0])
-                    }
-                ))
+                    { c -> c == last }, {})
+            )
         }
-
         isDone = true
     }
 }

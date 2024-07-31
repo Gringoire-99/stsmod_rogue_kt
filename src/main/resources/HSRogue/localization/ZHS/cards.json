@@ -229,7 +229,7 @@
   },
   "HSRogue:LesserOnyxSpellstone": {
     "NAME": "次级法术黑曜石",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 注能 !expM! (消耗手牌)：增强效果（ !exp! / !expM! ）"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 注能 !expM! (消耗卡牌)：增强效果（ !exp! / !expM! ）"
   },
   "HSRogue:PettyTheft": {
     "NAME": "小偷小摸",
@@ -321,7 +321,7 @@
   },
   "HSRogue:TripleSevens": {
     "NAME": "三条七",
-    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 注能 !expM! (使用卡片)：费用变为0 NL ( !exp! / !expM! )"
+    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 注能 !expM! (使用卡牌)：费用变为0 NL ( !exp! / !expM! )"
   },
   "HSRogue:SpiritOfTheShark": {
     "NAME": "鲨鱼之灵",
@@ -365,7 +365,7 @@
   },
   "HSRogue:BounceAround": {
     "NAME": "舞动全场(ft.迦罗娜)",
-    "DESCRIPTION": "{@@}重新打出本回合你打出的牌 NL 需要消耗能量{!Upgrades!|>0=,最大不超过1} "
+    "DESCRIPTION": "{@@}重新打出本回合你打出的牌 NL 打出卡片需要消耗能量{!Upgrades!|>0=,最大不超过1} "
   },
   "HSRogue:TheCoin": {
     "NAME": "幸运币",
@@ -378,6 +378,10 @@
   "HSRogue:WickedStabRank1": {
     "NAME": "邪恶挥刺（等级1）",
     "DESCRIPTION": "造成 !D! 点伤害 NL 连击：对所有敌人造成伤害。 NL 注能 !expM! (打出连击牌/消耗卡片)：增强效果( !exp! / !expM! )"
+  },
+  "HSRogue:RollTheBones": {
+    "NAME": "命运骨骰",
+    "DESCRIPTION": "预见： !M! NL 处于牌堆顶的牌附加 *命运 NL 抽一张牌，"
   },
   "HSRogue:FindCard": {
     "NAME": "发现",

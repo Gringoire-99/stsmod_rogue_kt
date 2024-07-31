@@ -1,7 +1,6 @@
 package rogue.cards.skill
 
 import basemod.cardmods.ExhaustMod
-import basemod.cardmods.RetainMod
 import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
@@ -26,7 +25,7 @@ class ParalyticPoison :
 
     override fun upgrade() {
         useUpgrade {
-            CardModifierManager.addModifier(this, RetainMod())
+            upgradeMagicNumber(1)
         }
     }
 

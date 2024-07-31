@@ -22,6 +22,7 @@ class BounceAround() :
 
     override fun upgrade() {
         useUpgrade {
+            upgradeBaseCost(1)
             addMod(RetainMod())
         }
     }

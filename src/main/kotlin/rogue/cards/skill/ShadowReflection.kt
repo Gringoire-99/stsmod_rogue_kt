@@ -1,9 +1,8 @@
 package rogue.cards.skill
 
-import basemod.cardmods.ExhaustMod
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.cards.AbstractCard
 import rogue.cards.AbstractMimicCard
+import rogue.mods.TempCardMod
 import utils.addMod
 
 class ShadowReflection :
@@ -17,7 +16,7 @@ class ShadowReflection :
     ) {
 
     init {
-        addMod(RetainMod(), ExhaustMod())
+        addMod(TempCardMod())
     }
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {

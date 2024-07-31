@@ -1,6 +1,6 @@
 package rogue.cards.skill
 
-import basemod.cardmods.RetainMod
+import basemod.cardmods.EtherealMod
 import com.megacrit.cardcrawl.cards.AbstractCard
 import rogue.action.EmptyAction
 import rogue.cards.AbstractMimicCard
@@ -18,7 +18,7 @@ class Cheatsheet :
     ) {
 
     init {
-        addMod(RetainMod())
+        addMod(EtherealMod())
     }
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
