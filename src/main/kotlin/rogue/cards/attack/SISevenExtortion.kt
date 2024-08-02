@@ -20,7 +20,7 @@ class SISevenExtortion(override var isEnableTrade: Boolean = true) :
     ), Tradeable {
     init {
         setDamage(6)
-        setMagicNumber(1)
+        setMagicNumber(2)
         CardModifierManager.addModifier(this, ExhaustMod())
     }
 
@@ -34,6 +34,6 @@ class SISevenExtortion(override var isEnableTrade: Boolean = true) :
     override fun onTrade() {
         drawCard(if (upgraded) 3 else 2)
         upgradeDamage(if (upgraded) 5 else 3)
-        upgradeMagicNumber(if (upgraded) 2 else 1)
+        upgradeMagicNumber(if (upgraded) 3 else 2)
     }
 }

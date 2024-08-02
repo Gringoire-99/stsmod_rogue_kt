@@ -7,6 +7,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import rogue.cards.attack.Backstab
 import rogue.cards.attack.FanOfKnives
@@ -37,7 +38,7 @@ class ValeerasGift :
                 SelectCardsAction(
                     arrayListOf(Backstab(), DeadlyPoison(), FanOfKnives()),
                     1,
-                    "选择一项",
+                    TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
                     false,
                     { true },
                 ) { cards ->

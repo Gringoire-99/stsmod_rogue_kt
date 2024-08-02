@@ -17,14 +17,12 @@ class Shadowstep :
     ) {
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-
         useCombo {
             addToBot(DrawCardFromDiscardPileAction { card ->
                 if (this.upgraded) {
                     card.addMod(ReduceCostMod(1, isTurnEffect = true))
                 }
             })
-
         }
     }
 

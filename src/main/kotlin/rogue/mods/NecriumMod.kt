@@ -5,6 +5,8 @@ import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.core.AbstractCreature
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.localization.CardStrings
 import rogue.action.PlayTwiceAction
 import utils.makeId
 
@@ -17,6 +19,9 @@ class NecriumMod : AbstractCardModifier() {
         val id = NecriumMod::class.makeId()
     }
 
+    private val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(id)
+
+    private val s: String = cardString.DESCRIPTION
     override fun onUse(card: AbstractCard?, target: AbstractCreature?, action: UseCardAction?) {
         val copy = card?.makeStatEquivalentCopy()
         CardModifierManager.removeModifiersById(copy, id, false)
@@ -33,7 +38,10 @@ class NecriumMod : AbstractCardModifier() {
     }
 
     override fun onRemove(card: AbstractCard?) {
-        card?.exhaust = false
+        card?.apply {
+            rawDescription = rawDescription.replace(s, "")
+            initializeDescription()
+        }
     }
 
     override fun identifier(card: AbstractCard?): String {
@@ -45,6 +53,6 @@ class NecriumMod : AbstractCardModifier() {
     }
 
     override fun modifyDescription(rawDescription: String?, card: AbstractCard?): String {
-        return "$rawDescription NL *死金"
+        return "$rawDescription $s"
     }
 }

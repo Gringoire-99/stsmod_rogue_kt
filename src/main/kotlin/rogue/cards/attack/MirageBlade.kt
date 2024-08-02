@@ -1,10 +1,9 @@
 package rogue.cards.attack
 
-import basemod.cardmods.ExhaustMod
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
+import rogue.mods.TempCardMod
 import utils.addMod
 import utils.attackWithWeapon
 
@@ -19,7 +18,7 @@ class MirageBlade :
     ) {
     init {
         purgeOnUse = true
-        addMod(RetainMod(), ExhaustMod())
+        addMod(TempCardMod())
         setMagicNumber(2)
     }
 

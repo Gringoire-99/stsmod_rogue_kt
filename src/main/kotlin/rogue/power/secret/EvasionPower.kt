@@ -8,6 +8,9 @@ import utils.gainBlock
 class EvasionPower(owner: AbstractPlayer, val magicNumber: Int = 9) :
     AbstractSecretPower(rawName = EvasionPower::class.simpleName.toString(), owner = owner) {
 
+    init {
+        updateDescription()
+    }
 
     override fun atEndOfTurn(isPlayer: Boolean) {
         if (isPlayer) {

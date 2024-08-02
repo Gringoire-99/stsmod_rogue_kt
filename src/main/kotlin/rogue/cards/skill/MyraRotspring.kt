@@ -5,6 +5,7 @@ import basemod.cardmods.RetainMod
 import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import rogue.mods.NecriumMod
 import rogue.mods.SpreadNecriumMod
@@ -30,7 +31,13 @@ class MyraRotspring :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(SelectCardsInHandAction(magicNumber, "选择一张卡", false, false, { true }) { cards ->
+        addToBot(
+            SelectCardsInHandAction(
+                magicNumber,
+                TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
+                false,
+                false,
+                { true }) { cards ->
             cards.forEach {
                 it.addMod(NecriumMod(), SpreadNecriumMod())
             }

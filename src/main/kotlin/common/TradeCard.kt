@@ -11,7 +11,9 @@ class TradeCard :
         TradeCard::class.simpleName.toString(), 1, CardType.SKILL, CardRarity.SPECIAL, CardTarget.SELF,
         color = CardColor.COLORLESS
     ) {
-    val tradeStrings = CardCrawlGame.languagePack.getCardStrings(TradeCard::class.makeId())
+    companion object {
+        val tradeStrings = CardCrawlGame.languagePack.getCardStrings(TradeCard::class.makeId())
+    }
 
     override fun use(p0: AbstractPlayer?, p1: AbstractMonster?) {
     }

@@ -18,6 +18,7 @@ class AmbushPower(owner: AbstractPlayer) :
             monsters.forEach {
                 if (!it.intent.isAttackIntent()) {
                     power.attack(target = it, damage = power.damage)
+                    this@AmbushPower.flash()
                 }
             }
         }

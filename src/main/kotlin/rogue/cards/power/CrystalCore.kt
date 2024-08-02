@@ -1,6 +1,5 @@
 package rogue.cards.power
 
-import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -22,13 +21,13 @@ class CrystalCore :
         color = CardColor.COLORLESS
     ) {
     init {
-        setMagicNumber(2)
-        addMod(ExhaustMod(), RetainMod())
+        setMagicNumber(3)
+        addMod(RetainMod())
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(1)
+            upgradeMagicNumber(2)
         }
     }
 

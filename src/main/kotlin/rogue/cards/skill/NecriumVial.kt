@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import rogue.mods.NecriumMod
 import utils.addMod
@@ -34,7 +35,7 @@ class NecriumVial :
         addToBot(SelectCardsAction(
             AbstractDungeon.player.discardPile.group,
             magicNumber,
-            "选择一张卡片赋予死金",
+            TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
             true,
             { true }) { cards ->
             cards.forEach {

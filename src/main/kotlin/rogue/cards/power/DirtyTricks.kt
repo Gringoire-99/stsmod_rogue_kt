@@ -37,6 +37,5 @@ class DirtyTricks :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToBot(ApplyPowerAction(p, p, DirtyTricksPower(p ?: AbstractDungeon.player, magicNumber)))
-
     }
 }

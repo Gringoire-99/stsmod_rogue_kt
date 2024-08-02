@@ -4,9 +4,11 @@ import basemod.abstracts.AbstractCardModifier
 import basemod.helpers.CardModifierManager
 import com.evacipated.cardcrawl.mod.stslib.fields.cards.AbstractCard.PersistFields
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.localization.CardStrings
 import utils.makeId
 
-class PersistMod(val amount: Int = 1, val removeOnEndOfTurn: Boolean = false) : AbstractCardModifier() {
+class PersistMod(val amount: Int = 1, private val removeOnEndOfTurn: Boolean = false) : AbstractCardModifier() {
     override fun onInitialApplication(card: AbstractCard?) {
         PersistFields.setBaseValue(card, amount)
     }
@@ -15,7 +17,8 @@ class PersistMod(val amount: Int = 1, val removeOnEndOfTurn: Boolean = false) : 
         val id = PersistMod::class.makeId()
     }
 
-    val s = " NL *耐久 !stslib:persist! "
+    private val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(NecriumMod.id)
+    private val s: String = cardString.DESCRIPTION
     override fun shouldApply(card: AbstractCard?): Boolean {
         return !CardModifierManager.hasModifier(card, id)
     }
@@ -34,7 +37,7 @@ class PersistMod(val amount: Int = 1, val removeOnEndOfTurn: Boolean = false) : 
     }
 
     override fun modifyDescription(rawDescription: String?, card: AbstractCard?): String {
-        return "$rawDescription${s}"
+        return "$rawDescription ${s}"
     }
 
     override fun makeCopy(): AbstractCardModifier {

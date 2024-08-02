@@ -1,6 +1,7 @@
 package rogue.cards
 
 import basemod.cardmods.RetainMod
+import com.megacrit.cardcrawl.cards.AbstractCard
 import rogue.characters.RogueEnum
 import utils.addMod
 import kotlin.properties.Delegates
@@ -36,5 +37,15 @@ abstract class AbstractWeaponPowerCard(
         }
     }
 
+    override fun makeStatEquivalentCopy(): AbstractCard {
+        val c = super.makeStatEquivalentCopy() as AbstractWeaponPowerCard
+        c.let {
+            it.isWeaponDamageModified = isWeaponDamageModified
+            it.isWeaponDurationModified = isWeaponDurationModified
+            it.weaponDamage = weaponDamage
+            it.weaponDuration = weaponDuration
+        }
+        return c
+    }
 
 }

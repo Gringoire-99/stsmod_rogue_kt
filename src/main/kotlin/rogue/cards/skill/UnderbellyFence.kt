@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import utils.drawCard
 import utils.isOtherClassCard
@@ -36,7 +37,13 @@ class UnderbellyFence :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(SelectCardsInHandAction(1, "选择一张卡消耗", false, false, { true }) { cards ->
+        addToBot(
+            SelectCardsInHandAction(
+                1,
+                TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
+                false,
+                false,
+                { true }) { cards ->
             cards.forEach {
                 addToBot(GainEnergyAction(1))
                 drawCard(1)

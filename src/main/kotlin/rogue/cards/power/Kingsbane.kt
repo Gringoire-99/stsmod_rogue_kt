@@ -1,6 +1,7 @@
 package rogue.cards.power
 
 import basemod.cardmods.InnateMod
+import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
@@ -17,6 +18,14 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3, val magic: Int = 2) :
     ) {
     init {
         setMagicNumber(magic)
+    }
+
+    override fun makeStatEquivalentCopy(): AbstractCard {
+        val c = super.makeStatEquivalentCopy() as Kingsbane
+        copy?.apply {
+            c.setWeaponCopy(this)
+        }
+        return c
     }
 
     private var copy: rogue.power.weapon.Kingsbane? = null

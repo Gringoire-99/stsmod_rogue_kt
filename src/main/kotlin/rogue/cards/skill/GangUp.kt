@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDiscardEffect
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 
 class GangUp :
@@ -28,14 +29,20 @@ class GangUp :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(SelectCardsInHandAction(1, "选择一张卡消耗", false, false, { true }) { cards ->
-            cards.forEach {
-                val c = it
-                addToTop(ExhaustSpecificCardAction(it, p?.hand))
-                repeat(magicNumber) {
-                    AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(c.makeStatEquivalentCopy()))
+        addToBot(
+            SelectCardsInHandAction(
+                1,
+                TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
+                false,
+                false,
+                { true }) { cards ->
+                cards.forEach {
+                    val c = it
+                    addToTop(ExhaustSpecificCardAction(it, p?.hand))
+                    repeat(magicNumber) {
+                        AbstractDungeon.effectList.add(ShowCardAndAddToDiscardEffect(c.makeStatEquivalentCopy()))
+                    }
                 }
-            }
-        })
+            })
     }
 }

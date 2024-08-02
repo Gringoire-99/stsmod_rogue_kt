@@ -2,6 +2,8 @@ package rogue.cards
 
 import basemod.abstracts.CustomCard
 import com.megacrit.cardcrawl.cards.AbstractCard
+import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.localization.CardStrings
 import rogue.characters.RogueEnum
 import utils.getCardImg
 import utils.getCardString
@@ -25,6 +27,7 @@ abstract class AbstractRogueCard(
     rarity,
     target
 ) {
+    val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(cardID)
 
     fun setDamage(d: Int) {
         this.baseDamage = d

@@ -1,23 +1,23 @@
 {
   "HSRogue:Strike": {
     "NAME": "打击",
-    "DESCRIPTION": "造成 !D! 点伤害。"
+    "DESCRIPTION": "造成 !D! 点伤害"
   },
   "HSRogue:Defend": {
     "NAME": "防御",
-    "DESCRIPTION": "获得 !B! 点格挡 。"
+    "DESCRIPTION": "获得 !B! 点 格挡"
   },
   "HSRogue:Attack": {
     "NAME": "攻击！",
-    "DESCRIPTION": "{@@}造成 !D! 点的 hsrogue:武器 伤害。 {!Upgrades!|0= NL 消耗1的武器耐久}"
+    "DESCRIPTION": "{@@}造成 !D! 点的 hsrogue:武器 伤害。 {!Upgrades!|0= NL 消耗1的 hsrogue:武器 耐久}"
   },
   "HSRogue:Backstab": {
     "NAME": "背刺",
-    "DESCRIPTION": "对一个敌人造成 !D! 伤害 NL  如果敌人的意图不为攻击则额外附加 hsrogue:武器 伤害"
+    "DESCRIPTION": "对一个敌人造成 !D! 伤害 NL 如果敌人的意图不为攻击则额外附加 hsrogue:武器 伤害"
   },
   "HSRogue:FanOfKnives": {
     "NAME": "刀扇",
-    "DESCRIPTION": "造成3点固定的 hsrogue:武器 伤害 NL !M! 次"
+    "DESCRIPTION": "造成3点固定的 NL hsrogue:武器 伤害 !M! 次"
   },
   "HSRogue:BladeFlurry": {
     "NAME": "剑刃乱舞",
@@ -25,43 +25,43 @@
   },
   "HSRogue:DeadlyPoison": {
     "NAME": "致命药膏",
-    "DESCRIPTION": "你的 hsrogue:武器 获得 !M! 点攻击力 NL  消耗性: !stslib:ex!"
+    "DESCRIPTION": "你的 hsrogue:武器 获得 !M! 点攻击力 NL hsrogue:消耗性 : !stslib:ex!"
   },
   "HSRogue:Sprint": {
     "NAME": "疾跑",
-    "DESCRIPTION": "抽 !M! 张牌, NL 获得 !B! 点格挡"
+    "DESCRIPTION": "抽 !M! 张牌, NL 获得 !B! 点 格挡 "
   },
   "HSRogue:Conceal": {
     "NAME": "隐藏",
-    "DESCRIPTION": "进入 hsrogue:潜行 ，获得 !B! 点格挡 NL 如果已有 *潜行 则额外获得 !M! 点格挡"
+    "DESCRIPTION": "进入 hsrogue:潜行 NL 获得 !B! 点 格挡 NL 如果已有 hsrogue:潜行 NL 则额外获得 !M! 点 格挡"
   },
   "HSRogue:Shadowstep": {
     "NAME": "暗影步",
-    "DESCRIPTION": "{@@}连击：将上一张置入弃牌堆的牌移回手牌{!Upgrades!|>0= NL 并临时使其减少1 [E] }"
+    "DESCRIPTION": "{@@} hsrogue:连击 ：将上一张置入弃牌堆的牌移回手牌{!Upgrades!|>0= NL 并 hsrogue:临时 使其减少1 [E] }"
   },
   "HSRogue:Preparation": {
     "NAME": "伺机待发",
-    "DESCRIPTION": "选择最多 !M! 张手牌保留，下回合使其临时减少1 [E] "
+    "DESCRIPTION": "选择最多 !M! 张手牌 保留 NL 下回合使其 hsrogue:临时 减少1 [E] "
   },
   "HSRogue:ColdBlood": {
     "NAME": "冷血",
-    "DESCRIPTION": "获得 !M! 点临时力量 NL 连击：额外获得2点"
+    "DESCRIPTION": "获得 !M! 点 hsrogue:临时 力量 NL hsrogue:连击 ：额外获得2点"
   },
   "HSRogue:Sap": {
     "NAME": "闷棍",
-    "DESCRIPTION": "造成 !D! 点伤害，给予造成伤害的临时 *力量 损失与 *虚弱 "
+    "DESCRIPTION": "造成 !D! 点伤害，给予 NL 造成伤害的 hsrogue:临时 NL 力量 损失与 NL 虚弱 "
   },
   "HSRogue:Eviscerate": {
     "NAME": "刺骨",
-    "DESCRIPTION": "造成 !D! 点伤害，连击：提高 !M! 点伤害，并施加2层 *脆弱 "
+    "DESCRIPTION": "造成 !D! 点伤害 NL hsrogue:连击 ：提高 !M! 点伤害 NL 并施加2层 易伤"
   },
   "HSRogue:Assassinate": {
     "NAME": "刺杀",
-    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害， *敏捷 在此牌上发挥 !M! 倍效果"
+    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害， 敏捷 在此牌上发挥 !M! 倍效果"
   },
   "HSRogue:Vanish": {
     "NAME": "消失",
-    "DESCRIPTION": "选择手牌丢弃，每丢弃一张获得 !B! 点格挡"
+    "DESCRIPTION": "选择手牌丢弃，每丢弃一张获得 !B! 点 格挡"
   },
   "HSRogue:Shiv": {
     "NAME": "毒刃",
@@ -69,39 +69,39 @@
   },
   "HSRogue:LeechingPoison": {
     "NAME": "吸血药膏",
-    "DESCRIPTION": "{@@}使你的武器获得 *吸血： !M!"
+    "DESCRIPTION": "{@@}使你的 hsrogue:武器 获得 NL hsrogue:吸血 !M!"
   },
   "HSRogue:ParalyticPoison": {
     "NAME": "麻痹药膏",
-    "DESCRIPTION": "{@@}使你的武器获得 NL *麻痹毒素： !M!"
+    "DESCRIPTION": "{@@}使你的 hsrogue:武器 获得 NL hsrogue:麻痹毒素 ： !M!"
   },
   "HSRogue:SilverleafPoison": {
     "NAME": "银叶草药膏",
-    "DESCRIPTION": "{@@}使你的武器获得 NL 攻击后抽取 !M! 张牌"
+    "DESCRIPTION": "{@@}使你的 hsrogue:武器 获得 NL 攻击后抽取 !M! 张牌"
   },
   "HSRogue:EnvenomWeapon": {
     "NAME": "浸毒武器",
-    "DESCRIPTION": "{@@}使你的武器获得 NL *毒素 !M! {!Upgrades!|0=， *消耗 }"
+    "DESCRIPTION": "{@@}使你的 hsrogue:武器 获得 NL hsrogue:毒素 !M! {!Upgrades!|0=NL 消耗 }"
   },
   "HSRogue:TinkersSharpswordOil": {
     "NAME": "修补匠的磨刀油",
-    "DESCRIPTION": "使你的武器获得 !M! /1 NL 连击：额外获得 !M! /1 "
+    "DESCRIPTION": "使你的 hsrogue:武器 获得 !M! /1 NL hsrogue:连击 ：额外获得 !M! /1 "
   },
   "HSRogue:Doomerang": {
     "NAME": "末日回旋镖",
-    "DESCRIPTION": "{@@}投掷你的武器，它会对所有敌人造成 !D! 点伤害然后回到你的手中{!Upgrades!|>0= NL 并使其减少1 [E] }"
+    "DESCRIPTION": "{@@}投掷你的 hsrogue:武器 ，它会对所有敌人造成 !D! 点伤害 !M! 次然后回到你的手中{!Upgrades!|>0= NL 并使其减少1 [E] }"
   },
   "HSRogue:Sabotage": {
     "NAME": "暗中破坏",
-    "DESCRIPTION": "{@@}对目标造成 !D! 点武器伤害{!Upgrades!|@=x|>0=x+1}次，处于潜行时 *回馈: !M!  "
+    "DESCRIPTION": "{@@}对目标造成 !D! 点 hsrogue:武器 伤害{!Upgrades!|@=x|>0=x+1}次，处于 hsrogue:潜行 时 hsrogue:回馈 : !M!  "
   },
   "HSRogue:SISevenExtortion": {
     "NAME": "军情七处的要挟",
-    "DESCRIPTION": "{@@}对一个敌人造成 !D! 点伤害，获得 !M! 的金币，抽 !M! 牌 NL *可交易： NL 此牌效果增强，抽{!Upgrades!|@=2|>0=3}张牌 "
+    "DESCRIPTION": "{@@}对一个敌人造成 !D! 点伤害，获得 !M! 的金币，抽 !M! 牌 NL hsrogue:可交易 ： NL 此牌效果增强，抽{!Upgrades!|@=2|>0=3}张牌 "
   },
   "HSRogue:WickedKnife": {
     "NAME": "邪恶短刀",
-    "DESCRIPTION": "hsrogue:武器 邪恶短刀[ !WDamage! / !WDuration! ]"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ]"
   },
   "HSRogue:AssassinsBlade": {
     "NAME": "刺客之刃",
@@ -109,15 +109,15 @@
   },
   "HSRogue:Kingsbane": {
     "NAME": "弑君",
-    "DESCRIPTION": "{@@} hsrogue:武器 [ !WDamage! / !WDuration! ] NL 附加效果不会因为任何效果消失或降低 NL *亡语: + !M! /+1,将此武器洗入你的抽牌堆"
+    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDuration! ] NL 附加效果不会因为任何效果消失或降低 NL hsrogue:亡语 : + !M! /+1,将此 hsrogue:武器 洗入你的抽牌堆"
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "黑水弯刀",
-    "DESCRIPTION": "{@@} hsrogue:武器 [ !WDamage! / !WDuration! ] NL *可交易： 获得+ !M! /+ !M! ，发现一张虚无的其他职业的牌{!Upgrades!|>0= NL 并使其临时减少1 [E] } "
+    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDuration! ] NL hsrogue:可交易 ： 获得+ !M! /+ !M! ，发现一张 虚无 的其他职业的牌{!Upgrades!|>0= NL 并使其 hsrogue:临时 减少1 [E] } "
   },
   "HSRogue:Parrrley": {
     "NAME": "海盗谈判",
-    "DESCRIPTION": "{@@}发现一张其他职业的具有消耗和虚无的非能力牌，本回合费用为0 NL *可交易： NL 将这场战斗中此牌发现的上一张牌与此牌永久替换 NL 消耗性: !stslib:ex!"
+    "DESCRIPTION": "{@@}发现一张其他职业的具有 消耗 和 虚无 的非能力牌，本回合费用为0 NL hsrogue:可交易 ： NL 将这场战斗中此牌发现的上一张牌与此牌永久替换 NL hsrogue:消耗性 : !stslib:ex!"
   },
   "HSRogue:CounterfeitCoin": {
     "NAME": "伪造的幸运币",
@@ -133,19 +133,19 @@
   },
   "HSRogue:PerditionsBlade": {
     "NAME": "毁灭之刃",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 给予攻击的敌人一层脆弱，如果已有脆弱改为 !M! 点伤害，每回合结束减少一点耐久"
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 给予攻击的敌人一层 易伤 ，如果已有 易伤 改为 !M! 点伤害，每回合结束减少一点耐久"
   },
   "HSRogue:RenosLuckyHat": {
     "NAME": "雷诺的幸运帽",
-    "DESCRIPTION": "不可叠加 NL 获得 !M! 点敏捷与力量 NL 受到未被格挡的攻击时会掉入弃牌堆！"
+    "DESCRIPTION": "不可叠加 NL 获得 !M! 点 敏捷 与 力量 NL 受到未被 格挡 的攻击时会掉入弃牌堆！"
   },
   "HSRogue:MimicPod": {
     "NAME": "拟态豆荚",
-    "DESCRIPTION": "{@@}不可主动使用 NL 在你使用一张牌后变化为相邻的{!Upgrades!|>0=升级过的}牌 "
+    "DESCRIPTION": "{@@}不可主动使用 NL 在你使用一张牌后变化为相邻的{!Upgrades!|>0=升级过的}牌"
   },
   "HSRogue:JadeShuriken": {
     "NAME": "青玉飞镖",
-    "DESCRIPTION": "造成 !D! 点伤害， *青玉生长： !M! NL 连击：发射手中的所有飞镖!"
+    "DESCRIPTION": "造成 !D! 点伤害， hsrogue:青玉生长 ： !M! NL  hsrogue:连击 ：发射手中的所有飞镖!"
   },
   "HSRogue:SecretPassage": {
     "NAME": "秘密通道",
@@ -153,35 +153,35 @@
   },
   "HSRogue:SmokeBomb": {
     "NAME": "烟雾弹",
-    "DESCRIPTION": "获得 !B! 点格挡，丢1张牌，所有角色获得 *潜行 "
+    "DESCRIPTION": "获得 !B! 点 格挡 ，丢弃1张牌，所有角色获得 hsrogue:潜行"
   },
   "HSRogue:Evasion": {
     "NAME": "闪避",
-    "DESCRIPTION": "*奥秘: 回合后如果你没有格挡，获得 !M! 点格挡"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合后如果你没有 格挡 ，获得 !M! 点 格挡 NL (受敏捷加成)"
   },
   "HSRogue:DirtyTricks": {
     "NAME": "邪恶计谋",
-    "DESCRIPTION": "*奥秘: 回合开始每有一个意图不为攻击的敌人，抽 !M! 张牌"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合开始每有一个意图不为攻击的敌人，抽 !M! 张牌"
   },
   "HSRogue:DoubleCross": {
     "NAME": "双面生意",
-    "DESCRIPTION": "*奥秘: 回合开始如果只有一个敌人，抽 !M! 张牌"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合开始如果只有一个敌人，抽 !M! 张牌"
   },
   "HSRogue:Ambush": {
     "NAME": "伏击",
-    "DESCRIPTION": "*奥秘: 敌人的回合结束时，用武器攻击意图不为攻击的敌人"
+    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，用 hsrogue:武器 攻击意图不为攻击的敌人"
   },
   "HSRogue:CloakOfShadows": {
     "NAME": "暗影斗篷",
-    "DESCRIPTION": "获得 !B! 格挡并进入 *潜行 NL 如果已经有 *潜行 则获得1层 *无实体"
+    "DESCRIPTION": "获得 !B! 格挡 并进入 hsrogue:潜行 NL 如果已经有 hsrogue:潜行 则获得 !M! 层 无实体"
   },
   "HSRogue:GangUp": {
     "NAME": "夜幕奇袭",
-    "DESCRIPTION": "消耗1张牌，将它的 !M! 张复制洗入弃牌堆"
+    "DESCRIPTION": "消耗 1张牌，将它的 !M! 张复制洗入弃牌堆"
   },
   "HSRogue:Plagiarize": {
     "NAME": "抄袭",
-    "DESCRIPTION": "{@@}*奥秘： 回合开始时如果手牌中没有小抄，则将一张{!Upgrades!|>0=升级过的}小抄置入手中"
+    "DESCRIPTION": "{@@}hsrogue:奥秘 ： 回合开始/使用时如果 NL 手牌中没有 *小抄 NL 则将一张{!Upgrades!|>0=升级过的 NL} *小抄 置入手中"
   },
   "HSRogue:Cheatsheet": {
     "NAME": "小抄",
@@ -189,47 +189,51 @@
   },
   "HSRogue:ValeerasGift": {
     "NAME": "瓦莉拉的礼物",
-    "DESCRIPTION": "从 *背刺 ， *刀扇 ， *致命药膏 中选择一项 !M! 次，将具有 *虚无 的复制置入手中"
+    "DESCRIPTION": "从 *背刺 ， *刀扇 ， *致命药膏 中选择一项 !M! 次，将具有 虚无 的复制置入手中"
   },
   "HSRogue:TwistedPack": {
     "NAME": "幻变的卡牌包",
-    "DESCRIPTION": "{@@}将 !M! 张其他职业的{!Upgrades!|>0=升级过的}具有 *虚无 的复制置入手中"
+    "DESCRIPTION": "{@@}将 !M! 张其他职业的{!Upgrades!|>0=升级过的}具有 虚无 的复制置入手中"
   },
   "HSRogue:SpectralCutlass": {
     "NAME": "幽灵弯刀",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 吸血： !M! NL 每次使用其他职业的牌时，获得+ !M! /+ !M!"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL hsrogue:吸血 ： !M! NL 每次使用其他职业的牌时，获得+ !M! /+ !M!"
   },
   "HSRogue:Shadowblade": {
     "NAME": "暗影之刃",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 处于 *潜行 时获得 !M! 点攻击力且不会失去耐久 NL 进入 *潜行"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 处于 hsrogue:潜行 时获得 !M! 点攻击力且不会失去耐久 NL 进入 hsrogue:潜行"
   },
   "HSRogue:TheLobotomizer": {
     "NAME": "剥夺者",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 造成未被格挡的伤害后，施加 !M! 层 *剥夺 "
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 造成未被 格挡 的伤害后，施加 !M! 层 剥夺"
   },
   "HSRogue:NecriumBlade": {
     "NAME": "死金匕首",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予： *死金"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予 hsrogue:死金"
   },
   "HSRogue:UnderbellyFence": {
     "NAME": "下水道销赃人",
-    "DESCRIPTION": "消耗一张牌，获得1 [E] 抽 1 张牌 NL 如果消耗的是其他职业的牌额外获得 !M! [E] ,额外抽 !M! 张牌"
+    "DESCRIPTION": "消耗 一张牌，获得1 [E] 抽 1 张牌 NL 如果 消耗 的是其他职业的牌额外获得 !M! [E] ,额外抽 !M! 张牌"
   },
   "HSRogue:DragonsHoard": {
     "NAME": "巨龙宝藏",
-    "DESCRIPTION": "{@@}发现一张其他职业的升级的罕见卡 {!Upgrades!|>0=NL 本回合耗能为0}"
+    "DESCRIPTION": "{@@}发现一张其他职业 NL 升级的罕见卡 {!Upgrades!|>0=NL 本回合耗能为0}"
   },
   "HSRogue:Jackpot": {
     "NAME": "头等大奖",
-    "DESCRIPTION": "{@@}将其他职业花费大于等于2的{!Upgrades!|>0=升级过的} !M! 张卡置入手中，并使其获得 *保留"
+    "DESCRIPTION": "{@@}将其他职业花费大于等于2的{!Upgrades!|>0=升级过的} !M! 张卡置入手中，并使其获得 保留 与 消耗"
   },
   "HSRogue:NecriumVial": {
     "NAME": "死金药剂",
-    "DESCRIPTION": "选择弃牌堆最多 !M! 张牌，赋予： *死金"
+    "DESCRIPTION": "选择弃牌堆最多 !M! 张牌 NL 赋予 hsrogue:死金"
   },
   "HSRogue:LesserOnyxSpellstone": {
     "NAME": "次级法术黑曜石",
-    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL 注能 !expM! (消耗卡牌)：增强效果（ !exp! / !expM! ）"
+    "DESCRIPTION": "随机对敌人造成 !D! 点伤害 !M! 次。 NL hsrogue:注能 !expM! ( 消耗 卡牌) NL 增强效果 NL （ !exp! / !expM! ）",
+    "EXTENDED_DESCRIPTION": [
+      "法术黑曜石",
+      "大型法术黑曜石"
+    ]
   },
   "HSRogue:PettyTheft": {
     "NAME": "小偷小摸",
@@ -237,11 +241,11 @@
   },
   "HSRogue:AcademicEspionage": {
     "NAME": "学术剽窃",
-    "DESCRIPTION": "将 !M! 张其他职业的牌洗入你的抽牌堆，它们获得 *虚无 ， *消耗 ， 费用减1与使用后抽一张牌"
+    "DESCRIPTION": "将 !M! 张其他职业的牌洗入你的弃牌堆牌堆，它们获得 虚无 ， 消耗 ， 费用减1与使用后抽一张牌"
   },
   "HSRogue:ValeeraTheHollow": {
     "NAME": "虚空之影瓦莉拉",
-    "DESCRIPTION": "{@@} *英雄 NL 永久潜行，将你的初始能力升级为 *死亡暗影"
+    "DESCRIPTION": "{@@} hsrogue:英雄 NL 永久 hsrogue:潜行 ，将你的 hsrogue:初始能力 升级为 hsrogue:死亡暗影 "
   },
   "HSRogue:ShadowReflection": {
     "NAME": "暗影映像",
@@ -249,23 +253,23 @@
   },
   "HSRogue:SherazinCorpseFlower": {
     "NAME": "“尸魔花”瑟拉金",
-    "DESCRIPTION": "对敌人造成 !D! 点伤害 !M! 次。 消耗后将 *瑟拉金之种 加入你的手牌"
+    "DESCRIPTION": "对敌人造成 !D! 点伤害 !M! 次。 消耗 后将 *瑟拉金之种 加入你的手牌"
   },
   "HSRogue:SherazinSeed": {
     "NAME": "瑟拉金之种",
-    "DESCRIPTION": "注能 !expM! (消耗卡片)：唤醒瑟拉金！（ !exp! / !expM! ） NL 唤醒的回合费用变为0"
+    "DESCRIPTION": "hsrogue:注能 !expM! ( 消耗 卡牌) NL 唤醒瑟拉金！ NL （ !exp! / !expM! ） NL 唤醒的回合费用变为0"
   },
   "HSRogue:TheCavernsBelow": {
     "NAME": "探索地下洞穴",
-    "DESCRIPTION": "任务：使用6张相同的牌（不为基础牌或无色牌），奖励： *水晶核心"
+    "DESCRIPTION": "hsrogue:任务 ：使用6张相同的牌（不为基础牌或无色牌），奖励： *水晶核心"
   },
   "HSRogue:CrystalCore": {
     "NAME": "水晶核心",
-    "DESCRIPTION": "本场战斗强化你的所有卡片 !M! 点 NL 获得 !M! 点力量/敏捷"
+    "DESCRIPTION": "本场战斗强化你的 NL 所有卡片 !M! 点 NL 获得 !M! 点 力量 NL 与 敏捷 "
   },
   "HSRogue:BazaarBurglary": {
     "NAME": "劫掠集市",
-    "DESCRIPTION": "任务：使用6张其他职业的牌，奖励：远古刀锋"
+    "DESCRIPTION": "hsrogue:任务 ：使用6张其他职业的牌，奖励： hsrogue:远古刀锋"
   },
   "HSRogue:MirageBlade": {
     "NAME": "幻象之刃",
@@ -273,59 +277,63 @@
   },
   "HSRogue:PotionOfIllusion": {
     "NAME": "幻觉药水",
-    "DESCRIPTION": "复制你的手牌,使其获得虚无和消耗"
+    "DESCRIPTION": "复制你的手牌 NL 使其获得 虚无 NL 和 消耗 "
   },
   "HSRogue:MyraRotspring": {
     "NAME": "迈拉·腐泉",
-    "DESCRIPTION": "选择 !M! 张手牌注射死金，这张牌在消耗后会给随机手牌附加相同的效果"
+    "DESCRIPTION": "选择 !M! 张手牌注射 hsrogue:死金 ，这张牌在 消耗 后会给随机手牌附加相同的效果"
   },
   "HSRogue:MyrasUnstableElement": {
     "NAME": "迈拉的不稳定元素",
-    "DESCRIPTION": "墓地 NL 抽满你的手牌，消耗处于抽牌堆的其他牌"
+    "DESCRIPTION": "hsrogue:墓地 NL 抽满你的手牌， 消耗 处于抽牌堆的其他牌"
   },
   "HSRogue:TessGreymane": {
     "NAME": "苔丝·格雷迈恩",
-    "DESCRIPTION": "*英雄 NL 本回合每使用一张其他职业的牌，费用减1 NL 你的初始能力升级为 *翻找(主动) "
+    "DESCRIPTION": "hsrogue:英雄 NL 本回合每使用一张其他职业的牌，费用减1 NL 你的 hsrogue:初始能力 升级为 hsrogue:翻找 (主动) "
   },
   "HSRogue:ShadowOfDemise": {
     "NAME": "殒命暗影",
-    "DESCRIPTION": "变化为你最后使用的一张技能牌，它的效果增强 !M! 点 NL 此牌可无限强化"
+    "DESCRIPTION": "变化为你最后使用的 NL 一张技能/攻击牌 NL 它的效果增强 !M! 点 NL 此牌可无限强化"
   },
   "HSRogue:SonyaShadowdancer": {
     "NAME": "影武者索尼娅",
-    "DESCRIPTION": "当你使用一张费用为0的牌时，将一张费用为1的临时复制置入手中,每回合 !M! 次"
+    "DESCRIPTION": "当你使用一张费用为0的牌时，将一张费用为1的 hsrogue:临时 复制置入手中,每回合 !M! 次"
   },
   "HSRogue:SonyaWaterdancer": {
     "NAME": "水上舞者索尼娅",
-    "DESCRIPTION": "当你使用一张费用为1的牌时，将一张费用为0的临时复制置入手中,每回合 !M! 次"
+    "DESCRIPTION": "当你使用一张费用为1的牌时，将一张费用为0的 hsrogue:临时 复制置入手中,每回合 !M! 次"
   },
   "HSRogue:VelarokWindblade": {
     "NAME": "威拉罗克·温布雷",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 使用一张另一职业的卡牌以揭示威拉罗克的真正形态！"
+    "DESCRIPTION": "造成 !D! 点伤害 NL 使用一张另一职业的卡牌以揭示威拉罗克的真正形态！",
+    "EXTENDED_DESCRIPTION": [
+      "狡诈巨龙威拉罗克",
+      "造成 !D! 点伤害 NL 发现一张其他职业的稀有或罕见牌，并使其减少2 [E] "
+    ]
   },
   "HSRogue:EdwinVanCleef": {
     "NAME": "艾德温·范克里夫",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 本回合每使用一张卡使额外伤害增加 !M! 点, 触发连击效果时获得三倍增益 NL 连击：额外伤害额外附加一次"
+    "DESCRIPTION": "造成 !D! 点伤害 NL 本回合每使用一张卡使额外伤害增加 !M! 点, 触发 hsrogue:连击 效果时获得三倍增益 NL  hsrogue:连击 ：额外伤害额外附加一次"
   },
   "HSRogue:MaestraMaskMerchant": {
     "NAME": "面具变装大师",
-    "DESCRIPTION": "抽到/每回合开始时都会变化为一张其他职业的形态牌"
+    "DESCRIPTION": "{@@}抽到/每回合开始时都会 NL 变化为一张其他职业的 NL {!Upgrades!|>0=升级过的}形态牌"
   },
   "HSRogue:ShadowcrafterScabbs": {
     "NAME": "迅影匠师斯卡布斯",
-    "DESCRIPTION": "英雄 NL 你的初始能力升级为 *手法娴熟 NL 击晕所有怪物"
+    "DESCRIPTION": "hsrogue:英雄 NL 你的 hsrogue:初始能力 升级为 hsrogue:手法娴熟 NL 击晕所有怪物"
   },
   "HSRogue:Breakdance": {
     "NAME": "街舞起跳",
-    "DESCRIPTION": "将弃牌堆的一张牌返回手牌，它获得 耐久： !M! "
+    "DESCRIPTION": "将弃牌堆的一张牌 NL 返回手牌 NL 它获得 NL hsrogue:耐久 ： !M! "
   },
   "HSRogue:TripleSevens": {
     "NAME": "三条七",
-    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 注能 !expM! (使用卡牌)：费用变为0 NL ( !exp! / !expM! )"
+    "DESCRIPTION": "造成 !D! 点伤害，抽 !M! 张牌。 NL hsrogue:注能 !expM! (使用卡牌) NL 费用变为0 NL ( !exp! / !expM! )"
   },
   "HSRogue:SpiritOfTheShark": {
     "NAME": "鲨鱼之灵",
-    "DESCRIPTION": "你的连击效果触发两次"
+    "DESCRIPTION": "你的 hsrogue:连击 效果触发两次"
   },
   "HSRogue:GearShift": {
     "NAME": "换挡漂移",
@@ -333,23 +341,15 @@
   },
   "HSRogue:Deafen": {
     "NAME": "致聋术",
-    "DESCRIPTION": "*沉默 一个敌人 NL 连击：造成 !D! 点伤害"
+    "DESCRIPTION": "hsrogue:沉默 一个敌人 NL hsrogue:连击 ：造成 !D! 点伤害"
   },
   "HSRogue:GhostlyStrike": {
     "NAME": "鬼魅攻击",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 连击：抽 !M! 张牌"
-  },
-  "HSRogue:Garrote": {
-    "NAME": "锁喉",
-    "DESCRIPTION": "{@@}将 !M! 张{!Upgrades!|>0=升级过的} *流血 洗入弃牌堆"
-  },
-  "HSRogue:Bleed": {
-    "NAME": "流血",
-    "DESCRIPTION": "抽到时释放，对随机敌人造成 !D! 点伤害"
+    "DESCRIPTION": "造成 !D! 点伤害 NL hsrogue:连击 ：抽 !M! 张牌"
   },
   "HSRogue:GoneFishin": {
     "NAME": "垂钓时光",
-    "DESCRIPTION": "探底: !M! NL 连击：抽一张牌"
+    "DESCRIPTION": "hsrogue:探底 : !M! NL hsrogue:连击 ：抽一张牌"
   },
   "HSRogue:SketchyInformation": {
     "NAME": "简略情报",
@@ -357,15 +357,15 @@
   },
   "HSRogue:QuickPick": {
     "NAME": "急速矿锄",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
   },
   "HSRogue:DoorOfShadows": {
     "NAME": "暗影之门",
-    "DESCRIPTION": "将消耗堆的 !M! 张牌置入手中，注能 !expM! (消耗卡片)： 使其费用变为0  ( !exp! / !expM! )"
+    "DESCRIPTION": "将消耗堆的 !M! 张牌置入手中 NL hsrogue:注能 !expM! ( 消耗 卡牌) NL 使其费用变为0 NL  ( !exp! / !expM! )"
   },
   "HSRogue:BounceAround": {
     "NAME": "舞动全场(ft.迦罗娜)",
-    "DESCRIPTION": "{@@}重新打出本回合你打出的牌 NL 打出卡片需要消耗能量{!Upgrades!|>0=,最大不超过1} "
+    "DESCRIPTION": "{@@}重新打出本回合你 NL 打出过的牌。 NL 需要消耗 [E] {!Upgrades!|>0= NL 最大不超过1} "
   },
   "HSRogue:TheCoin": {
     "NAME": "幸运币",
@@ -373,15 +373,19 @@
   },
   "HSRogue:DartThrow": {
     "NAME": "飞镖投掷",
-    "DESCRIPTION": "随机扔 !M! 个飞镖造成 !D! 点伤害 NL 击中同个目标时获得一个幸运币 NL 连击：多扔一个 NL 消耗性: !stslib:ex!"
+    "DESCRIPTION": "随机扔 !M! 个飞镖造成 !D! 点伤害 NL 击中同个目标时获得一个 *幸运币 NL hsrogue:连击 ：多扔一个 NL hsrogue:消耗性 : !stslib:ex!"
   },
   "HSRogue:WickedStabRank1": {
     "NAME": "邪恶挥刺（等级1）",
-    "DESCRIPTION": "造成 !D! 点伤害 NL 连击：对所有敌人造成伤害。 NL 注能 !expM! (打出连击牌/消耗卡片)：增强效果( !exp! / !expM! )"
+    "DESCRIPTION": "造成 !D! 点伤害 NL hsrogue:连击 ：对所有敌人造成伤害。 NL hsrogue:注能 !expM! (打出 hsrogue:连击 牌/ 消耗 卡片)：增强效果( !exp! / !expM! )",
+    "EXTENDED_DESCRIPTION": [
+      "邪恶挥刺（等级2）",
+      "邪恶挥刺（等级3）"
+    ]
   },
   "HSRogue:RollTheBones": {
     "NAME": "命运骨骰",
-    "DESCRIPTION": "预见： !M! NL 处于牌堆顶的牌附加 *命运 NL 抽一张牌，"
+    "DESCRIPTION": "预见 ： !M! NL 处于牌堆顶的牌附加 hsrogue:命运 NL 抽一张牌"
   },
   "HSRogue:FindCard": {
     "NAME": "发现",
@@ -389,14 +393,34 @@
     "EXTENDED_DESCRIPTION": [
       "发现一张其他职业的牌，增强其效果2点",
       "下一张其他职业的牌打出两次",
-      "发现一张本次战斗使用过的其他职业的牌，使其费用为0"
+      "发现一张本次战斗使用过的其他职业的牌，使其 [E] 为0"
     ]
   },
   "HSRogue:TradeCard": {
     "NAME": "交易",
     "DESCRIPTION": "花费1 [E] 进行 *交易 ",
     "EXTENDED_DESCRIPTION": [
-      "选择一项"
+      "选择卡片"
     ]
+  },
+  "HSRogue:FateMod": {
+    "NAME": "命运模组",
+    "DESCRIPTION": " NL *命运"
+  },
+  "HSRogue:NecriumMod": {
+    "NAME": "死金模组",
+    "DESCRIPTION": " NL *死金"
+  },
+  "HSRogue:PersistMod": {
+    "NAME": "耐久模组",
+    "DESCRIPTION": " NL *耐久 !stslib:persist! "
+  },
+  "HSRogue:SpreadNecriumMod": {
+    "NAME": "死金传播模组",
+    "DESCRIPTION": " NL *死金传播"
+  },
+  "HSRogue:DrawCardMod": {
+    "NAME": "抽牌模组",
+    "DESCRIPTION": " NL *使用后抽%d张牌"
   }
 }

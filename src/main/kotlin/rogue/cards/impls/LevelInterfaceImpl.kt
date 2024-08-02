@@ -51,7 +51,6 @@ class LevelInterfaceImpl(
     }
 
 
-
     override fun setInitialLevel(level: Int) {
         tempDisableHooks = true
         this.level = level

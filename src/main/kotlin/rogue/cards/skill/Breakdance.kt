@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import rogue.mods.PersistMod
 import utils.addMod
@@ -36,7 +37,7 @@ class Breakdance() :
         addToBot(SelectCardsAction(
             AbstractDungeon.player.discardPile.group,
             1,
-            "选择一张卡片获取",
+            TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
             true,
             { true }) { cards ->
             cards.forEach {

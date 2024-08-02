@@ -3,7 +3,9 @@ package rogue.mods
 import basemod.abstracts.AbstractCardModifier
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardQueueItem
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.localization.CardStrings
 import rogue.action.EmptyAction
 import rogue.cards.skill.RollTheBones
 import utils.makeId
@@ -12,8 +14,11 @@ import utils.removeMod
 class FateMod(val copy: AbstractCard = RollTheBones().apply { purgeOnUse = true }) : AbstractCardModifier(), OnDiscard {
     companion object {
         val id = FateMod::class.makeId()
-        val s = " NL *命运"
     }
+
+    private val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(id)
+
+    val s = cardString.DESCRIPTION
 
     override fun onExhausted(card: AbstractCard?) {
         card?.let {

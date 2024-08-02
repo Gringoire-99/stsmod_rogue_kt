@@ -36,13 +36,13 @@ class WickedStabRank1(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 4, max
         impl.onLevelUpCb = {
             when (level) {
                 2 -> {
-                    this.name = "邪恶挥刺（等级2）"
+                    this.name = cardString.EXTENDED_DESCRIPTION[0]
                     this.loadCardImage("$modId/cards/attack/WickedStabRank2.png")
                     initializeTitle()
                 }
 
                 3 -> {
-                    this.name = "邪恶挥刺（等级3）"
+                    this.name = cardString.EXTENDED_DESCRIPTION[1]
                     this.loadCardImage("$modId/cards/attack/WickedStabRank3.png")
                     initializeTitle()
                 }

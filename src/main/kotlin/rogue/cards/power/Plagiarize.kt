@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractRogueCard
+import rogue.cards.skill.Cheatsheet
 import rogue.power.secret.PlagiarizePower
 import utils.makeId
 
@@ -16,6 +17,10 @@ class Plagiarize :
         rarity = CardRarity.UNCOMMON,
         target = CardTarget.SELF
     ) {
+    init {
+        cardsToPreview = Cheatsheet.preview
+    }
+
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
         p?.apply {
             if (hasPower(PlagiarizePower::class.makeId())) {

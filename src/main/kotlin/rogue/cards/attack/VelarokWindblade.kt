@@ -26,9 +26,9 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
         impl.onMaxLevelCb = {
             isRealForm = true
             upgradeDamage(magicNumber)
-            name = "狡诈巨龙威拉罗克"
+            name = cardString.EXTENDED_DESCRIPTION[0]
             loadCardImage("$modId/cards/attack/VelarokTheDeceiver.png")
-            rawDescription = "造成 !D! 点伤害 NL 发现一张其他职业的稀有或罕见牌，并使其减少2 [E] "
+            rawDescription = cardString.EXTENDED_DESCRIPTION[1]
             initializeDescription()
             initializeTitle()
         }

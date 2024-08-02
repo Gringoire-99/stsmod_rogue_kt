@@ -1,7 +1,6 @@
 package rogue.power.weapon
 
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
-import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndAddToDrawPileEffect
+import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction
 import rogue.cards.AbstractWeaponPowerCard
 
 class Kingsbane(
@@ -52,14 +51,14 @@ class Kingsbane(
     override fun onDestroy() {
         damage += magic
         duration++
-        AbstractDungeon.effectList.add(ShowCardAndAddToDrawPileEffect(makeCopy(), true, false))
+        addToBot(MakeTempCardInDrawPileAction(makeCopy(), 1, true, true))
     }
 
     override fun makeCopy(): AbstractWeaponPowerCard {
         val new = rogue.cards.power.Kingsbane()
         new.apply {
             setWeaponCopy(this@Kingsbane)
-            upgrade()
+            if (upgraded) upgrade()
         }
         return new
     }

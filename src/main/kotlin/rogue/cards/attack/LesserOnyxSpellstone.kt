@@ -4,22 +4,23 @@ import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect
 import com.megacrit.cardcrawl.actions.animations.VFXAction
-import com.megacrit.cardcrawl.actions.common.AttackDamageRandomEnemyAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.vfx.combat.HemokinesisEffect
+import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
 import rogue.cards.LevelInterface
 import rogue.cards.OnExhaustInterface
 import rogue.cards.impls.LevelInterfaceImpl
 import utils.addMod
+import utils.dealDamage
 import utils.getRandomMonster
 import utils.modId
 
 class LesserOnyxSpellstone(
     private val upgradeImpl: LevelInterface =
-        LevelInterfaceImpl(maxExpr = 4, maxLevel1 = 3)
+        LevelInterfaceImpl(maxExpr = 5, maxLevel1 = 99)
 ) :
     AbstractRogueCard(
         name = LesserOnyxSpellstone::class.simpleName.toString(),
@@ -33,20 +34,20 @@ class LesserOnyxSpellstone(
     init {
         upgradeImpl.onLevelUpCb = {
             if (level == 2) {
-                this.name = "法术黑曜石"
+                this.name = cardString.EXTENDED_DESCRIPTION[0]
                 this.loadCardImage("$modId/cards/attack/OnyxSpellstone.png")
                 initializeTitle()
             } else if (level == 3) {
-                this.name = "大型法术黑曜石"
+                this.name = cardString.EXTENDED_DESCRIPTION[1]
                 this.loadCardImage("$modId/cards/attack/GreaterOnyxSpellstone.png")
                 initializeTitle()
             }
         }
         upgradeImpl.onMaxExpCb = {
-            upgradeMagicNumber(2)
-            upgradeDamage(2)
+            upgradeMagicNumber(if (level < 3) 2 else 1)
+            upgradeDamage(magicNumber)
         }
-        setDamage(10)
+        setDamage(14)
         setMagicNumber(2)
         addMod(RetainMod(), ExhaustMod())
     }
@@ -61,13 +62,22 @@ class LesserOnyxSpellstone(
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         repeat(magicNumber) {
-            val rm = getRandomMonster()
-            p?.apply {
-                rm?.apply {
-                    addToBot(VFXAction(HemokinesisEffect(p.hb.cX, p.hb.cY, rm.hb.cX, rm.hb.cY), 0.5f))
-                    addToBot(AttackDamageRandomEnemyAction(this@LesserOnyxSpellstone, AttackEffect.BLUNT_HEAVY))
+            addToBot(EmptyAction {
+                val rm = getRandomMonster()
+                p?.apply {
+                    rm?.apply {
+                        addToBot(VFXAction(HemokinesisEffect(p.hb.cX, p.hb.cY, rm.hb.cX, rm.hb.cY), 0.5f))
+                        dealDamage(
+                            p,
+                            rm,
+                            damage = this@LesserOnyxSpellstone.damage,
+                            damageEffect = AttackEffect.BLUNT_HEAVY
+                        )
+
+                    }
                 }
-            }
+            })
+
         }
 
     }
@@ -86,5 +96,8 @@ class LesserOnyxSpellstone(
         return copy
     }
 
+    override fun makeCopy(): AbstractCard {
+        return LesserOnyxSpellstone()
+    }
 
 }

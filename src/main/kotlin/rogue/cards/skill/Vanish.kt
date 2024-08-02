@@ -4,6 +4,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import utils.gainBlock
 
@@ -27,7 +28,13 @@ class Vanish :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val amount = p?.hand?.group?.size ?: 0
-        addToBot(SelectCardsInHandAction(amount, "选择手牌丢弃", true, true, { true }) { cards ->
+        addToBot(
+            SelectCardsInHandAction(
+                amount,
+                TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0],
+                true,
+                true,
+                { true }) { cards ->
             cards.forEach {
                 addToBot(DiscardSpecificCardAction(it))
                 gainBlock(p, block)

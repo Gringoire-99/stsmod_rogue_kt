@@ -8,7 +8,7 @@ import rogue.cards.AbstractWeaponPowerCard
 class AssassinsBlade(
     wDuration: Int = 5,
     wDamage: Int = 3,
-    magic: Int = 4
+    magic: Int = 6
 ) :
     AbstractWeaponPowerCard(
         name = AssassinsBlade::class.simpleName.toString(),
@@ -25,7 +25,7 @@ class AssassinsBlade(
     override fun upgrade() {
         useUpgrade {
             weaponDamage+=2
-            upgradeMagicNumber(2)
+            upgradeMagicNumber(3)
         }
     }
 

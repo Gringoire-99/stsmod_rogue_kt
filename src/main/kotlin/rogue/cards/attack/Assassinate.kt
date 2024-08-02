@@ -21,19 +21,16 @@ class Assassinate : AbstractWeaponCard(
     }
 
     override fun upgrade() {
-        useUpgrade { upgradeMagicNumber(2) }
+        useUpgrade { upgradeMagicNumber(6) }
     }
 
-    override fun calculateCardDamage(mo: AbstractMonster?) {
-        val dexterity = AbstractDungeon.player.getPower(DexterityPower.POWER_ID)
-        if (dexterity != null) {
-            baseDamage += dexterity.amount * magicNumber
-        }
-        super.calculateCardDamage(mo)
-        if (dexterity != null) {
-            baseDamage -= dexterity.amount * magicNumber
+    override fun modifyTempBaseDamage(baseDamage: IntArray) {
+        super.modifyTempBaseDamage(baseDamage)
+        AbstractDungeon.player?.getPower(DexterityPower.POWER_ID)?.apply {
+            baseDamage[0] += magicNumber * amount
         }
     }
+
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.attackWithWeapon(damage = damage, target = m) {

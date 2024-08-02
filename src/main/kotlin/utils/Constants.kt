@@ -3,6 +3,7 @@ package utils
 import com.badlogic.gdx.graphics.Color
 
 const val modId = "HSRogue"
+val modIdLowercase = modId.lowercase()
 const val IMG_Valeera = "$modId/character/Valeera_BG.png";
 const val IMG_Valeera_p = "$modId/character/Valeera_p.png";
 const val IMG_Valeera_shoulder = "$modId/character/shoulder.png";

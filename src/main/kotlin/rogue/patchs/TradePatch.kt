@@ -29,7 +29,7 @@ class TradePatch {
                     AbstractDungeon.actionManager.addToTop(
                         SelectCardsAction(
                             arrayListOf(c, trade),
-                            trade.tradeStrings.EXTENDED_DESCRIPTION[0]
+                            TradeCard.tradeStrings.EXTENDED_DESCRIPTION[0]
                         ) { cards ->
                             val selection = cards[0]
                             if (selection is TradeCard) {

@@ -43,7 +43,6 @@ abstract class AbstractWeaponPower(
         set(value) {
             additionalDamage += value - damage
             flash()
-            updatePowerDesc()
         }
     open var duration: Int
         get() {
@@ -52,7 +51,6 @@ abstract class AbstractWeaponPower(
         set(value) {
             additionalDuration += value - duration
             flash()
-            updatePowerDesc()
         }
 
     protected val initialDamage: Int
@@ -101,7 +99,6 @@ abstract class AbstractWeaponPower(
         this.initialDuration = duration
         baseDamageMods()
         getTempAttackCard()
-        this.updateDescription()
         updatePowerDesc()
     }
 
@@ -170,6 +167,7 @@ abstract class AbstractWeaponPower(
      * TODO localization
      */
     fun updatePowerDesc() {
+        updateDescription()
         if (leechCount > 0) {
             this.description += " NL 吸血：${leechCount}"
         }
@@ -239,7 +237,7 @@ abstract class AbstractWeaponPower(
                 action
             )
 
-            this@AbstractWeaponPower.flash()
+            flash()
             loseDuration(loseDuration)
         }
 

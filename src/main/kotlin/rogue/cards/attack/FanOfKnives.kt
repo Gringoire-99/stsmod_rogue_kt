@@ -27,7 +27,7 @@ class FanOfKnives :
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(1)
+            upgradeMagicNumber(2)
         }
     }
 

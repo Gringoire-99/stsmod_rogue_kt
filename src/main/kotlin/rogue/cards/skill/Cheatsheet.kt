@@ -21,6 +21,10 @@ class Cheatsheet :
         addMod(EtherealMod())
     }
 
+    companion object {
+        val preview = Cheatsheet()
+    }
+
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
         addToBot(EmptyAction {
             generateCardChoices(number = 1, upgraded = upgraded).firstOrNull()?.let {

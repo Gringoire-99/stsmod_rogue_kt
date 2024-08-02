@@ -4,13 +4,11 @@ import basemod.interfaces.*
 import com.badlogic.gdx.Gdx
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.google.gson.Gson
+import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.localization.*
 import com.megacrit.cardcrawl.unlock.UnlockTracker
-import rogue.cards.variables.ExpVariable
-import rogue.cards.variables.MaxExpVariable
-import rogue.cards.variables.WeaponDamageVariable
-import rogue.cards.variables.WeaponDurationVariable
+import rogue.cards.variables.*
 import rogue.characters.Rogue
 import rogue.characters.RogueEnum
 import rogue.relics.IAbstractRelic
@@ -75,6 +73,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
         BaseMod.addDynamicVariable(WeaponDurationVariable())
         BaseMod.addDynamicVariable(ExpVariable())
         BaseMod.addDynamicVariable(MaxExpVariable())
+        CardCrawlGame.languagePack.getKeywordString("")
 
     }
 

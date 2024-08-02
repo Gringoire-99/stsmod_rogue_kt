@@ -10,7 +10,7 @@ class DrawCardFromDiscardPileAction(val cb: (card: AbstractCard) -> Unit = {}) :
         val last = AbstractDungeon.player.discardPile.group.lastOrNull()
         if (last != null) {
             cb(last)
-            addToBot(
+            addToTop(
                 MoveCardsAction(
                     AbstractDungeon.player.hand,
                     AbstractDungeon.player.discardPile,

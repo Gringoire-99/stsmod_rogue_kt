@@ -24,14 +24,17 @@ class Doomerang :
     ) {
     init {
         addMod(RetainMod())
+        setMagicNumber(2)
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.getWeaponPower()?.apply {
-            addToBot(SFXAction("ATTACK_HEAVY"))
-            addToBot(VFXAction(p, CleaveEffect(), 0.1f))
-            AbstractDungeon.getMonsters().monsters.forEach {
-                attack(target = it, damage = this@Doomerang.damage)
+            repeat(magicNumber) {
+                addToBot(SFXAction("ATTACK_HEAVY"))
+                addToBot(VFXAction(p, CleaveEffect(), 0.1f))
+                AbstractDungeon.getMonsters().monsters.forEach {
+                    attack(target = it, damage = this@Doomerang.damage)
+                }
             }
             addToBot(EmptyAction {
                 p.powers.removeIf {
