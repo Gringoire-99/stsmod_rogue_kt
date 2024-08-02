@@ -201,7 +201,7 @@
   },
   "HSRogue:Shadowblade": {
     "NAME": "暗影之刃",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 处于 hsrogue:潜行 时获得 !M! 点攻击力且不会失去耐久 NL 进入 hsrogue:潜行"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 处于 hsrogue:潜行 时获得 !M! 倍攻击力且不会失去耐久 NL 进入 hsrogue:潜行"
   },
   "HSRogue:TheLobotomizer": {
     "NAME": "剥夺者",

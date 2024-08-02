@@ -34,6 +34,8 @@ class ShadowOfDemise() :
                 val copy: AbstractCard = it.makeStatEquivalentCopy()
                 copy.upBase(magicNumber)
                 this.mimic(copy)
+                exhaust = true
+                selfRetain = true
                 if (timesUpgraded > 0) {
                     updateName()
                 }

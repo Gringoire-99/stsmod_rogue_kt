@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class Shadowblade(initialDamage: Int = 4, initialDuration: Int = 3, magic: Int = 4) :
+class Shadowblade(initialDamage: Int = 4, initialDuration: Int = 3, magic: Int = 2) :
     AbstractWeaponPowerCard(
         name = Shadowblade::class.simpleName.toString(),
         cost = 1,
@@ -14,13 +14,12 @@ class Shadowblade(initialDamage: Int = 4, initialDuration: Int = 3, magic: Int =
     ) {
 
     init {
-
         setMagicNumber(magic)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(3)
+            upgradeMagicNumber(1)
             weaponDamage++
         }
     }

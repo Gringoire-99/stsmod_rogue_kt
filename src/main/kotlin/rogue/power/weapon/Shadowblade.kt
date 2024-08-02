@@ -9,7 +9,7 @@ class Shadowblade(
     damage: Int = 4,
     duration: Int = 2,
     upgraded: Boolean = false,
-    magic: Int = 4
+    magic: Int = 2
 ) : AbstractWeaponPower(
     rawName = Shadowblade::class.simpleName.toString(),
     damage = damage,
@@ -23,8 +23,8 @@ class Shadowblade(
 
     override var damage: Int
         get() {
-            val add = if (owner?.hasPower(StealthPower::class.makeId()) == true) magic else 0
-            return initialDamage + additionalDamage + add
+            val d = initialDamage + additionalDamage
+            return if (owner?.hasPower(StealthPower::class.makeId()) == true) d * magic else d
         }
         set(value) {
             additionalDamage += value - damage
