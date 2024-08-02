@@ -21,6 +21,7 @@ class Shadowblade(initialDamage: Int = 4, initialDuration: Int = 3, magic: Int =
         useUpgrade {
             upgradeMagicNumber(1)
             weaponDamage++
+            weaponDuration++
         }
     }
 

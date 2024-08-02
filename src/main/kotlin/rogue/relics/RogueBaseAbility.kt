@@ -46,6 +46,7 @@ class RogueBaseAbility(
     override fun onVictory() {
         if (isTemp) {
             AbstractDungeon.player.relics.remove(this)
+            AbstractDungeon.player.reorganizeRelics()
         }
         reset()
     }

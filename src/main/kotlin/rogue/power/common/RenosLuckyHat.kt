@@ -23,9 +23,7 @@ class RenosLuckyHat(owner: AbstractCreature, private val copy: rogue.cards.power
 
     // 被攻击时
     override fun onAttacked(info: DamageInfo, damageAmount: Int): Int {
-        // 非荆棘伤害，非生命流失伤害，伤害来源不为空，伤害来源不是能力持有者本身，伤害大于0
         if (info.type != DamageType.THORNS && info.type != DamageType.HP_LOSS && info.owner != null && info.owner !== this.owner && damageAmount > 0) {
-            // 能力闪烁一下
             this.flash()
             addToTop(ApplyPowerAction(owner, owner, StrengthPower(owner, -copy.magicNumber), -copy.magicNumber))
             addToTop(ApplyPowerAction(owner, owner, DexterityPower(owner, -copy.magicNumber), -copy.magicNumber))

@@ -17,6 +17,7 @@ abstract class AbstractHeroPower(owner: AbstractPlayer, powerName: String, amoun
                 relic = RelicLibrary.getRelic(RogueBaseAbility::class.makeId()) as RogueBaseAbility
                 relic.isTemp = true
                 relics.add(relic)
+                reorganizeRelics()
             }
             return relic
         }

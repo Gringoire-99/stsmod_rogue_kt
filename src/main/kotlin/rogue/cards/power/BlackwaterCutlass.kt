@@ -1,21 +1,23 @@
 package rogue.cards.power
 
 import basemod.cardmods.EtherealMod
+import basemod.cardmods.ExhaustMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.Tradeable
+import rogue.mods.ReduceCostMod
 import utils.addMod
 import utils.discovery
 
 class BlackwaterCutlass(
-    initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 1,
+    initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 2,
     override var isEnableTrade: Boolean = true
 ) :
     AbstractWeaponPowerCard(
         name = BlackwaterCutlass::class.simpleName.toString(),
-        cost = 1,
+        cost = 0,
         type = CardType.POWER,
         rarity = CardRarity.COMMON, initialDamage = initialDamage, initialDuration = initialDuration
     ), Tradeable {
@@ -45,9 +47,9 @@ class BlackwaterCutlass(
         weaponDamage += magicNumber
         weaponDuration += magicNumber
         discovery {
-            it.addMod(EtherealMod())
+            it.addMod(EtherealMod(), ExhaustMod())
             if (upgraded) {
-                it.costForTurn = if (it.costForTurn - 1 <= 0) 0 else it.costForTurn - 1
+                it.addMod(ReduceCostMod(1, isTurnEffect = true))
             }
         }
     }

@@ -23,6 +23,10 @@ class CrystalCorePower(owner: AbstractPlayer, val magic: Int = 3) :
         }
     }
 
+    init {
+        updateDescription()
+    }
+
     override fun updateDescription() {
         description = powerString.DESCRIPTIONS[0].format(magic)
         name = powerString.NAME

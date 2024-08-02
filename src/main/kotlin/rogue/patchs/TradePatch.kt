@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel
 import common.TradeCard
 import rogue.cards.Tradeable
 
@@ -33,9 +34,11 @@ class TradePatch {
                         ) { cards ->
                             val selection = cards[0]
                             if (selection is TradeCard) {
-                                c.onTrade()
-                                __instance?.energy?.use(1)
-                                AbstractDungeon.actionManager.addToTop(DiscardSpecificCardAction(c))
+                                if (EnergyPanel.getCurrentEnergy() >= 1) {
+                                    c.onTrade()
+                                    EnergyPanel.useEnergy(1)
+                                    AbstractDungeon.actionManager.addToTop(DiscardSpecificCardAction(c))
+                                }
                             } else {
                                 c.isEnableTrade = false
                                 __instance?.useCard(c, monster, energyOnUse)

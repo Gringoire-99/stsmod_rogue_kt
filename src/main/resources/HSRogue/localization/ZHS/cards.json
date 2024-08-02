@@ -365,7 +365,7 @@
   },
   "HSRogue:BounceAround": {
     "NAME": "舞动全场(ft.迦罗娜)",
-    "DESCRIPTION": "{@@}重新打出本回合 NL 你打出过的牌。 NL 需要消耗 [E] 。{!Upgrades!|>0= NL （最大不超过1）NL} "
+    "DESCRIPTION": "{@@}重新打出本回合 NL 你打出过的牌 NL 需要消耗能量{!Upgrades!|>0= NL （最大不超过1）}"
   },
   "HSRogue:TheCoin": {
     "NAME": "幸运币",
