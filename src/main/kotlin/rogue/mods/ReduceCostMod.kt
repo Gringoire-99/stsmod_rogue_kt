@@ -32,7 +32,7 @@ class ReduceCostMod(
     }
 
     override fun shouldApply(card: AbstractCard?): Boolean {
-        return card != null && card.cost >= 0 && !CardModifierManager.hasModifier(card, id)
+        return card != null && card.cost >= 0 && !CardModifierManager.modifiers(card).any { it is ReduceCostMod }
     }
 
     override fun onRemove(card: AbstractCard?) {

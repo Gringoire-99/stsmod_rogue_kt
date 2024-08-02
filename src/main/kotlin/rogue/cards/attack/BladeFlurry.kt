@@ -2,6 +2,7 @@ package rogue.cards.attack
 
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.action.EmptyAction
 import rogue.cards.AbstractWeaponCard
 import utils.attackWithWeapon
 import utils.getWeaponPower
@@ -29,7 +30,9 @@ class BladeFlurry :
             getWeaponPower()?.apply {
                 val count: Int = if (duration > magicNumber) magicNumber else duration
                 repeat(count) {
-                    p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDuration = 1)
+                    addToBot(EmptyAction {
+                        p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDuration = 1)
+                    })
                 }
             }
         }

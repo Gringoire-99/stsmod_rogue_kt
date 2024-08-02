@@ -233,10 +233,9 @@ abstract class AbstractWeaponPower(
             )
             if (duration <= 0) return
             vfx(it)
-            addToBot(
+            addToTop(
                 action
             )
-
             flash()
             loseDuration(loseDuration)
         }

@@ -46,7 +46,7 @@ class DartThrow() :
                 m1?.let {
                     count[m1] = count.getOrPut(m1) { 0 } + 1
                     dealDamage(p, m1, damage, damageEffect = AbstractGameAction.AttackEffect.BLUNT_LIGHT) {
-                        addToBot(VFXAction(ThrowDaggerEffect(it.hb.cX, it.hb.cY)));
+                        addToTop(VFXAction(ThrowDaggerEffect(it.hb.cX, it.hb.cY)));
                     }
                 }
             })

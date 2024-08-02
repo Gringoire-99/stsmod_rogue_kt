@@ -38,7 +38,7 @@
   "HSRogue:DirtyTricksPower": {
     "NAME": "邪恶计谋",
     "DESCRIPTIONS": [
-      "奥秘：回合开始时，每有一个意图不为攻击的敌人 NL 抽%d张牌"
+      "奥秘：回合开始时，意图不为攻击的敌人获得%d层 易伤 和 虚弱"
     ]
   },
   "HSRogue:DoubleCrossPower": {
@@ -68,13 +68,13 @@
   "HSRogue:TheCavernsBelowPower": {
     "NAME": "探索地下洞穴",
     "DESCRIPTIONS": [
-      "任务：使用8张相同的牌（不包括基础牌或无色牌），奖励：水晶核心"
+      "任务：使用%d张相同的牌（不包括基础牌或无色牌），奖励：水晶核心"
     ]
   },
   "HSRogue:BazaarBurglaryPower": {
     "NAME": "劫掠集市",
     "DESCRIPTIONS": [
-      "任务：使用8张其他职业的牌，奖励：远古刀锋"
+      "任务：使用%d张其他职业的牌，奖励：远古刀锋"
     ]
   },
   "HSRogue:AncientBlades": {

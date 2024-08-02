@@ -20,7 +20,7 @@ import utils.modId
 
 class LesserOnyxSpellstone(
     private val upgradeImpl: LevelInterface =
-        LevelInterfaceImpl(maxExpr = 5, maxLevel1 = 99)
+        LevelInterfaceImpl(maxExpr = 6, maxLevel1 = 99)
 ) :
     AbstractRogueCard(
         name = LesserOnyxSpellstone::class.simpleName.toString(),
@@ -66,14 +66,13 @@ class LesserOnyxSpellstone(
                 val rm = getRandomMonster()
                 p?.apply {
                     rm?.apply {
-                        addToBot(VFXAction(HemokinesisEffect(p.hb.cX, p.hb.cY, rm.hb.cX, rm.hb.cY), 0.5f))
                         dealDamage(
                             p,
                             rm,
                             damage = this@LesserOnyxSpellstone.damage,
                             damageEffect = AttackEffect.BLUNT_HEAVY
                         )
-
+                        addToTop(VFXAction(HemokinesisEffect(p.hb.cX, p.hb.cY, rm.hb.cX, rm.hb.cY), 0.5f))
                     }
                 }
             })

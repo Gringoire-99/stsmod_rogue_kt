@@ -17,7 +17,7 @@ class DirtyTricks :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(2)
+        setMagicNumber(1)
     }
 
     override fun upgrade() {

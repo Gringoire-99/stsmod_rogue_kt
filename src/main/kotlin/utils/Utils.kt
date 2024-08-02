@@ -72,7 +72,7 @@ fun dealDamage(
     val target = m ?: getRandomMonster()
     target?.let {
         vfx(it)
-        AbstractDungeon.actionManager.addToBottom(
+        AbstractDungeon.actionManager.addToTop(
             DamageAction(
                 it,
                 damageInfo,
@@ -266,13 +266,12 @@ fun AbstractCard.upBase(magic: Int) {
 fun AbstractCard.addToQueue(
     card: AbstractCard,
     t: AbstractCreature?,
-    purge: Boolean = false,
     random: Boolean = false,
     cb: (AbstractCard) -> Unit = {}
 ) {
-    if (!AbstractDungeon.player.limbo.contains(card) && purge) {
-        AbstractDungeon.player.limbo.addToBottom(this)
-    }
+//    if (!AbstractDungeon.player.limbo.contains(card)) {
+//        AbstractDungeon.player.limbo.addToBottom(this)
+//    }
     this.current_x = card.current_x
     this.current_y = card.current_y
     this.target_x = Settings.WIDTH.toFloat() / 2.0f - 300.0f * Settings.scale
@@ -281,7 +280,6 @@ fun AbstractCard.addToQueue(
     if (t is AbstractMonster) {
         this.calculateCardDamage(t)
     }
-    this.purgeOnUse = purge
     if (random) {
         AbstractDungeon.actionManager.addCardQueueItem(
             CardQueueItem(this, true, card.energyOnUse, true, true),

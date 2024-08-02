@@ -49,7 +49,7 @@ class JadeShuriken :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
 
         dealDamage(p, m, damage) {
-            addToBot(VFXAction(ThrowDaggerEffect(it.hb.cX, it.hb.cY)));
+            addToTop(VFXAction(ThrowDaggerEffect(it.hb.cX, it.hb.cY)));
         }
         addToTop(ApplyPowerAction(p, p, JadeGrowth(p ?: AbstractDungeon.player, magicNumber), magicNumber))
         p?.apply {

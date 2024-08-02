@@ -48,7 +48,7 @@ class EdwinVanCleef() :
             damage += additionalDamage
         }
         dealDamage(p, m, damage, damageEffect = AbstractGameAction.AttackEffect.BLUNT_HEAVY) {
-            addToBot(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))
+            addToTop(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))
         }
     }
 }

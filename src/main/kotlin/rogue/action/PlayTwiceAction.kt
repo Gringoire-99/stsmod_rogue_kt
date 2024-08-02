@@ -6,13 +6,16 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import rogue.cards.Tradeable
 import utils.addToQueue
 
-class PlayTwiceAction(val card: AbstractCard, val target: AbstractCreature?) : AbstractGameAction() {
+class PlayTwiceAction(
+    val card: AbstractCard,
+    val target: AbstractCreature?,
+) : AbstractGameAction() {
     override fun update() {
         val tmp: AbstractCard = card.makeStatEquivalentCopy()
         if (tmp is Tradeable) {
             tmp.isEnableTrade = false
         }
-        tmp.addToQueue(card, target, true)
+        tmp.addToQueue(card, target)
         isDone = true
     }
 }

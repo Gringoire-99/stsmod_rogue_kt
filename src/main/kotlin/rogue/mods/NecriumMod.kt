@@ -1,6 +1,7 @@
 package rogue.mods
 
 import basemod.abstracts.AbstractCardModifier
+import basemod.cardmods.ExhaustMod
 import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.actions.utility.UseCardAction
 import com.megacrit.cardcrawl.cards.AbstractCard
@@ -8,9 +9,10 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
 import rogue.action.PlayTwiceAction
+import utils.addMod
 import utils.makeId
 
-class NecriumMod : AbstractCardModifier() {
+class NecriumMod() : AbstractCardModifier() {
     override fun makeCopy(): AbstractCardModifier {
         return NecriumMod()
     }
@@ -24,14 +26,17 @@ class NecriumMod : AbstractCardModifier() {
     private val s: String = cardString.DESCRIPTION
     override fun onUse(card: AbstractCard?, target: AbstractCreature?, action: UseCardAction?) {
         val copy = card?.makeStatEquivalentCopy()
-        CardModifierManager.removeModifiersById(copy, id, false)
+        CardModifierManager.modifiers(copy).removeIf {
+            it is NecriumMod || it is SpreadNecriumMod
+        }
         copy?.apply {
-            purgeOnUse = true
-            exhaust = true
+            purgeOnUse = false
+            exhaust = false
+            addMod(ExhaustMod())
             addToTop(PlayTwiceAction(this, target))
         }
-
     }
+
 
     override fun onInitialApplication(card: AbstractCard?) {
         card?.exhaust = true

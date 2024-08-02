@@ -161,7 +161,7 @@
   },
   "HSRogue:DirtyTricks": {
     "NAME": "邪恶计谋",
-    "DESCRIPTION": "hsrogue:奥秘 : 回合开始每有一个意图不为攻击的敌人，抽 !M! 张牌"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合开始意图不为攻击的敌人获得 !M! 层 易伤 和 虚弱"
   },
   "HSRogue:DoubleCross": {
     "NAME": "双面生意",
@@ -365,7 +365,7 @@
   },
   "HSRogue:BounceAround": {
     "NAME": "舞动全场(ft.迦罗娜)",
-    "DESCRIPTION": "{@@}重新打出本回合你 NL 打出过的牌。 NL 需要消耗 [E] {!Upgrades!|>0= NL 最大不超过1} "
+    "DESCRIPTION": "{@@}重新打出本回合 NL 你打出过的牌。 NL 需要消耗 [E] 。{!Upgrades!|>0= NL （最大不超过1）NL} "
   },
   "HSRogue:TheCoin": {
     "NAME": "幸运币",

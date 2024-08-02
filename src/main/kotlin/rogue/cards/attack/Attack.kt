@@ -1,7 +1,7 @@
 package rogue.cards.attack
 
+import basemod.cardmods.EtherealMod
 import basemod.cardmods.ExhaustMod
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponCard
@@ -25,8 +25,7 @@ class Attack :
     }
 
     init {
-        purgeOnUse = true
-        addMod(ExhaustMod(), RetainMod())
+        addMod(ExhaustMod(), EtherealMod())
     }
 
     override fun upgrade() {

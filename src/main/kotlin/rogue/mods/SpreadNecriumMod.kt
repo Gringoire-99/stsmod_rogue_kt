@@ -1,6 +1,7 @@
 package rogue.mods
 
 import basemod.abstracts.AbstractCardModifier
+import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.localization.CardStrings
@@ -23,6 +24,12 @@ class SpreadNecriumMod : AbstractCardModifier() {
     override fun makeCopy(): AbstractCardModifier {
         return SpreadNecriumMod()
     }
+
+    override fun shouldApply(card: AbstractCard?): Boolean {
+        val modifiers = CardModifierManager.modifiers(card)
+        return !modifiers.any { it is SpreadNecriumMod }
+    }
+
 
     override fun onRemove(card: AbstractCard?) {
         card?.apply {

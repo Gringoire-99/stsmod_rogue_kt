@@ -1,12 +1,14 @@
 package rogue.power.secret
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
+import com.megacrit.cardcrawl.powers.VulnerablePower
+import com.megacrit.cardcrawl.powers.WeakPower
 import rogue.action.EmptyAction
-import utils.drawCard
 import utils.isAttackIntent
 
-class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 2) :
+class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
     AbstractSecretPower(rawName = DirtyTricksPower::class.simpleName.toString(), owner = owner) {
     init {
         updateDescription()
@@ -14,13 +16,12 @@ class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 2) :
 
     override fun atStartOfTurnPostDraw() {
         addToBot(EmptyAction {
-            var count = 0
             AbstractDungeon.getMonsters().monsters.forEach {
                 if (!it.intent.isAttackIntent()) {
-                    count += magicNumber
+                    addToBot(ApplyPowerAction(it, owner, WeakPower(it, magicNumber, false), magicNumber))
+                    addToBot(ApplyPowerAction(it, owner, VulnerablePower(it, magicNumber, false), magicNumber))
                 }
             }
-            drawCard(count)
             flash()
         })
     }

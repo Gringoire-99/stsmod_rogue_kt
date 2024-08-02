@@ -17,6 +17,11 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
         amount = 0
     ), NonStackablePower {
     abstract val maxCount: Int
+
+    init {
+        updateDescription()
+    }
+
     var questCount = 0
         set(value) {
             field = value
@@ -43,5 +48,8 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
 
 
     abstract fun onComplete()
-
+    final override fun updateDescription() {
+        description = powerString.DESCRIPTIONS[0].format(maxCount)
+        name = powerString.NAME
+    }
 }

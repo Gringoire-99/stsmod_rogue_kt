@@ -33,7 +33,7 @@ class Deafen() :
         useCombo {
             dealDamage(p, m, damage)
         }
-        addToBot(
+        addToTop(
             DeafenAction(
                 p ?: AbstractDungeon.player,
                 m ?: getRandomMonster()
