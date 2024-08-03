@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class Shadowblade(initialDamage: Int = 4, initialDuration: Int = 3, magic: Int = 2) :
+class Shadowblade(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 2) :
     AbstractWeaponPowerCard(
         name = Shadowblade::class.simpleName.toString(),
         cost = 1,

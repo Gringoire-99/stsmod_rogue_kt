@@ -46,6 +46,5 @@ class BounceAroundAction(val upgraded: Boolean = false) : AbstractGameAction() {
             }
         })
     }
-
 }
 

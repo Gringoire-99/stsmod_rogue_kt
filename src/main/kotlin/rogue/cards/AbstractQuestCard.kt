@@ -21,10 +21,10 @@ abstract class AbstractQuestCard(rawName: String) :
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
         p?.apply {
-            val find = powers.find {
+            val find = powers.any {
                 it is AbstractQuestPower
             }
-            return find == null
+            return !find
         }
         return true
     }
