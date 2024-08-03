@@ -11,7 +11,7 @@ import utils.removeMod
 
 class PerditionsBlade(
     wDamage: Int = 4,
-    wDuration: Int = 3,
+    wDurability: Int = 3,
     magic: Int = 3,
 ) :
     AbstractWeaponPowerCard(
@@ -19,7 +19,7 @@ class PerditionsBlade(
         cost = 1,
         rarity = CardRarity.UNCOMMON,
         initialDamage = wDamage,
-        initialDuration = wDuration
+        initialDurability = wDurability
     ) {
     init {
         setMagicNumber(magic)
@@ -29,7 +29,7 @@ class PerditionsBlade(
 
     override fun upgrade() {
         useUpgrade {
-            weaponDuration++
+            weaponDurability++
             weaponDamage++
             upgradeMagicNumber(2)
         }
@@ -40,7 +40,7 @@ class PerditionsBlade(
             EquipWeaponAction(
                 rogue.power.weapon.PerditionsBlade(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     magic = magicNumber,
                     upgraded = upgraded
                 )

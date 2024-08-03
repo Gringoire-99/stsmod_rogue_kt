@@ -8,13 +8,13 @@ import utils.isAttackIntent
 
 class AssassinsBlade(
     damage: Int = 3,
-    duration: Int = 5,
+    durability: Int = 5,
     magic: Int = 4,
     upgraded: Boolean = false
 ) : AbstractWeaponPower(
     rawName = AssassinsBlade::class.simpleName.toString(),
     damage = damage,
-    duration = duration,
+    durability = durability,
     magic = magic,
     upgraded = upgraded
 ) {

@@ -1,0 +1,164 @@
+[
+  {
+    "NAMES": [
+      "Weapon"
+    ],
+    "DESCRIPTION": "Unique Power (can only equip one #pWeapon at a time). NL It has it's damage and durability, self-destructs when durability is exhausted. NL Once per turn, at the start of the turn or equipping a #pWeapon, add an Attack card to your hand."
+  },
+  {
+    "NAMES": [
+      "Stealth"
+    ],
+    "DESCRIPTION": "Attack cannot deal damage if it is less than your Block . NL Gain 2 block (affected by Dexterity) when entering or re-entering stealth; removed at the start of turn."
+  },
+  {
+    "NAMES": [
+      "Exhaustive"
+    ],
+    "DESCRIPTION": "Exhaust after a certain number of uses."
+  },
+  {
+    "NAMES": [
+      "Combo"
+    ],
+    "DESCRIPTION": "Play a card to activate the combo effect. NL When the combo is active, playing a combo card will triggers an additional effect and then deactivates the combo."
+  },
+  {
+    "NAMES": [
+      "Temporary"
+    ],
+    "DESCRIPTION": "Temporary effects last only one turn and disappear after being used. NL If it is a temporary card, it has Exhaust and Ethereal ."
+  },
+  {
+    "NAMES": [
+      "Leeching"
+    ],
+    "DESCRIPTION": "A weapon with Leeching heals you after dealing unblocked damage."
+  },
+  {
+    "NAMES": [
+      "Paralytic"
+    ],
+    "DESCRIPTION": "A weapon with Paralytic applies Weak and Temporary Strength Loss after dealing unblocked damage."
+  },
+  {
+    "NAMES": [
+      "Poison"
+    ],
+    "DESCRIPTION": "A weapon with Poison converts 40% of the amount to the target after dealing unblocked damage."
+  },
+  {
+    "NAMES": [
+      "Refund"
+    ],
+    "DESCRIPTION": "Refund a certain number of [E]"
+  },
+  {
+    "NAMES": [
+      "Tradeable"
+    ],
+    "DESCRIPTION": "A Tradeable card can be used normally or trigger a special trade effect by spending 1 [E]."
+  },
+  {
+    "NAMES": [
+      "Deathrattle"
+    ],
+    "DESCRIPTION": "effects triggered when it's destruction"
+  },
+  {
+    "NAMES": [
+      "JadeGrowth"
+    ],
+    "DESCRIPTION": "Enhance all Jade card's effect"
+  },
+  {
+    "NAMES": [
+      "Secret"
+    ],
+    "DESCRIPTION": "Unique power，Will trigger it's effect at some point"
+  },
+  {
+    "NAMES": [
+      "Infuse"
+    ],
+    "DESCRIPTION": "Additional effects that are activated when certain conditions are met"
+  },
+  {
+    "NAMES": [
+      "InitialAbility"
+    ],
+    "DESCRIPTION": "Right-click your initial relic to use your initial ability"
+  },
+  {
+    "NAMES": [
+      "DeathsShadow"
+    ],
+    "DESCRIPTION": "At start of turn add an Unique *ShadowReflection to your hand"
+  },
+  {
+    "NAMES": [
+      "Hero"
+    ],
+    "DESCRIPTION": "Gain 5 block after Hero card player，It will replace your initial ability with new abilities"
+  },
+  {
+    "NAMES": [
+      "Quest"
+    ],
+    "DESCRIPTION": "Unique power, Complete the quest and get rewards!"
+  },
+  {
+    "NAMES": [
+      "Grave"
+    ],
+    "DESCRIPTION": "In discard pile at start of a combat"
+  },
+  {
+    "NAMES": [
+      "Scavenge"
+    ],
+    "DESCRIPTION": "Choose one: NL 1. Discover an another class's card, Enhance it's effect by 2 NL 2. Next another class's card you played will play twice 3. Discover an another class's card you played this combat set it's cost 0. NL Two charge counters, one is regained each turn."
+  },
+  {
+    "NAMES": [
+      "SleightOfHand"
+    ],
+    "DESCRIPTION": "The next card your play this turn spend 1 [E] less NL Two charge counters, one is regained each turn."
+  },
+  {
+    "NAMES": [
+      "Persist"
+    ],
+    "DESCRIPTION": "Discard after being played a certain number of times."
+  },
+  {
+    "NAMES": [
+      "Silent"
+    ],
+    "DESCRIPTION": "Remove all positive buffs for one turn"
+  },
+  {
+    "NAMES": [
+      "Dredge"
+    ],
+    "DESCRIPTION": "Select the card from the bottom of the draw pile and place it on top of the draw pile"
+  },
+  {
+    "NAMES": [
+      "Fate"
+    ],
+    "DESCRIPTION": "When you Discard or Exhaust a card with Fate, replay Roll The Bones"
+  },
+  {
+    "NAMES": [
+      "AncientBlades"
+    ],
+    "DESCRIPTION": "Your weapon permanently gains +2/+2 NL Add a unique Mirage Blade to your hand at the start of turn"
+  },
+  {
+    "NAMES": [
+      "Necrium"
+    ],
+    "DESCRIPTION": "Cards with Necrium will be played an extra time (can be stacked) and Exhaust"
+  }
+]

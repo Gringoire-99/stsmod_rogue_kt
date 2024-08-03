@@ -1,0 +1,134 @@
+{
+  "HSRogue:AbstractWeaponPower": {
+    "NAME": "Weapon",
+    "DESCRIPTIONS": [
+      "Weapon Equipped"
+    ]
+  },
+  "HSRogue:StealthPower": {
+    "NAME": "Stealth",
+    "DESCRIPTIONS": [
+      "Attack cannot deal damage if it is less than your Block . NL Gain 2 block (affected by Dexterity) when entering or re-entering stealth; removed at the start of turn."
+    ]
+  },
+  "HSRogue:RenosLuckyHat": {
+    "NAME": "Reno's Lucky Hat",
+    "DESCRIPTIONS": [
+      "Dexterity/Strength up NL Take Unblock attack will drop in your discard pile！"
+    ]
+  },
+  "HSRogue:JadeGrowth": {
+    "NAME": "Jade Growth",
+    "DESCRIPTIONS": [
+      "Enhance all Jade card's effect"
+    ]
+  },
+  "HSRogue:EvasionPower": {
+    "NAME": "Evasion",
+    "DESCRIPTIONS": [
+      "Secret:If you have no Block at end of your turn NL Gain %d Block NL (Affect by Dexterity )"
+    ]
+  },
+  "HSRogue:DirtyTricksPower": {
+    "NAME": "Dirty Tricks",
+    "DESCRIPTIONS": [
+      "Secret:At start of your turn NL Non attack intent monster gain %d Vulnerable and Weak"
+    ]
+  },
+  "HSRogue:DoubleCrossPower": {
+    "NAME": "DoubleCross",
+    "DESCRIPTIONS": [
+      "Secret:At start of your turn, If there is only one monster NL draw %d cards"
+    ]
+  },
+  "HSRogue:AmbushPower": {
+    "NAME": "Ambush！",
+    "DESCRIPTIONS": [
+      "Secret:At end of monster's turn,attack Non attack intent monster with your weapon"
+    ]
+  },
+  "HSRogue:PlagiarizePower": {
+    "NAME": "Plagiarize",
+    "DESCRIPTIONS": [
+      "Secret:at start of turn/using,Add an unique CheatSheet to your hand"
+    ]
+  },
+  "HSRogue:DeathsShadowPower": {
+    "NAME": "Valeera The Hollow",
+    "DESCRIPTIONS": [
+      "Permanently Stealth，At start of turn/using add an unique ShadowReflection"
+    ]
+  },
+  "HSRogue:TheCavernsBelowPower": {
+    "NAME": "The Caverns Below",
+    "DESCRIPTIONS": [
+      "Quest :Use 6 identical cards（Non Basic or Colorless card）NL Reward: CrystalCore"
+    ]
+  },
+  "HSRogue:BazaarBurglaryPower": {
+    "NAME": "Bazaar Burglary",
+    "DESCRIPTIONS": [
+      "Quest :Use 6 another class's card NL Reward: AncientBlades"
+    ]
+  },
+  "HSRogue:AncientBlades": {
+    "NAME": "Ancient Blades",
+    "DESCRIPTIONS": [
+      "Your weapon permanently gains +2/+2 NL Add a unique Mirage Blade to your hand at the start of turn"
+    ]
+  },
+  "HSRogue:CrystalCorePower": {
+    "NAME": "Crystal Core",
+    "DESCRIPTIONS": [
+      "Enhance all cards by %d "
+    ]
+  },
+  "HSRogue:TessGreymanePower": {
+    "NAME": "Scavenge",
+    "DESCRIPTIONS": [
+      "Choose one: NL 1. Discover an another class's card, Enhance it's effect by 2 NL 2. Next another class's card you played will play twice 3. Discover an another class's card you played this combat set it's cost 0. NL Two charge counters, one is regained each turn."
+    ]
+  },
+  "HSRogue:ShadowdancePower": {
+    "NAME": "Shadowdance",
+    "DESCRIPTIONS": [
+      "When played a 0 cost card,Add a 1 cost copy into your hand"
+    ]
+  },
+  "HSRogue:WaterdancePower": {
+    "NAME": "Waterdance",
+    "DESCRIPTIONS": [
+      "When played a 1 cost card,Add a 0 cost copy into your hand"
+    ]
+  },
+  "HSRogue:SleightOfHandPower": {
+    "NAME": "Sleight Of Hand",
+    "DESCRIPTIONS": [
+      "The next card your play this turn spend 1 [E] less NL Two charge counters, one is regained each turn."
+    ]
+  },
+  "HSRogue:SpiritOfTheSharkPower": {
+    "NAME": "Spirit Of The Shark",
+    "DESCRIPTIONS": [
+      "Your hsrogue:Combo effect trigger twice"
+    ]
+  },
+  "HSRogue:SilencePower": {
+    "NAME": "Silent",
+    "DESCRIPTIONS": [
+      "Remove all positive buffs for one turn"
+    ]
+  },
+  "HSRogue:PlayTwicePower": {
+    "NAME": "PlayTwice",
+    "DESCRIPTIONS": [
+      "Next another class's card you played will play twice"
+    ]
+  },
+  "HSRogue:SecretPassageBackupPower": {
+    "NAME": "Secret Passage",
+    "DESCRIPTIONS": [
+      "At start of your turn，Return the removed cards"
+    ]
+  }
+}

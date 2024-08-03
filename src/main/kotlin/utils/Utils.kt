@@ -71,7 +71,6 @@ fun dealDamage(
 ) {
     val target = m ?: getRandomMonster()
     target?.let {
-        vfx(it)
         AbstractDungeon.actionManager.addToTop(
             DamageAction(
                 it,
@@ -79,6 +78,7 @@ fun dealDamage(
                 damageEffect
             )
         )
+        vfx(it)
     }
 
 }
@@ -111,7 +111,7 @@ fun AbstractCreature.isWeaponEquipped(): Boolean {
 fun AbstractPlayer.attackWithWeapon(
     target: AbstractMonster? = getRandomMonster(),
     damage: Int = 0,
-    loseDuration: Int = 0,
+    loseDurability: Int = 0,
     attackEffect: AttackEffect = AttackEffect.SLASH_DIAGONAL,
     vfx: (target: AbstractCreature) -> Unit = {}
 ) {
@@ -120,7 +120,7 @@ fun AbstractPlayer.attackWithWeapon(
             target = target,
             damage = damage,
             source = this,
-            loseDuration = loseDuration,
+            loseDurability = loseDurability,
             attackEffect = attackEffect,
             vfx = vfx
         )
@@ -258,7 +258,7 @@ fun AbstractCard.upBase(magic: Int) {
         upMagicNumber(magic)
         if (this is AbstractWeaponPowerCard) {
             this.weaponDamage += magic
-            this.weaponDuration += magic
+            this.weaponDurability += magic
         }
     }
 }

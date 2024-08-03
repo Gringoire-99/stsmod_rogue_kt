@@ -101,19 +101,19 @@
   },
   "HSRogue:WickedKnife": {
     "NAME": "邪恶短刀",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ]"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ]"
   },
   "HSRogue:AssassinsBlade": {
     "NAME": "刺客之刃",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 对意图不为攻击的敌人造成 !M! 点额外伤害"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 对意图不为攻击的敌人造成 !M! 点额外伤害"
   },
   "HSRogue:Kingsbane": {
     "NAME": "弑君",
-    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDuration! ] NL 附加效果不会因为任何效果消失或降低 NL hsrogue:亡语 : + !M! /+1,将此 hsrogue:武器 洗入你的抽牌堆"
+    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDurability! ] NL 附加效果不会因为任何效果消失或降低 NL hsrogue:亡语 : + !M! /+1,将此 hsrogue:武器 洗入你的抽牌堆"
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "黑水弯刀",
-    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDuration! ] NL hsrogue:可交易 ： 获得+ !M! /+ !M! ，发现一张 虚无 的其他职业的牌{!Upgrades!|>0= NL 并使其 hsrogue:临时 减少1 [E] } "
+    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDurability! ] NL hsrogue:可交易 ： 获得+ !M! /+ !M! ，发现一张 虚无 的其他职业的牌{!Upgrades!|>0= NL 并使其 hsrogue:临时 减少1 [E] } "
   },
   "HSRogue:Parrrley": {
     "NAME": "海盗谈判",
@@ -133,7 +133,7 @@
   },
   "HSRogue:PerditionsBlade": {
     "NAME": "毁灭之刃",
-    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDuration! ] NL 给予攻击的敌人一层 易伤 ，如果已有 易伤 改为 !M! 点伤害，每回合结束减少一点耐久"
+    "DESCRIPTION": " hsrogue:武器 [ !WDamage! / !WDurability! ] NL 给予攻击的敌人一层 易伤 ，如果已有 易伤 改为 !M! 点伤害，每回合结束减少一点耐久"
   },
   "HSRogue:RenosLuckyHat": {
     "NAME": "雷诺的幸运帽",
@@ -197,19 +197,19 @@
   },
   "HSRogue:SpectralCutlass": {
     "NAME": "幽灵弯刀",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL hsrogue:吸血 ： !M! NL 每次使用其他职业的牌时，获得+ !M! /+ !M!"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL hsrogue:吸血 ： !M! NL 每次使用其他职业的牌时，获得+ !M! /+ !M!"
   },
   "HSRogue:Shadowblade": {
     "NAME": "暗影之刃",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 处于 hsrogue:潜行 时获得 !M! 倍攻击力且不会失去耐久 NL 进入 hsrogue:潜行"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 处于 hsrogue:潜行 时获得 !M! 倍攻击力且不会失去耐久 NL 进入 hsrogue:潜行"
   },
   "HSRogue:TheLobotomizer": {
     "NAME": "剥夺者",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 造成未被 格挡 的伤害后，施加 !M! 层 剥夺"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 造成未被 格挡 的伤害后，施加 !M! 层 剥夺"
   },
   "HSRogue:NecriumBlade": {
     "NAME": "死金匕首",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予 hsrogue:死金"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 攻击后消耗一点耐久选择弃牌堆的一张牌赋予 hsrogue:死金"
   },
   "HSRogue:UnderbellyFence": {
     "NAME": "下水道销赃人",
@@ -357,7 +357,7 @@
   },
   "HSRogue:QuickPick": {
     "NAME": "急速矿锄",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDuration! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 每次损耗耐久时抽 !M! 张牌，每次攻击都会损耗1点耐久"
   },
   "HSRogue:DoorOfShadows": {
     "NAME": "暗影之门",

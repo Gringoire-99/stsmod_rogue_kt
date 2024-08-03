@@ -30,7 +30,7 @@ import utils.makeId
 abstract class AbstractWeaponPower(
     rawName: String,
     damage: Int,
-    duration: Int,
+    durability: Int,
     val magic: Int = 0,
     val upgraded: Boolean = false
 ) :
@@ -44,25 +44,25 @@ abstract class AbstractWeaponPower(
             additionalDamage += value - damage
             flash()
         }
-    open var duration: Int
+    open var durability: Int
         get() {
-            return additionalDuration + initialDuration - tempLoseDuration
+            return additionalDurability + initialDurability - tempLoseDurability
         }
         set(value) {
-            additionalDuration += value - duration
+            additionalDurability += value - durability
             flash()
         }
 
     protected val initialDamage: Int
-    protected val initialDuration: Int
-    protected var additionalDuration = 0
-    open var tempLoseDuration = 0
+    protected val initialDurability: Int
+    protected var additionalDurability = 0
+    open var tempLoseDurability = 0
     protected var additionalDamage = 0
 
     private val weaponName: String
     private val weaponDesc: String
     private var damageColor: Color = Color.GREEN.cpy()
-    private var durationColor: Color = Color.GREEN.cpy()
+    private var durabilityColor: Color = Color.GREEN.cpy()
     open var poisonCount = 0
         set(value) {
             field = value
@@ -96,7 +96,7 @@ abstract class AbstractWeaponPower(
         this.weaponName = cardStrings.NAME
         this.weaponDesc = cardStrings.DESCRIPTION
         this.initialDamage = damage
-        this.initialDuration = duration
+        this.initialDurability = durability
         baseDamageMods()
         getTempAttackCard()
         updatePowerDesc()
@@ -191,7 +191,7 @@ abstract class AbstractWeaponPower(
             Color.RED.cpy()
         }
 
-        durationColor = if (duration >= initialDuration) {
+        durabilityColor = if (durability >= initialDurability) {
             Color.GREEN.cpy()
         } else {
             Color.RED.cpy()
@@ -207,10 +207,10 @@ abstract class AbstractWeaponPower(
         FontHelper.renderFontCentered(
             sb,
             FontHelper.powerAmountFont,
-            duration.toString(),
+            durability.toString(),
             x,
             y,
-            durationColor
+            durabilityColor
         )
     }
 
@@ -219,7 +219,7 @@ abstract class AbstractWeaponPower(
     fun attack(
         target: AbstractMonster? = getRandomMonster(),
         source: AbstractCreature? = owner,
-        loseDuration: Int = 0,
+        loseDurability: Int = 0,
         damage: Int = 0,
         attackEffect: AttackEffect = AttackEffect.SLASH_DIAGONAL,
         vfx: (target: AbstractCreature) -> Unit = {}
@@ -231,13 +231,13 @@ abstract class AbstractWeaponPower(
                 BindingHelper.makeInfo(damageModContainer, source, damage, DamageType.NORMAL),
                 attackEffect
             )
-            if (duration <= 0) return
+            if (durability <= 0) return
             vfx(it)
             addToTop(
                 action
             )
             flash()
-            loseDuration(loseDuration)
+            loseDurability(loseDurability)
         }
 
 
@@ -250,14 +250,14 @@ abstract class AbstractWeaponPower(
     open fun onDestroy() {}
 
 
-    protected fun loseDuration(amount: Int) {
+    protected fun loseDurability(amount: Int) {
         if (amount <= 0) {
             return
         }
-        tempLoseDuration += amount
-        if (duration <= 0) {
+        tempLoseDurability += amount
+        if (durability <= 0) {
             addToBot(RemoveSpecificPowerAction(owner, owner, this.ID))
-            tempLoseDuration = 0
+            tempLoseDurability = 0
         }
     }
 

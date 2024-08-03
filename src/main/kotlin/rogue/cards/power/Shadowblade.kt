@@ -5,12 +5,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class Shadowblade(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 2) :
+class Shadowblade(initialDamage: Int = 3, initialDurability: Int = 3, magic: Int = 2) :
     AbstractWeaponPowerCard(
         name = Shadowblade::class.simpleName.toString(),
         cost = 1,
         type = CardType.POWER,
-        rarity = CardRarity.UNCOMMON, initialDuration = initialDuration, initialDamage = initialDamage
+        rarity = CardRarity.UNCOMMON, initialDurability = initialDurability, initialDamage = initialDamage
     ) {
 
     init {
@@ -21,7 +21,7 @@ class Shadowblade(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int =
         useUpgrade {
             upgradeMagicNumber(1)
             weaponDamage++
-            weaponDuration++
+            weaponDurability++
         }
     }
 
@@ -30,7 +30,7 @@ class Shadowblade(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int =
             EquipWeaponAction(
                 rogue.power.weapon.Shadowblade(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     magic = magicNumber,
                     upgraded = upgraded
                 )

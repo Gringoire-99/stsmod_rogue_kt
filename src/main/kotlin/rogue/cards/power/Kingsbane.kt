@@ -8,13 +8,13 @@ import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 import utils.addMod
 
-class Kingsbane(wDamage: Int = 3, wDuration: Int = 3, val magic: Int = 2) :
+class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
     AbstractWeaponPowerCard(
         name = Kingsbane::class.simpleName.toString(),
         cost = 1,
         rarity = CardRarity.RARE,
         initialDamage = wDamage,
-        initialDuration = wDuration,
+        initialDurability = wDurability,
     ) {
     init {
         setMagicNumber(magic)
@@ -31,13 +31,13 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3, val magic: Int = 2) :
     private var copy: rogue.power.weapon.Kingsbane? = null
     fun setWeaponCopy(copy: rogue.power.weapon.Kingsbane) {
         this.copy = copy
-        weaponDuration = copy.duration
+        weaponDurability = copy.durability
         weaponDamage = copy.damage
         if (copy.damage > initialDamage) {
             isWeaponDamageModified = true
         }
-        if (copy.duration > initialDuration) {
-            isWeaponDurationModified = true
+        if (copy.durability > initialDurability) {
+            isWeaponDurabilityModified = true
         }
     }
 
@@ -52,7 +52,7 @@ class Kingsbane(wDamage: Int = 3, wDuration: Int = 3, val magic: Int = 2) :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val kingsbane = copy ?: rogue.power.weapon.Kingsbane(
             damage = initialDamage,
-            duration = initialDuration,
+            durability = initialDurability,
             upgraded = upgraded,
             magic = magicNumber
         )

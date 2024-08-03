@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.helpers.FontHelper
-import common.FindCard
+import common.ScavengeCard
 import rogue.cards.AbstractRogueCard
 import rogue.mods.TempCardMod
 import rogue.power.common.PlayTwicePower
@@ -24,9 +24,9 @@ class TessGreymanePower(owner: AbstractPlayer) :
         if (amount > 0) {
             amount--
             this@TessGreymanePower.flash()
-            val opts = arrayListOf<AbstractCard>(FindCard(0), FindCard(1), FindCard(2))
+            val opts = arrayListOf<AbstractCard>(ScavengeCard(0), ScavengeCard(1), ScavengeCard(2))
             addToBot(SelectCardsAction(opts, "选择一项") { cards ->
-                val first = cards.firstOrNull() as? FindCard
+                val first = cards.firstOrNull() as? ScavengeCard
                 when (first?.opt) {
                     0 -> {
                         discovery {

@@ -12,14 +12,14 @@ import utils.addMod
 import utils.discovery
 
 class BlackwaterCutlass(
-    initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 2,
+    initialDamage: Int = 3, initialDurability: Int = 3, magic: Int = 2,
     override var isEnableTrade: Boolean = true
 ) :
     AbstractWeaponPowerCard(
         name = BlackwaterCutlass::class.simpleName.toString(),
         cost = 0,
         type = CardType.POWER,
-        rarity = CardRarity.COMMON, initialDamage = initialDamage, initialDuration = initialDuration
+        rarity = CardRarity.COMMON, initialDamage = initialDamage, initialDurability = initialDurability
     ), Tradeable {
     init {
         setMagicNumber(magic)
@@ -36,7 +36,7 @@ class BlackwaterCutlass(
             EquipWeaponAction(
                 rogue.power.weapon.BlackwaterCutlass(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     upgraded = upgraded
                 )
             )
@@ -45,7 +45,7 @@ class BlackwaterCutlass(
 
     override fun onTrade() {
         weaponDamage += magicNumber
-        weaponDuration += magicNumber
+        weaponDurability += magicNumber
         discovery {
             it.addMod(EtherealMod(), ExhaustMod())
             if (upgraded) {

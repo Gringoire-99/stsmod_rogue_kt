@@ -1,0 +1,9 @@
+{
+  "HSRogue:RogueBaseAbility": {
+    "NAME": "Rogue's initial ability",
+    "FLAVOR": "Rogue's initial ability",
+    "DESCRIPTIONS": [
+      "Right-Click to spend 1 [E] to equip WickedKnife[3/3]"
+    ]
+  }
+}

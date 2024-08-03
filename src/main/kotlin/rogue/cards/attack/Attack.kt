@@ -16,7 +16,7 @@ class Attack :
         type = CardType.ATTACK,
         rarity = CardRarity.BASIC,
         target = CardTarget.ENEMY,
-        loseDuration = 1,
+        loseDurability = 1,
         color = CardColor.COLORLESS
 
     ) {
@@ -30,12 +30,12 @@ class Attack :
 
     override fun upgrade() {
         useUpgrade {
-            loseDuration = 0
+            loseDurability = 0
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        p?.attackWithWeapon(damage = damage, target = m, loseDuration = loseDuration)
+        p?.attackWithWeapon(damage = damage, target = m, loseDurability = loseDurability)
     }
 
 }

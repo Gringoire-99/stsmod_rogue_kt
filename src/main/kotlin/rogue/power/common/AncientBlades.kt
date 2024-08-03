@@ -16,7 +16,7 @@ class AncientBlades(owner: AbstractPlayer) :
         (owner as? AbstractPlayer).apply {
             this?.getWeaponPower()?.apply {
                 damage += 2
-                duration += 2
+                durability += 2
             }
         }
     }
@@ -24,7 +24,7 @@ class AncientBlades(owner: AbstractPlayer) :
     override fun onApplyPower(power: AbstractPower?, target: AbstractCreature?, source: AbstractCreature?) {
         (power as? AbstractWeaponPower)?.apply {
             damage += 2
-            duration += 2
+            durability += 2
         }
     }
 

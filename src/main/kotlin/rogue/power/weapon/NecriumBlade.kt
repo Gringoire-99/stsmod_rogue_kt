@@ -10,12 +10,12 @@ import utils.addMod
 
 class NecriumBlade(
     damage: Int = 3,
-    duration: Int = 3,
+    durability: Int = 3,
     upgraded: Boolean = false
 ) : AbstractWeaponPower(
     rawName = NecriumBlade::class.simpleName.toString(),
     damage = damage,
-    duration = duration,
+    durability = durability,
     upgraded = upgraded
 ) {
     init {
@@ -31,7 +31,7 @@ class NecriumBlade(
                         it.addMod(NecriumMod())
                     }
                 })
-            loseDuration(1)
+            loseDurability(1)
 
         }
     }

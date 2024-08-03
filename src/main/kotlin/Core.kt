@@ -70,7 +70,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
     override fun receiveEditCards() {
         AutoAdd(modId).packageFilter("rogue.cards").setDefaultSeen(true).cards()
         BaseMod.addDynamicVariable(WeaponDamageVariable())
-        BaseMod.addDynamicVariable(WeaponDurationVariable())
+        BaseMod.addDynamicVariable(WeaponDurabilityVariable())
         BaseMod.addDynamicVariable(ExpVariable())
         BaseMod.addDynamicVariable(MaxExpVariable())
         CardCrawlGame.languagePack.getKeywordString("")

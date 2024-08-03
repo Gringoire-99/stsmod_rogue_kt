@@ -5,19 +5,19 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class NecriumBlade(damage: Int = 3, duration: Int = 3) :
+class NecriumBlade(damage: Int = 3, durability: Int = 3) :
     AbstractWeaponPowerCard(
         name = NecriumBlade::class.simpleName.toString(),
         cost = 1,
         type = CardType.POWER,
-        rarity = CardRarity.UNCOMMON, initialDamage = damage, initialDuration = duration
+        rarity = CardRarity.UNCOMMON, initialDamage = damage, initialDurability = durability
     ) {
 
 
     override fun upgrade() {
         useUpgrade {
             weaponDamage++
-            weaponDuration++
+            weaponDurability++
 
         }
     }
@@ -27,7 +27,7 @@ class NecriumBlade(damage: Int = 3, duration: Int = 3) :
             EquipWeaponAction(
                 rogue.power.weapon.NecriumBlade(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     upgraded = upgraded
                 )
             )

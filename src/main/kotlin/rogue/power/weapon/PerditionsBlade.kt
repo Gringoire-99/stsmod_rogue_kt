@@ -10,11 +10,11 @@ import com.megacrit.cardcrawl.powers.VulnerablePower
 import rogue.cards.AbstractWeaponPowerCard
 
 class PerditionsBlade(
-    damage: Int = 3, duration: Int = 3, magic: Int = 4, upgraded: Boolean = false
+    damage: Int = 3, durability: Int = 3, magic: Int = 4, upgraded: Boolean = false
 ) : AbstractWeaponPower(
     rawName = PerditionsBlade::class.simpleName.toString(),
     damage = damage,
-    duration = duration,
+    durability = durability,
     magic = magic,
     upgraded = upgraded
 ) {
@@ -39,7 +39,7 @@ class PerditionsBlade(
 
     override fun atEndOfTurn(isPlayer: Boolean) {
         if (isPlayer) {
-            loseDuration(1)
+            loseDurability(1)
         }
     }
 

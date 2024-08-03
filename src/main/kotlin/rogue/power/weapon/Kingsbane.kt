@@ -5,13 +5,13 @@ import rogue.cards.AbstractWeaponPowerCard
 
 class Kingsbane(
     damage: Int = 3,
-    duration: Int = 3,
+    durability: Int = 3,
     upgraded: Boolean = false,
     magic: Int = 3
 ) : AbstractWeaponPower(
     rawName = Kingsbane::class.simpleName.toString(),
     damage = damage,
-    duration = duration,
+    durability = durability,
     upgraded = upgraded,
     magic = magic
 ) {
@@ -26,14 +26,14 @@ class Kingsbane(
             flash()
             updatePowerDesc()
         }
-    override var duration: Int
-        get() = super.duration
+    override var durability: Int
+        get() = super.durability
         set(value) {
-            if (value < duration) {
+            if (value < durability) {
                 flash()
                 return
             }
-            additionalDuration += value - duration
+            additionalDurability += value - durability
             flash()
             updatePowerDesc()
         }
@@ -50,7 +50,7 @@ class Kingsbane(
 
     override fun onDestroy() {
         damage += magic
-        duration++
+        durability++
         addToBot(MakeTempCardInDrawPileAction(makeCopy(), 1, true, true))
     }
 

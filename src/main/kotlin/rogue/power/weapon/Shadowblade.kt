@@ -7,13 +7,13 @@ import utils.makeId
 
 class Shadowblade(
     damage: Int = 4,
-    duration: Int = 2,
+    durability: Int = 2,
     upgraded: Boolean = false,
     magic: Int = 2
 ) : AbstractWeaponPower(
     rawName = Shadowblade::class.simpleName.toString(),
     damage = damage,
-    duration = duration,
+    durability = durability,
     magic = magic,
     upgraded = upgraded
 ) {
@@ -31,7 +31,7 @@ class Shadowblade(
             flash()
             updatePowerDesc()
         }
-    override var tempLoseDuration: Int = 0
+    override var tempLoseDurability: Int = 0
         set(value) {
             if (owner.hasPower(StealthPower::class.makeId()) && value > 0) {
                 return

@@ -11,7 +11,7 @@ abstract class AbstractWeaponPowerCard(
     cost: Int,
     rarity: CardRarity,
     val initialDamage: Int,
-    val initialDuration: Int,
+    val initialDurability: Int,
     type: CardType = CardType.POWER,
     color: CardColor = RogueEnum.HS_ROGUE_CARD_COLOR
 ) : AbstractRogueCard(
@@ -25,15 +25,15 @@ abstract class AbstractWeaponPowerCard(
     }
 
     var isWeaponDamageModified: Boolean = false
-    var isWeaponDurationModified: Boolean = false
+    var isWeaponDurabilityModified: Boolean = false
     var weaponDamage: Int by Delegates.observable(initialDamage) { _, old, new ->
         if (new > old) {
             isWeaponDamageModified = true
         }
     }
-    var weaponDuration: Int by Delegates.observable(initialDuration) { _, old, new ->
+    var weaponDurability: Int by Delegates.observable(initialDurability) { _, old, new ->
         if (new > old) {
-            isWeaponDurationModified = true
+            isWeaponDurabilityModified = true
         }
     }
 
@@ -41,9 +41,9 @@ abstract class AbstractWeaponPowerCard(
         val c = super.makeStatEquivalentCopy() as AbstractWeaponPowerCard
         c.let {
             it.isWeaponDamageModified = isWeaponDamageModified
-            it.isWeaponDurationModified = isWeaponDurationModified
+            it.isWeaponDurabilityModified = isWeaponDurabilityModified
             it.weaponDamage = weaponDamage
-            it.weaponDuration = weaponDuration
+            it.weaponDurability = weaponDurability
         }
         return c
     }

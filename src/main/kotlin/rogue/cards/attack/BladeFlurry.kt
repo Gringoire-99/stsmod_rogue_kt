@@ -28,10 +28,10 @@ class BladeFlurry :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
             getWeaponPower()?.apply {
-                val count: Int = if (duration > magicNumber) magicNumber else duration
+                val count: Int = if (durability > magicNumber) magicNumber else durability
                 repeat(count) {
                     addToBot(EmptyAction {
-                        p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDuration = 1)
+                        p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDurability = 1)
                     })
                 }
             }

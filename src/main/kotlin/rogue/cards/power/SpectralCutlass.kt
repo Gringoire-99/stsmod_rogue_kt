@@ -5,12 +5,12 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class SpectralCutlass(initialDamage: Int = 3, initialDuration: Int = 3, magic: Int = 1) :
+class SpectralCutlass(initialDamage: Int = 3, initialDurability: Int = 3, magic: Int = 1) :
     AbstractWeaponPowerCard(
         name = SpectralCutlass::class.simpleName.toString(),
         cost = 2,
         type = CardType.POWER,
-        rarity = CardRarity.RARE, initialDuration = initialDuration, initialDamage = initialDamage
+        rarity = CardRarity.RARE, initialDurability = initialDurability, initialDamage = initialDamage
     ) {
 
     init {
@@ -28,7 +28,7 @@ class SpectralCutlass(initialDamage: Int = 3, initialDuration: Int = 3, magic: I
             EquipWeaponAction(
                 rogue.power.weapon.SpectralCutlass(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     magic = magicNumber,
                     upgraded = upgraded
                 )

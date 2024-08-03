@@ -1,0 +1,422 @@
+{
+  "HSRogue:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Deal !D! damage"
+  },
+  "HSRogue:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block"
+  },
+  "HSRogue:Attack": {
+    "NAME": "Attack",
+    "DESCRIPTION": "{@@}Deal !D! hsrogue:Weapon damage {!Upgrades!|0= NL Lose 1 hsrogue:Weapon durability}"
+  },
+  "HSRogue:Backstab": {
+    "NAME": "Backstab",
+    "DESCRIPTION": "Deal !D! damage NL Append hsrogue:Weapon damage NL If it's Non a Attack intent"
+  },
+  "HSRogue:FanOfKnives": {
+    "NAME": "Fan Of Knives",
+    "DESCRIPTION": "Deal 3 fixed hsrogue:Weapon damage !M! times"
+  },
+  "HSRogue:BladeFlurry": {
+    "NAME": "Blade Flurry",
+    "DESCRIPTION": "{@@}Deal !D! hsrogue:Weapon damage randomly NL Repeat for each hsrogue:Weapon durability NL up to !M! time. Lose same durability"
+  },
+  "HSRogue:DeadlyPoison": {
+    "NAME": "Deadly Poison",
+    "DESCRIPTION": "Your hsrogue:Weapon Gain !M! damage NL hsrogue:Exhaustive : !stslib:ex!"
+  },
+  "HSRogue:Sprint": {
+    "NAME": "Sprint",
+    "DESCRIPTION": "draw !M! cards NL Gain !B! Block "
+  },
+  "HSRogue:Conceal": {
+    "NAME": "Conceal",
+    "DESCRIPTION": "Enter hsrogue:Stealth state NL Gain !B! Block NL If already in hsrogue:Stealth hsrogue:Stealth NL Gain !M! additional Block"
+  },
+  "HSRogue:Shadowstep": {
+    "NAME": "Shadowstep",
+    "DESCRIPTION": "{@@} hsrogue:Combo :Move the top card from the discard pile back to your hand.{!Upgrades!|>0= NL And hsrogue:Temporary reduce 1 [E] }"
+  },
+  "HSRogue:Preparation": {
+    "NAME": "Preparation",
+    "DESCRIPTION": "Choose up to !M! cards from your hand. Retain them NL and hsrogue:Temporary reduce 1 [E] next turn"
+  },
+  "HSRogue:ColdBlood": {
+    "NAME": "Cold Blood",
+    "DESCRIPTION": "Gain !M! hsrogue:Temporary Strength NL hsrogue:Combo :Gain 2 additional Strength"
+  },
+  "HSRogue:Sap": {
+    "NAME": "Sap",
+    "DESCRIPTION": "Deal !D! damage,NL give equal hsrogue:Temporary Strength loss and Weak "
+  },
+  "HSRogue:Eviscerate": {
+    "NAME": "Eviscerate",
+    "DESCRIPTION": "Deal !D! damage NL hsrogue:Combo :increase !M! damage NL and give 2 Vulnerable"
+  },
+  "HSRogue:Assassinate": {
+    "NAME": "Assassinate",
+    "DESCRIPTION": "Deal !D! hsrogue:Weapon damage,Dexterity affects this card !M! times"
+  },
+  "HSRogue:Vanish": {
+    "NAME": "Vanish",
+    "DESCRIPTION": "Choose cards to discard,Each one gain !B! Block"
+  },
+  "HSRogue:Shiv": {
+    "NAME": "Shiv",
+    "DESCRIPTION": "Deal !D! damage,draw !M! card"
+  },
+  "HSRogue:LeechingPoison": {
+    "NAME": "Leeching Poison",
+    "DESCRIPTION": "{@@}Your hsrogue:Weapon gain NL hsrogue:Leeching !M!"
+  },
+  "HSRogue:ParalyticPoison": {
+    "NAME": "Paralytic Poison",
+    "DESCRIPTION": "{@@}Your hsrogue:Weapon gain NL hsrogue:Paralytic !M!"
+  },
+  "HSRogue:SilverleafPoison": {
+    "NAME": "Silverleaf Poison",
+    "DESCRIPTION": "{@@}Your hsrogue:Weapon gain NL draw !M! card after attack"
+  },
+  "HSRogue:EnvenomWeapon": {
+    "NAME": "Envenom Weapon",
+    "DESCRIPTION": "{@@}Your hsrogue:Weapon gain NL hsrogue:Poison !M! {!Upgrades!|0=NL Exhaust }"
+  },
+  "HSRogue:TinkersSharpswordOil": {
+    "NAME": "Tinker‘s Sharpsword Oil",
+    "DESCRIPTION": "Your hsrogue:Weapon gain !M! /1 NL hsrogue:Combo :Gain !M! /1 additionally"
+  },
+  "HSRogue:Doomerang": {
+    "NAME": "Doomerang",
+    "DESCRIPTION": "{@@}Throw your hsrogue:Weapon ,It deal !D! damage !M! time and return to your hand {!Upgrades!|>0= NL and reduce 1 [E] }"
+  },
+  "HSRogue:Sabotage": {
+    "NAME": "Sabotage",
+    "DESCRIPTION": "{@@}Deal !D! hsrogue:Weapon damage{!Upgrades!|@=x|>0=x+1} times,If your in hsrogue:Stealth hsrogue:Refund : !M! "
+  },
+  "HSRogue:SISevenExtortion": {
+    "NAME": "SI:Seven Extortion",
+    "DESCRIPTION": "{@@}Deal !D! damage NL Gain !M! gold,draw !M! cards NL hsrogue:Tradeable : NL enhance effect,draw{!Upgrades!|@=2|>0=3} cards"
+  },
+  "HSRogue:WickedKnife": {
+    "NAME": "Wicked Knife",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ]"
+  },
+  "HSRogue:AssassinsBlade": {
+    "NAME": "Assassin's Blade",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Deal !M! additional damage to non attack intent monster"
+  },
+  "HSRogue:Kingsbane": {
+    "NAME": "Kingsbane",
+    "DESCRIPTION": "{@@}hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Additional effects are not lost or reduced by any effects. NL hsrogue:Deathrattle : + !M! /+1, shuffle into draw pile"
+  },
+  "HSRogue:BlackwaterCutlass": {
+    "NAME": "Blackwater Cutlass",
+    "DESCRIPTION": "{@@}hsrogue:Weapon [ !WDamage! / !WDurability! ] NL hsrogue:Tradeable : Gain+ !M! /+ !M! ,Discover an Ethereal another class's card{!Upgrades!|>0= NL and hsrogue:Temporary reduce 1 [E] } "
+  },
+  "HSRogue:Parrrley": {
+    "NAME": "Parrrley",
+    "DESCRIPTION": "{@@}Discover an Exhaust and Ethereal another class's non Power card,set cost 0 this turn NL hsrogue:Tradeable : NL Permanently replace this card with the previous card discovered in this battle. NL hsrogue:Exhaustive : !stslib:ex!"
+  },
+  "HSRogue:CounterfeitCoin": {
+    "NAME": "Counterfeit Coin",
+    "DESCRIPTION": "{@@}Gain !M! [E]{!Upgrades!|>0= NL draw !M! card}"
+  },
+  "HSRogue:RazorpetalVolley": {
+    "NAME": "Razorpetal Volley",
+    "DESCRIPTION": "Add !M! *Razorpetal into your hand"
+  },
+  "HSRogue:Razorpetal": {
+    "NAME": "Razorpetal",
+    "DESCRIPTION": "Deal !D! damage"
+  },
+  "HSRogue:PerditionsBlade": {
+    "NAME": "Perdition's Blade",
+    "DESCRIPTION": " hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Give the attacking monster 1 Vulnerable ,If it already Vulnerable , change to !M! damage,lose 1 durability at end of turn"
+  },
+  "HSRogue:RenosLuckyHat": {
+    "NAME": "Reno's Lucky Hat",
+    "DESCRIPTION": "Non Stackable NL Gain !M! Dexterity and Strength NL take Unblock attack will drop in your discard pile！"
+  },
+  "HSRogue:MimicPod": {
+    "NAME": "Mimic Pod",
+    "DESCRIPTION": "{@@}unplayable NL After you played a card, it mimic to adjacent card {!Upgrades!|>0= and upgrade}"
+  },
+  "HSRogue:JadeShuriken": {
+    "NAME": "Jade Shuriken",
+    "DESCRIPTION": "Deal !D! damage NL hsrogue:JadeGrowth : !M! NL  hsrogue:Combo :shoot all Shuriken in your hand!"
+  },
+  "HSRogue:SecretPassage": {
+    "NAME": "Secret Passage",
+    "DESCRIPTION": "{@@}Remove cards in your hand and draw !M! cards. NL Return in next turn"
+  },
+  "HSRogue:SmokeBomb": {
+    "NAME": "Smoke Bomb",
+    "DESCRIPTION": "Gain !B! 点 Block ,discard 1 card,all characters gain hsrogue:Stealth"
+  },
+  "HSRogue:Evasion": {
+    "NAME": "Evasion",
+    "DESCRIPTION": "hsrogue:Secret : If you have no Block at end of your turn NL Gain !M! Block NL (Affect by Dexterity )"
+  },
+  "HSRogue:DirtyTricks": {
+    "NAME": "Dirty Tricks",
+    "DESCRIPTION": "hsrogue:Secret : At start of your turn NL Non attack intent monster gain !M! Vulnerable and Weak"
+  },
+  "HSRogue:DoubleCross": {
+    "NAME": "Double Cross",
+    "DESCRIPTION": "hsrogue:Secret : At start of your turn, If there is only one monster NL draw !M! cards"
+  },
+  "HSRogue:Ambush": {
+    "NAME": "Ambush",
+    "DESCRIPTION": "hsrogue:Secret : At end of monster's turn,attack Non attack intent monster with your hsrogue:Weapon "
+  },
+  "HSRogue:CloakOfShadows": {
+    "NAME": "Cloak Of Shadows",
+    "DESCRIPTION": "Gain !B! Block and enter hsrogue:Stealth state NL If already in hsrogue:Stealth gain !M! Intangible instead"
+  },
+  "HSRogue:GangUp": {
+    "NAME": "Gang Up",
+    "DESCRIPTION": "Exhaust 1 card,shuffle !M! copies in your discard pile"
+  },
+  "HSRogue:Plagiarize": {
+    "NAME": "Plagiarize",
+    "DESCRIPTION": "{@@}hsrogue:Secret : at start of turn/using, Add an unique {!Upgrades!|>0=upgraded NL} *CheatSheet into your hand"
+  },
+  "HSRogue:Cheatsheet": {
+    "NAME": "Cheat Sheet",
+    "DESCRIPTION": "{@@}after your use a card,change to an another class's {!Upgrades!|>0=upgraded} card"
+  },
+  "HSRogue:ValeerasGift": {
+    "NAME": "Valeera's Gift",
+    "DESCRIPTION": "Choose one from *BackStab , *FanOfKnives , *DeadlyPoison !M! times,Add an Ethereal copy into your hand"
+  },
+  "HSRogue:TwistedPack": {
+    "NAME": "Twisted Pack",
+    "DESCRIPTION": "{@@}Add !M! another class's {!Upgrades!|>0=upgraded} Ethereal card into your hand"
+  },
+  "HSRogue:SpectralCutlass": {
+    "NAME": "Spectral Cutlass",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL hsrogue:Leeching : !M! NL Everytime use another class's card,Gain+ !M! /+ !M!"
+  },
+  "HSRogue:Shadowblade": {
+    "NAME": "Shadowblade",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Gain !M! times damage and not lose any durability If in hsrogue:Stealth NL enter hsrogue:Stealth"
+  },
+  "HSRogue:NecriumBlade": {
+    "NAME": "Necrium Blade",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Lose 1 durability after attack,Choose a card in discard pile to give hsrogue:Necrium"
+  },
+  "HSRogue:UnderbellyFence": {
+    "NAME": "Underbelly Fence",
+    "DESCRIPTION": "Exhaust a card,Gain 1 [E] and draw 1 card NL If it's another class's card Gain !M! [E] and draw !M! cards additionally"
+  },
+  "HSRogue:DragonsHoard": {
+    "NAME": "Dragons Hoard",
+    "DESCRIPTION": "{@@}Discover another class's upgraded Rare card {!Upgrades!|>0=NL set cost 0 this turn}"
+  },
+  "HSRogue:Jackpot": {
+    "NAME": "Jackpot",
+    "DESCRIPTION": "{@@}Add !M! {!Upgrades!|>0=upgraded} cards of another classes with a cost of 2 or more into your hand and make them Retain and Exhaust"
+  },
+  "HSRogue:NecriumVial": {
+    "NAME": "Necrium Vial",
+    "DESCRIPTION": "Choose up to !M! cards in your discard pile to give hsrogue:Necrium"
+  },
+  "HSRogue:LesserOnyxSpellstone": {
+    "NAME": "Lesser Onyx Spellstone",
+    "DESCRIPTION": "Deal !D! damage to random monster !M! times. NL hsrogue:Infuse !expM! ( Exhaust cards) NL Enhance effect NL （ !exp! / !expM! ）",
+    "EXTENDED_DESCRIPTION": [
+      "Onyx Spellstone",
+      "Greater Onyx Spellstone"
+    ]
+  },
+  "HSRogue:PettyTheft": {
+    "NAME": "Petty Theft",
+    "DESCRIPTION": "Add !M! 0 cost cards of another class into your hand"
+  },
+  "HSRogue:AcademicEspionage": {
+    "NAME": "Academic Espionage",
+    "DESCRIPTION": "Add !M! another class's card in your discard pile,They gain Ethereal , Exhaust , reduce 1 [E] and draw 1 card after played"
+  },
+  "HSRogue:ValeeraTheHollow": {
+    "NAME": "Valeera The Hollow",
+    "DESCRIPTION": "{@@} hsrogue:Hero NL Permanently hsrogue:Stealth , upgrade your hsrogue:InitialAbility to hsrogue:DeathsShadow "
+  },
+  "HSRogue:ShadowReflection": {
+    "NAME": "Shadow Reflection",
+    "DESCRIPTION": "{@@}unplayable NL After played a card,change to that {!Upgrades!|>0=upgraded} card"
+  },
+  "HSRogue:SherazinCorpseFlower": {
+    "NAME": "Sherazin The Corpse Flower",
+    "DESCRIPTION": "Deal !D! damage !M! times NL Add *SherazinSeed after Exhaust into your hand"
+  },
+  "HSRogue:SherazinSeed": {
+    "NAME": "Sherazin Seed",
+    "DESCRIPTION": "hsrogue:Infuse !expM! ( Exhaust cards) NL Awaken Sherazin！ NL （ !exp! / !expM! ） NL set cost 0 when awaken"
+  },
+  "HSRogue:TheCavernsBelow": {
+    "NAME": "The Caverns Below",
+    "DESCRIPTION": "hsrogue:Quest :Use 6 identical cards（Non Basic or Colorless card）NL Reward: *CrystalCore"
+  },
+  "HSRogue:CrystalCore": {
+    "NAME": "Crystal Core",
+    "DESCRIPTION": "Enhance all cards by !M! NL Gain !M! Strength and Dexterity "
+  },
+  "HSRogue:BazaarBurglary": {
+    "NAME": "Bazaar Burglary",
+    "DESCRIPTION": "hsrogue:Quest :Use 6 another class's card NL Reward: hsrogue:AncientBlades"
+  },
+  "HSRogue:MirageBlade": {
+    "NAME": "Mirage Blade",
+    "DESCRIPTION": "Deal !D! hsrogue:Weapon damage !M! times"
+  },
+  "HSRogue:PotionOfIllusion": {
+    "NAME": "Potion Of Illusion",
+    "DESCRIPTION": "Copy cards in your hand NL And make them Ethereal and Exhaust "
+  },
+  "HSRogue:MyraRotspring": {
+    "NAME": "Myra Rotspring",
+    "DESCRIPTION": "Choose !M! card inject hsrogue:Necrium NL Apply same effect when it Exhausted "
+  },
+  "HSRogue:MyrasUnstableElement": {
+    "NAME": "Myras Unstable Element",
+    "DESCRIPTION": "hsrogue:Grave NL Draw until your hand is full, Exhaust cards in your draw pile"
+  },
+  "HSRogue:TessGreymane": {
+    "NAME": "Tess Greymane",
+    "DESCRIPTION": "hsrogue:Hero NL Reduce cost by 1 this turn when your use another class's card NL Upgrade your hsrogue:InitialAbility to hsrogue:Scavenge"
+  },
+  "HSRogue:ShadowOfDemise": {
+    "NAME": "Shadow Of Demise",
+    "DESCRIPTION": "Change to a skill/attack card you played NL it's effect enhance by !M! NL Can be Upgraded any number of times"
+  },
+  "HSRogue:SonyaShadowdancer": {
+    "NAME": "Sonya Shadowdancer",
+    "DESCRIPTION": "When played a 0 cost card,Add a 1 cost hsrogue:Temporary copy into your hand, !M! times per turn"
+  },
+  "HSRogue:SonyaWaterdancer": {
+    "NAME": "Sonya Waterdancer",
+    "DESCRIPTION": "When played a 1 cost card,Add a 0 cost hsrogue:Temporary copy into your hand, !M! times per turn"
+  },
+  "HSRogue:VelarokWindblade": {
+    "NAME": "Velarok Windblade",
+    "DESCRIPTION": "Deal !D! damage NL play an another class's card to reveal Velarok's true form！",
+    "EXTENDED_DESCRIPTION": [
+      "Velarok, the Deceiver",
+      "Deal !D! damage NL Discover an Uncommon or Rare card of another class NL And reduce it's cost by 2"
+    ]
+  },
+  "HSRogue:EdwinVanCleef": {
+    "NAME": "Edwin VanCleef",
+    "DESCRIPTION": "Deal !D! damage NL every card played this turn increase damage by !M! , Gain 3 times of increment when trigger hsrogue:Combo NL hsrogue:Combo :make additional damage double"
+  },
+  "HSRogue:MaestraMaskMerchant": {
+    "NAME": "Maestra, Mask Merchant",
+    "DESCRIPTION": "{@@}When draw/start of turn, it change to an another class's {!Upgrades!|>0=upgraded} form card"
+  },
+  "HSRogue:ShadowcrafterScabbs": {
+    "NAME": "Shadowcrafter Scabbs",
+    "DESCRIPTION": "hsrogue:Hero NL Upgrade your hsrogue:InitialAbility to hsrogue:SleightOfHand NL Stun all monsters"
+  },
+  "HSRogue:Breakdance": {
+    "NAME": "Breakdance",
+    "DESCRIPTION": "Return a card in discard pile NL It gain hsrogue:Persist : !M! "
+  },
+  "HSRogue:TripleSevens": {
+    "NAME": "Triple Sevens",
+    "DESCRIPTION": "Deal !D! damage and Draw !M! cards. NL hsrogue:Infuse !expM! (play cards) NL set cost 0 NL ( !exp! / !expM! )"
+  },
+  "HSRogue:SpiritOfTheShark": {
+    "NAME": "Spirit Of The Shark",
+    "DESCRIPTION": "Your hsrogue:Combo effect trigger twice"
+  },
+  "HSRogue:GearShift": {
+    "NAME": "GearShift",
+    "DESCRIPTION": "Discard the two left-most cards in your hand. NL Draw !M! cards"
+  },
+  "HSRogue:Deafen": {
+    "NAME": "Deafen",
+    "DESCRIPTION": "hsrogue:Silent a monster NL hsrogue:Combo :Deal !D! damage"
+  },
+  "HSRogue:GhostlyStrike": {
+    "NAME": "Ghostly Strike",
+    "DESCRIPTION": "Deal !D! damage NL hsrogue:Combo :draw !M! card"
+  },
+  "HSRogue:GoneFishin": {
+    "NAME": "Gone Fishin'",
+    "DESCRIPTION": "hsrogue:Dredge : !M! NL hsrogue:Combo :draw 1 card"
+  },
+  "HSRogue:SketchyInformation": {
+    "NAME": "Sketchy Information",
+    "DESCRIPTION": "draw !M! card with cost of 0"
+  },
+  "HSRogue:QuickPick": {
+    "NAME": "Quick Pick",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Draw !M! card each time it lose it's durability. NL Lose 1 durability after attack"
+  },
+  "HSRogue:DoorOfShadows": {
+    "NAME": "Door Of Shadows",
+    "DESCRIPTION": "Add !M! card from your Exhaust pile NL hsrogue:Infuse !expM! ( Exhaust cards) NL set it's cost to 0 NL  ( !exp! / !expM! )"
+  },
+  "HSRogue:BounceAround": {
+    "NAME": "Bounce Around(ft.Garona)",
+    "DESCRIPTION": "{@@}Replay cards your played this turn NL Need [E] {!Upgrades!|>0= NL（up to 1）}"
+  },
+  "HSRogue:TheCoin": {
+    "NAME": "The Coin",
+    "DESCRIPTION": "Gain !M! [E]"
+  },
+  "HSRogue:DartThrow": {
+    "NAME": "Dart Throw",
+    "DESCRIPTION": "Throw !M! Darts that deal !D! damage NL Gain a *Coin when hitting to the same target NL hsrogue:Combo :Throw one more NL hsrogue:Exhaustive : !stslib:ex!"
+  },
+  "HSRogue:WickedStabRank1": {
+    "NAME": "Wicked Stab (Rank 1)",
+    "DESCRIPTION": "Deal !D! damage NL hsrogue:Combo :damage all monster. NL hsrogue:Infuse !expM! (play hsrogue:Combo cards/ Exhaust cards): NL Enhance effect NL ( !exp! / !expM! )",
+    "EXTENDED_DESCRIPTION": [
+      "Wicked Stab (Rank 2)",
+      "Wicked Stab (Rank 3)"
+    ]
+  },
+  "HSRogue:RollTheBones": {
+    "NAME": "Roll The Bones",
+    "DESCRIPTION": "Scry : !M! NL Give top card hsrogue:Fate NL draw a card"
+  },
+  "HSRogue:ScavengeCard": {
+    "NAME": "Scavenge Card",
+    "DESCRIPTION": "Choose One",
+    "EXTENDED_DESCRIPTION": [
+      "Discover an another class's card, Enhance it's effect by 2",
+      "Next another class's card you played will play twice",
+      "Discover an another class's card you played this combat set it's cost 0"
+    ]
+  },
+  "HSRogue:TradeCard": {
+    "NAME": "Trade Card",
+    "DESCRIPTION": "spend 1 [E] to *Trade ",
+    "EXTENDED_DESCRIPTION": [
+      "Choose One"
+    ]
+  },
+  "HSRogue:FateMod": {
+    "NAME": "FateMod",
+    "DESCRIPTION": " NL *Fate"
+  },
+  "HSRogue:NecriumMod": {
+    "NAME": "NecriumMod",
+    "DESCRIPTION": " NL *Necrium"
+  },
+  "HSRogue:PersistMod": {
+    "NAME": "PersistMod",
+    "DESCRIPTION": " NL *Persist !stslib:persist! "
+  },
+  "HSRogue:SpreadNecriumMod": {
+    "NAME": "SpreadNecriumMod",
+    "DESCRIPTION": " NL *NecriumSpread"
+  },
+  "HSRogue:DrawCardMod": {
+    "NAME": "DrawCardMod",
+    "DESCRIPTION": " NL *draw %d card after played"
+  }
+}

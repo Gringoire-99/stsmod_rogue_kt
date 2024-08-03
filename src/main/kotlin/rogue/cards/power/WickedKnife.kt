@@ -5,18 +5,18 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
-class WickedKnife(initialDamage: Int = 3, initialDuration: Int = 3) :
+class WickedKnife(initialDamage: Int = 3, initialDurability: Int = 3) :
     AbstractWeaponPowerCard(
         name = WickedKnife::class.simpleName.toString(),
         cost = 1,
-        rarity = CardRarity.SPECIAL, initialDamage, initialDuration, color = CardColor.COLORLESS
+        rarity = CardRarity.SPECIAL, initialDamage, initialDurability, color = CardColor.COLORLESS
     ) {
 
 
     override fun upgrade() {
         useUpgrade {
             weaponDamage++
-            weaponDuration++
+            weaponDurability++
         }
     }
 
@@ -25,7 +25,7 @@ class WickedKnife(initialDamage: Int = 3, initialDuration: Int = 3) :
             EquipWeaponAction(
                 rogue.power.weapon.WickedKnife(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     upgraded = upgraded
                 )
             )

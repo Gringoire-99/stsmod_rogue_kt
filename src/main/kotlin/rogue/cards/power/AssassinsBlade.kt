@@ -6,7 +6,7 @@ import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 
 class AssassinsBlade(
-    wDuration: Int = 5,
+    wDurability: Int = 5,
     wDamage: Int = 3,
     magic: Int = 6
 ) :
@@ -14,7 +14,7 @@ class AssassinsBlade(
         name = AssassinsBlade::class.simpleName.toString(),
         cost = 2,
         rarity = CardRarity.COMMON,
-        initialDuration = wDuration,
+        initialDurability = wDurability,
         initialDamage = wDamage
 
     ) {
@@ -34,7 +34,7 @@ class AssassinsBlade(
             EquipWeaponAction(
                 rogue.power.weapon.AssassinsBlade(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     magic = magicNumber,
                     upgraded = upgraded
                 )

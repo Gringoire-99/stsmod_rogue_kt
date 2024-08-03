@@ -4,28 +4,28 @@ import basemod.abstracts.DynamicVariable
 import com.megacrit.cardcrawl.cards.AbstractCard
 import rogue.cards.AbstractWeaponPowerCard
 
-class WeaponDurationVariable : DynamicVariable() {
+class WeaponDurabilityVariable : DynamicVariable() {
     override fun key(): String {
-        return "WDuration"
+        return "WDurability"
     }
 
     override fun isModified(c: AbstractCard?): Boolean {
         if (c is AbstractWeaponPowerCard) {
-            return c.isWeaponDurationModified
+            return c.isWeaponDurabilityModified
         }
         return false
     }
 
     override fun value(c: AbstractCard?): Int {
         if (c is AbstractWeaponPowerCard) {
-            return c.weaponDuration
+            return c.weaponDurability
         }
         return 0
     }
 
     override fun baseValue(c: AbstractCard?): Int {
         if (c is AbstractWeaponPowerCard) {
-            return c.initialDuration
+            return c.initialDurability
         }
         return 0
     }

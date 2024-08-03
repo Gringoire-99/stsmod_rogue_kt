@@ -7,11 +7,11 @@ import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
 import utils.addMod
 
-class QuickPick(initialDamage: Int = 2, initialDuration: Int = 6, magic: Int = 1) :
+class QuickPick(initialDamage: Int = 2, initialDurability: Int = 6, magic: Int = 1) :
     AbstractWeaponPowerCard(
         name = QuickPick::class.simpleName.toString(),
         cost = 0,
-        rarity = CardRarity.COMMON, initialDamage, initialDuration,
+        rarity = CardRarity.COMMON, initialDamage, initialDurability,
     ) {
     init {
         setMagicNumber(magic)
@@ -21,7 +21,7 @@ class QuickPick(initialDamage: Int = 2, initialDuration: Int = 6, magic: Int = 1
         useUpgrade {
             addMod(InnateMod())
             weaponDamage++
-            weaponDuration += 2
+            weaponDurability += 2
         }
     }
 
@@ -30,7 +30,7 @@ class QuickPick(initialDamage: Int = 2, initialDuration: Int = 6, magic: Int = 1
             EquipWeaponAction(
                 rogue.power.weapon.QuickPick(
                     damage = weaponDamage,
-                    duration = weaponDuration,
+                    durability = weaponDurability,
                     magic = magicNumber,
                     upgraded = upgraded
                 )

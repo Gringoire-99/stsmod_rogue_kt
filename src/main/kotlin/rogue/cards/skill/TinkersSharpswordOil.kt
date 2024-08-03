@@ -32,15 +32,15 @@ class TinkersSharpswordOil :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         var addDamage = magicNumber
-        var addDuration = 1
+        var addDurability = 1
         useCombo {
             addDamage += addDamage
-            addDuration += addDuration
+            addDurability += addDurability
         }
         addToBot(EmptyAction {
             p?.getWeaponPower()?.apply {
                 damage += addDamage
-                duration += addDuration
+                durability += addDurability
                 updatePowerDesc()
             }
         })

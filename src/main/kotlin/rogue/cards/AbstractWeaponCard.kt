@@ -16,7 +16,7 @@ abstract class AbstractWeaponCard(
     type: CardType,
     rarity: CardRarity,
     target: CardTarget,
-    var loseDuration: Int = 0,
+    var loseDurability: Int = 0,
     color: CardColor = RogueEnum.HS_ROGUE_CARD_COLOR
 ) :
     AbstractRogueCard(

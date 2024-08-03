@@ -1,6 +1,5 @@
 package rogue.cards.attack
 
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction
@@ -14,7 +13,6 @@ import rogue.cards.AbstractComboCard
 import rogue.cards.LevelInterface
 import rogue.cards.OnExhaustInterface
 import rogue.cards.impls.LevelInterfaceImpl
-import utils.addMod
 import utils.dealDamage
 import utils.modId
 
@@ -27,7 +25,6 @@ class WickedStabRank1(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 4, max
         target = CardTarget.ENEMY
     ), LevelInterface by impl, OnExhaustInterface {
     init {
-        addMod(RetainMod())
         setDamage(9)
         setMagicNumber(4)
         impl.onMaxExpCb = {

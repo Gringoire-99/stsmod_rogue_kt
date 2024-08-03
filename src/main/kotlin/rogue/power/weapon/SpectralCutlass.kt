@@ -8,13 +8,13 @@ import utils.isOtherClassCard
 
 class SpectralCutlass(
     damage: Int = 3,
-    duration: Int = 3,
+    durability: Int = 3,
     magic: Int = 2,
     upgraded: Boolean = false
 ) : AbstractWeaponPower(
     rawName = SpectralCutlass::class.simpleName.toString(),
     damage,
-    duration, magic = magic, upgraded = upgraded
+    durability, magic = magic, upgraded = upgraded
 ) {
     init {
         leechCount = magic
@@ -22,7 +22,7 @@ class SpectralCutlass(
 
     override fun onAfterUseCard(card: AbstractCard?, action: UseCardAction?) {
         if (card?.isOtherClassCard((owner as? AbstractPlayer)?.cardColor) == true) {
-            duration += magic
+            durability += magic
             damage += magic
         }
     }
