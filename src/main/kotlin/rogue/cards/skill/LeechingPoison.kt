@@ -36,7 +36,7 @@ class LeechingPoison :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToBot(EmptyAction {
             p?.getWeaponPower()?.apply {
-                leechCount += magicNumber
+                lifeStealCount += magicNumber
             }
         })
 

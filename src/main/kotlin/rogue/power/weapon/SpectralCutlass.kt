@@ -17,7 +17,7 @@ class SpectralCutlass(
     durability, magic = magic, upgraded = upgraded
 ) {
     init {
-        leechCount = magic
+        lifeStealCount = magic
     }
 
     override fun onAfterUseCard(card: AbstractCard?, action: UseCardAction?) {

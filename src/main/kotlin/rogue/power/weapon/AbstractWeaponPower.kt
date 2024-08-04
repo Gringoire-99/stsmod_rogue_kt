@@ -81,7 +81,7 @@ abstract class AbstractWeaponPower(
             updatePowerDesc()
             flash()
         }
-    var leechCount = 0
+    var lifeStealCount = 0
         set(value) {
             field = value
             updatePowerDesc()
@@ -104,8 +104,8 @@ abstract class AbstractWeaponPower(
 
     private fun baseDamageMods() {
         val leechEffect: OnLastDamageTakenUpdate = { _, lastDamageTaken, _, _ ->
-            if (lastDamageTaken > 0 && leechCount > 0) {
-                addToTop(HealAction(owner, owner, leechCount))
+            if (lastDamageTaken > 0 && lifeStealCount > 0) {
+                addToTop(HealAction(owner, owner, lifeStealCount))
             }
         }
         val paralysisEffect: OnLastDamageTakenUpdate = { _, lastDamageTaken, _, target ->
@@ -168,8 +168,8 @@ abstract class AbstractWeaponPower(
      */
     fun updatePowerDesc() {
         updateDescription()
-        if (leechCount > 0) {
-            this.description += " NL 吸血：${leechCount}"
+        if (lifeStealCount > 0) {
+            this.description += " NL 吸血：${lifeStealCount}"
         }
         if (drawCount > 0) {
             this.description += " NL 攻击后抽${drawCount}张牌"

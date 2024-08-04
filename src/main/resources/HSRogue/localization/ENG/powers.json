@@ -56,7 +56,7 @@
   "HSRogue:DeathsShadowPower": {
     "NAME": "Valeera The Hollow",
     "DESCRIPTIONS": [
-      "Permanently Stealth，At start of turn/using add an unique ShadowReflection"
+      "Permanently Stealth，At start of turn/using add an unique ShadowReflection to your hand"
     ]
   },
   "HSRogue:TheCavernsBelowPower": {
@@ -86,7 +86,7 @@
   "HSRogue:TessGreymanePower": {
     "NAME": "Scavenge",
     "DESCRIPTIONS": [
-      "Choose one: NL 1. Discover an another class's card, Enhance it's effect by 2 NL 2. Next another class's card you played will play twice 3. Discover an another class's card you played this combat set it's cost 0. NL Two charge counters, one is regained each turn."
+      "Choose one: NL 1. Discover an another class's card, Enhance it's effect by 2 NL 2. Next another class's card you played will play twice NL 3. Discover an another class's card you played this combat set it's cost 0. NL Two charge counters, one is regained each turn."
     ]
   },
   "HSRogue:ShadowdancePower": {
@@ -110,7 +110,7 @@
   "HSRogue:SpiritOfTheSharkPower": {
     "NAME": "Spirit Of The Shark",
     "DESCRIPTIONS": [
-      "Your hsrogue:Combo effect trigger twice"
+      "Your combo effect trigger twice"
     ]
   },
   "HSRogue:SilencePower": {
