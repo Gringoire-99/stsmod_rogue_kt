@@ -1,13 +1,9 @@
 package rogue.cards.power
 
-import basemod.cardmods.EtherealMod
-import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
-import utils.addMod
-import utils.removeMod
 
 class PerditionsBlade(
     wDamage: Int = 4,
@@ -23,8 +19,6 @@ class PerditionsBlade(
     ) {
     init {
         setMagicNumber(magic)
-        addMod(EtherealMod())
-        removeMod(true, RetainMod.ID)
     }
 
     override fun upgrade() {

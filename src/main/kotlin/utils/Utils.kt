@@ -259,37 +259,52 @@ fun AbstractCard.upBase(magic: Int) {
         if (this is AbstractWeaponPowerCard) {
             this.weaponDamage += magic
             this.weaponDurability += magic
+            if (this is rogue.cards.power.Kingsbane) {
+                this.copy?.let {
+                    it.damage = magic
+                    it.durability += magic
+                    it.magic += magic
+                }
+            }
+        }
+        if (this is AbstractMimicCard) {
+            this.mimicTarget?.upBase(magic)
+            mimicTarget?.let {
+                this.mimic(it)
+            }
         }
     }
 }
 
-fun AbstractCard.addToQueue(
+fun addToQueue(
     card: AbstractCard,
     t: AbstractCreature?,
     random: Boolean = false,
+    purge: Boolean = false,
     cb: (AbstractCard) -> Unit = {}
 ) {
-//    if (!AbstractDungeon.player.limbo.contains(card)) {
-//        AbstractDungeon.player.limbo.addToBottom(this)
-//    }
-    this.current_x = card.current_x
-    this.current_y = card.current_y
-    this.target_x = Settings.WIDTH.toFloat() / 2.0f - 300.0f * Settings.scale
-    this.target_y = Settings.HEIGHT.toFloat() / 2.0f
+    val tmp = card.makeStatEquivalentCopy()
+    if (purge) {
+        AbstractDungeon.player.limbo.addToBottom(tmp)
+        tmp.purgeOnUse = true
+    }
+    tmp.current_x = card.current_x
+    tmp.current_y = card.current_y
+    tmp.target_x = Settings.WIDTH.toFloat() / 2.0f - 300.0f * Settings.scale
+    tmp.target_y = Settings.HEIGHT.toFloat() / 2.0f
     val m = if (t is AbstractMonster) t else null
     if (t is AbstractMonster) {
-        this.calculateCardDamage(t)
+        tmp.calculateCardDamage(t)
     }
     if (random) {
         AbstractDungeon.actionManager.addCardQueueItem(
-            CardQueueItem(this, true, card.energyOnUse, true, true),
+            CardQueueItem(tmp, true, card.energyOnUse, true, true), true
         )
-        cb(this)
     } else {
         AbstractDungeon.actionManager.addCardQueueItem(
-            CardQueueItem(this, m, card.energyOnUse, true, true),
+            CardQueueItem(tmp, m, card.energyOnUse, true, true), true
         )
-        cb(this)
     }
+    cb(tmp)
 }
 

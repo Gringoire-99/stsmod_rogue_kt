@@ -49,7 +49,7 @@ class SherazinCorpseFlower :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         repeat(magicNumber) {
             if (m != null) {
-                this.addToBot(
+                this.addToTop(
                     VFXAction(
                         BiteEffect(m.hb.cX, m.hb.cY - 40.0f * Settings.scale, Color.SCARLET.cpy()),
                         0.1f

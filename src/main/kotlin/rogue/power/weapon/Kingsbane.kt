@@ -58,7 +58,6 @@ class Kingsbane(
         val new = rogue.cards.power.Kingsbane()
         new.apply {
             setWeaponCopy(this@Kingsbane)
-            if (upgraded) upgrade()
         }
         return new
     }

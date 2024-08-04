@@ -7,14 +7,14 @@ import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.helpers.FontHelper
 import rogue.power.IAbstractPower
 
-abstract class UsageLimitPower(owner: AbstractCreature, amount: Int = 1, rawName: String) :
-    IAbstractPower(powerName = rawName, owner = owner, amount = amount) {
+abstract class UsageLimitPower(owner: AbstractCreature, stackAmount: Int = 1, rawName: String) :
+    IAbstractPower(powerName = rawName, owner = owner, amount = stackAmount) {
     var useCount = 0
 
     init {
-        useCount += amount
+        useCount += stackAmount
         (owner.getPower(this.ID) as? UsageLimitPower)?.let {
-            it.useCount += amount
+            it.useCount += stackAmount
             it.updateDescription()
         }
     }

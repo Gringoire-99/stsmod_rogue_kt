@@ -16,7 +16,7 @@ class ExhaustPatch {
             @SpirePostfixPatch
             fun postfix() {
                 logger.info("======= card exhausted ${AbstractDungeon.player}=======")
-                AbstractDungeon.actionManager.addToBottom(EmptyAction {
+                AbstractDungeon.actionManager.addToTop(EmptyAction {
                     AbstractDungeon.player.hand.group.forEach {
                         if (it is OnExhaustInterface) {
                             it.afterCardExhausted()

@@ -12,12 +12,13 @@ import rogue.power.IAbstractPower
 import rogue.power.hero.DeathsShadowPower
 import utils.makeId
 
-class StealthPower(owner: AbstractCreature) :
-    IAbstractPower(powerName = StealthPower::class.simpleName.toString(), owner = owner), OnLoseBlockPower {
+class StealthPower(owner: AbstractCreature, stackAmount: Int = 1) :
+    IAbstractPower(powerName = StealthPower::class.simpleName.toString(), owner = owner, amount = stackAmount),
+    OnLoseBlockPower {
     init {
         var gainBlock = 2
         val dexterity: AbstractPower? = owner.getPower(DexterityPower.POWER_ID)
-        gainBlock += dexterity?.amount ?: 0
+        gainBlock += (dexterity?.amount ?: 0) * stackAmount
         this.addToBot(GainBlockAction(owner, gainBlock))
         flash()
     }

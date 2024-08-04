@@ -37,7 +37,7 @@
   },
   "HSRogue:Shadowstep": {
     "NAME": "Shadowstep",
-    "DESCRIPTION": "{@@} hsrogue:Combo : Move the top card from the discard pile back to your hand.{!Upgrades!|>0= NL And hsrogue:Temporary reduce 1 [E] }"
+    "DESCRIPTION": "{@@} hsrogue:Combo : Move the top card from the discard pile back to your hand.{!Upgrades!|>0= NL And hsrogue:Temporary reduce 1 cost }"
   },
   "HSRogue:Preparation": {
     "NAME": "Preparation",
@@ -89,7 +89,7 @@
   },
   "HSRogue:Doomerang": {
     "NAME": "Doomerang",
-    "DESCRIPTION": "{@@}Throw your hsrogue:Weapon NL It deal !D! damage !M! time and return to your hand {!Upgrades!|>0= NL and reduce 1 [E] }"
+    "DESCRIPTION": "{@@}Throw your hsrogue:Weapon NL It deal !D! damage !M! time and return to your hand {!Upgrades!|>0= NL and reduce 1 cost }"
   },
   "HSRogue:Sabotage": {
     "NAME": "Sabotage",
@@ -113,7 +113,7 @@
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "Blackwater Cutlass",
-    "DESCRIPTION": "{@@}hsrogue:Weapon [ !WDamage! / !WDurability! ] NL hsrogue:Tradeable : Gain+ !M! /+ !M! ,Discover an Ethereal another class's card{!Upgrades!|>0= NL and hsrogue:Temporary reduce 1 [E] } "
+    "DESCRIPTION": "{@@}hsrogue:Weapon [ !WDamage! / !WDurability! ] NL hsrogue:Tradeable : Gain+ !M! /+ !M! ,Discover an Ethereal another class's card{!Upgrades!|>0= NL and hsrogue:Temporary reduce 1 cost } "
   },
   "HSRogue:Parrrley": {
     "NAME": "Parrrley",
@@ -212,7 +212,7 @@
     "DESCRIPTION": "Exhaust a card,gain 1 [E] and draw 1 card NL If it's another class's card, gain !M! [E] and draw !M! cards additionally"
   },
   "HSRogue:DragonsHoard": {
-    "NAME": "Dragons Hoard",
+    "NAME": "Dragon's Hoard",
     "DESCRIPTION": "{@@}Discover another class's upgraded Rare card {!Upgrades!|>0=NL set cost 0 this turn}"
   },
   "HSRogue:Jackpot": {
@@ -237,7 +237,7 @@
   },
   "HSRogue:AcademicEspionage": {
     "NAME": "Academic Espionage",
-    "DESCRIPTION": "Add !M! another class's card in your discard pile NL They gain Ethereal , Exhaust , reduce 1 [E] and draw 1 card after played"
+    "DESCRIPTION": "Add !M! another class's card in your discard pile NL They gain Ethereal , Exhaust , reduce 1 cost and draw 1 card after played"
   },
   "HSRogue:ValeeraTheHollow": {
     "NAME": "Valeera The Hollow",
@@ -337,7 +337,7 @@
   },
   "HSRogue:Deafen": {
     "NAME": "Deafen",
-    "DESCRIPTION": "hsrogue:Silent a monster NL hsrogue:Combo :Deal !D! damage"
+    "DESCRIPTION": "hsrogue:Silence a monster NL hsrogue:Combo :Deal !D! damage"
   },
   "HSRogue:GhostlyStrike": {
     "NAME": "Ghostly Strike",

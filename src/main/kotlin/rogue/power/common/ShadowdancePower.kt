@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.mods.TempCardMod
 import utils.addMod
 
-class ShadowdancePower(owner: AbstractPlayer, amount: Int = 3) :
-    UsageLimitPower(rawName = ShadowdancePower::class.simpleName.toString(), owner = owner, amount = amount) {
+class ShadowdancePower(owner: AbstractPlayer, stackAmount: Int = 3) :
+    UsageLimitPower(rawName = ShadowdancePower::class.simpleName.toString(), owner = owner, stackAmount = stackAmount) {
     override fun onAfterCardPlayed(usedCard: AbstractCard?) {
         usedCard?.let {
             if ((it.costForTurn == 0 || it.freeToPlayOnce)) {

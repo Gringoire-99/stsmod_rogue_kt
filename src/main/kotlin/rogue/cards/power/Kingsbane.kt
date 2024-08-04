@@ -28,11 +28,16 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
         return c
     }
 
-    private var copy: rogue.power.weapon.Kingsbane? = null
+    var copy: rogue.power.weapon.Kingsbane? = null
+
     fun setWeaponCopy(copy: rogue.power.weapon.Kingsbane) {
         this.copy = copy
         weaponDurability = copy.durability
         weaponDamage = copy.damage
+        setMagicNumber(copy.magic)
+        if (copy.upgraded) {
+            upgrade()
+        }
         if (copy.damage > initialDamage) {
             isWeaponDamageModified = true
         }
@@ -51,8 +56,8 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val kingsbane = copy ?: rogue.power.weapon.Kingsbane(
-            damage = initialDamage,
-            durability = initialDurability,
+            damage = weaponDamage,
+            durability = weaponDurability,
             upgraded = upgraded,
             magic = magicNumber
         )

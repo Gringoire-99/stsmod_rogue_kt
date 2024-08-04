@@ -26,9 +26,9 @@ class SISevenExtortion(override var isEnableTrade: Boolean = true) :
 
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToTop(GainGoldAction(magicNumber))
         dealDamage(p, m, damage)
         drawCard(magicNumber)
+        addToTop(GainGoldAction(magicNumber))
     }
 
     override fun onTrade() {

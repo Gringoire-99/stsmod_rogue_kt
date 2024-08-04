@@ -6,8 +6,8 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.mods.TempCardMod
 import utils.addMod
 
-class WaterdancePower(owner: AbstractPlayer, amount: Int = 1) :
-    UsageLimitPower(rawName = WaterdancePower::class.simpleName.toString(), owner = owner, amount = amount) {
+class WaterdancePower(owner: AbstractPlayer, stackAmount: Int = 1) :
+    UsageLimitPower(rawName = WaterdancePower::class.simpleName.toString(), owner = owner, stackAmount = stackAmount) {
 
     override fun onAfterCardPlayed(usedCard: AbstractCard?) {
         usedCard?.apply {

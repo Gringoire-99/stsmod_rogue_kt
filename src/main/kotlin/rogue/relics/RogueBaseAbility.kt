@@ -3,6 +3,7 @@ package rogue.relics
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.ui.panels.EnergyPanel
+import rogue.action.EmptyAction
 import rogue.action.EquipWeaponAction
 import rogue.power.weapon.WickedKnife
 
@@ -45,8 +46,10 @@ class RogueBaseAbility(
 
     override fun onVictory() {
         if (isTemp) {
-            AbstractDungeon.player.relics.remove(this)
-            AbstractDungeon.player.reorganizeRelics()
+            addToTop(EmptyAction {
+                AbstractDungeon.player.relics.remove(this)
+                AbstractDungeon.player.reorganizeRelics()
+            })
         }
         reset()
     }

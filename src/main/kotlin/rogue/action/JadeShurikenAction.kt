@@ -1,6 +1,5 @@
 package rogue.action
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.MoveCardsAction
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -15,29 +14,9 @@ class JadeShurikenAction(val p: AbstractPlayer, val m: AbstractMonster, val card
         val cards = p.hand.group.filter {
             it.cardID == JadeShuriken::class.makeId()
         }
-
-        cards.forEach { _ ->
-            addToTop(
-                MoveCardsAction(
-                    AbstractDungeon.player.limbo,
-                    AbstractDungeon.player.hand,
-                    { card: AbstractCard ->
-                        card in cards
-                    },
-                    cards.size
-                ) {
-                    it.forEach { c ->
-                        c.addToQueue(card, m, random = true) {
-                            MoveCardsAction(
-                                AbstractDungeon.player.discardPile, AbstractDungeon.player.limbo,
-                                { card: AbstractCard ->
-                                    card in cards
-                                }, cards.size
-                            )
-                        }
-                    }
-                }
-            )
+        AbstractDungeon.player.hand.group.removeIf { it.cardID == JadeShuriken::class.makeId() }
+        cards.forEach {
+            addToQueue(it, m, random = true)
         }
         isDone = true
     }

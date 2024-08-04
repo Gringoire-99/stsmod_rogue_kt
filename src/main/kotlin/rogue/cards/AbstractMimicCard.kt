@@ -22,7 +22,9 @@ abstract class AbstractMimicCard(
     ) {
     var mimicTarget: AbstractCard? = null
     fun mimic(c: AbstractCard) {
-        val copy = c.makeStatEquivalentCopy()
+        val copy =
+            if (c is AbstractMimicCard) c.mimicTarget?.makeStatEquivalentCopy()
+                ?: c.makeStatEquivalentCopy() else c.makeStatEquivalentCopy()
         copy.name = name
         cardID = copy.cardID
         target = copy.target
@@ -42,7 +44,10 @@ abstract class AbstractMimicCard(
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        mimicTarget?.use(p, m)
+        mimicTarget?.apply {
+            calculateCardDamage(m)
+            use(p, m)
+        }
     }
 
     override fun render(sb: SpriteBatch?) {
@@ -77,6 +82,7 @@ abstract class AbstractMimicCard(
             super.renderCardTip(sb)
         }
     }
+
 
     override fun makeStatEquivalentCopy(): AbstractCard {
         val copy = super.makeStatEquivalentCopy() as AbstractMimicCard

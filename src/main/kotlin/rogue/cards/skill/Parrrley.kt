@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
+import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
 import rogue.cards.Tradeable
 import utils.discovery
@@ -49,7 +50,9 @@ class Parrrley(override var isEnableTrade: Boolean = true) :
     override fun onTrade() {
         if (lastDiscoveredCard != null) {
             addToBot(AddCardToDeckAction(lastDiscoveredCard))
-            AbstractDungeon.player.masterDeck.removeCard(this.cardID)
+            addToBot(EmptyAction {
+                AbstractDungeon.player.masterDeck.removeCard(this.cardID)
+            })
             addToBot(ExhaustSpecificCardAction(this, AbstractDungeon.player.discardPile))
         }
     }

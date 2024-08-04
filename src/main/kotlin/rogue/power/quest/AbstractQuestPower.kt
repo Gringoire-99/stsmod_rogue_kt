@@ -24,8 +24,10 @@ abstract class AbstractQuestPower(owner: AbstractCreature, rawName: String) :
 
     var questCount = 0
         set(value) {
+            if (value > field) {
+                flash()
+            }
             field = value
-            flash()
             if (field >= maxCount) {
                 onComplete()
                 addToBot(RemoveSpecificPowerAction(owner, owner, this))

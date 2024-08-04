@@ -83,7 +83,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
             Settings.GameLanguage.ZHS -> "ZHS"
             Settings.GameLanguage.ENG -> "ENG"
             else -> {
-                "ZHS"
+                "ENG"
             }
         }
         val prefix = "${modId}/localization/$lang/"

@@ -56,7 +56,7 @@
   "HSRogue:DeathsShadowPower": {
     "NAME": "Valeera The Hollow",
     "DESCRIPTIONS": [
-      "Permanently Stealth，At start of turn/using add an unique ShadowReflection to your hand"
+      "Permanently Stealth,At start of turn/using add an unique Shadow Reflection to your hand"
     ]
   },
   "HSRogue:TheCavernsBelowPower": {
@@ -114,13 +114,13 @@
     ]
   },
   "HSRogue:SilencePower": {
-    "NAME": "Silent",
+    "NAME": "Silenced",
     "DESCRIPTIONS": [
       "Remove all positive buffs for one turn"
     ]
   },
   "HSRogue:PlayTwicePower": {
-    "NAME": "PlayTwice",
+    "NAME": "Play Twice",
     "DESCRIPTIONS": [
       "Next another class's card you played will play twice"
     ]

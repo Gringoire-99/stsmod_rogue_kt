@@ -7,7 +7,9 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.helpers.FontHelper
+import common.CardFilter
 import common.ScavengeCard
+import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import rogue.mods.TempCardMod
 import rogue.power.common.PlayTwicePower
@@ -17,7 +19,7 @@ import utils.upBase
 import kotlin.math.min
 
 class TessGreymanePower(owner: AbstractPlayer) :
-    AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString(), amount = 1) {
+    AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString(), stackAmount = 1) {
 
     private val maxUsage = 2
     override val ability = {
@@ -25,7 +27,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
             amount--
             this@TessGreymanePower.flash()
             val opts = arrayListOf<AbstractCard>(ScavengeCard(0), ScavengeCard(1), ScavengeCard(2))
-            addToBot(SelectCardsAction(opts, "选择一项") { cards ->
+            addToBot(SelectCardsAction(opts, TradeCard.tradeStrings.DESCRIPTION) { cards ->
                 val first = cards.firstOrNull() as? ScavengeCard
                 when (first?.opt) {
                     0 -> {
@@ -34,13 +36,13 @@ class TessGreymanePower(owner: AbstractPlayer) :
                             it.addMod(TempCardMod())
                         }
                     }
-
                     1 -> {
                         addToBot(ApplyPowerAction(owner, owner, PlayTwicePower(owner, 1), 1))
                     }
 
                     2 -> {
-                        discovery(from = ArrayList(AbstractRogueCard.cardUsedCombatOC)) {
+                        val from = ArrayList(AbstractRogueCard.cardUsedCombatOC)
+                        discovery(from = from, cardFilter = CardFilter(predicate = { true })) {
                             if (it.cost > 0) {
                                 it.cost = 0
                                 it.costForTurn = 0

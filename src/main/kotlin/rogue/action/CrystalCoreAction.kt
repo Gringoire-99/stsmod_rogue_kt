@@ -8,15 +8,12 @@ class CrystalCoreAction(val magic: Int) : AbstractGameAction() {
     override fun update() {
         val player = AbstractDungeon.player
         player?.apply {
-            hand.group.forEach {
-                it.upBase(magic)
+            arrayOf(hand.group, discardPile.group, drawPile.group, exhaustPile.group, limbo.group).forEach {
+                it.forEach { c ->
+                    c.upBase(magic)
+                }
             }
-            discardPile.group.forEach {
-                it.upBase(magic)
-            }
-            drawPile.group.forEach {
-                it.upBase(magic)
-            }
+
         }
         isDone = true
     }

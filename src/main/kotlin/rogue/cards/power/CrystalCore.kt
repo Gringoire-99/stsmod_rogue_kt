@@ -40,7 +40,7 @@ class CrystalCore :
             addToBot(ApplyPowerAction(p, p, StrengthPower(p, magicNumber), magicNumber))
             addToBot(ApplyPowerAction(p, p, DexterityPower(p, magicNumber), magicNumber))
             addToBot(CrystalCoreAction(magicNumber))
-            addToBot(ApplyPowerAction(p, p, CrystalCorePower(p, magicNumber)))
+            addToBot(ApplyPowerAction(p, p, CrystalCorePower(p, magicNumber), magicNumber))
         }
     }
 

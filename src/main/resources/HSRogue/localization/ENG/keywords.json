@@ -133,7 +133,7 @@
   },
   {
     "NAMES": [
-      "silent"
+      "silence"
     ],
     "DESCRIPTION": "Remove all positive buffs for one turn"
   },

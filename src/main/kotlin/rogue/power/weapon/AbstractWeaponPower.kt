@@ -20,6 +20,10 @@ import com.megacrit.cardcrawl.powers.StrengthPower
 import com.megacrit.cardcrawl.powers.WeakPower
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.cards.attack.Attack
+import rogue.cards.skill.EnvenomWeapon
+import rogue.cards.skill.LeechingPoison
+import rogue.cards.skill.ParalyticPoison
+import rogue.cards.skill.SilverleafPoison
 import rogue.mods.OnAttack
 import rogue.mods.OnLastDamageTakenUpdate
 import rogue.mods.WeaponDamageMod
@@ -31,7 +35,7 @@ abstract class AbstractWeaponPower(
     rawName: String,
     damage: Int,
     durability: Int,
-    val magic: Int = 0,
+    var magic: Int = 0,
     val upgraded: Boolean = false
 ) :
     IAbstractPower(powerName = AbstractWeaponPower::class.simpleName.toString(), amount = -1), NonStackablePower {
@@ -169,16 +173,16 @@ abstract class AbstractWeaponPower(
     fun updatePowerDesc() {
         updateDescription()
         if (lifeStealCount > 0) {
-            this.description += " NL 吸血：${lifeStealCount}"
+            this.description += " NL ${LeechingPoison.name} : ${lifeStealCount}"
         }
         if (drawCount > 0) {
-            this.description += " NL 攻击后抽${drawCount}张牌"
+            this.description += " NL ${SilverleafPoison.name} : ${drawCount}"
         }
         if (poisonCount > 0) {
-            this.description += " NL 毒素：${poisonCount}"
+            this.description += " NL ${EnvenomWeapon.name} : ${poisonCount}"
         }
         if (paralysisCount > 0) {
-            this.description += " NL 麻痹：${paralysisCount}"
+            this.description += " NL ${ParalyticPoison.name} : ${paralysisCount}"
         }
 
     }

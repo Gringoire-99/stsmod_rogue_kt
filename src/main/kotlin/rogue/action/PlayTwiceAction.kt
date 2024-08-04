@@ -9,13 +9,14 @@ import utils.addToQueue
 class PlayTwiceAction(
     val card: AbstractCard,
     val target: AbstractCreature?,
+    val purge: Boolean = false
 ) : AbstractGameAction() {
     override fun update() {
         val tmp: AbstractCard = card.makeStatEquivalentCopy()
         if (tmp is Tradeable) {
             tmp.isEnableTrade = false
         }
-        tmp.addToQueue(card, target)
+        addToQueue(card, target, purge = purge)
         isDone = true
     }
 }

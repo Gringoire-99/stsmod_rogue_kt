@@ -30,7 +30,7 @@ class ShadowOfDemise() :
 
     override fun triggerOnOtherCardPlayed(otherCard: AbstractCard?) {
         otherCard?.let {
-            if ((it.type == CardType.SKILL || it.type == CardType.ATTACK) && it !is ShadowOfDemise) {
+            if ((it.type == CardType.SKILL || it.type == CardType.ATTACK)) {
                 val copy: AbstractCard = it.makeStatEquivalentCopy()
                 copy.upBase(magicNumber)
                 this.mimic(copy)

@@ -6,8 +6,8 @@ import rogue.power.IAbstractPower
 import rogue.relics.RogueBaseAbility
 import utils.makeId
 
-abstract class AbstractHeroPower(owner: AbstractPlayer, powerName: String, amount: Int = -1) :
-    IAbstractPower(powerName = powerName, owner = owner, amount = amount) {
+abstract class AbstractHeroPower(owner: AbstractPlayer, powerName: String, stackAmount: Int = -1) :
+    IAbstractPower(powerName = powerName, owner = owner, amount = stackAmount) {
 
     abstract val ability: () -> Unit
     fun getBaseAbility(): RogueBaseAbility? {
