@@ -16,7 +16,7 @@ import utils.addMod
 
 class SherazinSeed(
     private val upgradeImpl: LevelInterface =
-        LevelInterfaceImpl(maxExpr = 4, maxLevel1 = 2)
+        LevelInterfaceImpl(maxExpr = 5, maxLevel1 = 2)
 ) :
     AbstractRogueCard(
         name = SherazinSeed::class.simpleName.toString(),

@@ -3,7 +3,7 @@
   "name": "HearthStone-Rogue炉石传说游荡者",
   "author_list": ["glen"],
   "description": "添加了来自炉石传说的游荡者角色",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "sts_version": "12-18-2022",
   "mts_version": "3.30.3",
   "dependencies": ["basemod","stslib"]

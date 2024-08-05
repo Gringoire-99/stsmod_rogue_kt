@@ -52,7 +52,6 @@ abstract class AbstractRogueCard(
         if (!upgraded) {
             upgradeName()
             effect()
-            this.upgraded = true
         }
     }
 

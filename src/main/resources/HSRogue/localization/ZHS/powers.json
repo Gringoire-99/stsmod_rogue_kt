@@ -32,7 +32,7 @@
   "HSRogue:EvasionPower": {
     "NAME": "闪避",
     "DESCRIPTIONS": [
-      "奥秘：回合结束时，如果没有格挡 NL 获得%d点格挡(受敏捷加成)"
+      "奥秘：回合结束时，如果没有格挡或处于潜行 NL 获得%d点格挡(受敏捷加成)"
     ]
   },
   "HSRogue:DirtyTricksPower": {

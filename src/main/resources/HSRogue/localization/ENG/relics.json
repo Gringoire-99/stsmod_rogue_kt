@@ -1,7 +1,7 @@
 {
-  "HSRogue:RogueBaseAbility": {
-    "NAME": "Rogue's initial ability",
-    "FLAVOR": "Rogue's initial ability",
+  "HSRogue:HeroPower": {
+    "NAME": "Rogue's hero power",
+    "FLAVOR": "Always have a blade at the ready.",
     "DESCRIPTIONS": [
       "Right-Click to spend 1 [E] to equip WickedKnife[3/3]"
     ]

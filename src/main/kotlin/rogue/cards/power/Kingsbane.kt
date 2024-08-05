@@ -11,7 +11,7 @@ import utils.addMod
 class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
     AbstractWeaponPowerCard(
         name = Kingsbane::class.simpleName.toString(),
-        cost = 1,
+        cost = 0,
         rarity = CardRarity.RARE,
         initialDamage = wDamage,
         initialDurability = wDurability,
@@ -20,6 +20,7 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
         setMagicNumber(magic)
     }
 
+    private val initializerName: String = name
     override fun makeStatEquivalentCopy(): AbstractCard {
         val c = super.makeStatEquivalentCopy() as Kingsbane
         copy?.apply {
@@ -35,8 +36,11 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
         weaponDurability = copy.durability
         weaponDamage = copy.damage
         setMagicNumber(copy.magic)
+        timesUpgraded = copy.upgradeCount
         if (copy.upgraded) {
-            upgrade()
+            upgraded = true
+            updateName()
+            addMod(InnateMod())
         }
         if (copy.damage > initialDamage) {
             isWeaponDamageModified = true
@@ -48,10 +52,26 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
 
 
     override fun upgrade() {
-        useUpgrade {
-            addMod(InnateMod())
-            upgradeMagicNumber(1)
-        }
+        upgradeName()
+        addMod(InnateMod())
+        upgradeMagicNumber(2)
+        weaponDamage++
+        weaponDurability++
+    }
+
+    override fun upgradeName() {
+        timesUpgraded++
+        upgraded = true
+        updateName()
+    }
+
+    private fun updateName() {
+        this.name = "${initializerName}+${timesUpgraded}"
+        initializeTitle()
+    }
+
+    override fun canUpgrade(): Boolean {
+        return true
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
@@ -59,7 +79,7 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
             damage = weaponDamage,
             durability = weaponDurability,
             upgraded = upgraded,
-            magic = magicNumber
+            magic = magicNumber, timesUpgraded
         )
         addToBot(
             EquipWeaponAction(

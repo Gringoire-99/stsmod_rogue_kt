@@ -109,7 +109,7 @@
   },
   "HSRogue:Kingsbane": {
     "NAME": "Kingsbane",
-    "DESCRIPTION": "{@@}hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Additional effects are not lost or reduced by any effects. NL hsrogue:Deathrattle : + !M! /+1, shuffle into draw pile"
+    "DESCRIPTION": "{@@}hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Additional effects are not lost or reduced by any effects. NL hsrogue:Deathrattle : + !M! /+1, shuffle into draw pile NL Can be Upgraded any number of times"
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "Blackwater Cutlass",
@@ -117,7 +117,7 @@
   },
   "HSRogue:Parrrley": {
     "NAME": "Parrrley",
-    "DESCRIPTION": "{@@}Discover an another class's non Power card NL Make it Exhaust , Ethereal and free to play this turn NL hsrogue:Tradeable : NL Permanently replace this card with the previous card discovered in this battle. NL hsrogue:Exhaustive : !stslib:ex!"
+    "DESCRIPTION": "{@@}Discover an another class's non Power card NL Make it hsrogue:Temporary and free to play this turn NL hsrogue:Tradeable : NL Permanently replace this card with the previous card discovered in this battle. NL hsrogue:Exhaustive : !stslib:ex!"
   },
   "HSRogue:CounterfeitCoin": {
     "NAME": "Counterfeit Coin",
@@ -157,7 +157,7 @@
   },
   "HSRogue:Evasion": {
     "NAME": "Evasion",
-    "DESCRIPTION": "hsrogue:Secret : If you have no Block at end of your turn NL Gain !M! Block NL (Affect by Dexterity )"
+    "DESCRIPTION": "hsrogue:Secret : At end of your turn NL If you are in hsrogue:Stealth or have no Block NL Gain !M! Block NL (Affect by Dexterity )"
   },
   "HSRogue:DirtyTricks": {
     "NAME": "Dirty Tricks",
@@ -237,11 +237,11 @@
   },
   "HSRogue:AcademicEspionage": {
     "NAME": "Academic Espionage",
-    "DESCRIPTION": "Add !M! another class's card in your discard pile NL They gain Ethereal , Exhaust , reduce 1 cost and draw 1 card after played"
+    "DESCRIPTION": "Add !M! another class's card in your discard pile NL They gain hsrogue:Temporary , reduce 1 cost and draw 1 card after played"
   },
   "HSRogue:ValeeraTheHollow": {
     "NAME": "Valeera The Hollow",
-    "DESCRIPTION": "{@@} hsrogue:Hero NL Permanently hsrogue:Stealth NL Upgrade your hsrogue:InitialAbility to hsrogue:DeathsShadow "
+    "DESCRIPTION": "{@@} hsrogue:Hero NL Permanently hsrogue:Stealth NL Upgrade your hsrogue:HeroPower to hsrogue:DeathsShadow "
   },
   "HSRogue:ShadowReflection": {
     "NAME": "Shadow Reflection",
@@ -273,7 +273,7 @@
   },
   "HSRogue:PotionOfIllusion": {
     "NAME": "Potion Of Illusion",
-    "DESCRIPTION": "Copy cards in your hand NL And make the copies Ethereal and Exhaust "
+    "DESCRIPTION": "Copy cards in your hand NL And make the copies hsrogue:Temporary "
   },
   "HSRogue:MyraRotspring": {
     "NAME": "Myra Rotspring",
@@ -285,7 +285,7 @@
   },
   "HSRogue:TessGreymane": {
     "NAME": "Tess Greymane",
-    "DESCRIPTION": "hsrogue:Hero NL Reduce cost by 1 this turn when your use another class's card NL Upgrade your hsrogue:InitialAbility to hsrogue:Scavenge"
+    "DESCRIPTION": "hsrogue:Hero NL Reduce cost by 1 this turn when your use another class's card NL Upgrade your hsrogue:HeroPower to hsrogue:Scavenge"
   },
   "HSRogue:ShadowOfDemise": {
     "NAME": "Shadow Of Demise",
@@ -317,7 +317,7 @@
   },
   "HSRogue:ShadowcrafterScabbs": {
     "NAME": "Shadowcrafter Scabbs",
-    "DESCRIPTION": "hsrogue:Hero NL Stun all monsters NL Upgrade your hsrogue:InitialAbility to hsrogue:SleightOfHand"
+    "DESCRIPTION": "hsrogue:Hero NL Stun all monsters NL Upgrade your hsrogue:HeroPower to hsrogue:SleightOfHand"
   },
   "HSRogue:Breakdance": {
     "NAME": "Breakdance",

@@ -17,13 +17,13 @@ val baseRightClick = {
 }
 val baseStartOfTurn = {}
 
-class RogueBaseAbility(
+class HeroPower(
     var rightClick: () -> Unit = baseRightClick,
     var startOfTurn: () -> Unit = baseStartOfTurn,
     var isTemp: Boolean = false
 ) :
     IAbstractRelic(
-        name = RogueBaseAbility::class.simpleName.toString(),
+        name = HeroPower::class.simpleName.toString(),
         tier = RelicTier.STARTER,
         sfx = LandingSound.CLINK
     ), ClickableRelic {

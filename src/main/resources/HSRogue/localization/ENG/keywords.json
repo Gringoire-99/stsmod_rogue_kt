@@ -85,9 +85,9 @@
   },
   {
     "NAMES": [
-      "initialability"
+      "heropower"
     ],
-    "DESCRIPTION": "Right-click your initial relic to use your initial ability"
+    "DESCRIPTION": "Right-click your Starter Relic to use your Hero Power!"
   },
   {
     "NAMES": [
@@ -99,7 +99,7 @@
     "NAMES": [
       "hero"
     ],
-    "DESCRIPTION": "Gain 5 block after Hero card player，It will replace your initial ability with new abilities"
+    "DESCRIPTION": "Gain 5 block after Hero card played，It will replace your hero power with new power"
   },
   {
     "NAMES": [

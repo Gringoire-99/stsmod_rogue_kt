@@ -109,7 +109,7 @@
   },
   "HSRogue:Kingsbane": {
     "NAME": "弑君",
-    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDurability! ] NL 附加效果不会因为任何效果消失或降低 NL hsrogue:亡语 : + !M! /+1,将此 hsrogue:武器 洗入你的抽牌堆"
+    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDurability! ] NL 附加效果不会因为任何效果消失或降低 NL hsrogue:亡语 : + !M! /+1,将此 hsrogue:武器 洗入你的抽牌堆 NL 此牌可无限强化"
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "黑水弯刀",
@@ -117,7 +117,7 @@
   },
   "HSRogue:Parrrley": {
     "NAME": "海盗谈判",
-    "DESCRIPTION": "{@@}发现一张其他职业的具有 消耗 和 虚无 的非能力牌，本回合费用为0 NL hsrogue:可交易 ： NL 将这场战斗中此牌发现的上一张牌与此牌永久替换 NL hsrogue:消耗性 : !stslib:ex!"
+    "DESCRIPTION": "{@@}发现一张 hsrogue:临时 的其他职业的非能力牌，本回合费用为0 NL hsrogue:可交易 ： NL 将这场战斗中此牌发现的上一张牌与此牌永久替换 NL hsrogue:消耗性 : !stslib:ex!"
   },
   "HSRogue:CounterfeitCoin": {
     "NAME": "伪造的幸运币",
@@ -245,7 +245,7 @@
   },
   "HSRogue:ValeeraTheHollow": {
     "NAME": "虚空之影瓦莉拉",
-    "DESCRIPTION": "{@@} hsrogue:英雄 NL 永久 hsrogue:潜行 ，将你的 hsrogue:初始能力 升级为 hsrogue:死亡暗影 "
+    "DESCRIPTION": "{@@} hsrogue:英雄 NL 永久 hsrogue:潜行 ，将你的 hsrogue:英雄能力 升级为 hsrogue:死亡暗影 "
   },
   "HSRogue:ShadowReflection": {
     "NAME": "暗影映像",
@@ -289,7 +289,7 @@
   },
   "HSRogue:TessGreymane": {
     "NAME": "苔丝·格雷迈恩",
-    "DESCRIPTION": "hsrogue:英雄 NL 本回合每使用一张其他职业的牌，费用减1 NL 你的 hsrogue:初始能力 升级为 hsrogue:翻找 (主动) "
+    "DESCRIPTION": "hsrogue:英雄 NL 本回合每使用一张其他职业的牌，费用减1 NL 你的 hsrogue:英雄能力 升级为 hsrogue:翻找 (主动) "
   },
   "HSRogue:ShadowOfDemise": {
     "NAME": "殒命暗影",
@@ -321,7 +321,7 @@
   },
   "HSRogue:ShadowcrafterScabbs": {
     "NAME": "迅影匠师斯卡布斯",
-    "DESCRIPTION": "hsrogue:英雄 NL 你的 hsrogue:初始能力 升级为 hsrogue:手法娴熟 NL 击晕所有怪物"
+    "DESCRIPTION": "hsrogue:英雄 NL 你的 hsrogue:英雄能力 升级为 hsrogue:手法娴熟 NL 击晕所有怪物"
   },
   "HSRogue:Breakdance": {
     "NAME": "街舞起跳",

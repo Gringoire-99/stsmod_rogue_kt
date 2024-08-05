@@ -28,6 +28,10 @@ class ShadowOfDemise() :
         upgradeMagicNumber(1)
     }
 
+    override fun canUpgrade(): Boolean {
+        return true
+    }
+
     override fun triggerOnOtherCardPlayed(otherCard: AbstractCard?) {
         otherCard?.let {
             if ((it.type == CardType.SKILL || it.type == CardType.ATTACK)) {

@@ -7,7 +7,8 @@ class Kingsbane(
     damage: Int = 3,
     durability: Int = 3,
     upgraded: Boolean = false,
-    magic: Int = 3
+    magic: Int = 3,
+    var upgradeCount: Int = 0
 ) : AbstractWeaponPower(
     rawName = Kingsbane::class.simpleName.toString(),
     damage = damage,
@@ -55,7 +56,7 @@ class Kingsbane(
     }
 
     override fun makeCopy(): AbstractWeaponPowerCard {
-        val new = rogue.cards.power.Kingsbane()
+        val new = rogue.cards.power.Kingsbane(wDamage = initialDamage, wDurability = initialDurability, magic = magic)
         new.apply {
             setWeaponCopy(this@Kingsbane)
         }

@@ -1,7 +1,7 @@
 {
-  "HSRogue:RogueBaseAbility": {
-    "NAME": "游荡者初始能力",
-    "FLAVOR": "游荡者的初始能力",
+  "HSRogue:HeroPower": {
+    "NAME": "游荡者英雄能力",
+    "FLAVOR": "永远准备好你的双刃",
     "DESCRIPTIONS": [
       "右键点击消耗1 [E] ,装备 武器  #y3/3的邪恶短刀"
     ]

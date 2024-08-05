@@ -20,7 +20,7 @@ import rogue.cards.attack.Strike
 import rogue.cards.skill.Conceal
 import rogue.cards.skill.DeadlyPoison
 import rogue.cards.skill.Defend
-import rogue.relics.RogueBaseAbility
+import rogue.relics.HeroPower
 import utils.*
 
 class Rogue : CustomPlayer(
@@ -84,7 +84,7 @@ class Rogue : CustomPlayer(
     }
 
     override fun getStartingRelics(): ArrayList<String> {
-        return arrayListOf(RogueBaseAbility::class.makeId())
+        return arrayListOf(HeroPower::class.makeId())
     }
 
     override fun getLoadout(): CharSelectInfo {

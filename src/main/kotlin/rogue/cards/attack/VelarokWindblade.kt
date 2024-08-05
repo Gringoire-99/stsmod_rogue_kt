@@ -29,6 +29,7 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
             name = cardString.EXTENDED_DESCRIPTION[0]
             loadCardImage("$modId/cards/attack/VelarokTheDeceiver.png")
             rawDescription = cardString.EXTENDED_DESCRIPTION[1]
+            cardsToPreview = null
             initializeDescription()
             initializeTitle()
         }
