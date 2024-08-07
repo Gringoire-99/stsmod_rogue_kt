@@ -248,7 +248,7 @@
     "DESCRIPTION": "{@@}unplayable NL After played a card,change to that {!Upgrades!|>0=upgraded} card"
   },
   "HSRogue:SherazinCorpseFlower": {
-    "NAME": "Sherazin The Corpse Flower",
+    "NAME": "Sherazin,Corpse Flower",
     "DESCRIPTION": "Deal !D! damage !M! times NL Add *SherazinSeed into your hand after Exhaust"
   },
   "HSRogue:SherazinSeed": {

@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.vfx.combat.BiteEffect
+import rogue.audio.AudioList
 import rogue.cards.AbstractRogueCard
 import rogue.cards.skill.SherazinSeed
 import utils.addMod
@@ -47,6 +48,7 @@ class SherazinCorpseFlower :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        AudioList.SherazinCorpseFlowerPlay.play()
         repeat(magicNumber) {
             if (m != null) {
                 this.addToTop(

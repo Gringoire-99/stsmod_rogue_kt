@@ -2,7 +2,10 @@ package rogue.cards.power
 
 import basemod.cardmods.RetainMod
 import basemod.helpers.BaseModCardTags
+import com.megacrit.cardcrawl.characters.AbstractPlayer
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
+import rogue.audio.AudioList
 import rogue.cards.AbstractMimicCard
 import utils.addMod
 import utils.generateCardChoices
@@ -43,11 +46,16 @@ class MaestraMaskMerchant() :
             retain = true
             selfRetain = true
         }
+        AudioList.MaestraMaskMerchantEffect.play()
     }
 
     override fun triggerWhenDrawn() {
         mimicToRandomForm()
     }
 
+    override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        AudioList.MaestraMaskMerchantPlay.play()
+        super.use(p, m)
+    }
 
 }

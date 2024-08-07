@@ -3,6 +3,7 @@ package rogue.power.common
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
+import rogue.audio.AudioList
 import rogue.mods.TempCardMod
 import utils.addMod
 
@@ -12,6 +13,7 @@ class ShadowdancePower(owner: AbstractPlayer, stackAmount: Int = 3) :
         usedCard?.let {
             if ((it.costForTurn == 0 || it.freeToPlayOnce)) {
                 usePower {
+                    AudioList.SonyaShadowdancerEffect.play()
                     val copy = it.makeStatEquivalentCopy()
                     copy.apply {
                         cost = 1

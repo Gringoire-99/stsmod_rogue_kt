@@ -3,6 +3,7 @@ package rogue.cards.power
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.audio.AudioList
 import rogue.cards.AbstractRogueCard
 import rogue.power.common.ShadowdancePower
 
@@ -25,6 +26,7 @@ class SonyaShadowdancer() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        AudioList.SonyaShadowdancerPlay.play()
         p?.apply {
             addToBot(ApplyPowerAction(p, p, ShadowdancePower(p, magicNumber), magicNumber))
         }

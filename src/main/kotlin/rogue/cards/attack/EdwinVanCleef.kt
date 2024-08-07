@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.vfx.combat.ClashEffect
+import rogue.audio.AudioList
 import rogue.cards.AbstractComboCard
 import rogue.cards.OnCalculateCardDamage
 import utils.addMod
@@ -37,6 +38,7 @@ class EdwinVanCleef() :
         additionalDamage = cardPlayThisTurn * magicNumber + magicNumber * comboCount * 3
         baseDamage[0] = baseDamage[0] + additionalDamage
     }
+
     override fun upgrade() {
         useUpgrade {
             upgradeMagicNumber(1)
@@ -44,6 +46,7 @@ class EdwinVanCleef() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        AudioList.EdwinVanCleefAttack.play()
         useCombo {
             damage += additionalDamage
         }
