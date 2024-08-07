@@ -24,8 +24,8 @@ class PerditionsBlade(
     override fun upgrade() {
         useUpgrade {
             weaponDurability++
-            weaponDamage++
-            upgradeMagicNumber(2)
+            weaponDamage += 2
+            upgradeMagicNumber(3)
         }
     }
 

@@ -37,7 +37,7 @@ class MaestraMaskMerchant() :
             it.cost = min(it.cost, this.cost)
             it.costForTurn = min(it.costForTurn, this.costForTurn)
             it.freeToPlayOnce = freeToPlayOnce || it.freeToPlayOnce
-            if (upgraded) it.upgrade()
+            if (upgraded && !it.upgraded) it.upgrade()
             this.mimic(it)
             this.isEthereal = false
             retain = true

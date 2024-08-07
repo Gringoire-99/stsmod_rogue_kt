@@ -37,7 +37,7 @@ class Preparation :
             cards.forEach { card ->
                 card.retain = true
                 card.addMod(TurnEffectMod(1) {
-                    it.addMod(ReduceCostMod(1))
+                    it.addMod(ReduceCostMod(1, isTurnEffect = true, removeOnPlay = true))
                 })
             }
 

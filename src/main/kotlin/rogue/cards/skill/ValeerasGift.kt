@@ -43,10 +43,11 @@ class ValeerasGift :
                     { true },
                 ) { cards ->
                     cards.forEach {
-                        val target = it
+                        val target = it.makeStatEquivalentCopy()
+                        if (upgraded) target.upgrade()
                         target.addMod(EtherealMod())
                         p?.apply {
-                            addToBot(MakeTempCardInHandAction(target).apply { upgrade() })
+                            addToBot(MakeTempCardInHandAction(target))
                         }
                     }
                 }

@@ -12,7 +12,7 @@ import utils.addMod
 class MyrasUnstableElement :
     AbstractRogueCard(
         name = MyrasUnstableElement::class.simpleName.toString(),
-        cost = 1,
+        cost = 0,
         type = CardType.SKILL,
         rarity = CardRarity.RARE,
         target = CardTarget.SELF
@@ -25,7 +25,6 @@ class MyrasUnstableElement :
     override fun upgrade() {
         useUpgrade {
             addMod(RetainMod())
-            upgradeBaseCost(0)
         }
     }
 

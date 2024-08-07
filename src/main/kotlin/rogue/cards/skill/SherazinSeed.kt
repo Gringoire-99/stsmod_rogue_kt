@@ -35,7 +35,7 @@ class SherazinSeed(
             if (upgraded) {
                 flower.upgrade()
             }
-            flower.freeToPlayOnce = true
+            flower.costForTurn = 0
             addToBot(MakeTempCardInHandAction(flower))
             addToBot(ExhaustSpecificCardAction(this, AbstractDungeon.player.hand))
         }

@@ -20,7 +20,7 @@ import utils.modId
 
 class LesserOnyxSpellstone(
     private val upgradeImpl: LevelInterface =
-        LevelInterfaceImpl(maxExpr = 6, maxLevel1 = 99)
+        LevelInterfaceImpl(maxExpr = 8, maxLevel1 = 99)
 ) :
     AbstractRogueCard(
         name = LesserOnyxSpellstone::class.simpleName.toString(),
@@ -47,7 +47,7 @@ class LesserOnyxSpellstone(
             upgradeMagicNumber(if (level < 3) 2 else 1)
             upgradeDamage(magicNumber)
         }
-        setDamage(14)
+        setDamage(12)
         setMagicNumber(2)
         addMod(RetainMod(), ExhaustMod())
     }
@@ -55,7 +55,6 @@ class LesserOnyxSpellstone(
     override fun upgrade() {
         useUpgrade {
             upgradeDamage(4)
-            upgradeBaseCost(2)
         }
     }
 

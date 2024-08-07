@@ -189,7 +189,7 @@
   },
   "HSRogue:ValeerasGift": {
     "NAME": "Valeera's Gift",
-    "DESCRIPTION": "Choose one from *BackStab , *FanOfKnives , *DeadlyPoison !M! times,Add an Ethereal copy into your hand"
+    "DESCRIPTION": "{@@}Choose one from *BackStab , *FanOfKnives , *DeadlyPoison !M! times,Add an Ethereal {!Upgrades!|>0=upgraded} copy into your hand"
   },
   "HSRogue:TwistedPack": {
     "NAME": "Twisted Pack",
@@ -217,7 +217,7 @@
   },
   "HSRogue:Jackpot": {
     "NAME": "Jackpot",
-    "DESCRIPTION": "{@@}Add !M! {!Upgrades!|>0=upgraded} cards of another classes with a cost of 2 or more into your hand and make them Retain and Exhaust"
+    "DESCRIPTION": "{@@}Discover !M! {!Upgrades!|>0=upgraded} card of another class with a cost of 2 or more and make them Retain and Exhaust"
   },
   "HSRogue:NecriumVial": {
     "NAME": "Necrium Vial",
@@ -273,14 +273,14 @@
   },
   "HSRogue:PotionOfIllusion": {
     "NAME": "Potion Of Illusion",
-    "DESCRIPTION": "Copy cards in your hand NL And make the copies hsrogue:Temporary "
+    "DESCRIPTION": "Copy cards in your hand NL And make they hsrogue:Temporary "
   },
   "HSRogue:MyraRotspring": {
     "NAME": "Myra Rotspring",
     "DESCRIPTION": "Choose !M! card to inject hsrogue:Necrium NL Apply same effect when it Exhausted "
   },
   "HSRogue:MyrasUnstableElement": {
-    "NAME": "Myras Unstable Element",
+    "NAME": "Myra's Unstable Element",
     "DESCRIPTION": "hsrogue:Grave NL Draw until your hand is full, Exhaust cards in your draw pile"
   },
   "HSRogue:TessGreymane": {

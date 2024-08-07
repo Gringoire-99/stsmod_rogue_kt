@@ -2,13 +2,12 @@ package rogue.cards.skill
 
 import basemod.cardmods.ExhaustMod
 import basemod.cardmods.RetainMod
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
 import rogue.cards.AbstractRogueCard
 import utils.addMod
-import utils.generateCardChoices
+import utils.discovery
 
 class Jackpot :
     AbstractRogueCard(
@@ -19,22 +18,16 @@ class Jackpot :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(2)
-    }
-
-    override fun upgrade() {
-        useUpgrade {
-            upgradeMagicNumber(1)
-        }
+        setMagicNumber(1)
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val filter = CardFilter(cost = { it >= 2 })
-        val generateCardChoices = generateCardChoices(filter, magicNumber, upgraded = upgraded)
-        generateCardChoices.forEach {
-            it.addMod(RetainMod())
-            addToBot(MakeTempCardInHandAction(it))
-            it.addMod(ExhaustMod())
+        repeat(magicNumber) {
+            discovery(upgraded = upgraded, cardFilter = filter) {
+                it.addMod(RetainMod())
+                it.addMod(ExhaustMod())
+            }
         }
 
     }

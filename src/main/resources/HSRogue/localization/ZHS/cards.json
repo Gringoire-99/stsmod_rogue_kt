@@ -157,7 +157,7 @@
   },
   "HSRogue:Evasion": {
     "NAME": "闪避",
-    "DESCRIPTION": "hsrogue:奥秘 : 回合后如果你没有 格挡 ，获得 !M! 点 格挡 NL (受敏捷加成)"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合结束如果你处于潜行或没有 格挡 ，获得 !M! 点 格挡 NL (受敏捷加成)"
   },
   "HSRogue:DirtyTricks": {
     "NAME": "邪恶计谋",
@@ -189,7 +189,7 @@
   },
   "HSRogue:ValeerasGift": {
     "NAME": "瓦莉拉的礼物",
-    "DESCRIPTION": "从 *背刺 ， *刀扇 ， *致命药膏 中选择一项 !M! 次，将具有 虚无 的复制置入手中"
+    "DESCRIPTION": "{@@}从 *背刺 ， *刀扇 ， *致命药膏 中选择一项 !M! 次，将具有 虚无 的{!Upgrades!|>0=升级过的}复制置入手中"
   },
   "HSRogue:TwistedPack": {
     "NAME": "幻变的卡牌包",
@@ -221,7 +221,7 @@
   },
   "HSRogue:Jackpot": {
     "NAME": "头等大奖",
-    "DESCRIPTION": "{@@}将其他职业花费大于等于2的{!Upgrades!|>0=升级过的} !M! 张卡置入手中，并使其获得 保留 与 消耗"
+    "DESCRIPTION": "{@@}发现 !M! 张 其他职业花费大于等于2的{!Upgrades!|>0=升级过的}张卡置入手中，并使其获得 保留 与 消耗"
   },
   "HSRogue:NecriumVial": {
     "NAME": "死金药剂",
@@ -241,7 +241,7 @@
   },
   "HSRogue:AcademicEspionage": {
     "NAME": "学术剽窃",
-    "DESCRIPTION": "将 !M! 张其他职业的牌洗入你的弃牌堆牌堆，它们获得 虚无 ， 消耗 ， 费用减1与使用后抽一张牌"
+    "DESCRIPTION": "将 !M! 张其他职业的牌洗入你的弃牌堆牌堆，它们获得 hsrogue:临时 ， 费用减1与使用后抽一张牌"
   },
   "HSRogue:ValeeraTheHollow": {
     "NAME": "虚空之影瓦莉拉",
@@ -387,7 +387,7 @@
     "NAME": "命运骨骰",
     "DESCRIPTION": "预见 ： !M! NL 处于牌堆顶的牌附加 hsrogue:命运 NL 抽一张牌"
   },
-  "HSRogue:FindCard": {
+  "HSRogue:ScavengeCard": {
     "NAME": "发现",
     "DESCRIPTION": "选择一项",
     "EXTENDED_DESCRIPTION": [

@@ -20,7 +20,7 @@ class NecriumVial :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(3)
+        setMagicNumber(4)
         addMod(ExhaustMod())
     }
 

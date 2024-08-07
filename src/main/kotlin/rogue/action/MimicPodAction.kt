@@ -34,6 +34,9 @@ class MimicPodAction(val card: MimicPod) : AbstractGameAction() {
             }
 
             val target = g[pos].makeStatEquivalentCopy()
+            if (card.upgraded && !target.upgraded) {
+                target.upgrade()
+            }
             this.mimic(target)
         }
         isDone = true

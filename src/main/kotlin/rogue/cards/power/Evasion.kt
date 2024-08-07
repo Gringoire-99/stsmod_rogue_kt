@@ -17,7 +17,7 @@ class Evasion :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(9)
+        setMagicNumber(7)
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
@@ -31,7 +31,7 @@ class Evasion :
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(5)
+            upgradeMagicNumber(4)
         }
     }
 

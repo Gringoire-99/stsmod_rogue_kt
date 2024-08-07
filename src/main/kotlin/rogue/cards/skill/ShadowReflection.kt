@@ -21,7 +21,11 @@ class ShadowReflection :
 
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
         c?.let {
-            this.mimic(it)
+            val copy = it.makeStatEquivalentCopy()
+            if (upgraded && !copy.upgraded) {
+                copy.upgrade()
+            }
+            this.mimic(copy)
         }
     }
 
