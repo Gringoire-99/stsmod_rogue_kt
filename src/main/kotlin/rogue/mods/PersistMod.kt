@@ -17,7 +17,7 @@ class PersistMod(val amount: Int = 1, private val removeOnEndOfTurn: Boolean = f
         val id = PersistMod::class.makeId()
     }
 
-    private val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(NecriumMod.id)
+    private val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(id)
     private val s: String = cardString.DESCRIPTION
     override fun shouldApply(card: AbstractCard?): Boolean {
         return !CardModifierManager.hasModifier(card, id)

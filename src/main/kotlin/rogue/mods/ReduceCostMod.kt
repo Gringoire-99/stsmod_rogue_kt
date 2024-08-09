@@ -23,7 +23,6 @@ class ReduceCostMod(
 
     override fun onInitialApplication(card: AbstractCard?) {
         card?.apply {
-
             if (!isTurnEffect) {
                 baseCost = cost
                 updateCost(-amount)
