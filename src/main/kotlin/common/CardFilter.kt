@@ -22,26 +22,30 @@ class CardFilter(
         CardColor.COLORLESS,
         CardColor.CURSE
     ),
+    val includeColor: HashSet<CardColor> = hashSetOf(),
     val includeTags: HashSet<CardTags> = hashSetOf(),
     private val randomSpot: Boolean = true
 ) {
     private val cardTypeF: (AbstractCard) -> Boolean = {
-        it.type in this.cardType
+        cardType.isEmpty() || it.type in this.cardType
     }
     private val cardRarityF: (AbstractCard) -> Boolean = {
-        it.rarity in this.cardRarity
+        cardRarity.isEmpty() || it.rarity in this.cardRarity
     }
-    private val cardColorF: (AbstractCard) -> Boolean = {
-        it.color !in this.excludeColor
+    private val cardColorExcludeF: (AbstractCard) -> Boolean = {
+        excludeColor.isEmpty() || it.color !in this.excludeColor
+    }
+    private val cardColorIncludeF: (AbstractCard) -> Boolean = {
+        includeColor.isEmpty() || it.color in includeColor
     }
     private val costFilter: (AbstractCard) -> Boolean = {
         this.cost(it.cost)
     }
     private val tagFilterExcludeF: (AbstractCard) -> Boolean = {
-        it.tags.all { it !in this.excludeTags }
+        excludeTags.isEmpty() || it.tags.all { t -> t !in this.excludeTags }
     }
     private val tagFilterIncludeF: (AbstractCard) -> Boolean = {
-        this.includeTags.size == 0 || it.tags.any { t ->
+        this.includeTags.isEmpty() || it.tags.any { t ->
             t in this.includeTags
         }
     }
@@ -49,25 +53,31 @@ class CardFilter(
         it.upgraded == isUpgraded
     }
     private val filters = arrayListOf(
-        cardTypeF, cardRarityF, cardColorF, costFilter, tagFilterExcludeF, tagFilterIncludeF, upgradeFilter
+        cardTypeF,
+        cardRarityF,
+        cardColorExcludeF,
+        cardColorIncludeF,
+        costFilter,
+        tagFilterExcludeF,
+        tagFilterIncludeF,
+        upgradeFilter,
     )
 
     fun filter(cards: ArrayList<AbstractCard>): ArrayList<AbstractCard> {
-        return if (this.predicate != null) {
-            ArrayList(cards.filter(this.predicate).apply {
-                if (randomSpot) {
-                    (this as ArrayList).shuffle()
-                }
-            })
+        val filtered = if (this.predicate != null) {
+            ArrayList(cards.filter(this.predicate))
         } else {
             ArrayList(cards.filter {
                 filters.all { f -> f(it) }
-            }.apply {
-                if (randomSpot) {
-                    (this as ArrayList).shuffle()
-                }
             })
-
         }
+        if (randomSpot) {
+            filtered.shuffle()
+        }
+        return filtered
     }
+}
+
+fun main() {
+    println(1 in hashSetOf<Int>())
 }

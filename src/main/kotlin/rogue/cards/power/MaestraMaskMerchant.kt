@@ -5,7 +5,7 @@ import basemod.helpers.BaseModCardTags
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
-import rogue.audio.AudioList
+import rogue.audio.CardAudioList
 import rogue.cards.AbstractMimicCard
 import utils.addMod
 import utils.generateCardChoices
@@ -46,7 +46,7 @@ class MaestraMaskMerchant() :
             retain = true
             selfRetain = true
         }
-        AudioList.MaestraMaskMerchantEffect.play()
+        CardAudioList.MaestraMaskMerchantEffect.play()
     }
 
     override fun triggerWhenDrawn() {
@@ -54,7 +54,7 @@ class MaestraMaskMerchant() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        AudioList.MaestraMaskMerchantPlay.play()
+        CardAudioList.MaestraMaskMerchantPlay.play()
         super.use(p, m)
     }
 

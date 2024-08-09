@@ -6,6 +6,7 @@ import rogue.action.EmptyAction
 import rogue.cards.AbstractWeaponCard
 import utils.attackWithWeapon
 import utils.getWeaponPower
+import kotlin.math.min
 
 class BladeFlurry :
     AbstractWeaponCard(
@@ -28,10 +29,11 @@ class BladeFlurry :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
             getWeaponPower()?.apply {
-                val count: Int = if (durability > magicNumber) magicNumber else durability
+                val count: Int = min(magicNumber, durability)
                 repeat(count) {
+                    val d = this@BladeFlurry.damage
                     addToBot(EmptyAction {
-                        p.attackWithWeapon(damage = this@BladeFlurry.damage, loseDurability = 1)
+                        p.attackWithWeapon(damage = d, loseDurability = 1)
                     })
                 }
             }

@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.ApplyHeroPowerAction
-import rogue.audio.AudioList
+import rogue.audio.CardAudioList
 import rogue.cards.AbstractHeroCard
 import rogue.power.hero.TessGreymanePower
 import utils.addMod
@@ -31,7 +31,7 @@ class TessGreymane :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        AudioList.TessGreymanePlay.play()
+        CardAudioList.TessGreymanePlay.play()
         gainBlock(p, b = block)
         p?.apply {
             addToBot(ApplyHeroPowerAction(this, TessGreymanePower(this)))

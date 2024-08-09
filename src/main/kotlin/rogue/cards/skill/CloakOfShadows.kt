@@ -5,7 +5,7 @@ import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import com.megacrit.cardcrawl.powers.IntangiblePower
+import com.megacrit.cardcrawl.powers.IntangiblePlayerPower
 import rogue.cards.AbstractRogueCard
 import rogue.power.common.StealthPower
 import utils.addMod
@@ -35,7 +35,7 @@ class CloakOfShadows :
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         p?.apply {
             if (p.hasPower(StealthPower::class.makeId())) {
-                addToBot(ApplyPowerAction(p, p, IntangiblePower(p, magicNumber), magicNumber))
+                addToBot(ApplyPowerAction(p, p, IntangiblePlayerPower(p, magicNumber), magicNumber))
             } else {
                 gainBlock(p, block)
                 addToBot(ApplyPowerAction(p, p, StealthPower(p), 1))

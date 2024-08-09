@@ -6,7 +6,7 @@ import com.evacipated.cardcrawl.mod.stslib.actions.common.SelectCardsInHandActio
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.TradeCard
-import rogue.audio.AudioList
+import rogue.audio.CardAudioList
 import rogue.cards.AbstractRogueCard
 import rogue.mods.NecriumMod
 import rogue.mods.SpreadNecriumMod
@@ -32,7 +32,7 @@ class MyraRotspring :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        AudioList.MyraRotspringPlay.play()
+        CardAudioList.MyraRotspringPlay.play()
         addToBot(
             SelectCardsInHandAction(
                 magicNumber,

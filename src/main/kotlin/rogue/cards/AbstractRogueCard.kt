@@ -3,10 +3,12 @@ package rogue.cards
 import basemod.abstracts.CustomCard
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.core.CardCrawlGame
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
 import rogue.characters.RogueEnum
 import utils.getCardImg
 import utils.getCardString
+import utils.isWeaponEquipped
 import utils.makeId
 
 abstract class AbstractRogueCard(
@@ -28,6 +30,8 @@ abstract class AbstractRogueCard(
     target
 ) {
     val cardString: CardStrings = CardCrawlGame.languagePack.getCardStrings(cardID)
+    val needMessage: String =
+        CardCrawlGame.languagePack.getCardStrings(AbstractWeaponCard::class.makeId()).EXTENDED_DESCRIPTION[0]
 
     fun setDamage(d: Int) {
         this.baseDamage = d
@@ -59,4 +63,12 @@ abstract class AbstractRogueCard(
         val cardUsedCombatOC = hashSetOf<AbstractCard>()
     }
 
+    fun isWeaponEquipped(): Boolean {
+        val weaponEquipped = (AbstractDungeon.player).isWeaponEquipped()
+        if (!weaponEquipped) {
+            cantUseMessage = needMessage
+            return false
+        }
+        return true
+    }
 }

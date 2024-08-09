@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
-import rogue.audio.AudioList
+import rogue.audio.CardAudioList
 import rogue.cards.AbstractRogueCard
 import rogue.cards.LevelInterface
 import rogue.cards.impls.LevelInterfaceImpl
@@ -27,9 +27,10 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
         addMod(RetainMod())
         impl.onMaxLevelCb = {
             if (AbstractDungeon.player != null) {
-                AudioList.VelarokTheDeceiverEffect.play()
+                CardAudioList.VelarokTheDeceiverEffect.play()
             }
             isRealForm = true
+            beginGlowing()
             name = cardString.EXTENDED_DESCRIPTION[0]
             loadCardImage("$modId/cards/attack/VelarokTheDeceiver.png")
             rawDescription = cardString.EXTENDED_DESCRIPTION[1]
@@ -66,12 +67,12 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         dealDamage(p, m, damage)
         if (isRealForm) {
-            AudioList.VelarokTheDeceiverAttack.play()
+            CardAudioList.VelarokTheDeceiverAttack.play()
             discovery(CardFilter(cardRarity = hashSetOf(CardRarity.RARE, CardRarity.UNCOMMON))) {
                 it.addMod(ReduceCostMod(2))
             }
         } else {
-            AudioList.VelarokWindbladeAttack.play()
+            CardAudioList.VelarokWindbladeAttack.play()
         }
     }
 

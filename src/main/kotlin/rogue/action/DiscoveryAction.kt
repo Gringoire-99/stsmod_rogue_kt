@@ -13,8 +13,9 @@ import utils.generateCardChoices
 class DiscoveryAction
     (
     private val cardFilter: CardFilter = CardFilter(),
-    val isUpgraded: Boolean = false,
-    val from: ArrayList<AbstractCard> = CardLibrary.getAllCards(),
+    private val isUpgraded: Boolean = false,
+    private val from: ArrayList<AbstractCard> = CardLibrary.getAllCards(),
+    private val isOtherClassCard: Boolean = true,
     val cb: (AbstractCard) -> Unit = {}
 ) : AbstractGameAction() {
     private var retrieveCard = false
@@ -27,7 +28,15 @@ class DiscoveryAction
     override fun update() {
 
         if (this.duration == Settings.ACTION_DUR_FAST) {
-            val opts = ArrayList(generateCardChoices(cardFilter, number = 4, upgraded = isUpgraded, from).take(4))
+            val opts = ArrayList(
+                generateCardChoices(
+                    cardFilter,
+                    number = 4,
+                    upgraded = isUpgraded,
+                    isOtherClassCard = isOtherClassCard,
+                    from
+                ).take(4)
+            )
             if (opts.size > 0) {
                 AbstractDungeon.cardRewardScreen.customCombatOpen(
                     opts,

@@ -3,12 +3,10 @@ package rogue.cards.skill
 import basemod.cardmods.ExhaustMod
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.core.CardCrawlGame
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
 import utils.getWeaponPower
-import utils.isWeaponEquipped
 import utils.makeId
 
 class EnvenomWeapon :
@@ -38,7 +36,15 @@ class EnvenomWeapon :
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return (p ?: AbstractDungeon.player).isWeaponEquipped()
+        val canUse = super.canUse(p, m)
+        if (!canUse) {
+            return false
+        }
+        if (!isWeaponEquipped()) {
+            cantUseMessage = needMessage
+            return false
+        }
+        return true
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {

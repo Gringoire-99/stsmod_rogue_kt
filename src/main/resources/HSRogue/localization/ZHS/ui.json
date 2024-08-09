@@ -1,0 +1,9 @@
+{
+  "HSRogue:ConfigToggleOptions": {
+    "TEXT": [
+      "卡片音效",
+      "角色音效",
+      "只发现非模组卡片"
+    ]
+  }
+}

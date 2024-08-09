@@ -418,5 +418,12 @@
   "HSRogue:DrawCardMod": {
     "NAME": "DrawCardMod",
     "DESCRIPTION": " NL *draw %d card after played"
+  },
+  "HSRogue:AbstractWeaponCard": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "I need a #rweapon ."
+    ]
   }
 }

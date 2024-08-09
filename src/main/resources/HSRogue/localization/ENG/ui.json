@@ -1,0 +1,9 @@
+{
+  "HSRogue:ConfigToggleOptions": {
+    "TEXT": [
+      "card sound",
+      "character sound",
+      "Discover only non mod card"
+    ]
+  }
+}

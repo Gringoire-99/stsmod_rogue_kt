@@ -26,6 +26,8 @@ class ShadowReflection :
                 copy.upgrade()
             }
             this.mimic(copy)
+            isEthereal = true
+            exhaust = true
         }
     }
 

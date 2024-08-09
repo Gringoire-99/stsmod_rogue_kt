@@ -422,5 +422,12 @@
   "HSRogue:DrawCardMod": {
     "NAME": "抽牌模组",
     "DESCRIPTION": " NL *使用后抽%d张牌"
+  },
+  "HSRogue:AbstractWeaponCard": {
+    "NAME": "",
+    "DESCRIPTION": "",
+    "EXTENDED_DESCRIPTION": [
+      "我需要一把 #r武器 。"
+    ]
   }
 }

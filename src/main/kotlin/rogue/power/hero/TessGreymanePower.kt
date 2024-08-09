@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper
 import common.CardFilter
 import common.ScavengeCard
 import common.TradeCard
-import rogue.audio.AudioList
+import rogue.audio.CardAudioList
 import rogue.cards.AbstractRogueCard
 import rogue.mods.TempCardMod
 import rogue.power.common.PlayTwicePower
@@ -28,7 +28,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
             amount--
             this@TessGreymanePower.flash()
             val opts = arrayListOf<AbstractCard>(ScavengeCard(0), ScavengeCard(1), ScavengeCard(2))
-            AudioList.TessGreymaneEffect.play()
+            CardAudioList.TessGreymaneEffect.play()
             addToBot(SelectCardsAction(opts, TradeCard.tradeStrings.DESCRIPTION) { cards ->
                 val first = cards.firstOrNull() as? ScavengeCard
                 when (first?.opt) {

@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.vfx.combat.DaggerSprayEffect
 import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
 import utils.attackWithWeapon
-import utils.isWeaponEquipped
 
 class FanOfKnives :
     AbstractRogueCard(
@@ -23,7 +22,14 @@ class FanOfKnives :
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return (p ?: AbstractDungeon.player).isWeaponEquipped()
+        val canUse = super.canUse(p, m)
+        if (!canUse) {
+            return false
+        }
+        if (!isWeaponEquipped()) {
+            return false
+        }
+        return true
     }
 
     override fun upgrade() {

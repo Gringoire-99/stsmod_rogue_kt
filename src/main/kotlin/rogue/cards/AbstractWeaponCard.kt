@@ -5,7 +5,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.characters.RogueEnum
 import utils.getWeaponPower
-import utils.isWeaponEquipped
 
 /**
  * 需要武器才能打出的一类卡,例如剑刃乱舞，伤害会被附加武器伤害
@@ -23,13 +22,23 @@ abstract class AbstractWeaponCard(
         name, cost, type, rarity, target, color = color
     ), OnCalculateCardDamage {
 
+
     init {
         setDamage(0)
     }
 
     override fun canUse(p: AbstractPlayer?, m: AbstractMonster?): Boolean {
-        return (p ?: AbstractDungeon.player).isWeaponEquipped()
+        val canUse = super.canUse(p, m)
+        if (!canUse) {
+            return false
+        }
+        if (!isWeaponEquipped()) {
+            cantUseMessage = needMessage
+            return false
+        }
+        return true
     }
+
 
 
     override fun modifyTempBaseDamage(baseDamage: IntArray) {
@@ -40,6 +49,7 @@ abstract class AbstractWeaponCard(
             }
         }
     }
+
 
     override fun modifyTempBaseDamageMulti(baseDamages: FloatArray) {
         AbstractDungeon.player?.apply {

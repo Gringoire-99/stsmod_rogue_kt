@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.unlock.UnlockTracker
 import rogue.cards.variables.*
 import rogue.characters.Rogue
 import rogue.characters.RogueEnum
+import rogue.modconfig.RogueModConfig
 import rogue.relics.IAbstractRelic
 import utils.*
 import java.nio.charset.StandardCharsets
@@ -18,7 +19,7 @@ import java.nio.charset.StandardCharsets
 
 @SpireInitializer
 class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscriber, EditKeywordsSubscriber,
-    EditRelicsSubscriber {
+    EditRelicsSubscriber, PostInitializeSubscriber {
     init {
         BaseMod.subscribe(this)
         BaseMod.addColor(
@@ -33,6 +34,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
             BG_ATTACK_512, BG_SKILL_512, BG_POWER_512, ENERGY_ORB, BG_ATTACK_1024,
             BG_SKILL_1024, BG_POWER_1024, BIG_ORB, SMALL_ORB
         )
+        RogueModConfig.loadConfig()
     }
 
     companion object {
@@ -79,18 +81,23 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
 
 
     override fun receiveEditStrings() {
-        val lang: String = when (Settings.language) {
+        val lang: String = getLangSupport()
+        val prefix = "${modId}/localization/$lang/"
+        BaseMod.loadCustomStringsFile(CardStrings::class.java, "${prefix}cards.json")
+        BaseMod.loadCustomStringsFile(CharacterStrings::class.java, "${prefix}character.json")
+        BaseMod.loadCustomStringsFile(RelicStrings::class.java, "${prefix}relics.json")
+        BaseMod.loadCustomStringsFile(PowerStrings::class.java, "${prefix}powers.json")
+        BaseMod.loadCustomStringsFile(UIStrings::class.java, "${prefix}ui.json")
+    }
+
+    private fun getLangSupport(): String {
+        return when (Settings.language) {
             Settings.GameLanguage.ZHS -> "ZHS"
             Settings.GameLanguage.ENG -> "ENG"
             else -> {
                 "ENG"
             }
         }
-        val prefix = "${modId}/localization/$lang/"
-        BaseMod.loadCustomStringsFile(CardStrings::class.java, "${prefix}cards.json")
-        BaseMod.loadCustomStringsFile(CharacterStrings::class.java, "${prefix}character.json")
-        BaseMod.loadCustomStringsFile(RelicStrings::class.java, "${prefix}relics.json")
-        BaseMod.loadCustomStringsFile(PowerStrings::class.java, "${prefix}powers.json")
     }
 
     override fun receiveEditCharacters() {
@@ -105,11 +112,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
 
     override fun receiveEditKeywords() {
         val gson = Gson()
-        val lang = if (Settings.language == Settings.GameLanguage.ZHS) {
-            "ZHS"
-        } else {
-            "ENG"
-        }
+        val lang = getLangSupport()
 
         val json = Gdx.files.internal("$modId/localization/$lang/keywords.json")
             .readString(StandardCharsets.UTF_8.toString())
@@ -119,7 +122,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
         )
         if (keywords != null) {
             for (keyword in keywords) {
-                // 这个id要全小写
+                // 这个id要全小写！！
                 logger.info("添加关键词" + keyword.NAMES[0])
                 BaseMod.addKeyword(modId.lowercase(), keyword.NAMES[0], keyword.NAMES, keyword.DESCRIPTION)
             }
@@ -129,10 +132,14 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
     override fun receiveEditRelics() {
         AutoAdd(modId)
             .packageFilter("rogue.relics")
-            .any<IAbstractRelic>(IAbstractRelic::class.java) { _: AutoAdd.Info?, relic: IAbstractRelic ->
+            .any(IAbstractRelic::class.java) { _: AutoAdd.Info?, relic: IAbstractRelic ->
                 BaseMod.addRelicToCustomPool(relic, RogueEnum.HS_ROGUE_CARD_COLOR)
                 UnlockTracker.markRelicAsSeen(relic.relicId)
             }
+    }
+
+    override fun receivePostInitialize() {
+        RogueModConfig.initModMenu()
     }
 
 }

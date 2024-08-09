@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.ApplyHeroPowerAction
 import rogue.action.StunAllMonsterAction
-import rogue.audio.AudioList
+import rogue.audio.CardAudioList
 import rogue.cards.AbstractHeroCard
 import rogue.power.hero.SleightOfHandPower
 import utils.gainBlock
@@ -19,7 +19,7 @@ class ShadowcrafterScabbs() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        AudioList.ShadowcrafterScabbsPlay.play()
+        CardAudioList.ShadowcrafterScabbsPlay.play()
         gainBlock(p, b = block)
         p?.apply {
             addToBot(ApplyHeroPowerAction(this, SleightOfHandPower(this)))

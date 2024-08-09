@@ -15,6 +15,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper
 import com.megacrit.cardcrawl.helpers.ScreenShake
 import com.megacrit.cardcrawl.localization.CharacterStrings
 import com.megacrit.cardcrawl.screens.CharSelectInfo
+import rogue.audio.CharacterAudioList
+import rogue.audio.CommonAudioList
 import rogue.cards.attack.Backstab
 import rogue.cards.attack.Strike
 import rogue.cards.skill.Conceal
@@ -64,6 +66,11 @@ class Rogue : CustomPlayer(
             this.loadout, 0.0f, 0.0f, 200.0f, 220.0f,  // 人物碰撞箱大小，越大的人物模型这个越大
             EnergyManager(3) // 初始每回合的能量
         )
+    }
+
+    override fun playDeathAnimation() {
+        CharacterAudioList.ValeeraDeath.play()
+        super.playDeathAnimation()
     }
 
     override fun getStartingDeck(): ArrayList<String> {
@@ -133,10 +140,16 @@ class Rogue : CustomPlayer(
 
     override fun doCharSelectScreenSelectEffect() {
         CardCrawlGame.screenShake.shake(ScreenShake.ShakeIntensity.MED, ScreenShake.ShakeDur.SHORT, false)
+        CommonAudioList.ValeeraChoose.play()
     }
 
     override fun getCustomModeCharacterButtonSoundKey(): String {
-        return "ATTACK_HEAVY"
+        return ""
+    }
+
+    override fun createHandIsFullDialog() {
+        CharacterAudioList.ValeeraHandFull.play()
+        super.createHandIsFullDialog()
     }
 
     override fun getCutscenePanels(): MutableList<CutscenePanel> {
@@ -171,7 +184,7 @@ class Rogue : CustomPlayer(
             AttackEffect.FIRE,
             AttackEffect.SLASH_DIAGONAL,
             AttackEffect.SLASH_HEAVY,
-            AttackEffect.FIRE,
+            AttackEffect.POISON,
             AttackEffect.SLASH_DIAGONAL
         )
     }

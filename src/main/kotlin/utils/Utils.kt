@@ -28,6 +28,7 @@ import rogue.action.DiscoveryAction
 import rogue.cards.AbstractMimicCard
 import rogue.cards.AbstractWeaponPowerCard
 import rogue.characters.RogueEnum
+import rogue.modconfig.RogueModConfig
 import rogue.power.weapon.AbstractWeaponPower
 import kotlin.math.min
 import kotlin.reflect.KClass
@@ -140,9 +141,10 @@ fun discovery(
     cardFilter: CardFilter = CardFilter(),
     upgraded: Boolean = false,
     from: ArrayList<AbstractCard> = CardLibrary.getAllCards(),
+    isOtherClassCard: Boolean = true,
     cb: (card: AbstractCard) -> Unit = {}
 ) {
-    AbstractDungeon.actionManager.addToBottom(DiscoveryAction(cardFilter, upgraded, from, cb))
+    AbstractDungeon.actionManager.addToBottom(DiscoveryAction(cardFilter, upgraded, from, isOtherClassCard, cb))
 }
 
 fun canPlayTradeCard(card: AbstractCard): Boolean {
@@ -199,10 +201,13 @@ fun generateCardChoices(
     cardFilter: CardFilter = CardFilter(),
     number: Int = 4,
     upgraded: Boolean = false,
+    isOtherClassCard: Boolean = true,
     from: ArrayList<AbstractCard> = CardLibrary.getAllCards()
 ): ArrayList<AbstractCard> {
-    val allCards = from
-    val filtered = cardFilter.filter(allCards)
+    if (isOtherClassCard && RogueModConfig.getBoolConfig(RogueModConfig.DiscoverNonModCards)) {
+        cardFilter.includeColor.addAll(arrayListOf(CardColor.PURPLE, CardColor.RED, CardColor.GREEN, CardColor.BLUE))
+    }
+    val filtered = cardFilter.filter(from)
     val result = ArrayList(filtered.take(min(filtered.size, number)).map { it.makeSameInstanceOf() })
     if (upgraded) {
         result.forEach { it.upgrade() }
