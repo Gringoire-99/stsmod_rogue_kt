@@ -17,11 +17,12 @@ class Assassinate : AbstractWeaponCard(
     target = CardTarget.ENEMY
 ) {
     init {
+        setDamage(6)
         setMagicNumber(3)
     }
 
     override fun upgrade() {
-        useUpgrade { upgradeMagicNumber(6) }
+        useUpgrade { upgradeMagicNumber(2) }
     }
 
     override fun modifyTempBaseDamage(baseDamage: IntArray) {
@@ -33,7 +34,8 @@ class Assassinate : AbstractWeaponCard(
 
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        p?.attackWithWeapon(damage = damage, target = m) {
+        val d = damage
+        p?.attackWithWeapon(damage = d, target = m) {
             addToBot(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))
         }
     }

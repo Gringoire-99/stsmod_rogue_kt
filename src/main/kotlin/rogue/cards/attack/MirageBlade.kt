@@ -31,8 +31,9 @@ class MirageBlade :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        val d = damage
         repeat(magicNumber) {
-            p?.attackWithWeapon(damage = damage, target = m)
+            p?.attackWithWeapon(damage = d, target = m)
         }
     }
 }
