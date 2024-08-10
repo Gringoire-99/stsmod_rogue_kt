@@ -35,7 +35,8 @@ class Attack :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        p?.attackWithWeapon(damage = damage, target = m, loseDurability = loseDurability)
+        val d = damage
+        p?.attackWithWeapon(damage = d, target = m, loseDurability = loseDurability)
     }
 
 }

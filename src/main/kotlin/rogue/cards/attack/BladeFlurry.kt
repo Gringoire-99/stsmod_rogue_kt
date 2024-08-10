@@ -27,11 +27,11 @@ class BladeFlurry :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        val d = this@BladeFlurry.damage
         p?.apply {
             getWeaponPower()?.apply {
                 val count: Int = min(magicNumber, durability)
                 repeat(count) {
-                    val d = this@BladeFlurry.damage
                     addToBot(EmptyAction {
                         p.attackWithWeapon(damage = d, loseDurability = 1)
                     })

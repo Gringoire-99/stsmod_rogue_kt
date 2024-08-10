@@ -23,9 +23,10 @@ class Sabotage :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        val d = damage
         val count = if (upgraded) EnergyPanel.getCurrentEnergy() + 1 else EnergyPanel.getCurrentEnergy()
         addToBot(XCardAction(count = count, effect = {
-            p?.attackWithWeapon(m, damage)
+            p?.attackWithWeapon(m, d)
         }, cb = {
             if (p?.hasPower(StealthPower::class.makeId()) == true) {
                 addToBot(GainEnergyAction(magicNumber))
