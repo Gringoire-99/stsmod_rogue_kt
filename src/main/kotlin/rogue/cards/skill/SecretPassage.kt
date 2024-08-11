@@ -17,7 +17,7 @@ class SecretPassage :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(6)
+        setMagicNumber(4)
         CardModifierManager.addModifier(this, ExhaustMod())
     }
 
@@ -25,6 +25,7 @@ class SecretPassage :
     override fun upgrade() {
         useUpgrade {
             upgradeBaseCost(0)
+            upgradeMagicNumber(1)
         }
     }
 

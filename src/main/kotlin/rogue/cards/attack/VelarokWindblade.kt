@@ -3,7 +3,6 @@ package rogue.cards.attack
 import basemod.cardmods.RetainMod
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.CardFilter
 import rogue.audio.CardAudioList
@@ -21,15 +20,14 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
         rarity = CardRarity.RARE,
         target = CardTarget.ENEMY
     ), LevelInterface by impl {
+
     init {
         setDamage(6)
         setMagicNumber(6)
         addMod(RetainMod())
         impl.onMaxLevelCb = {
-            if (AbstractDungeon.player != null) {
-                CardAudioList.VelarokTheDeceiverEffect.play()
-            }
-            isRealForm = true
+
+        isRealForm = true
             beginGlowing()
             name = cardString.EXTENDED_DESCRIPTION[0]
             loadCardImage("$modId/cards/attack/VelarokTheDeceiver.png")
@@ -51,8 +49,9 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
     private var isRealForm = false
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
         c?.let {
-            if (it.isOtherClassCard()) {
+            if (it.isOtherClassCard() && !isMaxLevel()) {
                 exp++
+                CardAudioList.VelarokTheDeceiverEffect.play()
             }
         }
     }

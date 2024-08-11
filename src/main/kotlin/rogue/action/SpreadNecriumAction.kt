@@ -11,6 +11,7 @@ class SpreadNecriumAction : AbstractGameAction() {
         val group = AbstractDungeon.player.hand.group
         val random = group.randomOrNull()
         random?.addMod(NecriumMod(), SpreadNecriumMod())
+        random?.beginGlowing()
         isDone = true
     }
 }

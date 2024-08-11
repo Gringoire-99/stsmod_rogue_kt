@@ -12,6 +12,7 @@ import common.ScavengeCard
 import common.TradeCard
 import rogue.audio.CardAudioList
 import rogue.cards.AbstractRogueCard
+import rogue.mods.ReduceCostMod
 import rogue.mods.TempCardMod
 import rogue.power.common.PlayTwicePower
 import utils.addMod
@@ -47,8 +48,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
                         val from = ArrayList(AbstractRogueCard.cardUsedCombatOC)
                         discovery(from = from, cardFilter = CardFilter(predicate = { true })) {
                             if (it.cost > 0) {
-                                it.cost = 0
-                                it.costForTurn = 0
+                                it.addMod(ReduceCostMod(1))
                             }
                             it.addMod(TempCardMod())
                         }

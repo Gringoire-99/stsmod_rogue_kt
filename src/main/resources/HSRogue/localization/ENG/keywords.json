@@ -93,7 +93,7 @@
     "NAMES": [
       "deathsshadow"
     ],
-    "DESCRIPTION": "At start of turn add an Unique ShadowReflection to your hand"
+    "DESCRIPTION": "Permanently Stealth and Stealth now can prevent any kind of damage NL at start of turn add an Unique ShadowReflection to your hand"
   },
   {
     "NAMES": [
@@ -117,7 +117,7 @@
     "NAMES": [
       "scavenge"
     ],
-    "DESCRIPTION": "Choose one: NL 1. Discover an another class's card, Enhance it's effect by 2 NL 2. Next another class's card you played will play twice NL 3. Discover an another class's card you played this combat set it's cost 0. NL Two charge counters, one is regained each turn."
+    "DESCRIPTION": "Choose one: NL 1. Discover an another class's card, Enhance it's effect by 2 NL 2. Next another class's card you played will play twice NL 3. Discover an another class's card you played this combat reduce it's cost by 1. NL Two charge counters, one is regained each turn."
   },
   {
     "NAMES": [

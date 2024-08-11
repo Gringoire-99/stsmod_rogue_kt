@@ -57,7 +57,7 @@
   },
   "HSRogue:Assassinate": {
     "NAME": "刺杀",
-    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害， 敏捷 在此牌上发挥 !M! 倍效果"
+    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害 NL 攻击意图不为攻击的怪物时额外攻击 !M! 次"
   },
   "HSRogue:Vanish": {
     "NAME": "消失",
@@ -393,7 +393,7 @@
     "EXTENDED_DESCRIPTION": [
       "发现一张其他职业的牌，增强其效果2点",
       "下一张其他职业的牌打出两次",
-      "发现一张本次战斗使用过的其他职业的牌，使其 [E] 为0"
+      "发现一张本次战斗使用过的其他职业的牌，减少1的花费"
     ]
   },
   "HSRogue:TradeCard": {

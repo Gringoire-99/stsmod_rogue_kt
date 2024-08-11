@@ -3,7 +3,9 @@ package rogue.action
 import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import rogue.mods.ReduceCostMod
+import rogue.power.hero.SleightOfHandPower
 import utils.addMod
+import utils.makeId
 
 class ReduceAllCostInHandAction : AbstractGameAction() {
     override fun update() {
@@ -14,7 +16,8 @@ class ReduceAllCostInHandAction : AbstractGameAction() {
                     isTurnEffect = true,
                     removeOnPlay = true,
                     removeOnOtherCardPlayed = true,
-                    removeOnEndOfTurn = true
+                    removeOnEndOfTurn = true,
+                    applyId = SleightOfHandPower::class.makeId()
                 )
             )
         }

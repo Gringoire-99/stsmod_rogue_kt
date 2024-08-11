@@ -17,7 +17,7 @@ class SketchyInformation() :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(4)
+        setMagicNumber(3)
     }
 
     override fun upgrade() {

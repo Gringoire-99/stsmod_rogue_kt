@@ -2,12 +2,11 @@ package rogue.cards.attack
 
 import com.megacrit.cardcrawl.actions.animations.VFXAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
-import com.megacrit.cardcrawl.powers.DexterityPower
 import com.megacrit.cardcrawl.vfx.combat.ClashEffect
 import rogue.cards.AbstractWeaponCard
 import utils.attackWithWeapon
+import utils.isAttackIntent
 
 class Assassinate : AbstractWeaponCard(
     name = Assassinate::class.simpleName.toString(),
@@ -17,26 +16,26 @@ class Assassinate : AbstractWeaponCard(
     target = CardTarget.ENEMY
 ) {
     init {
-        setDamage(6)
-        setMagicNumber(3)
+        setDamage(3)
+        setMagicNumber(1)
     }
 
     override fun upgrade() {
-        useUpgrade { upgradeMagicNumber(2) }
-    }
-
-    override fun modifyTempBaseDamage(baseDamage: IntArray) {
-        super.modifyTempBaseDamage(baseDamage)
-        AbstractDungeon.player?.getPower(DexterityPower.POWER_ID)?.apply {
-            baseDamage[0] += magicNumber * amount
+        useUpgrade {
+            upgradeDamage(3)
         }
     }
 
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val d = damage
-        p?.attackWithWeapon(damage = d, target = m) {
-            addToBot(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))
+        val count = if (m != null && !m.intent.isAttackIntent()) magicNumber + 1 else 1
+        repeat(count) {
+            p?.attackWithWeapon(damage = d, target = m) {
+                addToBot(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))
+            }
         }
+
+
     }
 }

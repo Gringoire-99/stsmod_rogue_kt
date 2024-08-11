@@ -40,8 +40,7 @@ abstract class AbstractWeaponCard(
     }
 
 
-
-    override fun modifyTempBaseDamage(baseDamage: IntArray) {
+    override fun modifyTempBaseDamage(baseDamage: IntArray, mo: AbstractMonster?) {
         AbstractDungeon.player?.apply {
             val weaponPower = getWeaponPower()
             weaponPower?.apply {
@@ -51,7 +50,7 @@ abstract class AbstractWeaponCard(
     }
 
 
-    override fun modifyTempBaseDamageMulti(baseDamages: FloatArray) {
+    override fun modifyTempBaseDamageMulti(baseDamages: FloatArray, mo: AbstractMonster?) {
         AbstractDungeon.player?.apply {
             val weaponPower = getWeaponPower()
             weaponPower?.apply {

@@ -37,7 +37,7 @@ class JadeShuriken :
         }
     }
 
-    override fun modifyTempBaseDamage(baseDamage: IntArray) {
+    override fun modifyTempBaseDamage(baseDamage: IntArray, mo: AbstractMonster?) {
         AbstractDungeon.player?.apply {
             val power = getPower(JadeGrowth::class.makeId())
             power?.apply {

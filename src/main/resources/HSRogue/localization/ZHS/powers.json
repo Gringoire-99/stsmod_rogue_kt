@@ -60,9 +60,9 @@
     ]
   },
   "HSRogue:DeathsShadowPower": {
-    "NAME": "虚空之影瓦莉拉",
+    "NAME": "死亡暗影",
     "DESCRIPTIONS": [
-      "永久潜行，本场战斗将你的初始能力升级为死亡暗影"
+      "永久潜行，且现在可以防御任何种类的伤害。回合开始时将一张唯一的 暗影映像 置入手牌"
     ]
   },
   "HSRogue:TheCavernsBelowPower": {
@@ -92,7 +92,7 @@
   "HSRogue:TessGreymanePower": {
     "NAME": "翻找",
     "DESCRIPTIONS": [
-      "选择一项： NL 1. 发现一张其他职业的临时的牌，使其增强两点 NL 2.下一张其他职业的牌打出两次 NL 3.发现一张本场战斗使用过的其他职业的牌，使其费用为0，两层充能，每回合回复一点"
+      "选择一项： NL 1. 发现一张其他职业的临时的牌，使其增强两点 NL 2.下一张其他职业的牌打出两次 NL 3.发现一张本场战斗使用过的其他职业的牌，降低1点费用，两层充能，每回合回复一点"
     ]
   },
   "HSRogue:ShadowdancePower": {

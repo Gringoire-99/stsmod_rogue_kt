@@ -3,19 +3,20 @@ package rogue.mods
 import basemod.abstracts.AbstractCardModifier
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
-import rogue.action.RemoveEndOfTurnModsAction
+import rogue.action.RemoveReduceCostModsAction
 import utils.makeId
 import kotlin.math.max
 import kotlin.math.min
 
 class ReduceCostMod(
-    val amount: Int = 1,
+    var amount: Int = 1,
     private val removeOnPlay: Boolean = false,
     private val removeOnOtherCardPlayed: Boolean = false,
     private val removeOnEndOfTurn: Boolean = false,
-    private val isTurnEffect: Boolean = false
+    private val isTurnEffect: Boolean = false,
+    val applyId: String = id
 ) : AbstractCardModifier() {
-    var baseCost = 0
+    private var reduceCost = 0
 
     companion object {
         val id = ReduceCostMod::class.makeId()
@@ -24,26 +25,27 @@ class ReduceCostMod(
     override fun onInitialApplication(card: AbstractCard?) {
         card?.apply {
             if (!isTurnEffect) {
-                baseCost = cost
+                reduceCost = max(0, min(cost, amount))
                 updateCost(-amount)
             } else {
-                baseCost = costForTurn
-                costForTurn = max(0, costForTurn - amount)
+                reduceCost = max(0, min(costForTurn, amount))
+                costForTurn = max(0, costForTurn - reduceCost)
             }
             isCostModified = true
         }
     }
 
     override fun shouldApply(card: AbstractCard?): Boolean {
-        return card != null && card.cost >= 0
+        val shouldApply = card != null && card.cost >= 0
+        return shouldApply
     }
 
     override fun onRemove(card: AbstractCard?) {
         card?.apply {
             if (!isTurnEffect) {
-                updateCost(amount)
+                updateCost(reduceCost)
             } else {
-                costForTurn = min(baseCost, costForTurn + amount)
+                costForTurn += reduceCost
             }
             isCostModified = false
         }
@@ -55,7 +57,7 @@ class ReduceCostMod(
 
     override fun onOtherCardPlayed(card: AbstractCard?, otherCard: AbstractCard?, group: CardGroup?) {
         if (removeOnOtherCardPlayed) {
-            addToTop(RemoveEndOfTurnModsAction())
+            addToTop(RemoveReduceCostModsAction(applyId))
         }
     }
 

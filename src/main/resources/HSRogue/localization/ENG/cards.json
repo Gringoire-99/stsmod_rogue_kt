@@ -57,7 +57,7 @@
   },
   "HSRogue:Assassinate": {
     "NAME": "Assassinate",
-    "DESCRIPTION": "Deal !D! hsrogue:Weapon damage NL Dexterity affects this card !M! times"
+    "DESCRIPTION": "Deal !D! hsrogue:Weapon damage NL repeat !M! times when attack non attack intent monster"
   },
   "HSRogue:Vanish": {
     "NAME": "Vanish",
@@ -389,7 +389,7 @@
     "EXTENDED_DESCRIPTION": [
       "Discover an another class's card, Enhance it's effect by 2",
       "Next another class's card you played will play twice",
-      "Discover an another class's card you played this combat set it's cost 0"
+      "Discover an another class's card you played this combat ,reduce it's cost 1"
     ]
   },
   "HSRogue:TradeCard": {

@@ -38,7 +38,8 @@ class StealthPower(owner: AbstractCreature, stackAmount: Int = 1) :
     override fun onLoseBlock(info: DamageInfo?, lose: Int): Int {
         //  如果伤害小于格挡则变为0
         // 伤害必须为normal,自伤不触发
-        if (info == null || info.type != DamageInfo.DamageType.NORMAL || info.owner == owner || lose <= 0) {
+        val hasDeathsShadowPower = owner.hasPower(DeathsShadowPower::class.makeId())
+        if (info == null || (!hasDeathsShadowPower && (info.type != DamageInfo.DamageType.NORMAL || info.owner == owner)) || lose <= 0) {
             return lose
         }
         val currentBlock = owner.currentBlock
