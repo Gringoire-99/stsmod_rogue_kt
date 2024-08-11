@@ -26,7 +26,7 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
         setMagicNumber(6)
         addMod(RetainMod())
         impl.onMaxLevelCb = {
-            if (AbstractDungeon.player != null) {
+            if (AbstractDungeon.player != null && !isRealForm) {
                 CardAudioList.VelarokTheDeceiverEffect.play()
             }
             isRealForm = true
@@ -51,7 +51,7 @@ class VelarokWindblade(impl: LevelInterface = LevelInterfaceImpl(maxExpr = 1, ma
     private var isRealForm = false
     override fun triggerOnOtherCardPlayed(c: AbstractCard?) {
         c?.let {
-            if (it.isOtherClassCard()) {
+            if (it.isOtherClassCard() && !isMaxLevel()) {
                 exp++
             }
         }

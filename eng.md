@@ -27,11 +27,6 @@ Mechanic: Quest
 "Complete the quest, earn the reward!"
 Meet the quest conditions to earn powerful quest rewards!
 
-Mechanic: Infuse & Necrium
-"The power has always been there; you just need to learn how to control it!"
-Infuse cards gain additional special effects by sacrificing other cards.
-Cards with Necrium will be played and exhausted one extra time.
-
 ...
 
 Balance

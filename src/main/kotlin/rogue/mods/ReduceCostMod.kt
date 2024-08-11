@@ -1,6 +1,7 @@
 package rogue.mods
 
 import basemod.abstracts.AbstractCardModifier
+import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.CardGroup
 import rogue.action.RemoveEndOfTurnModsAction
@@ -9,7 +10,7 @@ import kotlin.math.max
 import kotlin.math.min
 
 class ReduceCostMod(
-    val amount: Int = 1,
+    var amount: Int = 1,
     private val removeOnPlay: Boolean = false,
     private val removeOnOtherCardPlayed: Boolean = false,
     private val removeOnEndOfTurn: Boolean = false,
@@ -35,7 +36,16 @@ class ReduceCostMod(
     }
 
     override fun shouldApply(card: AbstractCard?): Boolean {
-        return card != null && card.cost >= 0
+        val firstOrNull = CardModifierManager.modifiers(card).firstOrNull { it is ReduceCostMod } as ReduceCostMod?
+        var shouldApply = card != null && card.cost >= 0
+        if (firstOrNull != null && isTurnEffect) {
+            card?.apply {
+                costForTurn = max(0, costForTurn - amount)
+                firstOrNull.amount++
+                shouldApply = false
+            }
+        }
+        return shouldApply
     }
 
     override fun onRemove(card: AbstractCard?) {
