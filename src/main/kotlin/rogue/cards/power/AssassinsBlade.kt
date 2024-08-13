@@ -25,7 +25,8 @@ class AssassinsBlade(
     override fun upgrade() {
         useUpgrade {
             weaponDamage+=2
-            upgradeMagicNumber(3)
+            weaponDurability++
+            upgradeMagicNumber(4)
         }
     }
 

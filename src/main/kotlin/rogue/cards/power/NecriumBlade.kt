@@ -17,7 +17,7 @@ class NecriumBlade(damage: Int = 3, durability: Int = 3) :
     override fun upgrade() {
         useUpgrade {
             weaponDamage++
-            weaponDurability++
+            weaponDurability += 2
 
         }
     }

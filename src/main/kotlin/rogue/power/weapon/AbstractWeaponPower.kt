@@ -121,7 +121,7 @@ abstract class AbstractWeaponPower(
         }
         val poisonEffect: OnLastDamageTakenUpdate = { _, lastDamageTaken, _, target ->
             if (lastDamageTaken > 0 && poisonCount > 0) {
-                val d = (poisonCount * 0.4).toInt() + 1
+                val d = (poisonCount * 0.2).toInt() + 1
                 addToTop(ApplyPowerAction(target, owner, PoisonPower(target, owner, d), d))
                 poisonCount -= d
             }

@@ -15,14 +15,22 @@ class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
     }
 
     override fun atStartOfTurnPostDraw() {
+        var count = 0
         addToBot(EmptyAction {
             AbstractDungeon.getMonsters().monsters.forEach {
-                if (!it.intent.isAttackIntent()) {
-                    addToBot(ApplyPowerAction(it, owner, WeakPower(it, magicNumber, false), magicNumber))
-                    addToBot(ApplyPowerAction(it, owner, VulnerablePower(it, magicNumber, false), magicNumber))
+                if (!it.intent.isAttackIntent() && !it.isDead) {
+                    count++
                 }
             }
-            flash()
+            repeat(count) {
+                addToTop(EmptyAction {
+                    AbstractDungeon.getMonsters().monsters.forEach {
+                        addToBot(ApplyPowerAction(it, owner, WeakPower(it, magicNumber, false), magicNumber))
+                        addToBot(ApplyPowerAction(it, owner, VulnerablePower(it, magicNumber, false), magicNumber))
+                    }
+                })
+                flash()
+            }
         })
     }
 

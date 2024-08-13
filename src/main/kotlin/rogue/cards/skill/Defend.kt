@@ -22,7 +22,7 @@ class Defend :
 
     override fun upgrade() {
         useUpgrade {
-            upgradeBlock(4)
+            upgradeBlock(3)
         }
     }
 

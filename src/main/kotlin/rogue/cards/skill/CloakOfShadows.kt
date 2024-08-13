@@ -28,7 +28,7 @@ class CloakOfShadows :
 
     override fun upgrade() {
         useUpgrade {
-            upgradeBlock(3)
+            upgradeBlock(4)
         }
     }
 

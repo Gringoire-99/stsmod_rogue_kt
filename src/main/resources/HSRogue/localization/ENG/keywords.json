@@ -45,7 +45,7 @@
     "NAMES": [
       "poison"
     ],
-    "DESCRIPTION": "A weapon with Poison converts 40% of the amount to the target after dealing unblocked damage."
+    "DESCRIPTION": "A weapon with Poison converts 20% of the amount to the target after dealing unblocked damage."
   },
   {
     "NAMES": [

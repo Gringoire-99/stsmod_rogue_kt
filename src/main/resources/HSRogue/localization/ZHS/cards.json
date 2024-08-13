@@ -61,7 +61,7 @@
   },
   "HSRogue:Vanish": {
     "NAME": "消失",
-    "DESCRIPTION": "选择手牌丢弃，每丢弃一张获得 !B! 点 格挡"
+    "DESCRIPTION": "获得 !B! 点 格挡,选择最多3张牌丢弃。 NL 每张获得 !M! 点格挡"
   },
   "HSRogue:Shiv": {
     "NAME": "毒刃",
@@ -161,7 +161,7 @@
   },
   "HSRogue:DirtyTricks": {
     "NAME": "邪恶计谋",
-    "DESCRIPTION": "hsrogue:奥秘 : 回合开始意图不为攻击的敌人获得 !M! 层 易伤 和 虚弱"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合开始每有一个意图不为攻击的敌人 NL 所有敌人获得 !M! 层 易伤 和 虚弱"
   },
   "HSRogue:DoubleCross": {
     "NAME": "双面生意",

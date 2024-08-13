@@ -18,6 +18,7 @@ class BounceAround() :
     ) {
     init {
         addMod(ExhaustMod())
+        purgeOnUse = true
     }
 
     override fun upgrade() {

@@ -54,9 +54,8 @@ class Kingsbane(wDamage: Int = 3, wDurability: Int = 3, val magic: Int = 2) :
     override fun upgrade() {
         upgradeName()
         addMod(InnateMod())
-        upgradeMagicNumber(2)
+        upgradeMagicNumber(3)
         weaponDamage++
-        weaponDurability++
     }
 
     override fun upgradeName() {

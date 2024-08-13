@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import common.TradeCard
 import rogue.cards.AbstractRogueCard
 import utils.gainBlock
+import kotlin.math.min
 
 class Vanish :
     AbstractRogueCard(
@@ -17,17 +18,20 @@ class Vanish :
         target = CardTarget.SELF
     ) {
     init {
-        setBlock(2)
+        setBlock(6)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeBlock(1)
+            upgradeBlock(2)
+            upgradeMagicNumber(1)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        val amount = p?.hand?.group?.size ?: 0
+        gainBlock(p, block)
+        val amount = min(p?.hand?.size() ?: 0, 3)
         addToBot(
             SelectCardsInHandAction(
                 amount,
@@ -35,10 +39,10 @@ class Vanish :
                 true,
                 true,
                 { true }) { cards ->
-            cards.forEach {
-                addToBot(DiscardSpecificCardAction(it))
-                gainBlock(p, block)
-            }
-        })
+                cards.forEach {
+                    addToBot(DiscardSpecificCardAction(it))
+                    gainBlock(p, magicNumber)
+                }
+            })
     }
 }

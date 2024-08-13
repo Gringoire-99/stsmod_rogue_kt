@@ -61,7 +61,7 @@
   },
   "HSRogue:Vanish": {
     "NAME": "Vanish",
-    "DESCRIPTION": "Choose cards to discard NL Every card discarded gain !B! Block"
+    "DESCRIPTION": "Gain !B! Block NL Choose cards (up to 3) to discard NL Every card discarded gain !M! block"
   },
   "HSRogue:Shiv": {
     "NAME": "Shiv",
@@ -161,7 +161,7 @@
   },
   "HSRogue:DirtyTricks": {
     "NAME": "Dirty Tricks",
-    "DESCRIPTION": "hsrogue:Secret : At start of your turn NL Non attack intent monster gain !M! Vulnerable and Weak"
+    "DESCRIPTION": "hsrogue:Secret : At start of your turn NL Every monster gain !M! Vulnerable and Weak NL Repeat by every Non attack intent monster "
   },
   "HSRogue:DoubleCross": {
     "NAME": "Double Cross",
