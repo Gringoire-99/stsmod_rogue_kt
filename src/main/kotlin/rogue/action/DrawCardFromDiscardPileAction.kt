@@ -9,12 +9,16 @@ class DrawCardFromDiscardPileAction(val cb: (card: AbstractCard) -> Unit = {}) :
     override fun update() {
         val last = AbstractDungeon.player.discardPile.group.lastOrNull()
         if (last != null) {
-            cb(last)
             addToTop(
                 MoveCardsAction(
                     AbstractDungeon.player.hand,
                     AbstractDungeon.player.discardPile,
-                    { c -> c == last }, {})
+                    { c -> c == last }, {
+                        it.forEach { c ->
+                            cb(c)
+                        }
+                    }
+                )
             )
         }
         isDone = true

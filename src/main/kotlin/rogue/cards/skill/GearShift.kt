@@ -14,7 +14,7 @@ class GearShift() :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(3)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {

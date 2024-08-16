@@ -45,7 +45,7 @@ class BlackwaterCutlass(
 
     override fun onTrade() {
         weaponDamage += magicNumber
-        weaponDurability += magicNumber
+        weaponDurability += 2
         discovery {
             it.addMod(EtherealMod(), ExhaustMod())
             if (upgraded) {

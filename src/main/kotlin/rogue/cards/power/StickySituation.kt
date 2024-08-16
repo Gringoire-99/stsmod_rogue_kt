@@ -5,18 +5,18 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractSecretCard
-import rogue.power.secret.DoubleCrossPower
+import rogue.power.secret.StickySituationPower
 import utils.makeId
 
-class DoubleCross :
+class StickySituation() :
     AbstractSecretCard(
-        rawName = DoubleCross::class.simpleName.toString(),
+        rawName = StickySituation::class.simpleName.toString(),
         cost = 1,
         rarity = CardRarity.UNCOMMON,
-        powerId = DoubleCrossPower::class.makeId()
+        powerId = StickySituationPower::class.makeId()
     ) {
     init {
-        setMagicNumber(1)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {
@@ -26,7 +26,6 @@ class DoubleCross :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, DoubleCrossPower(p ?: AbstractDungeon.player, magicNumber)))
-
+        addToBot(ApplyPowerAction(p, p, StickySituationPower(p ?: AbstractDungeon.player, magicNumber)))
     }
 }

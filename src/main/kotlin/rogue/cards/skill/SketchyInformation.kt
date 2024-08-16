@@ -17,13 +17,12 @@ class SketchyInformation() :
         target = CardTarget.SELF
     ) {
     init {
-        setMagicNumber(3)
+        setMagicNumber(4)
     }
 
     override fun upgrade() {
         useUpgrade {
             addMod(InnateMod())
-            upgradeMagicNumber(1)
         }
     }
 

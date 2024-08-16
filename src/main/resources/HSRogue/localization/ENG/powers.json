@@ -125,6 +125,36 @@
       "Next another class's card you played will play twice"
     ]
   },
+  "HSRogue:ShadowSecretPower": {
+    "NAME": "Shadow Secret",
+    "DESCRIPTIONS": [
+      "When actively trigger a Secret , other secrets will also be triggered %d times"
+    ]
+  },
+  "HSRogue:BamboozlePower": {
+    "NAME": "Bamboozle",
+    "DESCRIPTIONS": [
+      "When you completely block damage from a monster's attack, transfers the damage from the last fully blocked attack to another monster. NL If there are no other monsters, it deals %d damage to the source of the attack."
+    ]
+  },
+  "HSRogue:PerjuryPower": {
+    "NAME": "Perjury",
+    "DESCRIPTIONS": [
+      "At end of turn, trigger %d other secrets"
+    ]
+  },
+  "HSRogue:ShadowClonePower": {
+    "NAME": "Shadow Clone",
+    "DESCRIPTIONS": [
+      "Triggers when you play %d of the same card (can only actively trigger once per turn). NL Play the card that has been played the most times in this combat (excluding colorless/basic cards)."
+    ]
+  },
+  "HSRogue:StickySituationPower": {
+    "NAME": "Sticky Situation",
+    "DESCRIPTIONS": [
+      "At the end of the enemy's turn, if they have more than one type of debuff, each debuff deals %d damage and inflicts 2 Poison."
+    ]
+  },
   "HSRogue:SecretPassageBackupPower": {
     "NAME": "Secret Passage",
     "DESCRIPTIONS": [

@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.powers.VulnerablePower
 import com.megacrit.cardcrawl.powers.WeakPower
 import rogue.action.EmptyAction
+import utils.isAlive
 import utils.isAttackIntent
 
 class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
@@ -15,8 +16,15 @@ class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
     }
 
     override fun atStartOfTurnPostDraw() {
+        val targets = AbstractDungeon.getMonsters().monsters.filter { it.isAlive() && !it.intent.isAttackIntent() }
+        if (targets.isNotEmpty()) {
+            triggerEffect()
+        }
+    }
+
+    override fun effect() {
         var count = 0
-        addToBot(EmptyAction {
+        addToTop(EmptyAction {
             AbstractDungeon.getMonsters().monsters.forEach {
                 if (!it.intent.isAttackIntent() && !it.isDead) {
                     count++

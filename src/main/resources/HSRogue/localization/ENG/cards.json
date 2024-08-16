@@ -169,7 +169,7 @@
   },
   "HSRogue:Ambush": {
     "NAME": "Ambush",
-    "DESCRIPTION": "hsrogue:Secret : At end of monster's turn NL Attack Non attack intent monster with your hsrogue:Weapon "
+    "DESCRIPTION": "hsrogue:Secret : At end of monster's turn NL Attack Non attack intent monster with your hsrogue:Weapon !M! times"
   },
   "HSRogue:CloakOfShadows": {
     "NAME": "Cloak Of Shadows",
@@ -382,6 +382,30 @@
   "HSRogue:RollTheBones": {
     "NAME": "Roll The Bones",
     "DESCRIPTION": "Scry : !M! NL Top card gain hsrogue:Fate NL Draw a card"
+  },
+  "HSRogue:ShadowjewelerHanar": {
+    "NAME": "Shadowjeweler Hanar",
+    "DESCRIPTION": "When you actively trigger a hsrogue:Secret , other hsrogue:Secret will also be triggered !M! times NL Discover a hsrogue:Secret"
+  },
+  "HSRogue:Perjury": {
+    "NAME": "Perjury",
+    "DESCRIPTION": "hsrogue:Secret : NL At end of turn, trigger !M! other hsrogue:Secret"
+  },
+  "HSRogue:Bamboozle": {
+    "NAME": "Bamboozle",
+    "DESCRIPTION": "hsrogue:Secret : NL When you completely block damage from a monster's attack, transfers the damage from the last fully blocked attack to another monster. NL If there are no other monsters, it deals !M! damage to the source of the attack."
+  },
+  "HSRogue:ShadowClone": {
+    "NAME": "Shadow Clone",
+    "DESCRIPTION": "{@@}hsrogue:Secret : NL Triggers when you play {!Upgrades!|>0= 2 |@= 3 } of the same card (can only actively trigger once per turn). NL Play the card that has been played the most times in this combat (excluding colorless/basic cards)."
+  },
+  "HSRogue:StickySituation": {
+    "NAME": "Sticky Situation",
+    "DESCRIPTION": "hsrogue:Secret : NL At the end of the enemy's turn, if they have more than one type of debuff, each debuff deals !M! damage and inflicts 2 Poison."
+  },
+  "HSRogue:ContrabandStash": {
+    "NAME": "Contraband Stash",
+    "DESCRIPTION": "hsrogue:Grave NL Play !M! other classes cards you used in this combat. NL (Prioritize playing rare cards)."
   },
   "HSRogue:ScavengeCard": {
     "NAME": "Scavenge Card",

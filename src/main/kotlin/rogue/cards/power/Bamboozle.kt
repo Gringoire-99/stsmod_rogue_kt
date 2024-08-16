@@ -5,28 +5,28 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractSecretCard
-import rogue.power.secret.DoubleCrossPower
+import rogue.power.secret.BamboozlePower
 import utils.makeId
+import utils.upMagicNumber
 
-class DoubleCross :
+class Bamboozle() :
     AbstractSecretCard(
-        rawName = DoubleCross::class.simpleName.toString(),
+        rawName = Bamboozle::class.simpleName.toString(),
         cost = 1,
         rarity = CardRarity.UNCOMMON,
-        powerId = DoubleCrossPower::class.makeId()
+        powerId = BamboozlePower::class.makeId()
     ) {
     init {
-        setMagicNumber(1)
+        setMagicNumber(3)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(1)
+            upMagicNumber(2)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, DoubleCrossPower(p ?: AbstractDungeon.player, magicNumber)))
-
+        addToBot(ApplyPowerAction(p, p, BamboozlePower(p ?: AbstractDungeon.player, magicNumber)))
     }
 }

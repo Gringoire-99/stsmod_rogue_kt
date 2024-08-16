@@ -5,28 +5,27 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractSecretCard
-import rogue.power.secret.DoubleCrossPower
+import rogue.power.secret.PerjuryPower
 import utils.makeId
 
-class DoubleCross :
+class Perjury() :
     AbstractSecretCard(
-        rawName = DoubleCross::class.simpleName.toString(),
+        rawName = Perjury::class.simpleName.toString(),
         cost = 1,
         rarity = CardRarity.UNCOMMON,
-        powerId = DoubleCrossPower::class.makeId()
+        powerId = PerjuryPower::class.makeId()
     ) {
     init {
-        setMagicNumber(1)
+        setMagicNumber(2)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(1)
+            upgradeMagicNumber(2)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, DoubleCrossPower(p ?: AbstractDungeon.player, magicNumber)))
-
+        addToBot(ApplyPowerAction(p, p, PerjuryPower(p ?: AbstractDungeon.player, magic = magicNumber)))
     }
 }

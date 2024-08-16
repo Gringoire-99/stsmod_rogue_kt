@@ -113,7 +113,7 @@
   },
   "HSRogue:BlackwaterCutlass": {
     "NAME": "黑水弯刀",
-    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDurability! ] NL hsrogue:可交易 ： 获得+ !M! /+ !M! ，发现一张 虚无 的其他职业的牌{!Upgrades!|>0= NL 并使其 hsrogue:临时 减少1 [E] } "
+    "DESCRIPTION": "{@@}hsrogue:武器 [ !WDamage! / !WDurability! ] NL hsrogue:可交易 ： 获得+ !M! /+2 ，发现一张 虚无 的其他职业的牌{!Upgrades!|>0= NL 并使其 hsrogue:临时 减少1 [E] } "
   },
   "HSRogue:Parrrley": {
     "NAME": "海盗谈判",
@@ -169,7 +169,7 @@
   },
   "HSRogue:Ambush": {
     "NAME": "伏击",
-    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，用 hsrogue:武器 攻击意图不为攻击的敌人"
+    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，用 hsrogue:武器 攻击意图不为攻击的敌人 !M! 次"
   },
   "HSRogue:CloakOfShadows": {
     "NAME": "暗影斗篷",
@@ -386,6 +386,30 @@
   "HSRogue:RollTheBones": {
     "NAME": "命运骨骰",
     "DESCRIPTION": "预见 ： !M! NL 处于牌堆顶的牌附加 hsrogue:命运 NL 抽一张牌"
+  },
+  "HSRogue:ShadowjewelerHanar": {
+    "NAME": "暗影珠宝师汉纳尔",
+    "DESCRIPTION": "当主动触发一个 hsrogue:奥秘 时,还会触发其他 hsrogue:奥秘 !M! 次 NL 发现一个  hsrogue:奥秘 "
+  },
+  "HSRogue:Perjury": {
+    "NAME": "伪证",
+    "DESCRIPTION": "hsrogue:奥秘 NL 回合结束时，触发 !M! 个不同的其他 hsrogue:奥秘 "
+  },
+  "HSRogue:Bamboozle": {
+    "NAME": "偷天换日",
+    "DESCRIPTION": "hsrogue:奥秘 NL 完全格挡怪物攻击伤害时触发，将上一次完全格挡的伤害转移给其他怪物 NL 如果没有其他怪物改为对伤害源造成 !M! 点伤害"
+  },
+  "HSRogue:ShadowClone": {
+    "NAME": "暗影克隆",
+    "DESCRIPTION": "{@@} hsrogue:奥秘 NL 打出{!Upgrades!|>0= 2 |@= 3 }张相同的牌时触发（每回合只能主动触发一次） NL 打出本场战斗打出次数最高的牌（不为无色/基础牌）"
+  },
+  "HSRogue:StickySituation": {
+    "NAME": "缠人处境",
+    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，如果拥有超过1种负面状态，每个负面状态造成 !M! 点伤害，给予2的 中毒"
+  },
+  "HSRogue:ContrabandStash": {
+    "NAME": "珍藏私货",
+    "DESCRIPTION": "hsrogue:墓地 NL 打出 !M! 张这场战斗中使用的其他职业的牌 NL (优先打出稀有的牌)"
   },
   "HSRogue:ScavengeCard": {
     "NAME": "发现",

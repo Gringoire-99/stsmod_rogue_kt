@@ -6,12 +6,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractSecretCard
 import rogue.power.secret.EvasionPower
+import utils.makeId
 
 class Evasion :
     AbstractSecretCard(
         rawName = Evasion::class.simpleName.toString(),
         cost = 1,
         rarity = CardRarity.UNCOMMON,
+        powerId = Evasion::class.makeId()
     ) {
     init {
         setMagicNumber(7)

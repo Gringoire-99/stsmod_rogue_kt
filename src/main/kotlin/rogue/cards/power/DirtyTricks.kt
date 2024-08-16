@@ -6,12 +6,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractSecretCard
 import rogue.power.secret.DirtyTricksPower
+import utils.makeId
 
 class DirtyTricks :
     AbstractSecretCard(
         rawName = DirtyTricks::class.simpleName.toString(),
         cost = 1,
-        rarity = CardRarity.UNCOMMON,
+        rarity = CardRarity.COMMON,
+        powerId = DirtyTricksPower::class.makeId()
     ) {
 
     init {

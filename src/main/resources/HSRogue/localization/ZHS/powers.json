@@ -38,7 +38,7 @@
   "HSRogue:DirtyTricksPower": {
     "NAME": "邪恶计谋",
     "DESCRIPTIONS": [
-      "奥秘：回合开始时，意图不为攻击的敌人获得%d层 易伤 和 虚弱"
+      "奥秘：回合开始时，每一个意图不为攻击的敌人使所有敌人获得%d层 易伤 和 虚弱"
     ]
   },
   "HSRogue:DoubleCrossPower": {
@@ -129,6 +129,36 @@
     "NAME": "打出两次",
     "DESCRIPTIONS": [
       "下一张其他职业的牌打出两次"
+    ]
+  },
+  "HSRogue:ShadowSecretPower": {
+    "NAME": "暗影奥秘",
+    "DESCRIPTIONS": [
+      "主动触发一个奥秘时，还会触发其他奥秘%d次"
+    ]
+  },
+  "HSRogue:BamboozlePower": {
+    "NAME": "偷天换日",
+    "DESCRIPTIONS": [
+      "完全格挡怪物攻击伤害时触发，将伤害转移给其他怪物，如果没有其他怪物改为对伤害源造成%d点伤害"
+    ]
+  },
+  "HSRogue:PerjuryPower": {
+    "NAME": "伪证",
+    "DESCRIPTIONS": [
+      "回合结束时触发，触发%d个其他奥秘"
+    ]
+  },
+  "HSRogue:ShadowClonePower": {
+    "NAME": "暗影克隆",
+    "DESCRIPTIONS": [
+      "当你打出%d张相同的牌时触发，打出本场战斗打出次数最高的牌（不为无色/基础牌）"
+    ]
+  },
+  "HSRogue:StickySituationPower": {
+    "NAME": "缠人处境",
+    "DESCRIPTIONS": [
+      "敌人的回合结束时，如果拥有超过2种负面状态，每个负面状态造成%d点伤害，给予2的 中毒"
     ]
   },
   "HSRogue:SecretPassageBackupPower": {

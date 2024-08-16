@@ -44,18 +44,18 @@ class UnderbellyFence :
                 false,
                 false,
                 { true }) { cards ->
-            cards.forEach {
-                addToBot(GainEnergyAction(1))
-                drawCard(1)
-                if (it.isOtherClassCard()) {
-                    addToBot(GainEnergyAction(magicNumber))
-                    drawCard(magicNumber)
+                cards.forEach {
+                    addToBot(GainEnergyAction(1))
+                    drawCard(1)
+                    if (it.isOtherClassCard()) {
+                        addToBot(GainEnergyAction(magicNumber))
+                        drawCard(magicNumber)
+                    }
+                    p?.apply {
+                        addToTop(ExhaustSpecificCardAction(it, p.hand))
+                    }
                 }
-                p?.apply {
-                    addToBot(ExhaustSpecificCardAction(it, p.hand))
-                }
-            }
 
-        })
+            })
     }
 }

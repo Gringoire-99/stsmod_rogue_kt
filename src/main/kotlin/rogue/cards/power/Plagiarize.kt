@@ -7,12 +7,14 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractSecretCard
 import rogue.cards.skill.Cheatsheet
 import rogue.power.secret.PlagiarizePower
+import utils.makeId
 
 class Plagiarize :
     AbstractSecretCard(
         rawName = Plagiarize::class.simpleName.toString(),
         cost = 1,
-        rarity = CardRarity.UNCOMMON,
+        rarity = CardRarity.COMMON,
+        powerId = Plagiarize::class.makeId()
     ) {
     init {
         cardsToPreview = Cheatsheet.preview

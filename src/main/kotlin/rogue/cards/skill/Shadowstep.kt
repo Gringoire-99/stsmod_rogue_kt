@@ -20,7 +20,7 @@ class Shadowstep :
         useCombo {
             addToBot(DrawCardFromDiscardPileAction { card ->
                 if (this.upgraded) {
-                    card.addMod(ReduceCostMod(1, isTurnEffect = true))
+                    card.addMod(ReduceCostMod(1, isTurnEffect = true, removeOnPlay = true, removeOnEndOfTurn = true))
                 }
             })
         }

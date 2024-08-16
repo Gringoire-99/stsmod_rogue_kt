@@ -16,12 +16,16 @@ class PlagiarizePower(owner: AbstractPlayer, val upgraded: Boolean = false) :
         addToBot(MakeTempCardInHandAction(cheatsheet))
     }
 
-    override fun atStartOfTurnPostDraw() {
+    override fun effect() {
         val cheatsheet = Cheatsheet()
         if (upgraded) {
             cheatsheet.upgrade()
         }
         addToBot(GetUniqueCardAction(cheatsheet))
         flash()
+    }
+
+    override fun atStartOfTurnPostDraw() {
+        triggerEffect()
     }
 }

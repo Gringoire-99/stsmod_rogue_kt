@@ -6,8 +6,7 @@ import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect
 import com.megacrit.cardcrawl.actions.common.*
 import com.megacrit.cardcrawl.cards.AbstractCard
-import com.megacrit.cardcrawl.cards.AbstractCard.CardColor
-import com.megacrit.cardcrawl.cards.AbstractCard.CardType
+import com.megacrit.cardcrawl.cards.AbstractCard.*
 import com.megacrit.cardcrawl.cards.CardQueueItem
 import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.characters.AbstractPlayer
@@ -85,7 +84,7 @@ fun dealDamage(
 }
 
 fun gainBlock(c: AbstractCreature? = AbstractDungeon.player, b: Int) {
-    AbstractDungeon.actionManager.addToBottom(GainBlockAction(c, b))
+    AbstractDungeon.actionManager.addToTop(GainBlockAction(c, b))
 }
 
 fun drawCard(number: Int) {
@@ -240,6 +239,10 @@ fun getRandomMonster(): AbstractMonster? {
     return AbstractDungeon.getMonsters().getRandomMonster(true)
 }
 
+fun AbstractMonster.isAlive(): Boolean {
+    return !this.halfDead && !this.isDying && !this.isEscaping
+}
+
 fun AbstractCard.upDamage(amount: Int) {
     this.baseDamage += amount
     this.upgradedDamage = true
@@ -313,3 +316,8 @@ fun addToQueue(
     cb(tmp)
 }
 
+fun AbstractCard.isCavernCard(): Boolean {
+    return this.color != CardColor.COLORLESS
+            && CardTags.STARTER_DEFEND !in this.tags
+            && CardTags.STARTER_STRIKE !in this.tags
+}
