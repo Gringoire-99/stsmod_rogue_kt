@@ -2,18 +2,20 @@ package rogue.power.common
 
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
-import rogue.cards.OnMakeTempCard
+import rogue.cards.OnAddCard
+import rogue.patchs.CrystalCorePatch.Fields.isCrystalCoreEnhanced
 import rogue.power.IAbstractPower
 import utils.upBase
 
 class CrystalCorePower(owner: AbstractPlayer, stackAmount: Int = 3) :
     IAbstractPower(powerName = CrystalCorePower::class.simpleName.toString(), owner = owner, amount = stackAmount),
-    OnMakeTempCard {
+    OnAddCard {
 
-    override fun onMakeTempCard(c: AbstractCard) {
-        flash()
-        c.apply {
-            upBase(this@CrystalCorePower.amount)
+    override fun onAddCard(c: AbstractCard) {
+        if (!isCrystalCoreEnhanced.get(c)) {
+            flash()
+            isCrystalCoreEnhanced.set(c, true)
+            c.upBase(this@CrystalCorePower.amount)
         }
     }
 

@@ -1,14 +1,18 @@
 package rogue.cards.power
 
+import com.megacrit.cardcrawl.actions.AbstractGameAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
+import rogue.characters.Rogue
+import utils.dealDamage
+import utils.makeId
 
 class AssassinsBlade(
     wDurability: Int = 5,
     wDamage: Int = 3,
-    magic: Int = 6
+    magic: Int = 3
 ) :
     AbstractWeaponPowerCard(
         name = AssassinsBlade::class.simpleName.toString(),
@@ -24,13 +28,14 @@ class AssassinsBlade(
 
     override fun upgrade() {
         useUpgrade {
-            weaponDamage+=2
+            weaponDamage += 2
             weaponDurability++
-            upgradeMagicNumber(4)
+            upgradeMagicNumber(3)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
+        val magic = magicNumber
         addToBot(
             EquipWeaponAction(
                 rogue.power.weapon.AssassinsBlade(
@@ -39,7 +44,11 @@ class AssassinsBlade(
                     magic = magicNumber,
                     upgraded = upgraded
                 )
-            )
+            ) {
+                Rogue.onSneakAttack.add(Rogue.OnSneakAttack(rogue.power.weapon.AssassinsBlade::class.makeId()) {
+                    dealDamage(p, it, magic, damageEffect = AbstractGameAction.AttackEffect.SLASH_HORIZONTAL)
+                })
+            }
         )
     }
 }

@@ -8,9 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 class StunAllMonsterAction(val s: AbstractCreature) : AbstractGameAction() {
     override fun update() {
         AbstractDungeon.getMonsters().monsters?.forEach {
-            it.let {
-                addToTop(StunMonsterAction(it, s))
-            }
+            addToTop(StunMonsterAction(it, s))
         }
         isDone = true
     }

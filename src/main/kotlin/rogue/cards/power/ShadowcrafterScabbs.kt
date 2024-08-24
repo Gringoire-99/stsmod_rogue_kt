@@ -22,7 +22,7 @@ class ShadowcrafterScabbs() :
         CardAudioList.ShadowcrafterScabbsPlay.play()
         gainBlock(p, b = block)
         p?.apply {
-            addToBot(ApplyHeroPowerAction(this, SleightOfHandPower(this)))
+            addToBot(ApplyHeroPowerAction(SleightOfHandPower(this)))
             addToBot(StunAllMonsterAction(p))
         }
 

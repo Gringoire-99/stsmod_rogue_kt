@@ -7,6 +7,7 @@ import common.CardFilter
 import rogue.action.DrawCardsAction
 import rogue.cards.AbstractRogueCard
 import utils.addMod
+import utils.upMagicNumber
 
 class SketchyInformation() :
     AbstractRogueCard(
@@ -23,6 +24,7 @@ class SketchyInformation() :
     override fun upgrade() {
         useUpgrade {
             addMod(InnateMod())
+            upMagicNumber(1)
         }
     }
 

@@ -13,6 +13,8 @@ import com.megacrit.cardcrawl.powers.WeakPower
 import rogue.cards.AbstractRogueCard
 import rogue.mods.DamageEffectMod
 import utils.dealDamage
+import utils.upDamage
+import utils.useSneakAttack
 
 class Sap :
     AbstractRogueCard(
@@ -29,16 +31,23 @@ class Sap :
             addToBot(ApplyPowerAction(target, AbstractDungeon.player, GainStrengthPower(target, amount), amount))
             addToBot(ApplyPowerAction(target, AbstractDungeon.player, WeakPower(target, amount, false), amount))
         })
-        CardModifierManager.addModifier(this,ExhaustMod())
+        CardModifierManager.addModifier(this, ExhaustMod())
+        setMagicNumber(2)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeDamage(2)
+            upDamage(2)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        dealDamage(p, m, damage)
+        var d = damage
+        m?.apply {
+            useSneakAttack(this) {
+                d *= magicNumber
+            }
+        }
+        dealDamage(p, m, d)
     }
 }

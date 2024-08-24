@@ -43,7 +43,9 @@ class Doomerang :
                 }
                 val copy = makeCopy()
                 if (this@Doomerang.upgraded) {
-                    copy.addMod(ReduceCostMod(1))
+                    addToBot(EmptyAction {
+                        copy.addMod(ReduceCostMod(1))
+                    })
                 }
                 p.hand.addToHand(copy)
             })

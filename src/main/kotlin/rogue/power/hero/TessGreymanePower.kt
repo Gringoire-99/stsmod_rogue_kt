@@ -11,7 +11,7 @@ import common.CardFilter
 import common.ScavengeCard
 import common.TradeCard
 import rogue.audio.CardAudioList
-import rogue.cards.AbstractRogueCard
+import rogue.characters.Rogue
 import rogue.mods.ReduceCostMod
 import rogue.mods.TempCardMod
 import rogue.power.common.PlayTwicePower
@@ -21,7 +21,7 @@ import utils.upBase
 import kotlin.math.min
 
 class TessGreymanePower(owner: AbstractPlayer) :
-    AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString(), stackAmount = 1) {
+    AbstractHeroPower(owner = owner, powerName = TessGreymanePower::class.simpleName.toString(), stackAmount = 2) {
 
     private val maxUsage = 2
     override val ability = {
@@ -45,7 +45,7 @@ class TessGreymanePower(owner: AbstractPlayer) :
                     }
 
                     2 -> {
-                        val from = ArrayList(AbstractRogueCard.cardUsedCombatOC)
+                        val from = ArrayList(Rogue.cardUsedCombatOC)
                         discovery(from = from, cardFilter = CardFilter(predicate = { true })) {
                             if (it.cost > 0) {
                                 it.addMod(ReduceCostMod(1))

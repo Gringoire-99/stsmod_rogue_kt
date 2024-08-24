@@ -4,33 +4,35 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EquipWeaponAction
 import rogue.cards.AbstractWeaponPowerCard
+import utils.upMagicNumber
 
-class Shadowblade(initialDamage: Int = 3, initialDurability: Int = 3, magic: Int = 2) :
+class Watercannon(wDamage: Int = 2, wDurability: Int = 2, val magic: Int = 3) :
     AbstractWeaponPowerCard(
-        name = Shadowblade::class.simpleName.toString(),
+        name = Watercannon::class.simpleName.toString(),
         cost = 1,
-        type = CardType.POWER,
-        rarity = CardRarity.UNCOMMON, initialDurability = initialDurability, initialDamage = initialDamage
+        rarity = CardRarity.UNCOMMON,
+        initialDamage = wDamage,
+        initialDurability = wDurability,
     ) {
-
     init {
         setMagicNumber(magic)
     }
 
     override fun upgrade() {
         useUpgrade {
-            upgradeMagicNumber(1)
+            weaponDamage++
+            weaponDurability++
+            upMagicNumber(3)
         }
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         addToBot(
             EquipWeaponAction(
-                rogue.power.weapon.Shadowblade(
+                rogue.power.weapon.Watercannon(
                     damage = weaponDamage,
                     durability = weaponDurability,
-                    magic = magicNumber,
-                    upgraded = upgraded
+                    magicNumber = magicNumber
                 )
             )
         )

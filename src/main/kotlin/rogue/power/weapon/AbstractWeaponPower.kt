@@ -167,9 +167,6 @@ abstract class AbstractWeaponPower(
         getTempAttackCard()
     }
 
-    /**
-     * TODO localization
-     */
     fun updatePowerDesc() {
         updateDescription()
         if (lifeStealCount > 0) {

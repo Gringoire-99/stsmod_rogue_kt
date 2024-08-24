@@ -19,7 +19,7 @@ class ValeeraTheHollow :
         CardAudioList.ValeeraTheHollowPlay.play()
         gainBlock(p, b = block)
         p?.apply {
-            addToBot(ApplyHeroPowerAction(this, DeathsShadowPower(this)))
+            addToBot(ApplyHeroPowerAction(DeathsShadowPower(this)))
         }
     }
 }

@@ -32,25 +32,25 @@
   "HSRogue:DirtyTricksPower": {
     "NAME": "Dirty Tricks",
     "DESCRIPTIONS": [
-      "Secret:At start of your turn NL Non attack intent monster gain %d Vulnerable and Weak"
+      "Secret: At start of your turn NL SneakAttack all monster : all monster gain %d Vulnerable and Weak"
     ]
   },
   "HSRogue:DoubleCrossPower": {
-    "NAME": "DoubleCross",
+    "NAME": "Double Cross",
     "DESCRIPTIONS": [
-      "Secret:At start of your turn, If there is only one monster NL draw %d cards"
+      "Secret: At start of your turn, If there is only one monster NL draw %d cards"
     ]
   },
   "HSRogue:AmbushPower": {
     "NAME": "Ambush！",
     "DESCRIPTIONS": [
-      "Secret:At end of monster's turn,attack Non attack intent monster with your weapon"
+      "Secret: At end of monster's turn, SneakAttack all monster : attack with your weapon %d times"
     ]
   },
   "HSRogue:PlagiarizePower": {
     "NAME": "Plagiarize",
     "DESCRIPTIONS": [
-      "Secret:at start of turn/using,Add an unique CheatSheet to your hand"
+      "Secret:At start of turn/using,Add an unique CheatSheet to your hand"
     ]
   },
   "HSRogue:DeathsShadowPower": {
@@ -134,7 +134,7 @@
   "HSRogue:BamboozlePower": {
     "NAME": "Bamboozle",
     "DESCRIPTIONS": [
-      "When you completely block damage from a monster's attack, transfers the damage from the last fully blocked attack to another monster. NL If there are no other monsters, it deals %d damage to the source of the attack."
+      "Secret : Triggers When you completely block damage from a monster's attack, transfers the damage from the last fully blocked attack to another monster. NL If there are no other monsters, it deals %d damage to the source of the attack."
     ]
   },
   "HSRogue:PerjuryPower": {
@@ -146,13 +146,13 @@
   "HSRogue:ShadowClonePower": {
     "NAME": "Shadow Clone",
     "DESCRIPTIONS": [
-      "Triggers when you play %d of the same card (can only actively trigger once per turn). NL Play the card that has been played the most times in this combat (excluding colorless/basic cards)."
+      "Secret : Triggers when you play %d of the same card (can only actively trigger once per turn). NL Play the card that has been played the most times in this combat (excluding colorless/basic cards)."
     ]
   },
   "HSRogue:StickySituationPower": {
     "NAME": "Sticky Situation",
     "DESCRIPTIONS": [
-      "At the end of the enemy's turn, if they have more than one type of debuff, each debuff deals %d damage and inflicts 2 Poison."
+      "Secret : At the end of the enemy's turn, if they have more than one type of debuff, each debuff deals %d damage and inflicts 2 Poison. (You can SneakAttack such monsters now)"
     ]
   },
   "HSRogue:SecretPassageBackupPower": {

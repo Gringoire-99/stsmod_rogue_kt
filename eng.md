@@ -40,9 +40,5 @@ Current update plan -> Add hero voice lines
 ?? More cards, relics, and potions??
 Stay tuned!
 
-0.1.7:
-Added sound effect options for some cards and characters (need to be enabled in settings).
-Fixed some errors caused by closures.
-
 Links
 GitHub: https://github.com/Gringoire-99/stsmod_rogue_kt (Help me improve this mod)

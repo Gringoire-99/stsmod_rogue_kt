@@ -13,7 +13,7 @@
   },
   "HSRogue:Backstab": {
     "NAME": "背刺",
-    "DESCRIPTION": "对一个敌人造成 !D! 伤害 NL 如果敌人的意图不为攻击则额外附加 hsrogue:武器 伤害"
+    "DESCRIPTION": "对一个敌人造成 !D! 伤害 NL hsrogue:偷袭 ：额外附加 hsrogue:武器 伤害"
   },
   "HSRogue:FanOfKnives": {
     "NAME": "刀扇",
@@ -37,7 +37,7 @@
   },
   "HSRogue:Shadowstep": {
     "NAME": "暗影步",
-    "DESCRIPTION": "{@@} hsrogue:连击 ：将上一张置入弃牌堆的牌移回手牌{!Upgrades!|>0= NL 并 hsrogue:临时 使其减少1 [E] }"
+    "DESCRIPTION": "{@@} hsrogue:连击 ：将弃牌堆的 !M! 张牌移回手牌{!Upgrades!|>0= NL 并 hsrogue:临时 使其减少 NL 1费 } NL hsrogue:消耗性 : !stslib:ex!"
   },
   "HSRogue:Preparation": {
     "NAME": "伺机待发",
@@ -49,7 +49,7 @@
   },
   "HSRogue:Sap": {
     "NAME": "闷棍",
-    "DESCRIPTION": "造成 !D! 点伤害，给予 NL 造成伤害的 hsrogue:临时 NL 力量 损失与 NL 虚弱 "
+    "DESCRIPTION": "造成 !D! 点伤害，给予 NL 造成伤害的 hsrogue:临时 NL 力量 损失与 虚弱 NL hsrogue:偷袭 ： 伤害变为 !M! 倍"
   },
   "HSRogue:Eviscerate": {
     "NAME": "刺骨",
@@ -57,7 +57,7 @@
   },
   "HSRogue:Assassinate": {
     "NAME": "刺杀",
-    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害 NL 攻击意图不为攻击的怪物时额外攻击 !M! 次"
+    "DESCRIPTION": "造成 !D! 点 hsrogue:武器 伤害 NL hsrogue:偷袭 ：额外攻击 !M! 次"
   },
   "HSRogue:Vanish": {
     "NAME": "消失",
@@ -105,7 +105,7 @@
   },
   "HSRogue:AssassinsBlade": {
     "NAME": "刺客之刃",
-    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 对意图不为攻击的敌人造成 !M! 点额外伤害"
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 对被偷袭的怪物造成 !M! 点伤害 NL 攻击时 hsrogue:偷袭 ：额外造成 !M! 点伤害"
   },
   "HSRogue:Kingsbane": {
     "NAME": "弑君",
@@ -161,7 +161,7 @@
   },
   "HSRogue:DirtyTricks": {
     "NAME": "邪恶计谋",
-    "DESCRIPTION": "hsrogue:奥秘 : 回合开始每有一个意图不为攻击的敌人 NL 所有敌人获得 !M! 层 易伤 和 虚弱"
+    "DESCRIPTION": "hsrogue:奥秘 : 回合开始时 hsrogue:偷袭 所有敌人： NL 所有敌人获得 !M! 层 易伤 和 虚弱"
   },
   "HSRogue:DoubleCross": {
     "NAME": "双面生意",
@@ -169,7 +169,7 @@
   },
   "HSRogue:Ambush": {
     "NAME": "伏击",
-    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，用 hsrogue:武器 攻击意图不为攻击的敌人 !M! 次"
+    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时 hsrogue:偷袭 所有敌人: NL 使用武器攻击 !M! 次"
   },
   "HSRogue:CloakOfShadows": {
     "NAME": "暗影斗篷",
@@ -265,7 +265,7 @@
   },
   "HSRogue:CrystalCore": {
     "NAME": "水晶核心",
-    "DESCRIPTION": "本场战斗强化你的 NL 所有卡片 !M! 点 NL 获得 !M! 点 力量 NL 与 敏捷 "
+    "DESCRIPTION": "本场战斗强化你的 NL 所有卡牌 !M! 点 NL 获得 !M! 点 力量 NL 与 敏捷 "
   },
   "HSRogue:BazaarBurglary": {
     "NAME": "劫掠集市",
@@ -277,7 +277,7 @@
   },
   "HSRogue:PotionOfIllusion": {
     "NAME": "幻觉药水",
-    "DESCRIPTION": "复制你的手牌 NL 使其获得 虚无 NL 和 消耗 "
+    "DESCRIPTION": "复制你的手牌 NL 使其获得 虚无"
   },
   "HSRogue:MyraRotspring": {
     "NAME": "迈拉·腐泉",
@@ -285,7 +285,7 @@
   },
   "HSRogue:MyrasUnstableElement": {
     "NAME": "迈拉的不稳定元素",
-    "DESCRIPTION": "hsrogue:墓地 NL 抽满你的手牌， 消耗 处于抽牌堆的其他牌"
+    "DESCRIPTION": "抽满你的手牌， 消耗 处于抽牌堆的其他牌 NL 如果被消耗的牌带有 hsrogue:死金 会直接将其打出"
   },
   "HSRogue:TessGreymane": {
     "NAME": "苔丝·格雷迈恩",
@@ -377,7 +377,7 @@
   },
   "HSRogue:WickedStabRank1": {
     "NAME": "邪恶挥刺（等级1）",
-    "DESCRIPTION": "造成 !D! 点伤害 NL hsrogue:连击 ：对所有敌人造成伤害。 NL hsrogue:注能 !expM! (打出 hsrogue:连击 牌/ 消耗 卡片)：增强效果( !exp! / !expM! )",
+    "DESCRIPTION": "造成 !D! 点伤害 NL hsrogue:连击 ：对所有敌人造成伤害。 NL hsrogue:注能 !expM! (打出 hsrogue:连击 牌/ 消耗 卡牌)：增强效果( !exp! / !expM! )",
     "EXTENDED_DESCRIPTION": [
       "邪恶挥刺（等级2）",
       "邪恶挥刺（等级3）"
@@ -405,11 +405,23 @@
   },
   "HSRogue:StickySituation": {
     "NAME": "缠人处境",
-    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，如果拥有超过1种负面状态，每个负面状态造成 !M! 点伤害，给予2的 中毒"
+    "DESCRIPTION": "hsrogue:奥秘 : 敌人的回合结束时，如果怪物拥有超过1种负面状态，每个负面状态造成 !M! 点伤害，给予2的 中毒 NL （你现在也可以 hsrogue:偷袭 此类怪物）"
   },
   "HSRogue:ContrabandStash": {
     "NAME": "珍藏私货",
     "DESCRIPTION": "hsrogue:墓地 NL 打出 !M! 张这场战斗中使用的其他职业的牌 NL (优先打出稀有的牌)"
+  },
+  "HSRogue:Watercannon": {
+    "NAME": "水弹枪",
+    "DESCRIPTION": "hsrogue:武器 [ !WDamage! / !WDurability! ] NL 攻击后打出抽牌堆里的1张0费攻击牌的复制 NL 一回合 !M! 次"
+  },
+  "HSRogue:ChaoticTendril": {
+    "NAME": "混乱触须",
+    "DESCRIPTION": "打出费用总计为 !TCount! 的随机攻击牌 NL 回合结束后变为0费 NL (每次使用都会变强 !M! 点)"
+  },
+  "HSRogue:TentacleGrip": {
+    "NAME": "触须缠握",
+    "DESCRIPTION": "造成 !D! 点伤害 NL hsrogue:连击 ： 将 !M! 张 *混乱触须 置入手中"
   },
   "HSRogue:ScavengeCard": {
     "NAME": "发现",
@@ -424,7 +436,7 @@
     "NAME": "交易",
     "DESCRIPTION": "花费1 [E] 进行 *交易 ",
     "EXTENDED_DESCRIPTION": [
-      "选择卡片"
+      "选择卡牌"
     ]
   },
   "HSRogue:FateMod": {

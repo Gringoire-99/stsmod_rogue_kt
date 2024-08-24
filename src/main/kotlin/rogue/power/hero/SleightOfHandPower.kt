@@ -8,8 +8,8 @@ import rogue.action.ReduceAllCostInHandAction
 import kotlin.math.min
 
 class SleightOfHandPower(owner: AbstractPlayer) :
-    AbstractHeroPower(powerName = SleightOfHandPower::class.simpleName.toString(), owner = owner, stackAmount = 1) {
-    val maxUsage = 2
+    AbstractHeroPower(powerName = SleightOfHandPower::class.simpleName.toString(), owner = owner, stackAmount = 2) {
+    private val maxUsage = 2
     override val ability = {
         if (amount > 0) {
             amount--

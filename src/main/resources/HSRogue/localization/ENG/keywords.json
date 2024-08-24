@@ -157,6 +157,12 @@
   },
   {
     "NAMES": [
+      "sneakattack"
+    ],
+    "DESCRIPTION": "Addition effect trigger when enemy's intent is not attack"
+  },
+  {
+    "NAMES": [
       "necrium"
     ],
     "DESCRIPTION": "Cards with Necrium will be played an extra time (can be stacked) and Exhaust"

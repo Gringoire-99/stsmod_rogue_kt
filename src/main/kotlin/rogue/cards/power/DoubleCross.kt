@@ -1,9 +1,9 @@
 package rogue.cards.power
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.action.ApplyUniquePowerAction
 import rogue.cards.AbstractSecretCard
 import rogue.power.secret.DoubleCrossPower
 import utils.makeId
@@ -26,7 +26,7 @@ class DoubleCross :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, DoubleCrossPower(p ?: AbstractDungeon.player, magicNumber)))
+        addToBot(ApplyUniquePowerAction(DoubleCrossPower(p ?: AbstractDungeon.player, magicNumber)))
 
     }
 }

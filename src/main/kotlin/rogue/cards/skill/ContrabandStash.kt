@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.action.EmptyAction
 import rogue.cards.AbstractRogueCard
+import rogue.characters.Rogue.Companion.cardUsedCombatOC
 import utils.addMod
 import utils.addToQueue
 

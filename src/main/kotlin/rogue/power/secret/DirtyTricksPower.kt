@@ -6,8 +6,9 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.powers.VulnerablePower
 import com.megacrit.cardcrawl.powers.WeakPower
 import rogue.action.EmptyAction
+import utils.canSneakAttack
 import utils.isAlive
-import utils.isAttackIntent
+import utils.useSneakAttack
 
 class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
     AbstractSecretPower(rawName = DirtyTricksPower::class.simpleName.toString(), owner = owner) {
@@ -16,7 +17,7 @@ class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
     }
 
     override fun atStartOfTurnPostDraw() {
-        val targets = AbstractDungeon.getMonsters().monsters.filter { it.isAlive() && !it.intent.isAttackIntent() }
+        val targets = AbstractDungeon.getMonsters().monsters.filter { it.isAlive() && canSneakAttack(it) }
         if (targets.isNotEmpty()) {
             triggerEffect()
         }
@@ -26,8 +27,10 @@ class DirtyTricksPower(owner: AbstractPlayer, val magicNumber: Int = 1) :
         var count = 0
         addToTop(EmptyAction {
             AbstractDungeon.getMonsters().monsters.forEach {
-                if (!it.intent.isAttackIntent() && !it.isDead) {
-                    count++
+                if (it.isAlive()) {
+                    useSneakAttack(it) {
+                        count++
+                    }
                 }
             }
             repeat(count) {

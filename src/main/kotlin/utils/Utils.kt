@@ -4,7 +4,10 @@ import Core
 import basemod.abstracts.AbstractCardModifier
 import basemod.helpers.CardModifierManager
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect
-import com.megacrit.cardcrawl.actions.common.*
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
+import com.megacrit.cardcrawl.actions.common.DamageAction
+import com.megacrit.cardcrawl.actions.common.DrawCardAction
+import com.megacrit.cardcrawl.actions.common.GainBlockAction
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.cards.AbstractCard.*
 import com.megacrit.cardcrawl.cards.CardQueueItem
@@ -24,10 +27,14 @@ import common.CardFilter
 import org.apache.logging.log4j.LogManager
 import org.apache.logging.log4j.Logger
 import rogue.action.DiscoveryAction
+import rogue.action.EmptyAction
 import rogue.cards.AbstractMimicCard
 import rogue.cards.AbstractWeaponPowerCard
+import rogue.cards.CavernCard
+import rogue.characters.Rogue
 import rogue.characters.RogueEnum
 import rogue.modconfig.RogueModConfig
+import rogue.power.common.CrystalCorePower
 import rogue.power.weapon.AbstractWeaponPower
 import kotlin.math.min
 import kotlin.reflect.KClass
@@ -91,13 +98,16 @@ fun drawCard(number: Int) {
     AbstractDungeon.actionManager.addToBottom(DrawCardAction(number))
 }
 
-fun applyUniquePower(
+fun applyUniqueAndStablePower(
+    power: AbstractPower,
     target: AbstractCreature = AbstractDungeon.player,
-    source: AbstractCreature = AbstractDungeon.player,
-    power: AbstractPower
+    source: AbstractCreature = AbstractDungeon.player
 ) {
-    AbstractDungeon.actionManager.addToTop(RemoveSpecificPowerAction(target, source, power.ID))
-    AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, source, power))
+    AbstractDungeon.actionManager.addToBottom(EmptyAction {
+        if (!target.hasPower(power.ID)) {
+            AbstractDungeon.actionManager.addToBottom(ApplyPowerAction(target, source, power))
+        }
+    })
 }
 
 fun AbstractCreature.getWeaponPower(): AbstractWeaponPower? {
@@ -211,6 +221,12 @@ fun generateCardChoices(
     if (upgraded) {
         result.forEach { it.upgrade() }
     }
+    val power = AbstractDungeon.player.getPower(CrystalCorePower::class.makeId()) as CrystalCorePower?
+    if (power != null) {
+        result.forEach {
+            power.onAddCard(it)
+        }
+    }
     return result
 }
 
@@ -317,7 +333,25 @@ fun addToQueue(
 }
 
 fun AbstractCard.isCavernCard(): Boolean {
-    return this.color != CardColor.COLORLESS
+    return this is CavernCard || (this.color != CardColor.COLORLESS
             && CardTags.STARTER_DEFEND !in this.tags
-            && CardTags.STARTER_STRIKE !in this.tags
+            && CardTags.STARTER_STRIKE !in this.tags)
+}
+
+fun useSneakAttack(m: AbstractMonster, cb: (m: AbstractMonster) -> Unit = {}): Boolean {
+    if (canSneakAttack(m)) {
+        cb(m)
+        Rogue.onSneakAttack.forEach {
+            it.cb(m)
+        }
+        return true
+    }
+    return false
+}
+
+fun canSneakAttack(m: AbstractMonster): Boolean {
+    val any = Rogue.sneakAttackPredicates.any {
+        it.p(m)
+    }
+    return any || !m.intent.isAttackIntent()
 }

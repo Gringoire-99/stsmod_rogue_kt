@@ -34,7 +34,7 @@ class TessGreymane :
         CardAudioList.TessGreymanePlay.play()
         gainBlock(p, b = block)
         p?.apply {
-            addToBot(ApplyHeroPowerAction(this, TessGreymanePower(this)))
+            addToBot(ApplyHeroPowerAction(TessGreymanePower(this)))
         }
     }
 }

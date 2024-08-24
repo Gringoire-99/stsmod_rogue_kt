@@ -6,7 +6,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.vfx.combat.ClashEffect
 import rogue.cards.AbstractWeaponCard
 import utils.attackWithWeapon
-import utils.isAttackIntent
+import utils.useSneakAttack
 
 class Assassinate : AbstractWeaponCard(
     name = Assassinate::class.simpleName.toString(),
@@ -29,7 +29,12 @@ class Assassinate : AbstractWeaponCard(
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
         val d = damage
-        val count = if (m != null && !m.intent.isAttackIntent()) magicNumber + 1 else 1
+        var count = 1
+        m?.apply {
+            useSneakAttack(this) {
+                count += magicNumber
+            }
+        }
         repeat(count) {
             p?.attackWithWeapon(damage = d, target = m) {
                 addToBot(VFXAction(ClashEffect(it.hb.cX, it.hb.cY), 0.1f))

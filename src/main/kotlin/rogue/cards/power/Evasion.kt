@@ -1,9 +1,9 @@
 package rogue.cards.power
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.action.ApplyUniquePowerAction
 import rogue.cards.AbstractSecretCard
 import rogue.power.secret.EvasionPower
 import utils.makeId
@@ -13,7 +13,7 @@ class Evasion :
         rawName = Evasion::class.simpleName.toString(),
         cost = 1,
         rarity = CardRarity.UNCOMMON,
-        powerId = Evasion::class.makeId()
+        powerId = EvasionPower::class.makeId()
     ) {
     init {
         setMagicNumber(7)
@@ -26,7 +26,7 @@ class Evasion :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, EvasionPower(p ?: AbstractDungeon.player, magicNumber)))
+        addToBot(ApplyUniquePowerAction(EvasionPower(p ?: AbstractDungeon.player, magicNumber)))
 
     }
 }

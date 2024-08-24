@@ -5,7 +5,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch
 import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import rogue.cards.AbstractComboCard
-import rogue.cards.AbstractRogueCard
+import rogue.characters.Rogue
 import utils.isOtherClassCard
 
 class AfterCardPlayedPatch {
@@ -23,7 +23,7 @@ class AfterCardPlayedPatch {
                 }
                 c?.apply {
                     if (this.isOtherClassCard() && !this.purgeOnUse) {
-                        AbstractRogueCard.cardUsedCombatOC.add(this)
+                        Rogue.cardUsedCombatOC.add(this)
                     }
                 }
 //

@@ -4,7 +4,6 @@ import basemod.interfaces.*
 import com.badlogic.gdx.Gdx
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer
 import com.google.gson.Gson
-import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.core.Settings
 import com.megacrit.cardcrawl.localization.*
 import com.megacrit.cardcrawl.unlock.UnlockTracker
@@ -75,8 +74,7 @@ class Core : EditCardsSubscriber, EditStringsSubscriber, EditCharactersSubscribe
         BaseMod.addDynamicVariable(WeaponDurabilityVariable())
         BaseMod.addDynamicVariable(ExpVariable())
         BaseMod.addDynamicVariable(MaxExpVariable())
-        CardCrawlGame.languagePack.getKeywordString("")
-
+        BaseMod.addDynamicVariable(TendrilCountVariable())
     }
 
 

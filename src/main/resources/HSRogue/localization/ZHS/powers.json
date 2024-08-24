@@ -38,7 +38,7 @@
   "HSRogue:DirtyTricksPower": {
     "NAME": "邪恶计谋",
     "DESCRIPTIONS": [
-      "奥秘：回合开始时，每一个意图不为攻击的敌人使所有敌人获得%d层 易伤 和 虚弱"
+      "奥秘：回合开始时，偷袭所有敌人： 所有敌人获得%d层 易伤 和 虚弱"
     ]
   },
   "HSRogue:DoubleCrossPower": {
@@ -50,7 +50,7 @@
   "HSRogue:AmbushPower": {
     "NAME": "伏击！",
     "DESCRIPTIONS": [
-      "奥秘：敌人回合结束时，攻击所有意图不为攻击的敌人"
+      "奥秘：敌人回合结束时，偷袭所有敌人：用武器攻击%d次"
     ]
   },
   "HSRogue:PlagiarizePower": {
@@ -158,7 +158,7 @@
   "HSRogue:StickySituationPower": {
     "NAME": "缠人处境",
     "DESCRIPTIONS": [
-      "敌人的回合结束时，如果拥有超过2种负面状态，每个负面状态造成%d点伤害，给予2的 中毒"
+      "敌人的回合结束时，如果拥有超过2种负面状态，每个负面状态造成%d点伤害，给予2的 中毒 （你现在可以偷袭此类怪物）"
     ]
   },
   "HSRogue:SecretPassageBackupPower": {

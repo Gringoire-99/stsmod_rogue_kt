@@ -14,14 +14,17 @@ import com.megacrit.cardcrawl.events.city.Vampires
 import com.megacrit.cardcrawl.helpers.FontHelper
 import com.megacrit.cardcrawl.helpers.ScreenShake
 import com.megacrit.cardcrawl.localization.CharacterStrings
+import com.megacrit.cardcrawl.monsters.AbstractMonster
 import com.megacrit.cardcrawl.screens.CharSelectInfo
 import rogue.audio.CharacterAudioList
 import rogue.audio.CommonAudioList
+import rogue.cards.AbstractComboCard
 import rogue.cards.attack.Backstab
 import rogue.cards.attack.Strike
 import rogue.cards.skill.Conceal
 import rogue.cards.skill.DeadlyPoison
 import rogue.cards.skill.Defend
+import rogue.power.weapon.AbstractWeaponPower
 import rogue.relics.HeroPower
 import utils.*
 
@@ -50,6 +53,46 @@ class Rogue : CustomPlayer(
         const val MY_CHARACTER_SHOULDER_2 = IMG_Valeera_shoulder
         const val MY_CHARACTER_SHOULDER_1 = IMG_Valeera_shoulder
         const val CORPSE_IMAGE = IMG_Valeera_corpse
+        val cardUsedCombatOC = hashSetOf<AbstractCard>()
+        val sneakAttackPredicates = hashSetOf<SneakAttackPredicate>()
+        val onSneakAttack = hashSetOf<OnSneakAttack>()
+        var chaoticTendrilCount = 1
+        fun startOfCombatLogic() {
+            AbstractComboCard.reset()
+            AbstractWeaponPower.reset()
+            AbstractWeaponPower.combatAttackCount = 0
+            cardUsedCombatOC.clear()
+            sneakAttackPredicates.clear()
+            onSneakAttack.clear()
+            chaoticTendrilCount = 1
+        }
+
+        fun startOfTurnLogic() {
+            AbstractComboCard.reset()
+            AbstractWeaponPower.reset()
+        }
+    }
+
+    class SneakAttackPredicate(val id: String, val p: (m: AbstractMonster) -> Boolean) {
+
+        override fun equals(other: Any?): Boolean {
+            return other is SneakAttackPredicate && other.id == id
+        }
+
+        override fun hashCode(): Int {
+            return id.hashCode()
+        }
+    }
+
+    class OnSneakAttack(val id: String, val cb: (m: AbstractMonster) -> Unit) {
+
+        override fun equals(other: Any?): Boolean {
+            return other is OnSneakAttack && other.id == id
+        }
+
+        override fun hashCode(): Int {
+            return id.hashCode()
+        }
     }
 
     init {
@@ -161,6 +204,7 @@ class Rogue : CustomPlayer(
 
         return panels
     }
+
 
     override fun getLocalizedCharacterName(): String {
         return characterStrings.NAMES[0]

@@ -22,12 +22,13 @@ class NecriumVial :
     init {
         setMagicNumber(4)
         addMod(ExhaustMod())
+        addMod(RetainMod())
     }
 
     override fun upgrade() {
         useUpgrade {
             upgradeMagicNumber(2)
-            addMod(RetainMod())
+            upgradeBaseCost(1)
         }
     }
 

@@ -13,7 +13,7 @@
   },
   "HSRogue:Backstab": {
     "NAME": "Backstab",
-    "DESCRIPTION": "Deal !D! damage NL Append hsrogue:Weapon damage to non attack intent monster"
+    "DESCRIPTION": "Deal !D! damage NL hsrogue:SneakAttack : Append hsrogue:Weapon damage"
   },
   "HSRogue:FanOfKnives": {
     "NAME": "Fan Of Knives",
@@ -37,7 +37,7 @@
   },
   "HSRogue:Shadowstep": {
     "NAME": "Shadowstep",
-    "DESCRIPTION": "{@@} hsrogue:Combo : Move the top card from the discard pile back to your hand.{!Upgrades!|>0= NL And hsrogue:Temporary reduce 1 cost }"
+    "DESCRIPTION": "{@@} hsrogue:Combo : Move !M! card from the discard pile back to your hand.{!Upgrades!|>0= NL And hsrogue:Temporary reduce 1 cost } NL hsrogue:Exhaustive : !stslib:ex!"
   },
   "HSRogue:Preparation": {
     "NAME": "Preparation",
@@ -49,7 +49,7 @@
   },
   "HSRogue:Sap": {
     "NAME": "Sap",
-    "DESCRIPTION": "Deal !D! damage NL Give equal hsrogue:Temporary Strength loss and Weak "
+    "DESCRIPTION": "Deal !D! damage NL Give equal hsrogue:Temporary Strength loss and Weak NL hsrogue:SneakAttack : damage multiply by !M!"
   },
   "HSRogue:Eviscerate": {
     "NAME": "Eviscerate",
@@ -57,7 +57,7 @@
   },
   "HSRogue:Assassinate": {
     "NAME": "Assassinate",
-    "DESCRIPTION": "Deal !D! hsrogue:Weapon damage NL repeat !M! times when attack non attack intent monster"
+    "DESCRIPTION": "Deal !D! hsrogue:Weapon damage NL hsrogue:SneakAttack : !M! extra attack"
   },
   "HSRogue:Vanish": {
     "NAME": "Vanish",
@@ -105,7 +105,7 @@
   },
   "HSRogue:AssassinsBlade": {
     "NAME": "Assassin's Blade",
-    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL Deal !M! additional damage to non attack intent monster"
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL deal !M! damage to *SneakAttacked monster NL when attacking, hsrogue:SneakAttack : deal an additional !M! damage"
   },
   "HSRogue:Kingsbane": {
     "NAME": "Kingsbane",
@@ -161,7 +161,7 @@
   },
   "HSRogue:DirtyTricks": {
     "NAME": "Dirty Tricks",
-    "DESCRIPTION": "hsrogue:Secret : At start of your turn NL Every monster gain !M! Vulnerable and Weak NL Repeat by every Non attack intent monster "
+    "DESCRIPTION": "hsrogue:Secret : At start of your turn NL hsrogue:SneakAttack All monster : all monster gain !M! Vulnerable and Weak"
   },
   "HSRogue:DoubleCross": {
     "NAME": "Double Cross",
@@ -169,7 +169,7 @@
   },
   "HSRogue:Ambush": {
     "NAME": "Ambush",
-    "DESCRIPTION": "hsrogue:Secret : At end of monster's turn NL Attack Non attack intent monster with your hsrogue:Weapon !M! times"
+    "DESCRIPTION": "hsrogue:Secret : At end of monster's turn NL hsrogue:SneakAttack All monster : attack with your hsrogue:Weapon !M! times"
   },
   "HSRogue:CloakOfShadows": {
     "NAME": "Cloak Of Shadows",
@@ -273,7 +273,7 @@
   },
   "HSRogue:PotionOfIllusion": {
     "NAME": "Potion Of Illusion",
-    "DESCRIPTION": "Copy cards in your hand NL And make they hsrogue:Temporary "
+    "DESCRIPTION": "Copy cards in your hand NL And make they Ethereal"
   },
   "HSRogue:MyraRotspring": {
     "NAME": "Myra Rotspring",
@@ -281,7 +281,7 @@
   },
   "HSRogue:MyrasUnstableElement": {
     "NAME": "Myra's Unstable Element",
-    "DESCRIPTION": "hsrogue:Grave NL Draw until your hand is full, Exhaust cards in your draw pile"
+    "DESCRIPTION": "hsrogue:Grave NL Draw until your hand is full, Exhaust cards in your draw pile NL If Exhausted card has hsrogue:Necrium it will be played immediately."
   },
   "HSRogue:TessGreymane": {
     "NAME": "Tess Greymane",
@@ -401,11 +401,23 @@
   },
   "HSRogue:StickySituation": {
     "NAME": "Sticky Situation",
-    "DESCRIPTION": "hsrogue:Secret : NL At the end of the enemy's turn, if they have more than one type of debuff, each debuff deals !M! damage and inflicts 2 Poison."
+    "DESCRIPTION": "hsrogue:Secret : NL At the end of the enemy's turn, if they have more than one type of debuff, each debuff deals !M! damage and inflicts 2 Poison. (You can SneakAttack such monsters now)"
+  },
+  "HSRogue:Watercannon": {
+    "NAME": "Watercannon",
+    "DESCRIPTION": "hsrogue:Weapon [ !WDamage! / !WDurability! ] NL After attacking, play a copy of a 0-cost attack card from your draw pile. NL Up to !M! times per turn."
+  },
+  "HSRogue:ChaoticTendril": {
+    "NAME": "Chaotic Tendril",
+    "DESCRIPTION": "Play random attack cards with a total cost of !TCount! NL At the end of the turn, set cost 0 NL (Each use enhance all *ChaoticTendril by !M! )."
+  },
+  "HSRogue:TentacleGrip": {
+    "NAME": "Tentacle Grip",
+    "DESCRIPTION": "Deal !D! damage NL hsrogue:Combo: Add !M! *ChaoticTendril to your hand"
   },
   "HSRogue:ContrabandStash": {
     "NAME": "Contraband Stash",
-    "DESCRIPTION": "hsrogue:Grave NL Play !M! other classes cards you used in this combat. NL (Prioritize playing rare cards)."
+    "DESCRIPTION": "hsrogue:Grave NL Play !M! other class's cards you used in this combat. NL (Prioritize playing rare cards)."
   },
   "HSRogue:ScavengeCard": {
     "NAME": "Scavenge Card",

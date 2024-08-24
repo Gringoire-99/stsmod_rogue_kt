@@ -84,6 +84,7 @@ class DoorOfShadows(
     override fun afterCardExhausted() {
         if (!isMaxLevel()) {
             exp++
+            cardsToPreview = null
         }
     }
 

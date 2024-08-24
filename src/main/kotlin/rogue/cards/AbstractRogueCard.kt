@@ -1,7 +1,6 @@
 package rogue.cards
 
 import basemod.abstracts.CustomCard
-import com.megacrit.cardcrawl.cards.AbstractCard
 import com.megacrit.cardcrawl.core.CardCrawlGame
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.localization.CardStrings
@@ -59,9 +58,6 @@ abstract class AbstractRogueCard(
         }
     }
 
-    companion object {
-        val cardUsedCombatOC = hashSetOf<AbstractCard>()
-    }
 
     fun isWeaponEquipped(): Boolean {
         val weaponEquipped = (AbstractDungeon.player).isWeaponEquipped()

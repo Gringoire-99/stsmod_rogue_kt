@@ -4,7 +4,9 @@ import com.megacrit.cardcrawl.cards.DamageInfo
 import com.megacrit.cardcrawl.core.AbstractCreature
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractWeaponPowerCard
-import utils.isAttackIntent
+import rogue.characters.Rogue
+import utils.makeId
+import utils.useSneakAttack
 
 class AssassinsBlade(
     damage: Int = 3,
@@ -22,14 +24,16 @@ class AssassinsBlade(
         damageModifier.cbOfOnAttacksToChangeDamage.add { _: DamageInfo?, damageAmount: Int, target: AbstractCreature? ->
             var d = damageAmount
             if (target is AbstractMonster) {
-                target.apply {
-                    if (!target.intent.isAttackIntent()) {
-                        d += magic
-                    }
+                useSneakAttack(target) {
+                    d += magic
                 }
             }
             d
         }
+    }
+
+    override fun onDestroy() {
+        Rogue.onSneakAttack.removeIf { it.id == AssassinsBlade::class.makeId() }
     }
 
     override fun makeCopy(): AbstractWeaponPowerCard {

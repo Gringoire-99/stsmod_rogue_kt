@@ -11,6 +11,7 @@ import com.megacrit.cardcrawl.powers.DexterityPower
 import rogue.power.IAbstractPower
 import rogue.power.hero.DeathsShadowPower
 import utils.makeId
+import kotlin.math.max
 
 class StealthPower(owner: AbstractCreature, stackAmount: Int = 1) :
     IAbstractPower(powerName = StealthPower::class.simpleName.toString(), owner = owner, amount = stackAmount),
@@ -18,7 +19,7 @@ class StealthPower(owner: AbstractCreature, stackAmount: Int = 1) :
     init {
         var gainBlock = 2
         val dexterity: AbstractPower? = owner.getPower(DexterityPower.POWER_ID)
-        gainBlock += (dexterity?.amount ?: 0) * stackAmount
+        gainBlock += max(0, dexterity?.amount ?: 0) * stackAmount
         this.addToBot(GainBlockAction(owner, gainBlock))
         flash()
     }

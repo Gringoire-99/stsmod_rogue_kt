@@ -24,9 +24,11 @@ class Backstab :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        if (m != null && !m.intent.isAttackIntent() && p?.isWeaponEquipped() == true) {
-            p.attackWithWeapon(damage = damage + (p.getWeaponPower()?.damage ?: 0), target = m)
-        } else {
+        val d = damage
+        val wd = p?.getWeaponPower()?.damage ?: 0
+        if (m != null && p?.isWeaponEquipped() == true && useSneakAttack(m) {
+                p.attackWithWeapon(damage = d + wd, target = m)
+            }) else {
             dealDamage(p, m, damage)
         }
     }

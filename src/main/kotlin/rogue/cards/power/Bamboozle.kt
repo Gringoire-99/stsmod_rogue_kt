@@ -1,9 +1,9 @@
 package rogue.cards.power
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
+import rogue.action.ApplyUniquePowerAction
 import rogue.cards.AbstractSecretCard
 import rogue.power.secret.BamboozlePower
 import utils.makeId
@@ -27,6 +27,6 @@ class Bamboozle() :
     }
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, BamboozlePower(p ?: AbstractDungeon.player, magicNumber)))
+        addToBot(ApplyUniquePowerAction(BamboozlePower(p ?: AbstractDungeon.player, magicNumber)))
     }
 }

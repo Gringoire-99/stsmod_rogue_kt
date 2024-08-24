@@ -1,12 +1,11 @@
 package rogue.cards.power
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction
 import com.megacrit.cardcrawl.characters.AbstractPlayer
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon
 import com.megacrit.cardcrawl.monsters.AbstractMonster
 import rogue.cards.AbstractQuestCard
 import rogue.cards.attack.MirageBlade
 import rogue.power.quest.BazaarBurglaryPower
+import utils.applyUniqueAndStablePower
 
 class BazaarBurglary :
     AbstractQuestCard(
@@ -18,6 +17,8 @@ class BazaarBurglary :
 
 
     override fun use(p: AbstractPlayer?, m: AbstractMonster?) {
-        addToBot(ApplyPowerAction(p, p, BazaarBurglaryPower(p ?: AbstractDungeon.player)))
+        p?.apply {
+            applyUniqueAndStablePower(BazaarBurglaryPower(p))
+        }
     }
 }
